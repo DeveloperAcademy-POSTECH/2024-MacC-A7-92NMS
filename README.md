@@ -28,6 +28,9 @@
 ##  🕺🏻 Technology Stack
 ## 1. 개발 환경 
 
+<img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&logoColor=white"/> <img src="https://img.shields.io/badge/SwiftUI-FA7343?style=flat&logo=Swift&logoColor=white"/> <img src="https://img.shields.io/badge/CoreData-FA7343?style=flat&logo=Swift&logoColor=white"/> <img src="https://img.shields.io/badge/XCode-147EFB?style=flat&logo=XCode&logoColor=white"/> <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=Git&logoColor=white"/>
+
+
 - Language : Swift
 - 버전 및 이슈관리 : Github, Github Issues, Github Project
 - 협업 툴 : Notion, Miro, Discord, Teams
