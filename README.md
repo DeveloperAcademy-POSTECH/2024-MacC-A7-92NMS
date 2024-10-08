@@ -14,16 +14,12 @@
 
 ## ✋ 팀원 구성 Team Members
 
-<div align="center">
-
-| **구름** | **이수** | **앤드류** | **밀루** | **세이디** |
-| :------: |  :------: | :------: | :------: |
+| 구름 | 이수 | 앤드류 | 밀루 | 세이디 |
+|:------:|:------:|:------:|:------:|:------:|
 | <img src="" alt="구름" width="150"> | <img src="" alt="이수" width="150"> | <img src="" alt="앤드류" width="150"> | <img src="" alt="밀루" width="150"> | <img src="" alt="세이디" width="150"> |
 | Design | Design | Dev | Dev | Dev |
 | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) |
-</div>
 
-<br>
 
 ##  🕺🏻 Technology Stack
 ## 1. 개발 환경 
