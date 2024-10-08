@@ -1,6 +1,6 @@
 # 2024-MacC-A7-92NMS
 
-# 👩🏻‍💻 애플 기기만을 위한 디지털 오브제 
+## 👩🏻‍💻 애플 기기만을 위한 디지털 오브제 
 - 배포 URL : https://
 - Test ID : @test.com
 - Test PW : 
@@ -50,7 +50,7 @@
 
 <br>
 
-# 3. 주요 기능 Key Features
+## 3. 주요 기능 Key Features
 - **장치 연결 설정**:
   - multipeer connectivity로 장치간 연결을 설정합니다.
 
