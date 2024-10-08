@@ -79,18 +79,16 @@ SwiftUI Foldering
 ```
 ## 5. 역할 분담 Tasks & Responsibilities
 
-<div align="center">
 
-| **구름** | **이수** | **앤드류** | **밀루** | **세이디** |
-| :------: |  :------: | :------: | :------: |
+| 구름 | 이수 | 앤드류 | 밀루 | 세이디 |
+|:------:|:------:|:------:|:------:|:------:|
 | <img src="" alt="구름" width="150"> | <img src="" alt="이수" width="150"> | <img src="" alt="앤드류" width="150"> | <img src="" alt="밀루" width="150"> | <img src="" alt="세이디" width="150"> |
-|- **UI**
-    - 페이지 : 홈, 검색, 게시글 작성, 게시글 수정, 게시글 상세, 채팅방
-    - 공통 컴포넌트 : 게시글 템플릿, 버튼 | Design | Dev | Dev | Dev |
+| - **UI**
+    - 페이지 : 홈, 검색, 테마 선택, 레이아웃, 테마 인터렉션
+    - 공통 컴포넌트 : 애니메이션 로직, 버튼 | Design | Dev | Dev | Dev |
 | - **기능**
-    - 유저 검색, 게시글 등록 및 수정, 게시글 상세 확인, 댓글 등록, 팔로워 게시글 불러오기, 좋아요 기능
- | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) |
-</div>
+    - 테마 검색, 레이아웃 수정, 애니메이션 로직 | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) | [GitHub](https://github.com/) |
+
 
 
 ## 6. 개발 기간 및 작업 관리
