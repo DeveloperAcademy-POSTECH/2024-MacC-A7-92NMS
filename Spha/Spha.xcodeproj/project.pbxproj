@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
+		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
+		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
+		B5296C812CE2FEAD00FFE20F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C802CE2FEAD00FFE20F /* Preview Assets.xcassets */; };
+		B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */; };
+		B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C8F2CE2FEC300FFE20F /* ContentView.swift */; };
+		B5296C922CE2FEC500FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C912CE2FEC500FFE20F /* Assets.xcassets */; };
+		B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C942CE2FEC500FFE20F /* Preview Assets.xcassets */; };
+		B5296C982CE2FEC500FFE20F /* SphaWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B5296C8B2CE2FEC300FFE20F /* SphaWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA72CE3002700FFE20F /* HealthKitManager.swift */; };
+		B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA92CE3005800FFE20F /* StressLevel.swift */; };
+		B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */; };
+		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
+		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
+		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
+		B5296CBD2CE3624D00FFE20F /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBC2CE3624D00FFE20F /* RouterManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5296C962CE2FEC500FFE20F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5296C6E2CE2FEAC00FFE20F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5296C8A2CE2FEC300FFE20F;
+			remoteInfo = "SphaWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5296C9C2CE2FEC500FFE20F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B5296C982CE2FEC500FFE20F /* SphaWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
+		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5296C802CE2FEAD00FFE20F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5296C8B2CE2FEC300FFE20F /* SphaWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SphaWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaWatchApp.swift; sourceTree = "<group>"; };
+		B5296C8F2CE2FEC300FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B5296C912CE2FEC500FFE20F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5296C942CE2FEC500FFE20F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B5296CA72CE3002700FFE20F /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		B5296CA92CE3005800FFE20F /* StressLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressLevel.swift; sourceTree = "<group>"; };
+		B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+iOS.swift"; sourceTree = "<group>"; };
+		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
+		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
+		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B5296CBC2CE3624D00FFE20F /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5296C732CE2FEAC00FFE20F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5296C882CE2FEC300FFE20F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B5296C6D2CE2FEAC00FFE20F = {
+			isa = PBXGroup;
+			children = (
+				B5296CA02CE2FF4700FFE20F /* Shared */,
+				B5296C782CE2FEAC00FFE20F /* Spha */,
+				B5296C8C2CE2FEC300FFE20F /* SphaWatch Watch App */,
+				B5296C772CE2FEAC00FFE20F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5296C772CE2FEAC00FFE20F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5296C762CE2FEAC00FFE20F /* Spha.app */,
+				B5296C8B2CE2FEC300FFE20F /* SphaWatch Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5296C782CE2FEAC00FFE20F /* Spha */ = {
+			isa = PBXGroup;
+			children = (
+				B5296C792CE2FEAC00FFE20F /* SphaApp.swift */,
+				B5296CA42CE2FF8900FFE20F /* Views */,
+				B5296C9D2CE2FF1100FFE20F /* Managers */,
+				B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */,
+				B5296C7F2CE2FEAD00FFE20F /* Preview Content */,
+			);
+			path = Spha;
+			sourceTree = "<group>";
+		};
+		B5296C7F2CE2FEAD00FFE20F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B5296C802CE2FEAD00FFE20F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B5296C8C2CE2FEC300FFE20F /* SphaWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */,
+				B5296CB92CE3623300FFE20F /* Manager */,
+				B5296CA52CE2FFB200FFE20F /* Views */,
+				B5296C912CE2FEC500FFE20F /* Assets.xcassets */,
+				B5296C932CE2FEC500FFE20F /* Preview Content */,
+			);
+			path = "SphaWatch Watch App";
+			sourceTree = "<group>";
+		};
+		B5296C932CE2FEC500FFE20F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B5296C942CE2FEC500FFE20F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B5296C9D2CE2FF1100FFE20F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B5296CA02CE2FF4700FFE20F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CA22CE2FF7600FFE20F /* Models */,
+				B5296CA12CE2FF6900FFE20F /* Managers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B5296CA12CE2FF6900FFE20F /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
+				B5296CBC2CE3624D00FFE20F /* RouterManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B5296CA22CE2FF7600FFE20F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CA92CE3005800FFE20F /* StressLevel.swift */,
+				B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */,
+				B5296CB12CE34BDB00FFE20F /* TodayStress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B5296CA42CE2FF8900FFE20F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CC12CE3628F00FFE20F /* Statistics */,
+				B5296CC02CE3628600FFE20F /* Breathing */,
+				B5296CBF2CE3628000FFE20F /* Home */,
+				B5296CBE2CE3627800FFE20F /* Onboarding */,
+				B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5296CA52CE2FFB200FFE20F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CC32CE362A400FFE20F /* Breathing */,
+				B5296CC22CE3629B00FFE20F /* Home */,
+				B5296C8F2CE2FEC300FFE20F /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B5296CB92CE3623300FFE20F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5296CBE2CE3627800FFE20F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B5296CBF2CE3628000FFE20F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B5296CC02CE3628600FFE20F /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Breathing;
+			sourceTree = "<group>";
+		};
+		B5296CC12CE3628F00FFE20F /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		B5296CC22CE3629B00FFE20F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B5296CC32CE362A400FFE20F /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Breathing;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5296C752CE2FEAC00FFE20F /* Spha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5296C842CE2FEAD00FFE20F /* Build configuration list for PBXNativeTarget "Spha" */;
+			buildPhases = (
+				B5296C722CE2FEAC00FFE20F /* Sources */,
+				B5296C732CE2FEAC00FFE20F /* Frameworks */,
+				B5296C742CE2FEAC00FFE20F /* Resources */,
+				B5296C9C2CE2FEC500FFE20F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5296C972CE2FEC500FFE20F /* PBXTargetDependency */,
+			);
+			name = Spha;
+			productName = Spha;
+			productReference = B5296C762CE2FEAC00FFE20F /* Spha.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B5296C8A2CE2FEC300FFE20F /* SphaWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5296C992CE2FEC500FFE20F /* Build configuration list for PBXNativeTarget "SphaWatch Watch App" */;
+			buildPhases = (
+				B5296C872CE2FEC300FFE20F /* Sources */,
+				B5296C882CE2FEC300FFE20F /* Frameworks */,
+				B5296C892CE2FEC300FFE20F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SphaWatch Watch App";
+			productName = "SphaWatch Watch App";
+			productReference = B5296C8B2CE2FEC300FFE20F /* SphaWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5296C6E2CE2FEAC00FFE20F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					B5296C752CE2FEAC00FFE20F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					B5296C8A2CE2FEC300FFE20F = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = B5296C712CE2FEAC00FFE20F /* Build configuration list for PBXProject "Spha" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B5296C6D2CE2FEAC00FFE20F;
+			productRefGroup = B5296C772CE2FEAC00FFE20F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5296C752CE2FEAC00FFE20F /* Spha */,
+				B5296C8A2CE2FEC300FFE20F /* SphaWatch Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5296C742CE2FEAC00FFE20F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5296C812CE2FEAD00FFE20F /* Preview Assets.xcassets in Resources */,
+				B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5296C892CE2FEC300FFE20F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
+				B5296C922CE2FEC500FFE20F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5296C722CE2FEAC00FFE20F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
+				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
+				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
+				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
+				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5296C872CE2FEC300FFE20F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
+				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
+				B5296CBD2CE3624D00FFE20F /* RouterManager.swift in Sources */,
+				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5296C972CE2FEC500FFE20F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5296C8A2CE2FEC300FFE20F /* SphaWatch Watch App */;
+			targetProxy = B5296C962CE2FEC500FFE20F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B5296C822CE2FEAD00FFE20F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B5296C832CE2FEAD00FFE20F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B5296C852CE2FEAD00FFE20F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5296C862CE2FEAD00FFE20F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B5296C9A2CE2FEC500FFE20F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha.watchkitapp;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Debug;
+		};
+		B5296C9B2CE2FEC500FFE20F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha.watchkitapp;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5296C712CE2FEAC00FFE20F /* Build configuration list for PBXProject "Spha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5296C822CE2FEAD00FFE20F /* Debug */,
+				B5296C832CE2FEAD00FFE20F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5296C842CE2FEAD00FFE20F /* Build configuration list for PBXNativeTarget "Spha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5296C852CE2FEAD00FFE20F /* Debug */,
+				B5296C862CE2FEAD00FFE20F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5296C992CE2FEC500FFE20F /* Build configuration list for PBXNativeTarget "SphaWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5296C9A2CE2FEC500FFE20F /* Debug */,
+				B5296C9B2CE2FEC500FFE20F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5296C6E2CE2FEAC00FFE20F /* Project object */;
+}
