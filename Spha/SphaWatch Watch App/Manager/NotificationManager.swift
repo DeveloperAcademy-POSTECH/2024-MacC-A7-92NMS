@@ -103,22 +103,3 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         completionHandler([.banner, .sound])
     }
 }
-
-
-//class HealthKitManager {
-//    private let notificationManager: NotificationManaging
-//    
-//    init(notificationManager: NotificationManaging) {
-//        self.notificationManager = notificationManager
-//    }
-//    
-//    func processHRVUpdate(_ hrvValue: Double) {
-//        if hrvValue < thresholdValue {
-//            #if os(watchOS)
-//            notificationManager.handleLowHRV()
-//            #endif
-//        }
-//    }
-//}
-
-
