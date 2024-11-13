@@ -24,6 +24,7 @@
 		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
+		B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CD52CE48F6000FFE20F /* NotificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
 		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B5296CD52CE48F6000FFE20F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 		B5296C8C2CE2FEC300FFE20F /* SphaWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				B5296CD42CE48F0900FFE20F /* Notification */,
 				B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */,
 				B5296CB92CE3623300FFE20F /* Manager */,
 				B5296CA52CE2FFB200FFE20F /* Views */,
@@ -257,6 +261,15 @@
 			path = Breathing;
 			sourceTree = "<group>";
 		};
+		B5296CD42CE48F0900FFE20F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CD52CE48F6000FFE20F /* NotificationView.swift */,
+				B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +391,7 @@
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
+				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +601,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,6 +632,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
