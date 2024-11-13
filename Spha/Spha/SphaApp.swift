@@ -9,17 +9,24 @@ import SwiftUI
 
 @main
 struct SphaApp: App {
-    
+
+    @StateObject var router: RouterManager = RouterManager()
     let healthKitManager = HealthKitManager()
     
     init() {
         configuire()
     }
-    
+          
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            // HealthKitTestView()
+            NavigationStack(path: $router.path){
+                MainView()
+                    .navigationDestination(for: SphaView.self){ sphaView in
+                        router.view(for: sphaView)
+                    }
+            }
+            .tint(.black)
+            .environmentObject(router)
         }
     }
 
