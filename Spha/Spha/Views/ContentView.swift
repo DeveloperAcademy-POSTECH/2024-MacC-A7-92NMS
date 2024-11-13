@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var router: RouterManager
-    
+ 
     var body: some View {
         VStack {
             Image(systemName: "globe")

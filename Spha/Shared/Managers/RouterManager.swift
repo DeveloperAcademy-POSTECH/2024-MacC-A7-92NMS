@@ -14,8 +14,7 @@ class RouterManager: ObservableObject {
     @ViewBuilder func view(for route: SphaView) -> some View {
         switch route {
         case .mainView:
-            //MainView()
-            ContentView()
+            MainView()
         }
     }
     
