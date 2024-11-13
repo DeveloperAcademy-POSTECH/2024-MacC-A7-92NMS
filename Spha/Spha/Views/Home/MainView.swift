@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Spha
 //
-//  Created by 지영 on 11/12/24.
+//  Created by 추서연 on 11/13/24.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @EnvironmentObject var router: RouterManager
     
     var body: some View {
@@ -15,13 +15,12 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
-          
+            Text("여기는 메인뷰")
+            
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    MainView()
 }
