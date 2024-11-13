@@ -9,6 +9,7 @@ import Foundation
 import HealthKit
 
 protocol HealthKitInterface {
+    func requestAuthorization() // HealthKit 접근 권한 요청
     func fetchDailyHRV(for date: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 일간 HRV 데이터 요청
     func fetchMonthlyHRV(for month: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 월간 HRV 데이터 요청
 }
