@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		331A5B872CE47EAE00E16AE2 /* Spha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spha.entitlements; sourceTree = "<group>"; };
+		331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331A5B8B2CE48FF500E16AE2 /* HealthKitManager */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
+				331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */,
+			);
+			path = HealthKitManager;
+			sourceTree = "<group>";
+		};
 		B5296C6D2CE2FEAC00FFE20F = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +179,7 @@
 		B5296CA12CE2FF6900FFE20F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
+				331A5B8B2CE48FF500E16AE2 /* HealthKitManager */,
 				B5296CBC2CE3624D00FFE20F /* RouterManager.swift */,
 			);
 			path = Managers;
@@ -361,6 +372,7 @@
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
+				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
