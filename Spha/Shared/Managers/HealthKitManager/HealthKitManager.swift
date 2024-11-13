@@ -21,12 +21,9 @@ class HealthKitManager: HealthKitInterface {
     let read = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
     let share = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
     
-    init() {
-        requestAuthorization()
-    }
     
     // 권한 요청 메소드
-    private func requestAuthorization() {
+    func requestAuthorization() {
         if !HKHealthStore.isHealthDataAvailable() {return} // HealthKit 사용 가능인지 체크
         self.healthStore.requestAuthorization(toShare: share, read: read) { success, error in
             if error != nil {
