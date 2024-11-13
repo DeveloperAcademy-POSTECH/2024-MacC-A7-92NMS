@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
+		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -22,7 +24,6 @@
 		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
-		B5296CBD2CE3624D00FFE20F /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBC2CE3624D00FFE20F /* RouterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
 		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		B5296CBC2CE3624D00FFE20F /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
-				B5296CBC2CE3624D00FFE20F /* RouterManager.swift */,
+				464B4ED22CE4961B00218B35 /* RouterManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -222,6 +224,7 @@
 		B5296CBF2CE3628000FFE20F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				464B4EAF2CE4905300218B35 /* MainView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -357,6 +360,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
+				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
@@ -372,7 +377,6 @@
 			files = (
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
-				B5296CBD2CE3624D00FFE20F /* RouterManager.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -524,6 +528,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -554,6 +559,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,12 +581,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha.watchkitapp;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,7 +599,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
 			};
 			name = Debug;
 		};
@@ -605,12 +611,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha.watchkitapp;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,7 +629,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 10.5;
+				WATCHOS_DEPLOYMENT_TARGET = 10.4;
 			};
 			name = Release;
 		};
