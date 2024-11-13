@@ -50,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		331A5B872CE47EAE00E16AE2 /* Spha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spha.entitlements; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		B5296C782CE2FEAC00FFE20F /* Spha */ = {
 			isa = PBXGroup;
 			children = (
+				331A5B872CE47EAE00E16AE2 /* Spha.entitlements */,
 				B5296C792CE2FEAC00FFE20F /* SphaApp.swift */,
 				B5296CA42CE2FF8900FFE20F /* Views */,
 				B5296C9D2CE2FF1100FFE20F /* Managers */,
@@ -513,12 +515,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spha/Spha.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터를 기록합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -543,12 +549,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Spha/Spha.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터를 기록합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -575,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
@@ -605,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
