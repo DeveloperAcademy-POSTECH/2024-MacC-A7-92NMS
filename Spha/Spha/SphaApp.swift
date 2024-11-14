@@ -9,8 +9,14 @@ import SwiftUI
 
 @main
 struct SphaApp: App {
+
     @StateObject var router: RouterManager = RouterManager()
+    let healthKitManager = HealthKitManager()
     
+    init() {
+        configuire()
+    }
+          
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path){
@@ -22,5 +28,9 @@ struct SphaApp: App {
             .tint(.black)
             .environmentObject(router)
         }
+    }
+
+    func configuire() {
+        healthKitManager.requestAuthorization()
     }
 }
