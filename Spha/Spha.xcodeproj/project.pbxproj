@@ -60,8 +60,14 @@
 		331A5B8C2CE4944700E16AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		464B4EE92CE7258900218B35 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroView.swift; sourceTree = "<group>"; };
 		464B4EEB2CE7259000218B35 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
+=======
+		464B4EDE2CE5BCE600218B35 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingOutroView.swift; path = Spha/Views/BreathingOutroView.swift; sourceTree = SOURCE_ROOT; };
+		464B4EE02CE5DA3500218B35 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingMainView.swift; path = Spha/Views/BreathingMainView.swift; sourceTree = SOURCE_ROOT; };
+		464B4EE22CE7214500218B35 /* BreathingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingIntroView.swift; path = Spha/Views/BreathingIntroView.swift; sourceTree = SOURCE_ROOT; };
+>>>>>>> 03ab9483fa7dcf9992c4d9dd56127739734fcba6
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		331A5B8B2CE48FF500E16AE2 /* HealthKitManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +121,14 @@
 			children = (
 				464B4EE92CE7258900218B35 /* BreathingOutroView.swift */,
 				464B4EEB2CE7259000218B35 /* BreathingMainView.swift */,
+=======
+		464B4ED92CE5BCBB00218B35 /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				464B4EE22CE7214500218B35 /* BreathingIntroView.swift */,
+				464B4EDE2CE5BCE600218B35 /* BreathingOutroView.swift */,
+				464B4EE02CE5DA3500218B35 /* BreathingMainView.swift */,
+>>>>>>> 03ab9483fa7dcf9992c4d9dd56127739734fcba6
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -219,7 +234,11 @@
 		B5296CA42CE2FF8900FFE20F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				464B4EE62CE7257300218B35 /* Breathing */,
+=======
+				464B4ED92CE5BCBB00218B35 /* Breathing */,
+>>>>>>> 03ab9483fa7dcf9992c4d9dd56127739734fcba6
 				B5296CC12CE3628F00FFE20F /* Statistics */,
 				B5296CBF2CE3628000FFE20F /* Home */,
 				B5296CBE2CE3627800FFE20F /* Onboarding */,
@@ -394,10 +413,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				464B4EDF2CE5BCE600218B35 /* BreathingOutroView.swift in Sources */,
+				464B4EE32CE7214500218B35 /* BreathingIntroView.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EEC2CE7259000218B35 /* BreathingMainView.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				464B4EE12CE5DA3500218B35 /* BreathingMainView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
