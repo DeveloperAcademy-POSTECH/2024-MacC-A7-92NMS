@@ -4,6 +4,7 @@
 //
 //  Created by 추서연 on 11/15/24.
 //
+
 import SwiftUI
 
 struct BreathingMainView: View {
@@ -13,6 +14,7 @@ struct BreathingMainView: View {
     @State private var showText: Bool = true
     @State private var timerCount: Int = 0 // 타이머 값
     @State private var showTimer: Bool = false // 타이머 표시 여부
+    @State private var activeCircle: Int = 0 // 현재 활성화된 동그라미 (0~3)
 
     var body: some View {
         VStack {
@@ -50,6 +52,15 @@ struct BreathingMainView: View {
                         .foregroundColor(.blue)
                 }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack(spacing: 8) {
+                    ForEach(0..<3, id: \.self) { index in
+                        Circle()
+                            .fill(index < activeCircle ? Color.black : Color.gray)
+                            .frame(width: 10, height: 10)
+                    }
+                }
+            }
         }
         .onAppear {
             startBreathingIntro()
@@ -78,22 +89,42 @@ struct BreathingMainView: View {
                     withAnimation {
                         showText = false
                     }
-                    startBreathingPhase()
+                    startBreathingCycle()
                 }
             }
         }
     }
     
+    // 전체 호흡 반복 사이클 시작
+    private func startBreathingCycle() {
+        activeCircle = 0 // 초기화
+        repeatCycle(times: 3) {
+            finishBreathing()
+        }
+    }
+    
+    // 반복 사이클
+    private func repeatCycle(times: Int, completion: @escaping () -> Void) {
+        guard times > 0 else {
+            completion()
+            return
+        }
+        
+        activeCircle += 1 // 동그라미 활성화 업데이트
+        startBreathingPhase {
+            repeatCycle(times: times - 1, completion: completion)
+        }
+    }
+
     // 호흡 단계 시작 (inhale, hold, exhale)
-    private func startBreathingPhase() {
-        // 초기화
+    private func startBreathingPhase(completion: @escaping () -> Void) {
         showTimer = true
         
         startPhase(phase: .inhale, duration: 5, text: "숨을 들이 쉬세요") {
             self.startPhase(phase: .hold, duration: 5, text: "잠시 멈추세요") {
                 self.startPhase(phase: .exhale, duration: 5, text: "숨을 내쉬세요") {
                     self.startPhase(phase: .hold, duration: 5, text: "잠시 멈추세요") {
-                        self.finishBreathing()
+                        completion()
                     }
                 }
             }
