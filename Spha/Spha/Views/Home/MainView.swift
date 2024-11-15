@@ -17,6 +17,9 @@ struct MainView: View {
                 .foregroundStyle(.tint)
             Text("여기는 메인뷰")
             
+            Button("Start Breathing") {
+                router.push(view: .breathingIntroView)
+            }
         }
     }
 }

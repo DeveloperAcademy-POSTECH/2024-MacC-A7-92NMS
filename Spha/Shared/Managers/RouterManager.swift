@@ -15,6 +15,10 @@ class RouterManager: ObservableObject {
         switch route {
         case .mainView:
             MainView()
+        case .breathingIntroView:
+            BreathingIntroView()
+        case .breathingMainView:
+            BreathingMainView()
         }
     }
     
@@ -35,4 +39,6 @@ class RouterManager: ObservableObject {
 
 enum SphaView: Hashable {
     case mainView
+    case breathingIntroView
+    case breathingMainView
 }
