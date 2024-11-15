@@ -20,6 +20,8 @@ class RouterManager: ObservableObject {
             MainView()
         case .breathingMainView:
             BreathingMainView()
+        case .breathingOutroView:
+            BreathingOutroView()
         }
     }
     
@@ -42,4 +44,5 @@ class RouterManager: ObservableObject {
 enum SphaView: Hashable {
     case mainView
     case breathingMainView
+    case breathingOutroView
 }

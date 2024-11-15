@@ -148,11 +148,11 @@ struct BreathingMainView: View {
         }
     }
     
-    // 호흡이 끝났을 때 메시지 표시
+    // 호흡이 끝났을 때 Outro로 전환
     private func finishBreathing() {
-        phaseText = "호흡이 끝났습니다!"
-        showText = true
-        showTimer = false
+        withAnimation {
+            router.push(view: .breathingOutroView) // Outro로 라우팅
+        }
     }
 }
 
