@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
+		464B4EDD2CE5BCDC00218B35 /* BreathingIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EDC2CE5BCDC00218B35 /* BreathingIntroView.swift */; };
+		464B4EDF2CE5BCE600218B35 /* BreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EDE2CE5BCE600218B35 /* BreathingOutroView.swift */; };
+		464B4EE12CE5DA3500218B35 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EE02CE5DA3500218B35 /* BreathingMainView.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 /* Begin PBXFileReference section */
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		464B4EDC2CE5BCDC00218B35 /* BreathingIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingIntroView.swift; path = Spha/Views/BreathingIntroView.swift; sourceTree = SOURCE_ROOT; };
+		464B4EDE2CE5BCE600218B35 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingOutroView.swift; path = Spha/Views/BreathingOutroView.swift; sourceTree = SOURCE_ROOT; };
+		464B4EE02CE5DA3500218B35 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreathingMainView.swift; path = Spha/Views/BreathingMainView.swift; sourceTree = SOURCE_ROOT; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +95,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		464B4ED92CE5BCBB00218B35 /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				464B4EDC2CE5BCDC00218B35 /* BreathingIntroView.swift */,
+				464B4EDE2CE5BCE600218B35 /* BreathingOutroView.swift */,
+				464B4EE02CE5DA3500218B35 /* BreathingMainView.swift */,
+			);
+			path = Breathing;
+			sourceTree = "<group>";
+		};
 		B5296C6D2CE2FEAC00FFE20F = {
 			isa = PBXGroup;
 			children = (
@@ -187,8 +203,8 @@
 		B5296CA42CE2FF8900FFE20F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				464B4ED92CE5BCBB00218B35 /* Breathing */,
 				B5296CC12CE3628F00FFE20F /* Statistics */,
-				B5296CC02CE3628600FFE20F /* Breathing */,
 				B5296CBF2CE3628000FFE20F /* Home */,
 				B5296CBE2CE3627800FFE20F /* Onboarding */,
 				B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */,
@@ -227,13 +243,6 @@
 				464B4EAF2CE4905300218B35 /* MainView.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		B5296CC02CE3628600FFE20F /* Breathing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Breathing;
 			sourceTree = "<group>";
 		};
 		B5296CC12CE3628F00FFE20F /* Statistics */ = {
@@ -360,9 +369,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				464B4EDF2CE5BCE600218B35 /* BreathingOutroView.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
+				464B4EDD2CE5BCDC00218B35 /* BreathingIntroView.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				464B4EE12CE5DA3500218B35 /* BreathingMainView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
