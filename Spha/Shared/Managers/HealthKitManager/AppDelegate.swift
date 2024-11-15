@@ -6,20 +6,32 @@
 //
 
 import UIKit
+import UserNotifications
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var healthKitManager = HealthKitManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        healthKitManager.requestAuthorization() // 권한 요청
-        healthKitManager.monitorHRVUpdates()    // HRV 데이터 업데이트 관찰 시작
+        // 알림 권한 요청
+        healthKitManager.requestNotificationAuthorization()
+        // HealthKit 권한 요청
+        healthKitManager.requestAuthorization()
+        
+        // MARK: - UNUserNotificationCenterDelegate 설정 [테스트용!]
+        UNUserNotificationCenter.current().delegate = self
+        
         return true
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         healthKitManager.didUpdateHRVData()
         completionHandler(.newData)
+    }
+    
+    // MARK: - 포그라운드에서 알림을 수신했을 때 표시하도록 설정 [테스트용]
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // 알림을 배너로 표시
+        completionHandler([.banner, .sound, .badge])
     }
 }
