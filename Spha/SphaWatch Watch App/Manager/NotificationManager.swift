@@ -45,9 +45,11 @@ class NotificationManager: NSObject, NotificationInterface {
         notificationCenter.setNotificationCategories([hrvCategory])
         
         // 알림 권한 요청
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
             if granted {
                 print("Watch 알림 권한 획득")
+            } else if let error = error{
+                print("Error: \(error.localizedDescription))")
             }
         }
         
