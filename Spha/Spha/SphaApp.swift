@@ -10,17 +10,14 @@ import SwiftUI
 @main
 struct SphaApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var router: RouterManager = RouterManager()
-    let healthKitManager = HealthKitManager()
-    
-    init() {
-        configuire()
-    }
           
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path){
-                DailyStatisticsView()
+                // MainView()
+                HealthKitTestView()
                     .navigationDestination(for: SphaView.self){ sphaView in
                         router.view(for: sphaView)
                     }
@@ -30,7 +27,4 @@ struct SphaApp: App {
         }
     }
 
-    func configuire() {
-        healthKitManager.requestAuthorization()
-    }
 }
