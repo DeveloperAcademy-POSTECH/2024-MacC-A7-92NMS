@@ -12,6 +12,13 @@ struct DailyStatisticsView: View {
     
     var body: some View {
         WeeklyCalendarHeaderView(selectedDate: $selectedDate)
+        InfoView()
+    }
+}
+
+private struct InfoView: View {
+    var body: some View {
+        Text("hello")
     }
 }
 

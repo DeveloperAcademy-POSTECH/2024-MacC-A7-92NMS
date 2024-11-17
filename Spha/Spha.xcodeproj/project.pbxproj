@@ -27,6 +27,7 @@
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
 		B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */; };
 		B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDD2CE6F91700FFE20F /* Date+.swift */; };
+		B5296CEC2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
 		B5296CDD2CE6F91700FFE20F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarHeaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */,
+				B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */,
+				B5296CEC2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
