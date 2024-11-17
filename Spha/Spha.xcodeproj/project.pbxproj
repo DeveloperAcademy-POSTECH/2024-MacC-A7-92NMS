@@ -25,6 +25,8 @@
 		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
+		B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */; };
+		B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDD2CE6F91700FFE20F /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
 		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
+		B5296CDD2CE6F91700FFE20F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 		B5296CA02CE2FF4700FFE20F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B5296CDC2CE6F90B00FFE20F /* Extensions */,
 				B5296CA22CE2FF7600FFE20F /* Models */,
 				B5296CA12CE2FF6900FFE20F /* Managers */,
 			);
@@ -254,6 +259,7 @@
 		B5296CC12CE3628F00FFE20F /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -270,6 +276,14 @@
 			children = (
 			);
 			path = Breathing;
+			sourceTree = "<group>";
+		};
+		B5296CDC2CE6F90B00FFE20F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CDD2CE6F91700FFE20F /* Date+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,10 +391,12 @@
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
+				B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
+				B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,

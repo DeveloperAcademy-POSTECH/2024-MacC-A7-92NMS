@@ -20,7 +20,7 @@ struct SphaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path){
-                MainView()
+                WeeklyCalendarView(selectedDate: .constant(Date()))
                     .navigationDestination(for: SphaView.self){ sphaView in
                         router.view(for: sphaView)
                     }
