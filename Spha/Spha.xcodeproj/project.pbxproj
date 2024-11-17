@@ -152,6 +152,7 @@
 		B5296C8C2CE2FEC300FFE20F /* SphaWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				B5296CD42CE48F0900FFE20F /* Notification */,
 				B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */,
 				B5296CB92CE3623300FFE20F /* Manager */,
 				B5296CA52CE2FFB200FFE20F /* Views */,
@@ -414,6 +415,7 @@
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
+				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +643,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -671,6 +674,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
