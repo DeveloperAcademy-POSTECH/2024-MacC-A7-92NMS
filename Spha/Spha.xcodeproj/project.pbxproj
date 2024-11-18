@@ -29,6 +29,7 @@
 		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
+		B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CD52CE48F6000FFE20F /* NotificationView.swift */; };
 		B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */; };
 		B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDD2CE6F91700FFE20F /* Date+.swift */; };
 		B5296CEC2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */; };
@@ -84,6 +85,8 @@
 		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
 		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B5296CD52CE48F6000FFE20F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
 		B5296CDD2CE6F91700FFE20F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -301,6 +304,13 @@
 			path = Breathing;
 			sourceTree = "<group>";
 		};
+		B5296CD42CE48F0900FFE20F /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				B5296CD52CE48F6000FFE20F /* NotificationView.swift */,
+				B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */,
+			);
+			path = Notification;
 		B5296CDC2CE6F90B00FFE20F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
