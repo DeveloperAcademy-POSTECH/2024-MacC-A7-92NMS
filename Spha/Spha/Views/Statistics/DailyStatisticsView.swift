@@ -6,75 +6,75 @@
 //
 
 import SwiftUI
+import Charts
 
 struct DailyStatisticsView: View {
-    @State private var selectedDate: Int? = nil
+    @StateObject private var viewModel = WeeklyCalendarHeaderViewModel()
+    @State private var selectedDate: Date? = nil
     
     var body: some View {
-        WeeklyCalendarHeaderView(selectedDate: $selectedDate)
-        InfoView()
+        WeeklyCalendarHeaderView(viewModel: viewModel)
+        Spacer()
     }
 }
 
-private struct InfoView: View {
-    var body: some View {
-        Text("hello")
-    }
-}
 
 private struct WeeklyCalendarHeaderView: View {
-    @Binding var selectedDate: Int?
-    let colors: [Color] = [.red, .blue, .green, .pink, .purple]
+    @ObservedObject var viewModel: WeeklyCalendarHeaderViewModel
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.horizontal) {
-                HStack(alignment: .center) {
-                    ForEach(colors, id: \.self) { color in
-                        WeeklyView(selectedDate: $selectedDate)
-                            .frame(width: geo.size.width, height: 56)
-                    } // forEach
-                } // hStack
-                .scrollTargetLayout()
-            } // scrollView
-            .scrollIndicators(.hidden)
-            .scrollTargetBehavior(.viewAligned)
-        }
-    } // body
-}
-
-
-private struct WeeklyView: View {
-    @Binding var selectedDate: Int?
-    let colors: [Color] = [.red, .blue, .green, .pink, .purple, .black, .orange]
-    
-    var body: some View {
-        HStack(spacing: 32) {
-            ForEach(Array(colors.enumerated()), id: \.element) { index, color in
-                DayItem(date: index, selectedDate: $selectedDate)
+        TabView(selection: $viewModel.selectedDate) {
+            ForEach(viewModel.weeks, id: \.self) { week in
+                HStack(spacing: 32) {
+                    ForEach(week, id: \.self) { date in
+                        DayItemView(
+                            date: date,
+                            isSelected: viewModel.calendar.isDate(date, inSameDayAs: viewModel.currentDate),
+                            onTap: {
+                                viewModel.handleDateTap(date)
+                            }
+                        )
+                    }
+                }
+                .tag(week[0])
+                .onAppear {
+                    if week == viewModel.weeks.first {
+                        viewModel.loadPreviousWeek()
+                    }
+                }
             }
         }
-        .padding(.horizontal)
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .frame(height: 56)
+        .padding(.horizontal, 24)
+        .onAppear {
+            viewModel.selectedDate = viewModel.weeks.last![0]
+        }
     }
 }
 
-private struct DayItem: View {
-    let date: Int
-    @Binding var selectedDate: Int?
+
+
+private struct DayItemView: View {
+    let date: Date
+    let isSelected: Bool
+    let onTap: () -> Void
     
     var body: some View {
-        VStack(spacing: 4) {
-            Text("금")
-                .font(.system(size: 14))
-            Text("15")
-                .font(.system(size: 14))
+        VStack(spacing: 0) {
+            Text(date.dayString)
+                .font(.caption)
+                .foregroundColor(date > Date() ? .gray.opacity(0.3) :
+                               isSelected ? .white : .gray)
+            
+            Text(date.dayNumber)
+                .foregroundColor(date > Date() ? .gray.opacity(0.3) :
+                               isSelected ? .white : .primary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(selectedDate == date ? .gray : .clear)
+        .background(isSelected ? Color.gray : Color.clear)
         .clipShape(Capsule())
-        .onTapGesture {
-            selectedDate = date
-        }
+        .onTapGesture(perform: onTap)
     }
 }
 

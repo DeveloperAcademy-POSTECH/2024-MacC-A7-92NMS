@@ -8,64 +8,44 @@
 import Foundation
 
 class WeeklyCalendarHeaderViewModel: ObservableObject {
+    @Published var currentDate = Date()
+    @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
-    private let calendar = Date.calendar
-    private var lastestDate: Date
-        
+    
+    let calendar = Date.calendar
+    
     init() {
-        let today = Date()
-        
-        var weekInterval = calendar.dateInterval(of: .weekOfYear, for: today)!
-        lastestDate = weekInterval.end
-        
-        generateInitialWeeks(from: today)
-    }
-
-    private func generateInitialWeeks(from date: Date) {
-        var currentWeeks: [[Date]] = [] // 이전 2주 포함 현재 주
-        
-        var components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)
-        guard let startOfCurrentWeek = calendar.date(from: components) else { return }
-        
-        // 현재 주 추가
-        currentWeeks.append(generateWeek(from: startOfCurrentWeek))
-        
-        // 2주 전
-        guard let twoWeeksAgoStart = calendar.date(byAdding: .weekOfYear, value: -2, to: startOfCurrentWeek) else { return }
-        
-        // 1주 전
-        guard let oneWeekAgoStart = calendar.date(byAdding: .weekOfYear, value: -1, to: startOfCurrentWeek) else { return }
-        
-        currentWeeks.insert(generateWeek(from: twoWeeksAgoStart), at: 0)
-        currentWeeks.insert(generateWeek(from: oneWeekAgoStart), at: 1)
-        
-        weeks = currentWeeks
+        let thisWeek = getCurrentWeek()
+        weeks = [thisWeek]
     }
     
-    /// 시작 날짜로 부터 일주일치 날짜 배열 만드는 메서드
-    private func generateWeek(from startDate: Date) -> [Date] {
-        var week: [Date] = []
-        
-        for dayCount in 0...6 {
-            if let date = calendar.date(byAdding: .day, value: dayCount, to: startDate) {
-                week.append(date)
-            }
+    func getCurrentWeek() -> [Date] {
+        let today = Date()
+        var currentMonday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
+        if calendar.component(.weekday, from: currentMonday) != 2 {
+            currentMonday = calendar.date(byAdding: .day, value: 2 - calendar.component(.weekday, from: currentMonday), to: currentMonday)!
         }
         
-        return week
+        return (0..<7).compactMap { dayOffset in
+            calendar.date(byAdding: .day, value: dayOffset, to: currentMonday)
+        }
     }
     
-    func loadPastWeeks() {
-        guard let firstWeek = weeks.first,
-              let firstDate = firstWeek.first,
-              let previousWeekStart = calendar.date(byAdding: .weekOfYear, value: -1, to: firstDate) else { return }
+    func loadPreviousWeek() {
+        guard let firstWeekMonday = weeks.first?.first else { return }
+        let previousMonday = calendar.date(byAdding: .weekOfYear, value: -1, to: firstWeekMonday)!
         
-        let previousWeek = generateWeek(from: previousWeekStart)
-        weeks.insert(previousWeek, at: 0)
+        let newWeek = (0..<7).compactMap { dayOffset in
+            calendar.date(byAdding: .day, value: dayOffset, to: previousMonday)
+        }
+        weeks.insert(newWeek, at: 0)
     }
     
-    func canScrollToDate(_ date: Date) -> Bool {
-        return date <= lastestDate
+    func handleDateTap(_ date: Date) {
+        if date <= Date() {
+            print(date.dateTitleString)
+            currentDate = date
+        }
     }
- 
+    
 }
