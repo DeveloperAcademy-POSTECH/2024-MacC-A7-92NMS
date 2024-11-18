@@ -121,6 +121,8 @@
 				331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */,
 			);
 			path = HealthKitTest;
+   };
+   
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
 			isa = PBXGroup;
 			children = (
