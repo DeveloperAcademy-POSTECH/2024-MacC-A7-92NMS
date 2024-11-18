@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */; };
 		331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */; };
-		331A5B902CE671F800E16AE2 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */; };
+		339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */; };
+		339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
@@ -58,10 +58,10 @@
 
 /* Begin PBXFileReference section */
 		331A5B872CE47EAE00E16AE2 /* Spha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spha.entitlements; sourceTree = "<group>"; };
-		331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		331A5B8C2CE4944700E16AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
+		339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
+		339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
@@ -107,22 +107,22 @@
 		331A5B8B2CE48FF500E16AE2 /* HealthKitManager */ = {
 			isa = PBXGroup;
 			children = (
-				331A5B912CE671FD00E16AE2 /* HealthKitTest */,
+				339C2D212CEB742300F1EE00 /* HealthKitTest */,
 				331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */,
 				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
 			);
 			path = HealthKitManager;
 			sourceTree = "<group>";
 		};
-		331A5B912CE671FD00E16AE2 /* HealthKitTest */ = {
+		339C2D212CEB742300F1EE00 /* HealthKitTest */ = {
 			isa = PBXGroup;
 			children = (
-				331A5B892CE48FF000E16AE2 /* HealthKitTestView.swift */,
-				331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */,
+				339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */,
+				339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */,
 			);
 			path = HealthKitTest;
-   };
-   
+			sourceTree = "<group>";
+		};
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,14 +407,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				331A5B902CE671F800E16AE2 /* HealthKitManager+TestData.swift in Sources */,
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
-				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
+				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
