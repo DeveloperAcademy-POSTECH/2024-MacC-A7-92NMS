@@ -12,6 +12,8 @@
 		331A5B902CE671F800E16AE2 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
+		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
+		4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
+		4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroView.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,13 @@
 				331A5B8F2CE671F800E16AE2 /* HealthKitManager+TestData.swift */,
 			);
 			path = HealthKitTest;
+		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */,
+				4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */,
+			);
+			path = Breathing;
 			sourceTree = "<group>";
 		};
 		B5296C6D2CE2FEAC00FFE20F = {
@@ -220,8 +231,8 @@
 		B5296CA42CE2FF8900FFE20F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4667B0702CE7EA8200F58DB3 /* Breathing */,
 				B5296CC12CE3628F00FFE20F /* Statistics */,
-				B5296CC02CE3628600FFE20F /* Breathing */,
 				B5296CBF2CE3628000FFE20F /* Home */,
 				B5296CBE2CE3627800FFE20F /* Onboarding */,
 				B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */,
@@ -260,13 +271,6 @@
 				464B4EAF2CE4905300218B35 /* MainView.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		B5296CC02CE3628600FFE20F /* Breathing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Breathing;
 			sourceTree = "<group>";
 		};
 		B5296CC12CE3628F00FFE20F /* Statistics */ = {
@@ -410,9 +414,11 @@
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				331A5B8A2CE48FF000E16AE2 /* HealthKitTestView.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
+				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
+				4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
