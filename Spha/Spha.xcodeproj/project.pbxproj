@@ -30,9 +30,6 @@
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
 		B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CD52CE48F6000FFE20F /* NotificationView.swift */; };
-		B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */; };
-		B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CDD2CE6F91700FFE20F /* Date+.swift */; };
-		B5296CEC2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,9 +84,6 @@
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B5296CD52CE48F6000FFE20F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
-		B5296CDD2CE6F91700FFE20F /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarHeaderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +176,7 @@
 		B5296C8C2CE2FEC300FFE20F /* SphaWatch Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				B5296CD42CE48F0900FFE20F /* Notification */,
 				B5296C8D2CE2FEC300FFE20F /* SphaWatchApp.swift */,
 				B5296CB92CE3623300FFE20F /* Manager */,
 				B5296CA52CE2FFB200FFE20F /* Views */,
@@ -210,7 +205,6 @@
 		B5296CA02CE2FF4700FFE20F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				B5296CDC2CE6F90B00FFE20F /* Extensions */,
 				B5296CA22CE2FF7600FFE20F /* Models */,
 				B5296CA12CE2FF6900FFE20F /* Managers */,
 			);
@@ -284,8 +278,6 @@
 		B5296CC12CE3628F00FFE20F /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				B5296CDA2CE6EBAA00FFE20F /* DailyStatisticsView.swift */,
-				B5296CEB2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -311,12 +303,6 @@
 				B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */,
 			);
 			path = Notification;
-		B5296CDC2CE6F90B00FFE20F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B5296CDD2CE6F91700FFE20F /* Date+.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,15 +411,12 @@
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
-				B5296CDE2CE6F91700FFE20F /* Date+.swift in Sources */,
-				B5296CEC2CE9DFE100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
-				B5296CDB2CE6EBAA00FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
@@ -448,6 +431,7 @@
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
+				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +575,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -631,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -669,7 +653,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
@@ -700,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
