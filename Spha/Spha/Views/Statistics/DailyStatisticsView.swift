@@ -14,6 +14,7 @@ struct DailyStatisticsView: View {
     
     var body: some View {
         WeeklyCalendarHeaderView(viewModel: viewModel)
+        DailyChartsView()
         Spacer()
     }
 }
@@ -54,7 +55,6 @@ private struct WeeklyCalendarHeaderView: View {
 }
 
 
-
 private struct DayItemView: View {
     let date: Date
     let isSelected: Bool
@@ -65,16 +65,58 @@ private struct DayItemView: View {
             Text(date.dayString)
                 .font(.caption)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
-                               isSelected ? .white : .gray)
+                                    isSelected ? .white : .gray)
             
             Text(date.dayNumber)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
-                               isSelected ? .white : .primary)
+                                    isSelected ? .white : .primary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(isSelected ? Color.gray : Color.clear)
         .clipShape(Capsule())
         .onTapGesture(perform: onTap)
+    }
+}
+
+// MARK: - 일일 통계 차트
+private struct DailyChartsView: View {
+    var body: some View {
+        VStack {
+            Text("일일 마음 청소 통계")
+            DailyPieChartView()
+            DailyStressTrendView()
+        }
+    }
+}
+
+private struct DailyPieChartView: View {
+    struct Data: Hashable {
+        let color: Color
+        let count: Int
+    }
+    
+    var data = [
+        Data(color: .black, count: 3),
+        Data(color: .gray, count: 1)
+    ]
+    
+    var body: some View {
+        Chart(data, id: \.self) { element in
+            SectorMark(
+                angle: .value("Usage", element.count),
+                innerRadius: .ratio(0.98),
+                angularInset: 1
+            )
+            .foregroundStyle(element.color)
+        }
+        .padding(.horizontal, 124)
+    }
+}
+
+private struct DailyStressTrendView: View {
+    
+    var body: some View {
+        Text("일일 스트레스 추이")
     }
 }
 
