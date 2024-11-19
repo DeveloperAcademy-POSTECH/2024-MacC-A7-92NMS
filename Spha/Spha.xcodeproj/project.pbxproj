@@ -10,6 +10,8 @@
 		331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */; };
 		339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */; };
 		339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */; };
+		339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
+		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
@@ -65,6 +67,8 @@
 		331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
 		339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
+		339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionManager.swift; sourceTree = "<group>"; };
+		339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionTestView.swift; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
@@ -127,6 +131,23 @@
 				339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */,
 			);
 			path = HealthKitTest;
+			sourceTree = "<group>";
+		};
+		339C2D262CEB8D7800F1EE00 /* MindfulSessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				339C2D2A2CEB960200F1EE00 /* MindfulSessionTestView */,
+				339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */,
+			);
+			path = MindfulSessionManager;
+			sourceTree = "<group>";
+		};
+		339C2D2A2CEB960200F1EE00 /* MindfulSessionTestView */ = {
+			isa = PBXGroup;
+			children = (
+				339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */,
+			);
+			path = MindfulSessionTestView;
 			sourceTree = "<group>";
 		};
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
@@ -221,6 +242,7 @@
 		B5296CA12CE2FF6900FFE20F /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				339C2D262CEB8D7800F1EE00 /* MindfulSessionManager */,
 				331A5B8B2CE48FF500E16AE2 /* HealthKitManager */,
 				464B4ED22CE4961B00218B35 /* RouterManager.swift */,
 			);
@@ -430,9 +452,11 @@
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */,
 				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
+				339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
