@@ -19,6 +19,8 @@ class WatchRouterManager: ObservableObject {
             WatchBreathingSelectionView()
         case .watchbreathingMainView:
             WatchBreathingMainView()
+        case .watchbreathingOutroView:
+            WatchBreathingOutroView()
         }
     }
     
@@ -40,4 +42,5 @@ enum SphaView: Hashable {
     case watchMainView
     case watchbreathingSelectionView
     case watchbreathingMainView
+    case watchbreathingOutroView
 }

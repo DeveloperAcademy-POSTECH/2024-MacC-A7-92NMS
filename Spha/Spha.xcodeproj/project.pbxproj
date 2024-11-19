@@ -21,6 +21,8 @@
 		4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */; };
 		4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */; };
 		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
+		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
+		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -84,6 +86,7 @@
 		4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingSelectionView.swift; sourceTree = "<group>"; };
 		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
 		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
+		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 		4667B0832CECB14A00F58DB3 /* Breathing */ = {
 			isa = PBXGroup;
 			children = (
+				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
 				4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */,
 				4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */,
 				4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */,
@@ -496,8 +500,10 @@
 				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
 				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
+				4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */,
 				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
 				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
+				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
 				4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */,
 				4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */,
 			);
