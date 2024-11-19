@@ -113,10 +113,50 @@ private struct DailyPieChartView: View {
     }
 }
 
+// MARK: - 일일 스트레스 추이 그래프
 private struct DailyStressTrendView: View {
-    
     var body: some View {
-        Text("일일 스트레스 추이")
+        Chart {
+            /// y축 수평 기준선
+            ForEach(StressLevel.allCases, id: \.self) { level in
+                RuleMark(
+                    y: .value("Level", level.numberValue)
+                )
+                .foregroundStyle(.gray.opacity(0.3))
+            }
+            
+            /// x축 수직 시간 기준선
+            ForEach(Array(stride(from: 0, through: 24, by: 6)), id: \.self) { hour in
+                RuleMark(
+                    x: .value("Hour", Double(hour))
+                )
+                .foregroundStyle(.gray.opacity(0.3))
+                .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+            }
+        }
+        .chartYScale(domain: -0.5...3)
+        .chartXScale(domain: -0.5...26.5)
+        /// y축 설정
+        .chartYAxis {
+            AxisMarks(position: .leading,
+                      values: StressLevel.allCases.map { Double($0.numberValue) }) { value in
+                AxisValueLabel {
+                    Text(StressLevel.allCases[value.index].title)
+                        .font(.system(size: 12))
+                }
+            }
+        }
+        /// x축 설정
+        .chartXAxis {
+            AxisMarks(values: .stride(by: 6)) { value in
+                AxisValueLabel(anchor: .center) {
+                    Text(String(format: "%02d:00", value.index * 6))
+                        .font(.system(size: 8))
+                }
+            }
+        }
+        .frame(height: 200)
+        .padding()
     }
 }
 
