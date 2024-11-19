@@ -11,7 +11,7 @@ import SwiftUI
 struct SphaWatch_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            NotificationView()
+//            NotificationView()
         }
     }
 }

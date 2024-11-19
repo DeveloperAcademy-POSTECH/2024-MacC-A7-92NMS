@@ -17,7 +17,7 @@ struct SphaApp: App {
         WindowGroup {
             NavigationStack(path: $router.path){
                 // MainView()
-                HealthKitTestView()
+                DailyStatisticsView()
                     .navigationDestination(for: SphaView.self){ sphaView in
                         router.view(for: sphaView)
                     }
