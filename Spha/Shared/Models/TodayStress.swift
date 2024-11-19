@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct TodayStress {
+struct TodayStress: Hashable {
     var date: Date
+    var color: Color
     var recommendedReliefCount: Int
     var completedReliefCount: Int
     var skippedReliefCount: Int {
