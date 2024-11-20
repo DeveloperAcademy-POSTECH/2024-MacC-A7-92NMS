@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */; };
+		334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
 		339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */; };
 		339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */; };
 		339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
@@ -75,6 +76,7 @@
 		331A5B872CE47EAE00E16AE2 /* Spha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spha.entitlements; sourceTree = "<group>"; };
 		331A5B8C2CE4944700E16AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePathHelper.swift; sourceTree = "<group>"; };
 		339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
 		339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionManager.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 				B5296CA72CE3002700FFE20F /* HealthKitManager.swift */,
 			);
 			path = HealthKitManager;
+			sourceTree = "<group>";
+		};
+		334D95C92CEE0A5F007600D7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		339C2D212CEB742300F1EE00 /* HealthKitTest */ = {
@@ -289,6 +299,7 @@
 		B5296CA02CE2FF4700FFE20F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				334D95C92CEE0A5F007600D7 /* Helper */,
 				33ADDFEB2CEDC65100513149 /* Resources */,
 				B5296D242CEBA4B300FFE20F /* Extensions */,
 				B5296CA22CE2FF7600FFE20F /* Models */,
@@ -499,6 +510,7 @@
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
 				B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
+				334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
