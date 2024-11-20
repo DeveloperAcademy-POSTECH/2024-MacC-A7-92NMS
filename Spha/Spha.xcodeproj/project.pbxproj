@@ -12,6 +12,8 @@
 		339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */; };
 		339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
 		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
+		33ADDFF02CEDC68400513149 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
+		33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
@@ -77,6 +79,10 @@
 		339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionManager.swift; sourceTree = "<group>"; };
 		339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionTestView.swift; sourceTree = "<group>"; };
+		33ADDFED2CEDC67100513149 /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
+		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
@@ -163,6 +169,23 @@
 				339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */,
 			);
 			path = MindfulSessionTestView;
+			sourceTree = "<group>";
+		};
+		33ADDFEB2CEDC65100513149 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				33ADDFEC2CEDC65700513149 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		33ADDFEC2CEDC65700513149 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				33ADDFED2CEDC67100513149 /* AppleSDGothicNeoM.ttf */,
+				33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
@@ -266,6 +289,7 @@
 		B5296CA02CE2FF4700FFE20F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				33ADDFEB2CEDC65100513149 /* Resources */,
 				B5296D242CEBA4B300FFE20F /* Extensions */,
 				B5296CA22CE2FF7600FFE20F /* Models */,
 				B5296CA12CE2FF6900FFE20F /* Managers */,
@@ -362,6 +386,8 @@
 			isa = PBXGroup;
 			children = (
 				B5296D232CEBA4B300FFE20F /* Date+.swift */,
+				33ADDFEF2CEDC68400513149 /* Color+.swift */,
+				33ADDFF12CEDC6AE00513149 /* Font+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,10 +501,12 @@
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
+				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
 				339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */,
 				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
 				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
+				33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */,
 				339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
