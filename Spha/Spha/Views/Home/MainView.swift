@@ -32,7 +32,7 @@ struct MainView: View {
                 
                 HStack{
                     Text("현재 마음구슬 상태")
-                        .font(.callout)
+                        .customFont(.caption_0)
                         .foregroundStyle(.white)
                     
                     Button {
@@ -47,15 +47,14 @@ struct MainView: View {
                 }
                 
                 Text("\(viewModel.remainingCleaningCount.description)")
-                    .font(.title)
+                    .customFont(.title_1)
                     .foregroundStyle(.white)
                     .bold()
                     .padding(.top, 8)
                 
                 Spacer()
                 
-                // MP4PlayerView(videoURLString: viewModel.remainingCleaningCount.assetName)
-                MP4PlayerView(videoURLString: "dirty04")
+                MP4PlayerView(videoURLString: viewModel.remainingCleaningCount.assetName)
                     .frame(width: 330, height: 330)
                 
                 Spacer()
@@ -64,17 +63,18 @@ struct MainView: View {
                     VStack{
                         HStack{
                             Text("\(viewModel.recommendedCleaningCount)")
-                                .font(.title)
+                                .customFont(.title_0)
                                 .foregroundStyle(.white)
                                 .bold()
                             
                             Text("회")
+                                .customFont(.caption_0)
                                 .foregroundStyle(.white)
                                 .bold()
                         }
                         
                         Text("권장 청소 횟수")
-                            .font(.callout)
+                            .customFont(.caption_1)
                             .foregroundStyle(.gray)
                     }
                     
@@ -86,16 +86,17 @@ struct MainView: View {
                     VStack{
                         HStack{
                             Text("\(viewModel.actualCleaningCount)")
-                                .font(.title)
+                                .customFont(.title_0)
                                 .foregroundStyle(.white)
                                 .bold()
                             
                             Text("회")
+                                .customFont(.caption_0)
                                 .foregroundStyle(.white)
                                 .bold()
                         }
                         Text("실행한 청소 횟수")
-                            .font(.callout)
+                            .customFont(.caption_1)
                             .foregroundStyle(.gray)
                     }
                 }
