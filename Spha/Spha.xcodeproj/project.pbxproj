@@ -14,6 +14,12 @@
 		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
 		33ADDFF02CEDC68400513149 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
 		33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
+		33BA0ACA2CEE1EFD00F3B570 /* OnboardingPage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */; };
+		33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */; };
+		33BA0ACE2CEE231400F3B570 /* OnboardingPage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */; };
+		33BA0AD02CEE26BD00F3B570 /* OnboardingPage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */; };
+		33BA0AD22CEE278600F3B570 /* OnboardingPage4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */; };
+		33BA0AD42CEE284400F3B570 /* OnboardingPage5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
@@ -83,6 +89,12 @@
 		33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1View.swift; sourceTree = "<group>"; };
+		33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2View.swift; sourceTree = "<group>"; };
+		33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage3View.swift; sourceTree = "<group>"; };
+		33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage4View.swift; sourceTree = "<group>"; };
+		33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5View.swift; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
@@ -186,6 +198,19 @@
 				33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		33BA0AC82CEE1EEA00F3B570 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */,
+				33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */,
+				33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */,
+				33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */,
+				33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */,
+				33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
@@ -321,10 +346,10 @@
 		B5296CA42CE2FF8900FFE20F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				33BA0AC82CEE1EEA00F3B570 /* Onboarding */,
 				4667B0702CE7EA8200F58DB3 /* Breathing */,
 				B5296CC12CE3628F00FFE20F /* Statistics */,
 				B5296CBF2CE3628000FFE20F /* Home */,
-				B5296CBE2CE3627800FFE20F /* Onboarding */,
 				B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */,
 			);
 			path = Views;
@@ -347,13 +372,6 @@
 				4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		B5296CBE2CE3627800FFE20F /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		B5296CBF2CE3628000FFE20F /* Home */ = {
@@ -495,11 +513,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
+				33BA0ACA2CEE1EFD00F3B570 /* OnboardingPage1View.swift in Sources */,
+				33BA0ACE2CEE231400F3B570 /* OnboardingPage2View.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				33BA0AD42CEE284400F3B570 /* OnboardingPage5View.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
 				B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
+				33BA0AD22CEE278600F3B570 /* OnboardingPage4View.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
 				339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */,
@@ -510,6 +532,8 @@
 				339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
+				33BA0AD02CEE26BD00F3B570 /* OnboardingPage3View.swift in Sources */,
+				33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
