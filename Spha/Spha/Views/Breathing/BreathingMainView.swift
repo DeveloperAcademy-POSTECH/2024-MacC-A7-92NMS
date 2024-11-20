@@ -4,7 +4,7 @@
 //
 //  Created by 추서연 on 11/16/24.
 //
-
+//
 import SwiftUI
 
 struct BreathingMainView: View {
@@ -159,4 +159,3 @@ struct BreathingMainView: View {
 #Preview {
     BreathingMainView()
 }
-
