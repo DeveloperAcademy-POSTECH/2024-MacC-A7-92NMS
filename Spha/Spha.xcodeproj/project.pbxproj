@@ -16,6 +16,13 @@
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
 		4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */; };
+		4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */; };
+		4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0852CECB15900F58DB3 /* WatchMainView.swift */; };
+		4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */; };
+		4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */; };
+		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
+		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
+		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
 		9BD17B8E2CED748500B796BF /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD17B8D2CED748500B796BF /* Text+.swift */; };
 		9BD17B902CED7F2500B796BF /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD17B8F2CED7F2500B796BF /* Color+.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
@@ -37,6 +44,7 @@
 		B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */; };
 		B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */; };
 		B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D232CEBA4B300FFE20F /* Date+.swift */; };
+		B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +83,12 @@
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
 		4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroView.swift; sourceTree = "<group>"; };
+		4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRouterManager.swift; sourceTree = "<group>"; };
+		4667B0852CECB15900F58DB3 /* WatchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainView.swift; sourceTree = "<group>"; };
+		4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingSelectionView.swift; sourceTree = "<group>"; };
+		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
+		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
+		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
 		9BD17B8B2CED729500B796BF /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		9BD17B8C2CED729500B796BF /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
 		9BD17B8D2CED748500B796BF /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
@@ -100,6 +114,7 @@
 		B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarHeaderViewModel.swift; sourceTree = "<group>"; };
 		B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
 		B5296D232CEBA4B300FFE20F /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		B5296D282CECB01300FFE20F /* MindDustLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindDustLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +180,23 @@
 			path = Breathing;
 			sourceTree = "<group>";
 		};
+		4667B0832CECB14A00F58DB3 /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
+				4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */,
+				4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */,
+				4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */,
+			);
+			path = Breathing;
+			sourceTree = "<group>";
+		};
+		4667B0842CECB14F00F58DB3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4667B0852CECB15900F58DB3 /* WatchMainView.swift */,
+			);
+			path = Home;
 		9BD17B892CED728200B796BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +311,7 @@
 				B5296CA92CE3005800FFE20F /* StressLevel.swift */,
 				B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */,
 				B5296CB12CE34BDB00FFE20F /* TodayStress.swift */,
+				B5296D282CECB01300FFE20F /* MindDustLevel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,8 +331,8 @@
 		B5296CA52CE2FFB200FFE20F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5296CC32CE362A400FFE20F /* Breathing */,
-				B5296CC22CE3629B00FFE20F /* Home */,
+				4667B0842CECB14F00F58DB3 /* Home */,
+				4667B0832CECB14A00F58DB3 /* Breathing */,
 				B5296C8F2CE2FEC300FFE20F /* ContentView.swift */,
 			);
 			path = Views;
@@ -309,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */,
+				4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -335,20 +369,6 @@
 				B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */,
 			);
 			path = Statistics;
-			sourceTree = "<group>";
-		};
-		B5296CC22CE3629B00FFE20F /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		B5296CC32CE362A400FFE20F /* Breathing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Breathing;
 			sourceTree = "<group>";
 		};
 		B5296CD42CE48F0900FFE20F /* Notification */ = {
@@ -474,6 +494,7 @@
 			files = (
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
+				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
 				B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
@@ -502,8 +523,15 @@
 			files = (
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
+				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
 				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
+				4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */,
+				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
+				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
+				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
+				4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */,
+				4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
