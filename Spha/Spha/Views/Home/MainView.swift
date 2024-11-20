@@ -1,33 +1,118 @@
-//
-//  MainView.swift
-//  Spha
-//
-//  Created by 추서연 on 11/13/24.
-//
-
 import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
-    @State private var showBreathingIntro = false
-    @State private var breathingIntroOpacity: Double = 0.0
-
+    @StateObject private var viewModel = MainViewModel()
+    
     var body: some View {
         ZStack {
-            // 메인 뷰
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("여기는 메인뷰")
-                
-                Button("Start Breathing") {
-                    startBreathingIntro()
+            // 그라데이션 배경
+            Color.backgroundGB
+                .edgesIgnoringSafeArea(.all)
+            
+            // 메인 화면 요소
+            VStack{
+                HStack{
+                    Spacer()
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "chart.bar.fill")
+                            .resizable()
+                            .frame(width: 30, height: 25)
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.trailing, 8)
                 }
-            }.navigationBarBackButtonHidden(true)
+                .padding(.top, 16)
+                .padding(.horizontal, 16)
+                
+                Spacer()
+                
+                HStack{
+                    Text("현재 마음구슬 상태")
+                        .font(.callout)
+                        .foregroundStyle(.white)
+                    
+                    Image(systemName: "info.circle")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundStyle(.white)
+                }
+                
+                Text("\(viewModel.remainingCleaningCount.description)")
+                    .font(.title)
+                    .foregroundStyle(.white)
+                    .bold()
+                    .padding(.top, 8)
+                
+                Spacer()
+                
+//                LottieView(jsonName: viewModel.remainingCleaningCount.assetName)
+//                    .frame(width: 330, height: 330) // 크기 조정
+                
+                Spacer()
+                
+                HStack{
+                    VStack{
+                        HStack{
+                            Text("\(viewModel.recommendedCleaningCount)")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .bold()
+                            
+                            Text("회")
+                                .foregroundStyle(.white)
+                                .bold()
+                        }
+                        
+                        Text("권장 청소 횟수")
+                            .font(.callout)
+                            .foregroundStyle(.gray)
+                    }
+                    
+                    Rectangle()
+                        .frame(width:1, height: 30)
+                        .foregroundStyle(.gray)
+                        .padding(.horizontal, 16)
+                    
+                    VStack{
+                        HStack{
+                            Text("\(viewModel.actualCleaningCount)")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .bold()
+                            
+                            Text("회")
+                                .foregroundStyle(.white)
+                                .bold()
+                        }
+                        Text("실행한 청소 횟수")
+                            .font(.callout)
+                            .foregroundStyle(.gray)
+                    }
+                }
+                
+                Spacer()
+                
+                Button {
+                    viewModel.startBreathingIntro()
+                } label: {
+                    // 임시 버튼 라벨
+                    Image(systemName: "archivebox.circle.fill")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundStyle(.gray)
+                }
+
+                
+                Spacer()
+                
+            }
             
             // BreathingIntroView 오버레이 뷰
-            if showBreathingIntro {
+            if viewModel.showBreathingIntro {
                 VStack {
                     Image(systemName: "globe")
                         .imageScale(.large)
@@ -36,10 +121,10 @@ struct MainView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.blue)
-                .opacity(breathingIntroOpacity) // 페이드인 효과
+                .opacity(viewModel.breathingIntroOpacity) // 페이드인 효과
                 .onAppear {
                     withAnimation(.easeIn(duration: 1.0)) {
-                        breathingIntroOpacity = 1.0
+                        viewModel.breathingIntroOpacity = 1.0
                     }
                     // 일정 시간 후 다른 화면으로 이동
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -47,11 +132,12 @@ struct MainView: View {
                     }
                 }
             }
-        }
+            
+        } // ZStack
         .onAppear {
             // Notification을 관찰하여 상태 초기화
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
-                resetBreathingIntro()
+                viewModel.resetBreathingIntro()
             }
         }
         .onDisappear {
@@ -59,20 +145,8 @@ struct MainView: View {
         }
     }
     
-    // BreathingIntroView 상태 초기화 및 페이드인
-    private func resetBreathingIntro() {
-        showBreathingIntro = false
-        breathingIntroOpacity = 0.0
-    }
-    
-    // BreathingIntroView 시작
-    private func startBreathingIntro() {
-        showBreathingIntro = true
-        breathingIntroOpacity = 0.0 // 초기화
-    }
 }
 
 #Preview {
     MainView()
 }
-
