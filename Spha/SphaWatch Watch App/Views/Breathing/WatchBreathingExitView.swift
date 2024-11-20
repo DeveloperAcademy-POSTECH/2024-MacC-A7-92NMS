@@ -13,8 +13,7 @@ struct WatchBreathingExitView: View {
     var body: some View {
         VStack {
             Button(action: {
-                // 버튼 클릭 시 Watch Main View로 이동
-                router.backToWatchMain()
+                // 버튼 클릭 시 이전 WatchBreathingSelectionView로 이동
                 router.pop()
                 
                 
