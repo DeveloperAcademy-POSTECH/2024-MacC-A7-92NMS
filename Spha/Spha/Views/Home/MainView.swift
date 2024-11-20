@@ -35,10 +35,15 @@ struct MainView: View {
                         .font(.callout)
                         .foregroundStyle(.white)
                     
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundStyle(.white)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundStyle(.white)
+                    }
+
                 }
                 
                 Text("\(viewModel.remainingCleaningCount.description)")
@@ -49,8 +54,9 @@ struct MainView: View {
                 
                 Spacer()
                 
-//                LottieView(jsonName: viewModel.remainingCleaningCount.assetName)
-//                    .frame(width: 330, height: 330) // 크기 조정
+                // MP4PlayerView(videoURLString: viewModel.remainingCleaningCount.assetName)
+                MP4PlayerView(videoURLString: "dirty04")
+                    .frame(width: 330, height: 330)
                 
                 Spacer()
                 
