@@ -66,7 +66,6 @@ class MainViewModel: ObservableObject {
     // DailyMindfulSession 요청
     private func fetchTodaySessions() {
         MindfulService.fetchMindfulSessions(for: Date()) { sessions, error in
-            DispatchQueue.main.async {
                 if let error = error {
                     print("Error fetching today's sessions: \(error.localizedDescription)")
                 } else if let sessions = sessions {
@@ -74,8 +73,7 @@ class MainViewModel: ObservableObject {
                 } else {
                     self.actualCleaningCount = 0
                     print("No sessions found for today.")
-                }
-            }
+                } 
         }
     }
     
