@@ -20,8 +20,8 @@ extension Color {
         LinearGradient(
             stops: [
                 Gradient.Stop(color: .black, location: 0.61),
-                Gradient.Stop(color: Color(red: 0.19, green: 0.19, blue: 0.19).opacity(0.5), location: 0.77),
-                Gradient.Stop(color: Color(red: 0.38, green: 0.38, blue: 0.38).opacity(0), location: 0.97),
+                Gradient.Stop(color: Color(red: 0.21, green: 0.21, blue: 0.21), location: 0.76),
+                Gradient.Stop(color: Color(red: 0.69, green: 0.69, blue: 0.69), location: 0.97),
             ],
             startPoint: UnitPoint(x: 0.5, y: 0),
             endPoint: UnitPoint(x: 0.5, y: 1.12)
