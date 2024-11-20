@@ -35,23 +35,6 @@ struct OnboardingPage5View: View {
                 )
     
             Spacer()
-            
-            
-            Button(action: {
-                
-            }, label: {
-                ZStack{
-                    Rectangle()
-                        .clipShape(.rect(cornerRadius: 8) , style: FillStyle())
-                        .frame(width: .infinity, height: 57)
-                        .foregroundStyle(.white)
-                        .opacity(0.25)
-                    
-                    Text("다음")
-                        .customFont(.body_1)
-                        .foregroundStyle(.white)
-                }
-            })
         }
         .padding()
         .background(.black)
@@ -133,8 +116,6 @@ struct OnboardingPage5View: View {
     }
     
     private func ToggleButton() -> some View {
-        
-        
         ZStack {
             RoundedRectangle(cornerRadius: 25)
                 .frame(width: 50, height: 30)

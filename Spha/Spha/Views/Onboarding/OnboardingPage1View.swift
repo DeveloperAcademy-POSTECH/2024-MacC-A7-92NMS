@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingPage1View: View {
+    @EnvironmentObject var router: RouterManager
+    
     var body: some View {
         VStack {
             Text("Spha-")
@@ -34,21 +36,19 @@ struct OnboardingPage1View: View {
             Spacer()
             
             Button(action: {
-                
+                router.push(view: .Onboarding2View)
             }, label: {
-                ZStack{
+                ZStack {
                     Rectangle()
-                        .clipShape(.rect(cornerRadius: 8) , style: FillStyle())
-                        .frame(width: .infinity, height: 57)
-                        .foregroundStyle(.white)
-                        .opacity(0.25)
+                        .cornerRadius(8)
+                        .frame(maxWidth: .infinity, maxHeight: 57)
+                        .foregroundColor(Color.white.opacity(0.25))
                     
                     Text("시작하기")
-                        .customFont(.body_1)
-                        .foregroundStyle(.white)
+                        .font(.headline)
+                        .foregroundColor(.white)
                 }
             })
-            
         }
         .padding()
         .background(.black)

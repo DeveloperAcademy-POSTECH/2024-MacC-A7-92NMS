@@ -36,24 +36,7 @@ struct OnboardingPage4View: View {
                 .customFont(.body_1)
                 .foregroundStyle(.gray)
                 .padding(.bottom, 40)
-            
-            Button(action: {
-                
-            }, label: {
-                ZStack{
-                    Rectangle()
-                        .clipShape(.rect(cornerRadius: 8) , style: FillStyle())
-                        .frame(width: .infinity, height: 57)
-                        .foregroundStyle(.white)
-                        .opacity(0.25)
-                    
-                    Text("다음")
-                        .customFont(.body_1)
-                        .foregroundStyle(.white)
-                }
-            })
         }
-        .padding()
         .background(.black)
     }
     

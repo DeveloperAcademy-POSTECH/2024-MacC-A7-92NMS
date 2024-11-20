@@ -31,8 +31,7 @@ struct OnboardingPage2View: View {
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
-                
-                Spacer()
+                .padding(.trailing, 32)
                 
                 VStack {
                     Image(systemName: "paperplane.circle.fill")
@@ -59,8 +58,7 @@ struct OnboardingPage2View: View {
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
-                
-                Spacer()
+                .padding(.trailing, 32)
                 
                 VStack {
                     Image(systemName: "paperplane.circle.fill")
@@ -73,25 +71,10 @@ struct OnboardingPage2View: View {
                         .customFont(.caption_2)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 32)
             
             Spacer()
-            
-            Button(action: {
-                
-            }, label: {
-                ZStack{
-                    Rectangle()
-                        .clipShape(.rect(cornerRadius: 8) , style: FillStyle())
-                        .frame(width: .infinity, height: 57)
-                        .foregroundStyle(.white)
-                        .opacity(0.25)
-                    
-                    Text("다음")
-                        .customFont(.body_1)
-                        .foregroundStyle(.white)
-                }
-            })
+
         }
         .padding()
         .background(.black)
