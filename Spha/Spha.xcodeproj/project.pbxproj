@@ -16,6 +16,7 @@
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
 		4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */; };
+		9BD17B8E2CED748500B796BF /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD17B8D2CED748500B796BF /* Text+.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroView.swift; sourceTree = "<group>"; };
 		9BD17B8B2CED729500B796BF /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		9BD17B8C2CED729500B796BF /* AppleSDGothicNeoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoM.ttf; sourceTree = "<group>"; };
+		9BD17B8D2CED748500B796BF /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296D232CEBA4B300FFE20F /* Date+.swift */,
+				9BD17B8D2CED748500B796BF /* Text+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
+				9BD17B8E2CED748500B796BF /* Text+.swift in Sources */,
 				4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
