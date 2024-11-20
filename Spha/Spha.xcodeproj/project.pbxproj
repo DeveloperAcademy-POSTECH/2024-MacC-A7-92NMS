@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */; };
 		334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
+		334D95CD2CEE0B04007600D7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CC2CEE0B04007600D7 /* MainViewModel.swift */; };
 		339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */; };
 		339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */; };
 		339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
@@ -77,6 +78,7 @@
 		331A5B8C2CE4944700E16AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePathHelper.swift; sourceTree = "<group>"; };
+		334D95CC2CEE0B04007600D7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		339C2D222CEB742300F1EE00 /* HealthKitManager+TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+TestData.swift"; sourceTree = "<group>"; };
 		339C2D232CEB742300F1EE00 /* HealthKitTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthKitTestView.swift; sourceTree = "<group>"; };
 		339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionManager.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				464B4EAF2CE4905300218B35 /* MainView.swift */,
+				334D95CC2CEE0B04007600D7 /* MainViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
 				4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */,
+				334D95CD2CEE0B04007600D7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
