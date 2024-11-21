@@ -18,22 +18,29 @@ class WatchBreathingMainViewModel: BreathingManager {
     private var currentTimer: Timer?
 
     func startBreathingIntro() {
-        phaseText = "마음청소를 시작할게요"
-        showText = true
-        withAnimation { showText = true }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation { self.showText = false }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.phaseText = "호흡에 집중하세요"
-                withAnimation { self.showText = true }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    withAnimation { self.showText = false }
-                    self.startBreathingCycle()
-                }
+        startPhase(phase: .intro, duration: 2, text: "마음청소를 시작할게요") {
+            self.startPhase(phase: .intro, duration: 1, text: "호흡에 집중하세요") {
+                self.startBreathingCycle()
             }
         }
     }
+
+
+    func startPhase(phase: BreathingPhase, duration: Int, text: String, completion: @escaping () -> Void) {
+        phaseText = text
+        timerCount = duration
+        showText = true
+
+        currentTimer?.invalidate()
+        currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.timerCount -= 1
+            if self.timerCount <= 0 {
+                timer.invalidate()
+                completion()
+            }
+        }
+    }
+
 
     func startBreathingCycle() {
         activeCircle = 0
@@ -66,21 +73,6 @@ class WatchBreathingMainViewModel: BreathingManager {
         }
     }
 
-    func startPhase(phase: BreathingPhase, duration: Int, text: String, completion: @escaping () -> Void) {
-        phaseText = text
-        timerCount = duration
-        showText = true
-
-        currentTimer?.invalidate()
-        currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.timerCount -= 1
-            if self.timerCount <= 0 {
-                timer.invalidate()
-                completion()
-            }
-        }
-    }
-
     func videoName(for text: String) -> String {
         switch text {
         case "마음청소를 시작할게요", "호흡에 집중하세요":
@@ -100,5 +92,3 @@ class WatchBreathingMainViewModel: BreathingManager {
         }
     }
 }
-
-

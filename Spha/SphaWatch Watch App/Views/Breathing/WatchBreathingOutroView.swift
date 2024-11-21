@@ -30,6 +30,7 @@ struct WatchBreathingOutroView: View {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     router.backToWatchMain()
+                    router.pop()
                     
                 }
             }

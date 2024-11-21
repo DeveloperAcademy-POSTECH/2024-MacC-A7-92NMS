@@ -8,6 +8,7 @@
 import Foundation
 
 enum BreathingPhase {
+    case intro
     case inhale
     case hold1
     case exhale

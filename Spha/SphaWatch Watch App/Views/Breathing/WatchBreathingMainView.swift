@@ -19,7 +19,7 @@ struct WatchBreathingMainView: View {
                     ForEach(0..<3, id: \.self) { index in
                         Circle()
                             .fill(index < viewModel.activeCircle ? Color.gray : Color.white)
-                            .frame(width: 10, height: 10)
+                            .frame(width: 6, height: 6)
                     }
                 }
                 .padding(3)

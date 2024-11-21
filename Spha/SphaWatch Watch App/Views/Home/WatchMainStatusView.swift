@@ -14,7 +14,8 @@ struct WatchMainStatusView: View {
     var body: some View {
         
         VStack{
-            //여기에 구슬
+            WatchBreathingMP4PlayerView(videoName: viewModel.remainingCleaningCount.assetName)
+            
 
             HStack{
                 VStack{
