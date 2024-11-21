@@ -16,6 +16,7 @@ class WatchBreathingMainViewModel: BreathingManager {
     @Published var isBreathingCompleted: Bool = false
 
     private var currentTimer: Timer?
+    private var hapticManager = HapticManager()
 
     func startBreathingIntro() {
         startPhase(phase: .intro, duration: 2, text: "마음청소를 시작할게요") {
@@ -62,10 +63,15 @@ class WatchBreathingMainViewModel: BreathingManager {
 
     func startBreathingPhase(completion: @escaping () -> Void) {
         showTimer = true
+        self.hapticManager.playInhaleHaptic()
         startPhase(phase: .inhale, duration: 5, text: "숨을 들이 쉬세요") {
+            self.hapticManager.playHoldHaptic()
             self.startPhase(phase: .hold1, duration: 5, text: "잠시 멈추세요") {
+                self.hapticManager.playExhaleHaptic()
                 self.startPhase(phase: .exhale, duration: 5, text: "숨을 내쉬세요") {
+                    self.hapticManager.playHoldHaptic()
                     self.startPhase(phase: .hold2, duration: 5, text: "한번 더 멈추세요") {
+                        
                         completion()
                     }
                 }

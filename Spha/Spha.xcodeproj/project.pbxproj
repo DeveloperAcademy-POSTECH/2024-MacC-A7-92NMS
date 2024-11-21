@@ -68,6 +68,7 @@
 		46AEF6092CEF8A6D005AECFB /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
 		46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
 		46AEF60B2CEF8C64005AECFB /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
+		46AEF6102CEFCFDF005AECFB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -158,6 +159,7 @@
 		468F809F2CEF573B008E7F48 /* pause.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pause.mp4; sourceTree = "<group>"; };
 		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
 		46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusViewModel.swift; sourceTree = "<group>"; };
+		46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 			children = (
 				B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */,
 				4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */,
+				46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
 				460BCEE12CEE70B00018927C /* WatchBreathingMainViewModel.swift in Sources */,
 				46AEF6092CEF8A6D005AECFB /* MindfulSessionManager.swift in Sources */,
+				46AEF6102CEFCFDF005AECFB /* HapticManager.swift in Sources */,
 				4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */,
 				46AEF6032CEF8857005AECFB /* Date+.swift in Sources */,
 				46AEF6012CEF8852005AECFB /* Font+.swift in Sources */,
