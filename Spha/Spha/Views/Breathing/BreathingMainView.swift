@@ -7,9 +7,13 @@
 //
 import SwiftUI
 
-struct BreathingMainView: View {
+struct BreathingMainView<BreathViewModel>: View where BreathViewModel: BreathingManager {
     @EnvironmentObject var router: RouterManager
-    @StateObject private var viewModel = BreathingMainViewModel()
+    @ObservedObject private var viewModel: BreathViewModel
+    
+    init(breathManager: BreathViewModel) {
+        self.viewModel = breathManager
+    }
     
     var body: some View {
         VStack {

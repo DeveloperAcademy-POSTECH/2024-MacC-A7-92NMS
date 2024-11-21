@@ -8,7 +8,7 @@
 import Foundation
 
 // Breathing 단계 관리 프로토콜
-protocol BreathingManager: ObservableObject {
+protocol BreathingManager : ObservableObject {
     var phaseText: String { get set } // 현재 단계 텍스트
     var showText: Bool { get set }   // 텍스트 표시 여부
     var timerCount: Int { get set }  // 남은 타이머 시간
