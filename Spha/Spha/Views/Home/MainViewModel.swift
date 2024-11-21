@@ -49,9 +49,9 @@ class MainViewModel: ObservableObject {
                 
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                    if sdnnValue > stressSdnnValue {
-                        stressCount += 1
-                    }
+//                    if sdnnValue > stressSdnnValue {
+//                        stressCount += 1
+//                    }
                 }
                 
                 self.recommendedCleaningCount = stressCount
