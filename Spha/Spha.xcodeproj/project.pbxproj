@@ -51,13 +51,13 @@
 		B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA92CE3005800FFE20F /* StressLevel.swift */; };
 		B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */; };
 		B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
-		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
 		B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CD52CE48F6000FFE20F /* NotificationView.swift */; };
 		B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */; };
 		B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D232CEBA4B300FFE20F /* Date+.swift */; };
 		B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
 		B5296D312CEED9BC00FFE20F /* DailyStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */; };
+		B5296D332CEF241400FFE20F /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +132,6 @@
 		B5296CA92CE3005800FFE20F /* StressLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StressLevel.swift; sourceTree = "<group>"; };
 		B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthKitManager+iOS.swift"; sourceTree = "<group>"; };
 		B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPhase.swift; sourceTree = "<group>"; };
-		B5296CB12CE34BDB00FFE20F /* TodayStress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayStress.swift; sourceTree = "<group>"; };
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B5296CD52CE48F6000FFE20F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		B5296D232CEBA4B300FFE20F /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		B5296D282CECB01300FFE20F /* MindDustLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindDustLevel.swift; sourceTree = "<group>"; };
 		B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsViewModel.swift; sourceTree = "<group>"; };
+		B5296D322CEF241400FFE20F /* DailyStressRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStressRecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,8 +363,8 @@
 			children = (
 				B5296CA92CE3005800FFE20F /* StressLevel.swift */,
 				B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */,
-				B5296CB12CE34BDB00FFE20F /* TodayStress.swift */,
 				B5296D282CECB01300FFE20F /* MindDustLevel.swift */,
+				B5296D322CEF241400FFE20F /* DailyStressRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -557,9 +557,9 @@
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
+				B5296D332CEF241400FFE20F /* DailyStressRecord.swift in Sources */,
 				334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
-				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
 				339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */,
 				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
