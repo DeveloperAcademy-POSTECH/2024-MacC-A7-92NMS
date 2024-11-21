@@ -13,10 +13,14 @@ struct DailyStatisticsView: View {
     @State private var selectedDate: Date? = nil
     
     var body: some View {
-        WeeklyCalendarHeaderView(viewModel: viewModel)
-        DailyChartsView()
-        Spacer()
+       VStack {
+            WeeklyCalendarHeaderView(viewModel: viewModel)
+            DailyChartsView()
+            Spacer()
+       }
+       .background(Color.black)
     }
+    
 }
 
 
@@ -69,7 +73,7 @@ private struct DayItemView: View {
             
             Text(date.dayNumber)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
-                                    isSelected ? .white : .primary)
+                                    isSelected ? .white : .white)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(isSelected ? Color.gray : Color.clear)
@@ -82,47 +86,103 @@ private struct DayItemView: View {
 private struct DailyChartsView: View {
     var body: some View {
         VStack {
-            Text("일일 마음 청소 통계")
             DailyPieChartView()
+            Divider().background(.white)
             DailyStressTrendView()
         }
     }
 }
 
 private struct DailyPieChartView: View {
-    struct Data: Hashable {
-        let color: Color
-        let count: Int
-    }
-    
-    var data = [
-        Data(color: .black, count: 3),
-        Data(color: .gray, count: 1)
-    ]
+    let recommendCleaningCount = 3.0
+    let actualCleaningCount = 1.0
     
     var body: some View {
-        Chart(data, id: \.self) { element in
-            SectorMark(
-                angle: .value("Usage", element.count),
-                innerRadius: .ratio(0.98),
-                angularInset: 1
-            )
-            .foregroundStyle(element.color)
+        Text("일일 마음 청소 통계")
+            .foregroundStyle(.white)
+            .padding(.top, 36)
+        
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 3.0)
+                .foregroundStyle(Color.gray1)
+            
+            Circle()
+                .trim(from: 0.0, to: (actualCleaningCount/recommendCleaningCount))
+                .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(.white)
+                .rotationEffect(Angle(degrees: 270.0))
+                .animation(.linear)
         }
-        .padding(.horizontal, 124)
+        .padding(.vertical, 20)
+        
+        
+        HStack{
+            VStack{
+                HStack{
+                    Text("0")
+                        .customFont(.title_0)
+                        .foregroundStyle(.white)
+                        .bold()
+                    
+                    Text("회")
+                        .customFont(.caption_0)
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+                
+                Text("권장 청소 횟수")
+                    .customFont(.caption_1)
+                    .foregroundStyle(.gray)
+            }
+            
+            Rectangle()
+                .frame(width:1, height: 30)
+                .foregroundStyle(.gray)
+                .padding(.horizontal, 16)
+            
+            VStack{
+                HStack{
+                    Text("0")
+                        .customFont(.title_0)
+                        .foregroundStyle(.white)
+                        .bold()
+                    
+                    Text("회")
+                        .customFont(.caption_0)
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+                Text("실행한 청소 횟수")
+                    .customFont(.caption_1)
+                    .foregroundStyle(.gray)
+            }
+        }
+        .padding(.bottom, 36)
     }
+    
+    
+    
 }
 
 // MARK: - 일일 스트레스 추이 그래프
 private struct DailyStressTrendView: View {
     var body: some View {
+        HStack {
+            Text("일일 스트레스 추이")
+            Spacer()
+            Text("일일 과부하 수 1회")
+        }
+        .foregroundStyle(.white)
+        .padding()
+        
         Chart {
             /// y축 수평 기준선
             ForEach(StressLevel.allCases, id: \.self) { level in
                 RuleMark(
                     y: .value("Level", level.numberValue)
                 )
-                .foregroundStyle(.gray.opacity(0.3))
+                .foregroundStyle(Color.gray0)
             }
             
             /// x축 수직 시간 기준선
@@ -130,7 +190,7 @@ private struct DailyStressTrendView: View {
                 RuleMark(
                     x: .value("Hour", Double(hour))
                 )
-                .foregroundStyle(.gray.opacity(0.3))
+                .foregroundStyle(Color.gray0)
                 .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
             }
         }
@@ -143,6 +203,7 @@ private struct DailyStressTrendView: View {
                 AxisValueLabel {
                     Text(StressLevel.allCases[value.index].title)
                         .font(.system(size: 12))
+                        .foregroundStyle(Color.gray0)
                 }
             }
         }
@@ -152,6 +213,7 @@ private struct DailyStressTrendView: View {
                 AxisValueLabel(anchor: .center) {
                     Text(String(format: "%02d:00", value.index * 6))
                         .font(.system(size: 8))
+                        .foregroundStyle(Color.gray0)
                 }
             }
         }
