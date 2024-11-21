@@ -11,7 +11,7 @@ import SwiftUI
 struct WatchBreathingMainView: View {
     @EnvironmentObject var router: WatchRouterManager
     @StateObject private var viewModel = WatchBreathingMainViewModel()
-    
+
     var body: some View {
         TabView {
             VStack {
@@ -22,9 +22,9 @@ struct WatchBreathingMainView: View {
                             .frame(width: 10, height: 10)
                     }
                 }
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
+                
+                // Replace Globe with WatchBreathingMP4PlayerView
+                WatchBreathingMP4PlayerView(videoName: viewModel.videoName(for: viewModel.phaseText))
                 
                 if viewModel.showText {
                     Text(viewModel.phaseText)
