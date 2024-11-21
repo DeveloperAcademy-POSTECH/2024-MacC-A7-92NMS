@@ -69,6 +69,7 @@
 		46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
 		46AEF60B2CEF8C64005AECFB /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
 		46AEF6102CEFCFDF005AECFB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */; };
+		46AEF6122CEFD561005AECFB /* WatchBreathingOutroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -160,6 +161,7 @@
 		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
 		46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusViewModel.swift; sourceTree = "<group>"; };
 		46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroViewModel.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */,
 				460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */,
 				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
+				46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */,
 				468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */,
 			);
 			path = Breathing;
@@ -680,6 +683,7 @@
 				460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */,
 				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
 				4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */,
+				46AEF6122CEFD561005AECFB /* WatchBreathingOutroViewModel.swift in Sources */,
 				4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */,
 				46AEF6072CEF8999005AECFB /* WatchMainStatusViewModel.swift in Sources */,
 				46AEF6082CEF8A5C005AECFB /* HealthKitManager.swift in Sources */,

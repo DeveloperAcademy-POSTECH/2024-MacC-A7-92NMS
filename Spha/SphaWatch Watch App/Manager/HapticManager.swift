@@ -20,14 +20,14 @@ class HapticManager {
     
     func playInhaleHaptic() {
         startHapticRepeat(interval: 0.5, duration: 5) {
-                    self.device.play(.start)
+                    self.device.play(.stop)
                 }
     }
     
     func playHoldHaptic() {
         device.play(.stop)
         startHapticRepeat(interval: 0.5, duration: 5) {
-                    self.device.play(.stop)
+                    self.device.play(.start)
                 }
     }
     
