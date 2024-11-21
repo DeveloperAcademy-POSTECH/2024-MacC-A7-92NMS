@@ -23,7 +23,6 @@ struct WatchBreathingMainView: View {
                     }
                 }
                 
-                // Replace Globe with WatchBreathingMP4PlayerView
                 WatchBreathingMP4PlayerView(videoName: viewModel.videoName(for: viewModel.phaseText))
                 
                 if viewModel.showText {
@@ -31,6 +30,7 @@ struct WatchBreathingMainView: View {
                         .font(.caption2)
                         .transition(.opacity)
                 }
+                
             }
             .onAppear {
                 viewModel.startBreathingIntro()
