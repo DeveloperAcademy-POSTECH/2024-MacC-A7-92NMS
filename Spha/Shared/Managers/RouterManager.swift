@@ -19,7 +19,8 @@ class RouterManager: ObservableObject {
         case .mainView:
             MainView()
         case .breathingMainView:
-            BreathingMainView()
+            let breathingViewModel = BreathingMainViewModel()
+            BreathingMainView(breathManager: breathingViewModel)
         case .breathingOutroView:
             BreathingOutroView()
         case .onboardingStartView:

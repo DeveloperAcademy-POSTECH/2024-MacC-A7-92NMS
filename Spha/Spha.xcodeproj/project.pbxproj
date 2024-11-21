@@ -23,6 +23,10 @@
 		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
 		33ADDFF02CEDC68400513149 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
 		33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
+		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
+		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
+		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
+		460BCEE12CEE70B00018927C /* WatchBreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */; };
 		33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */; };
 		33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */; };
 		33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */; };
@@ -64,10 +68,10 @@
 		B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CB12CE34BDB00FFE20F /* TodayStress.swift */; };
 		B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */; };
 		B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CD52CE48F6000FFE20F /* NotificationView.swift */; };
-		B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */; };
 		B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */; };
 		B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D232CEBA4B300FFE20F /* Date+.swift */; };
 		B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
+		B5296D312CEED9BC00FFE20F /* DailyStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,9 @@
 		33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
+		460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainViewModel.swift; sourceTree = "<group>"; };
+		460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainViewModel.swift; sourceTree = "<group>"; };
 		33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHRVAuth.swift; sourceTree = "<group>"; };
 		33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
@@ -157,10 +164,10 @@
 		B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B5296CD52CE48F6000FFE20F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		B5296CD92CE49C3200FFE20F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyCalendarHeaderViewModel.swift; sourceTree = "<group>"; };
 		B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyStatisticsView.swift; sourceTree = "<group>"; };
 		B5296D232CEBA4B300FFE20F /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		B5296D282CECB01300FFE20F /* MindDustLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindDustLevel.swift; sourceTree = "<group>"; };
+		B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */,
+				460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */,
 				4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */,
 			);
 			path = Breathing;
@@ -300,6 +308,7 @@
 				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
 				4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */,
 				4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */,
+				460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */,
 				4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */,
 			);
 			path = Breathing;
@@ -401,6 +410,7 @@
 				339C2D262CEB8D7800F1EE00 /* MindfulSessionManager */,
 				331A5B8B2CE48FF500E16AE2 /* HealthKitManager */,
 				464B4ED22CE4961B00218B35 /* RouterManager.swift */,
+				460BCEDB2CEE706A0018927C /* BreathingManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -461,7 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */,
-				B5296D1F2CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift */,
+				B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -605,7 +615,6 @@
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
-				B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
@@ -618,15 +627,18 @@
 				33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */,
 				334D95D02CEE0D1A007600D7 /* MP4PlayerView.swift in Sources */,
 				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
+				460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */,
 				33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */,
 				33BA0ADA2CEF202F00F3B570 /* BreathingGuide.swift in Sources */,
 				33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */,
 				339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
+				B5296D312CEED9BC00FFE20F /* DailyStatisticsViewModel.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
 				33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */,
+				460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
@@ -644,9 +656,11 @@
 				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
 				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
+				460BCEE12CEE70B00018927C /* WatchBreathingMainViewModel.swift in Sources */,
 				4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */,
 				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
 				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
+				460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */,
 				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
 				4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */,
 				4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */,
@@ -871,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
@@ -902,7 +916,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
