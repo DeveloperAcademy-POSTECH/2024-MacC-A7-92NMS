@@ -20,7 +20,8 @@ class RouterManager: ObservableObject {
             MainView()
             
         case .breathingMainView:
-            BreathingMainView()
+            let breathingViewModel = BreathingMainViewModel()
+            BreathingMainView(breathManager: breathingViewModel)
         case .breathingOutroView:
             BreathingOutroView()
         }
