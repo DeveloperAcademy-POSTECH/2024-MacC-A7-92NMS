@@ -18,16 +18,18 @@ struct CustomFont {
     
     // body (0, 1)
     static let body_0 = CustomFont(font: .custom("AppleSDGothicNeoSB", size: 20), kerning: 0, lineSpacing: 20.0)
-    static let body_1 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 18), kerning: 0, lineSpacing: 18.0)
+    static let body_1 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 18), kerning: 0, lineSpacing: 18.0)
     
     // caption (0, 1, 2, 3, 4, 5)
-    static let caption_0 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 16), kerning: 0.4, lineSpacing: 16.0)
-    static let caption_1 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 14), kerning: -0.08, lineSpacing: 14.0)
-    static let caption_2 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 12), kerning: -0.08, lineSpacing: 12.0)
-    static let caption_3 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 8), kerning: -0.08, lineSpacing: 8.0)
-    static let caption_4 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 6), kerning: -0.08, lineSpacing: 6.0)
-    static let caption_5 = CustomFont(font: .custom("AppleSDGothicNeoM", size: 5), kerning: -0.08, lineSpacing: 5.0)
+    static let caption_0 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 16), kerning: 0.4, lineSpacing: 16.0)
+    static let caption_1 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 14), kerning: -0.08, lineSpacing: 14.0)
+    static let caption_2 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 12), kerning: -0.08, lineSpacing: 12.0)
+    static let caption_3 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 8), kerning: -0.08, lineSpacing: 8.0)
+    static let caption_4 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 6), kerning: -0.08, lineSpacing: 6.0)
+    static let caption_5 = CustomFont(font: .custom("AppleSDGothicNeoR", size: 5), kerning: -0.08, lineSpacing: 5.0)
     
+    // 추가된 폰트
+    static let caption_1_SB = CustomFont(font: .custom("AppleSDGothicNeoSB", size: 14), kerning: -0.08, lineSpacing: 8.0)
 }
 
 extension Text {

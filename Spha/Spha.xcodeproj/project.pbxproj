@@ -107,6 +107,7 @@
 		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
 		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
+		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
 		460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainViewModel.swift; sourceTree = "<group>"; };
 		460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainViewModel.swift; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				33ADDFED2CEDC67100513149 /* AppleSDGothicNeoM.ttf */,
+				33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */,
 				33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */,
 			);
 			path = Font;
