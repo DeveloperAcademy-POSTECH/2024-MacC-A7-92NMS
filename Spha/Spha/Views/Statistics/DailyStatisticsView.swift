@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct DailyStatisticsView: View {
-    @StateObject private var viewModel = WeeklyCalendarHeaderViewModel()
+    @StateObject private var viewModel = DailyStatisticsViewModel()
     @State private var selectedDate: Date? = nil
     
     var body: some View {
@@ -25,7 +25,7 @@ struct DailyStatisticsView: View {
 
 
 private struct WeeklyCalendarHeaderView: View {
-    @ObservedObject var viewModel: WeeklyCalendarHeaderViewModel
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
         TabView(selection: $viewModel.selectedDate) {
