@@ -1,13 +1,13 @@
 //
-//  WeeklyCalendarHeaderViewModel.swift
+//  DailyStatisticsViewModel.swift
 //  Spha
 //
-//  Created by 지영 on 11/17/24.
+//  Created by 지영 on 11/21/24.
 //
 
 import Foundation
 
-class WeeklyCalendarHeaderViewModel: ObservableObject {
+class DailyStatisticsViewModel: ObservableObject {
     @Published var currentDate = Date()
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
