@@ -6,19 +6,49 @@
 //
 
 import Foundation
+import HealthKit
 
 class DailyStatisticsViewModel: ObservableObject {
-    @Published var currentDate = Date()
+    @Published var currentDate = Date() {
+        didSet {
+            loadDailyHRVData()
+        }
+    }
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
+    @Published var dailyRecored: DailyStressRecord?
     
-    let calendar = Date.calendar
-    
-    init() {
-        let thisWeek = getCurrentWeek()
-        weeks = [thisWeek]
+    var breathingRatio: CGFloat {
+        guard let record = dailyRecored,
+              record.recommendedReliefCount > 0 else {
+            return 0.0
+        }
+        return CGFloat(record.completedReliefCount) / CGFloat(record.recommendedReliefCount)
     }
     
+    var recommendedCount: Int {
+        return dailyRecored?.recommendedReliefCount ?? 0
+    }
+    
+    var completedCount: Int {
+        return dailyRecored?.completedReliefCount ?? 0
+    }
+    
+    
+    let calendar = Date.calendar
+    private let healthKitManager: HealthKitInterface
+    
+    
+    init(_ healthKitManager: HealthKitInterface) {
+        self.healthKitManager = HealthKitManager()
+        
+        let thisWeek = getCurrentWeek()
+        weeks = [thisWeek]
+        
+        loadDailyHRVData()
+    }
+    
+    // MARK: - 주간 달력
     func getCurrentWeek() -> [Date] {
         let today = Date()
         // 일단 일요일
@@ -52,8 +82,48 @@ class DailyStatisticsViewModel: ObservableObject {
     func handleDateTap(_ date: Date) {
         if date <= Date() {
             print(date.dateTitleString)
-            currentDate = date
+            currentDate = date // currentDate 변경 시 자동으로 loadDailyHRVData() 호출
         }
     }
+    
+    // MARK: - 통계
+    private func loadDailyHRVData() {
+        healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, error in
+            guard let self = self else { return }
+            
+            if let error = error {
+                print("Error fetching daily HRV data: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let samples = samples else {
+                print("HRV 데이터 없음")
+                DispatchQueue.main.async {
+                    self.dailyRecored = DailyStressRecord(
+                        date: self.currentDate,
+                        recommendedReliefCount: 0,
+                        completedReliefCount: 0
+                    )
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let highStressSamples = samples.filter { sample in
+                    let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                    let stressLevel = StressLevel.getLevel(from: hrvValue)
+                    return stressLevel == .high || stressLevel == .extreme
+                }
+                
+                self.dailyRecored = DailyStressRecord(
+                    date: self.currentDate,
+                    recommendedReliefCount: highStressSamples.count,
+                    // TODO: - 이후 받아오기
+                    completedReliefCount: 0
+                )
+            }
+        }
+    }
+    
     
 }

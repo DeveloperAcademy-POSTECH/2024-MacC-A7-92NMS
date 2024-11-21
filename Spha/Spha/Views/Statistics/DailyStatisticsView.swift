@@ -9,13 +9,13 @@ import SwiftUI
 import Charts
 
 struct DailyStatisticsView: View {
-    @StateObject private var viewModel = DailyStatisticsViewModel()
+    @StateObject private var viewModel = DailyStatisticsViewModel(HealthKitManager())
     @State private var selectedDate: Date? = nil
     
     var body: some View {
        VStack {
             WeeklyCalendarHeaderView(viewModel: viewModel)
-            DailyChartsView()
+           DailyChartsView(viewModel: viewModel)
             Spacer()
        }
        .background(Color.black)
@@ -84,9 +84,11 @@ private struct DayItemView: View {
 
 // MARK: - 일일 통계 차트
 private struct DailyChartsView: View {
+    @ObservedObject var viewModel: DailyStatisticsViewModel
+    
     var body: some View {
         VStack {
-            DailyPieChartView()
+            DailyPieChartView(viewModel: viewModel)
             Divider().background(.white)
             DailyStressTrendView()
         }
@@ -94,8 +96,7 @@ private struct DailyChartsView: View {
 }
 
 private struct DailyPieChartView: View {
-    let recommendCleaningCount = 3.0
-    let actualCleaningCount = 1.0
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
         Text("일일 마음 청소 통계")
@@ -108,11 +109,11 @@ private struct DailyPieChartView: View {
                 .foregroundStyle(Color.gray1)
             
             Circle()
-                .trim(from: 0.0, to: (actualCleaningCount/recommendCleaningCount))
+                .trim(from: 0.0, to: viewModel.breathingRatio)
                 .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(.white)
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
+                .animation(.linear, value: viewModel.breathingRatio)
         }
         .padding(.vertical, 20)
         
@@ -120,7 +121,7 @@ private struct DailyPieChartView: View {
         HStack{
             VStack{
                 HStack{
-                    Text("0")
+                    Text("\(viewModel.recommendedCount)")
                         .customFont(.title_0)
                         .foregroundStyle(.white)
                         .bold()
@@ -143,7 +144,7 @@ private struct DailyPieChartView: View {
             
             VStack{
                 HStack{
-                    Text("0")
+                    Text("\(viewModel.completedCount)")
                         .customFont(.title_0)
                         .foregroundStyle(.white)
                         .bold()
