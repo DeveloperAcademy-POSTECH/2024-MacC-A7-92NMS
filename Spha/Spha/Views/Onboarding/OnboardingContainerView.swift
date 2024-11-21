@@ -13,57 +13,40 @@ struct OnboardingContainerView: View {
     @State private var isRequestingAuthorization = false
     @State private var authorizationCompleted = false
     
-    private let pageCount = 4
+    private let pageCount = 6
     private let hrvService = HealthKitManager()
     
     var body: some View {
         VStack {
-            ZStack {
-                HStack{
-                    // 뒤로가기 버튼
-                    Button(action: {
-                        // 권한 요청 바로 실행
-                        // async await 사용
-                        hrvService.requestAuthorization { _ in
-                            DispatchQueue.main.sync {
-                                router.backToMain()
-                            }
-                        }
-                        
-                    }, label: {
-                            Image(systemName: "chevron.left")
-                                .resizable()
-                                .frame(width: 12, height: 18)
-                                .foregroundStyle(.white)
-                    })
-                    .padding(.leading, 16)
-                    
-                    Spacer()
-                }
-                
-                // 인디케이터
-                HStack {
-                    ForEach(0..<pageCount, id: \.self) { index in
-                        Circle()
-                            .fill(index == currentPage ? Color.white : Color.gray)
-                            .frame(width: 8, height: 8)
-                            .animation(.easeInOut, value: currentPage)
-                    }
+            
+            // 인디케이터
+            HStack {
+                ForEach(0..<pageCount, id: \.self) { index in
+                    Circle()
+                        .fill(index == currentPage ? Color.white : Color.gray)
+                        .frame(width: 8, height: 8)
+                        .animation(.easeInOut, value: currentPage)
                 }
             }
+            
             .padding(.bottom, 20)
             
             // TabView
             TabView(selection: $currentPage) {
-                OnboardingPage2View().tag(0)
-                OnboardingPage3View().tag(1)
-                OnboardingPage4View().tag(2)
-                OnboardingPage5View().tag(3)
+                ExplainMenu().tag(0)
+                BreathingGuide().tag(1)
+                WatchGuide().tag(2)
+                NotificationAuth().tag(3)
+                HealthKitHRVAuth().tag(4)
+                MindfulSessionAuth().tag(5)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // 기본 인디케이터 숨김
             
             // 버튼 (하단)
             Button(action: {
+                // Switch로 구현
+                
+                
                 if currentPage < pageCount - 1 {
                     currentPage += 1
                 } else {// 시작하기 버튼을 눌렀을 때
@@ -74,6 +57,10 @@ struct OnboardingContainerView: View {
                         }
                     }
                 }
+                
+                
+                
+                
             }, label: {
                 ZStack {
                     Rectangle()

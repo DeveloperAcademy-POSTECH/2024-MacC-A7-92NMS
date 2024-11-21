@@ -23,12 +23,20 @@
 		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
 		33ADDFF02CEDC68400513149 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
 		33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
-		33BA0ACA2CEE1EFD00F3B570 /* OnboardingPage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */; };
 		33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */; };
-		33BA0ACE2CEE231400F3B570 /* OnboardingPage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */; };
-		33BA0AD02CEE26BD00F3B570 /* OnboardingPage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */; };
-		33BA0AD22CEE278600F3B570 /* OnboardingPage4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */; };
-		33BA0AD42CEE284400F3B570 /* OnboardingPage5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */; };
+		33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */; };
+		33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */; };
+		33BA0AD82CEF1F5600F3B570 /* ExplainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */; };
+		33BA0ADA2CEF202F00F3B570 /* BreathingGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */; };
+		33BA0AE12CEF210300F3B570 /* EXHALE.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0ADE2CEF20F300F3B570 /* EXHALE.mp4 */; };
+		33BA0AE22CEF210300F3B570 /* FULL.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0ADD2CEF20F300F3B570 /* FULL.mp4 */; };
+		33BA0AE32CEF210300F3B570 /* HOLD_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0ADF2CEF20F300F3B570 /* HOLD_1.mp4 */; };
+		33BA0AE42CEF210300F3B570 /* HOLD_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0ADC2CEF20F300F3B570 /* HOLD_2.mp4 */; };
+		33BA0AE52CEF210300F3B570 /* INHALE.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0ADB2CEF20F200F3B570 /* INHALE.mp4 */; };
+		33BA0AE62CEF210300F3B570 /* START.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AE02CEF20F300F3B570 /* START.mp4 */; };
+		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
+		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
+		33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */; };
 		464B4EB02CE4905300218B35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4EAF2CE4905300218B35 /* MainView.swift */; };
 		464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464B4ED22CE4961B00218B35 /* RouterManager.swift */; };
 		4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */; };
@@ -107,12 +115,20 @@
 		33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
-		33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1View.swift; sourceTree = "<group>"; };
 		33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
-		33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2View.swift; sourceTree = "<group>"; };
-		33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage3View.swift; sourceTree = "<group>"; };
-		33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage4View.swift; sourceTree = "<group>"; };
-		33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage5View.swift; sourceTree = "<group>"; };
+		33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHRVAuth.swift; sourceTree = "<group>"; };
+		33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
+		33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainMenu.swift; sourceTree = "<group>"; };
+		33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuide.swift; sourceTree = "<group>"; };
+		33BA0ADB2CEF20F200F3B570 /* INHALE.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = INHALE.mp4; sourceTree = "<group>"; };
+		33BA0ADC2CEF20F300F3B570 /* HOLD_2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HOLD_2.mp4; sourceTree = "<group>"; };
+		33BA0ADD2CEF20F300F3B570 /* FULL.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = FULL.mp4; sourceTree = "<group>"; };
+		33BA0ADE2CEF20F300F3B570 /* EXHALE.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = EXHALE.mp4; sourceTree = "<group>"; };
+		33BA0ADF2CEF20F300F3B570 /* HOLD_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = HOLD_1.mp4; sourceTree = "<group>"; };
+		33BA0AE02CEF20F300F3B570 /* START.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = START.mp4; sourceTree = "<group>"; };
+		33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGuide.swift; sourceTree = "<group>"; };
+		33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuth.swift; sourceTree = "<group>"; };
+		33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionAuth.swift; sourceTree = "<group>"; };
 		464B4EAF2CE4905300218B35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		464B4ED22CE4961B00218B35 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		4667B0712CE7EA9000F58DB3 /* BreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainView.swift; sourceTree = "<group>"; };
@@ -192,6 +208,12 @@
 				334D95D42CEE127A007600D7 /* dirty03.mp4 */,
 				334D95D62CEE127A007600D7 /* dirty04.mp4 */,
 				334D95D52CEE127A007600D7 /* none.mp4 */,
+				33BA0ADE2CEF20F300F3B570 /* EXHALE.mp4 */,
+				33BA0ADD2CEF20F300F3B570 /* FULL.mp4 */,
+				33BA0ADF2CEF20F300F3B570 /* HOLD_1.mp4 */,
+				33BA0ADC2CEF20F300F3B570 /* HOLD_2.mp4 */,
+				33BA0ADB2CEF20F200F3B570 /* INHALE.mp4 */,
+				33BA0AE02CEF20F300F3B570 /* START.mp4 */,
 			);
 			path = MP4;
 			sourceTree = "<group>";
@@ -243,14 +265,24 @@
 		33BA0AC82CEE1EEA00F3B570 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				33BA0AC92CEE1EFD00F3B570 /* OnboardingPage1View.swift */,
-				33BA0ACD2CEE231400F3B570 /* OnboardingPage2View.swift */,
-				33BA0ACF2CEE26BD00F3B570 /* OnboardingPage3View.swift */,
-				33BA0AD12CEE278600F3B570 /* OnboardingPage4View.swift */,
-				33BA0AD32CEE284400F3B570 /* OnboardingPage5View.swift */,
 				33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */,
+				33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */,
+				33BA0AED2CEF267F00F3B570 /* IndicatorViews */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		33BA0AED2CEF267F00F3B570 /* IndicatorViews */ = {
+			isa = PBXGroup;
+			children = (
+				33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */,
+				33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */,
+				33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */,
+				33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */,
+				33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */,
+				33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */,
+			);
+			path = IndicatorViews;
 			sourceTree = "<group>";
 		};
 		4667B0702CE7EA8200F58DB3 /* Breathing */ = {
@@ -534,6 +566,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AE12CEF210300F3B570 /* EXHALE.mp4 in Resources */,
+				33BA0AE22CEF210300F3B570 /* FULL.mp4 in Resources */,
+				33BA0AE32CEF210300F3B570 /* HOLD_1.mp4 in Resources */,
+				33BA0AE42CEF210300F3B570 /* HOLD_2.mp4 in Resources */,
+				33BA0AE52CEF210300F3B570 /* INHALE.mp4 in Resources */,
+				33BA0AE62CEF210300F3B570 /* START.mp4 in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				334D95DB2CEE1293007600D7 /* dirty03.mp4 in Resources */,
@@ -561,29 +599,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */,
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
-				33BA0ACA2CEE1EFD00F3B570 /* OnboardingPage1View.swift in Sources */,
-				33BA0ACE2CEE231400F3B570 /* OnboardingPage2View.swift in Sources */,
+				33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
-				33BA0AD42CEE284400F3B570 /* OnboardingPage5View.swift in Sources */,
+				33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
 				B5296D212CEBA4A100FFE20F /* WeeklyCalendarHeaderViewModel.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */,
 				464B4EB02CE4905300218B35 /* MainView.swift in Sources */,
-				33BA0AD22CEE278600F3B570 /* OnboardingPage4View.swift in Sources */,
 				B5296CB22CE34BDB00FFE20F /* TodayStress.swift in Sources */,
 				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
 				339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */,
 				339C2D252CEB742300F1EE00 /* HealthKitTestView.swift in Sources */,
+				33BA0AD82CEF1F5600F3B570 /* ExplainMenu.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
+				33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */,
 				334D95D02CEE0D1A007600D7 /* MP4PlayerView.swift in Sources */,
 				339C2D242CEB742300F1EE00 /* HealthKitManager+TestData.swift in Sources */,
 				33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */,
+				33BA0ADA2CEF202F00F3B570 /* BreathingGuide.swift in Sources */,
+				33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */,
 				339C2D282CEB8D8F00F1EE00 /* MindfulSessionManager.swift in Sources */,
 				B5296CAE2CE3009900FFE20F /* HealthKitManager+iOS.swift in Sources */,
 				4667B0722CE7EA9000F58DB3 /* BreathingMainView.swift in Sources */,
-				33BA0AD02CEE26BD00F3B570 /* OnboardingPage3View.swift in Sources */,
 				33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */,
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */,

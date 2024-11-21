@@ -22,9 +22,9 @@ class RouterManager: ObservableObject {
             BreathingMainView()
         case .breathingOutroView:
             BreathingOutroView()
-        case .Onboarding1View:
-            OnboardingPage1View()
-        case .Onboarding2View:
+        case .onboardingStartView:
+            OnboardingStartView()
+        case .onboardingView:
             OnboardingContainerView()
         }
     }
@@ -49,7 +49,7 @@ enum SphaView: Hashable {
     case mainView
     case breathingMainView
     case breathingOutroView
-    case Onboarding1View
-    case Onboarding2View
+    case onboardingStartView
+    case onboardingView
 }
 
