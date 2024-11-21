@@ -22,49 +22,41 @@ struct OnboardingPage2View: View {
             
             HStack{
                 VStack {
-                    Image(systemName: "paperplane.circle.fill")
-                        .resizable()
-                        .frame(width: 130, height: 130)
-                        .foregroundStyle(.white)
+                    MP4PlayerView(videoURLString: MindDustLevel.dustLevel1.assetName)
+                        .frame(width: 180, height: 180)
                     
                     Text("먼지가 조금 생겼어요")
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
-                .padding(.trailing, 32)
+//                .padding(.trailing, 32)
                 
                 VStack {
-                    Image(systemName: "paperplane.circle.fill")
-                        .resizable()
-                        .frame(width: 130, height: 130)
-                        .foregroundStyle(.white)
+                    MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
+                        .frame(width: 180, height: 180)
                     
                     Text("점점 흐려져요")
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 32)
             .padding(.bottom, 16)
             
             HStack{
                 VStack {
-                    Image(systemName: "paperplane.circle.fill")
-                        .resizable()
-                        .frame(width: 130, height: 130)
-                        .foregroundStyle(.white)
+                    MP4PlayerView(videoURLString: MindDustLevel.dustLevel3.assetName)
+                        .frame(width: 180, height: 180)
                     
                     Text("탁하고 답답해요")
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
-                .padding(.trailing, 32)
+//                .padding(.trailing, 32)
                 
                 VStack {
-                    Image(systemName: "paperplane.circle.fill")
-                        .resizable()
-                        .frame(width: 130, height: 130)
-                        .foregroundStyle(.white)
+                    MP4PlayerView(videoURLString: MindDustLevel.dustLevel4.assetName)
+                        .frame(width: 180, height: 180)
                     
                     Text("터질 것 같아요")
                         .foregroundStyle(.white)

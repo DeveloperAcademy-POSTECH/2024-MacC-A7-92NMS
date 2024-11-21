@@ -10,7 +10,12 @@ import SwiftUI
 struct OnboardingContainerView: View {
     @EnvironmentObject var router: RouterManager
     @State private var currentPage = 0
-
+    @State private var isRequestingAuthorization = false
+    @State private var authorizationCompleted = false
+    
+    let pageCount = 4
+    let hrvService = HealthKitManager()
+    
     var body: some View {
         VStack {
             ZStack {
@@ -18,9 +23,13 @@ struct OnboardingContainerView: View {
                     // 뒤로가기 버튼
                     Button(action: {
                         // 권한 요청 바로 실행
+                        // async await 사용
+                        hrvService.requestAuthorization { _ in
+                            DispatchQueue.main.sync {
+                                router.backToMain()
+                            }
+                        }
                         
-                        // 메인 뷰로 돌아가기
-                        router.backToMain()
                     }, label: {
                             Image(systemName: "chevron.left")
                                 .resizable()
@@ -34,7 +43,7 @@ struct OnboardingContainerView: View {
                 
                 // 인디케이터
                 HStack {
-                    ForEach(0..<4, id: \.self) { index in
+                    ForEach(0..<pageCount, id: \.self) { index in
                         Circle()
                             .fill(index == currentPage ? Color.white : Color.gray)
                             .frame(width: 8, height: 8)
@@ -55,14 +64,15 @@ struct OnboardingContainerView: View {
             
             // 버튼 (하단)
             Button(action: {
-                if currentPage < 3 {
+                if currentPage < pageCount - 1 {
                     currentPage += 1
-                } else {
-                    // 시작하기 버튼을 눌렀을 때
-                    
-                    // 권한 요청 메서드 실행
-                    
-                    // 권한 요청 종료 후 메인 화면 이동
+                } else {// 시작하기 버튼을 눌렀을 때
+                    // 권한 요청 메서드
+                    hrvService.requestAuthorization { _ in
+                        DispatchQueue.main.async {
+                            router.backToMain()
+                        }
+                    }
                 }
             }, label: {
                 ZStack {
@@ -71,7 +81,7 @@ struct OnboardingContainerView: View {
                         .frame(maxWidth: .infinity, maxHeight: 57)
                         .foregroundColor(Color.white.opacity(0.25))
                     
-                    Text(currentPage < 3 ? "다음" : "시작하기")
+                    Text(currentPage < pageCount - 1 ? "다음" : "시작하기")
                         .font(.headline)
                         .foregroundColor(.white)
                 }

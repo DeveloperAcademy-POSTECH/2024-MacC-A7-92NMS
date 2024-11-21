@@ -12,16 +12,21 @@ struct OnboardingPage1View: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Text("Spha-")
                 .customFont(.title_0)
                 .foregroundStyle(.white)
             
             Spacer()
             
-            Image(systemName: "paperplane.circle.fill")
-                .resizable()
-                .frame(width: 270, height: 270)
-                .foregroundStyle(.white)
+//            Image(systemName: "paperplane.circle.fill")
+//                .resizable()
+//                .frame(width: 270, height: 270)
+//                .foregroundStyle(.white)
+
+            MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
+                .frame(width: 330, height: 330)
             
             Spacer()
             
