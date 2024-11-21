@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingPage2View: View {
+    
     var body: some View {
         VStack {
             Text("스트레스가 쌓일 때 마다")

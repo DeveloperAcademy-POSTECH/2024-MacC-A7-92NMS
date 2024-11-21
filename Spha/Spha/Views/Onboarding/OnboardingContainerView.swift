@@ -13,8 +13,8 @@ struct OnboardingContainerView: View {
     @State private var isRequestingAuthorization = false
     @State private var authorizationCompleted = false
     
-    let pageCount = 4
-    let hrvService = HealthKitManager()
+    private let pageCount = 4
+    private let hrvService = HealthKitManager()
     
     var body: some View {
         VStack {
