@@ -21,9 +21,9 @@ struct WatchBreathingMP4PlayerView: View {
             .onChange(of: videoName) { newVideoName in
                 loadVideo(named: newVideoName)
             }
-            .frame(width: 100, height: 100) // Set appropriate size for your watchOS screen
+            .frame(width: 100, height: 100)
             .onDisappear {
-                player?.pause() // Pause the video when the view disappears
+                player?.pause()
             }
     }
 

@@ -14,9 +14,7 @@ struct WatchMainView: View {
         TabView {
             // 첫 번째 탭 (WatchMainView 탭)
             VStack {
-                Text("Watch Main View 테스트")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.blue)
+                WatchMainStatusView()
             }
             // 두 번째 탭 (Breathing Selection View로 전환되는 탭)
             VStack {

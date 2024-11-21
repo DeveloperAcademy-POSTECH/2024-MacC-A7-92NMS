@@ -22,18 +22,27 @@ struct WatchBreathingMainView: View {
                             .frame(width: 10, height: 10)
                     }
                 }
+                .padding(3)
+                
+                Spacer()
                 
                 WatchBreathingMP4PlayerView(videoName: viewModel.videoName(for: viewModel.phaseText))
+                
+                Spacer()
                 
                 if viewModel.showText {
                     Text(viewModel.phaseText)
                         .font(.caption2)
                         .transition(.opacity)
                 }
-                
             }
             .onAppear {
                 viewModel.startBreathingIntro()
+            }
+            .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
+                if isCompleted {
+                    router.push(view: .watchbreathingOutroView)
+                }
             }
             .tabItem {
                 Text("Breathing Main")
