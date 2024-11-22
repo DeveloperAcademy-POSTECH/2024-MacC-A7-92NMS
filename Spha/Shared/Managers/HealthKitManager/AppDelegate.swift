@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // 알림 권한 요청
         healthKitManager.requestNotificationAuthorization()
         // HealthKit 권한 요청
-        healthKitManager.requestAuthorization()
+        healthKitManager.requestAuthorization { _ in        }
         
         // MARK: - UNUserNotificationCenterDelegate 설정 [테스트용!]
         UNUserNotificationCenter.current().delegate = self
