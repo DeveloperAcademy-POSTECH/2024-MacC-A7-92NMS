@@ -17,6 +17,7 @@ class DailyStatisticsViewModel: ObservableObject {
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
     @Published var dailyRecored: DailyStressRecord?
+    @Published var stressTrendData: [(Date, StressLevel)] = []
     
     var breathingRatio: CGFloat {
         guard let record = dailyRecored,
@@ -34,6 +35,9 @@ class DailyStatisticsViewModel: ObservableObject {
         return dailyRecored?.completedReliefCount ?? 0
     }
     
+    var extremeCount: Int {
+           return stressTrendData.filter { $0.1 == .extreme }.count
+       }
     
     let calendar = Date.calendar
     private let healthKitManager: HealthKitInterface
@@ -81,7 +85,6 @@ class DailyStatisticsViewModel: ObservableObject {
     
     func handleDateTap(_ date: Date) {
         if date <= Date() {
-            print(date.dateTitleString)
             currentDate = date // currentDate 변경 시 자동으로 loadDailyHRVData() 호출
         }
     }
@@ -104,11 +107,22 @@ class DailyStatisticsViewModel: ObservableObject {
                         recommendedReliefCount: 0,
                         completedReliefCount: 0
                     )
+                    self.stressTrendData = []
                 }
                 return
             }
             
             DispatchQueue.main.async {
+                let sortedSamples = samples.sorted { $0.startDate < $1.startDate }
+                
+                /// 일일 스트레스 추이
+                self.stressTrendData = sortedSamples.map { sample in
+                    let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                    let stressLevel = StressLevel.getLevel(from: hrvValue)
+                    return (sample.startDate, stressLevel)
+                }
+                
+                /// 일일 마음 청소 통계 업데이트
                 let highStressSamples = samples.filter { sample in
                     let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
                     let stressLevel = StressLevel.getLevel(from: hrvValue)
@@ -118,12 +132,10 @@ class DailyStatisticsViewModel: ObservableObject {
                 self.dailyRecored = DailyStressRecord(
                     date: self.currentDate,
                     recommendedReliefCount: highStressSamples.count,
-                    // TODO: - 이후 받아오기
                     completedReliefCount: 0
                 )
             }
+            
         }
     }
-    
-    
 }

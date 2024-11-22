@@ -28,10 +28,10 @@ enum StressLevel: String, CaseIterable {
     
     var numberValue: Double {
         switch self {
-        case .low: return 3
-        case .medium: return 2
-        case .high: return 1
-        case .extreme: return 0
+        case .low: return 0
+        case .medium: return 1
+        case .high: return 2
+        case .extreme: return 3
         }
     }
     
