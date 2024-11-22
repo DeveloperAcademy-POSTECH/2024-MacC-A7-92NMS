@@ -11,7 +11,7 @@ import HealthKit
 class DailyStatisticsViewModel: ObservableObject {
     @Published var currentDate = Date() {
         didSet {
-            loadDailyHRVData()
+            updateDailyRecord()
         }
     }
     @Published var selectedDate = Date()
@@ -52,7 +52,7 @@ class DailyStatisticsViewModel: ObservableObject {
         let thisWeek = getCurrentWeek()
         weeks = [thisWeek]
         
-        loadDailyHRVData()
+        updateDailyRecord()
     }
     
     // MARK: - 주간 달력
@@ -93,7 +93,7 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     
     // MARK: - HRV 데이터 처리
-    private func loadDailyHRVData() {
+    private func updateDailyRecord() {
         /// HRV 데이터 가져오기
         healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
             guard let self = self else { return }
