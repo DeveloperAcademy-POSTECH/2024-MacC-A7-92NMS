@@ -35,6 +35,7 @@ enum StressLevel: String, CaseIterable {
         }
     }
     
+    // TODO: 원시값으로 수정
     static func getLevel(from hrvValue: Double) -> StressLevel {
         switch hrvValue {
         case 55...:

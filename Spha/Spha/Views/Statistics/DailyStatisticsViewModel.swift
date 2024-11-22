@@ -99,6 +99,7 @@ class DailyStatisticsViewModel: ObservableObject {
                 return
             }
             
+            // TODO: DispatchGroup 고려
             guard let samples = samples else {
                 print("HRV 데이터 없음")
                 DispatchQueue.main.async {
