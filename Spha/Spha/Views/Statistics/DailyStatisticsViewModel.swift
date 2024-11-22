@@ -16,6 +16,7 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
+    
     @Published var dailyRecored: DailyStressRecord?
     @Published var stressTrendData: [(Date, StressLevel)] = []
     
@@ -36,15 +37,17 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     
     var extremeCount: Int {
-           return stressTrendData.filter { $0.1 == .extreme }.count
-       }
+        return stressTrendData.filter { $0.1 == .extreme }.count
+    }
     
     let calendar = Date.calendar
+    
     private let healthKitManager: HealthKitInterface
+    private let mindfulSessionManager: MindfulSessionInterface
     
-    
-    init(_ healthKitManager: HealthKitInterface) {
+    init(_ healthKitManager: HealthKitInterface, _ mindfulSessionManager: MindfulSessionInterface) {
         self.healthKitManager = HealthKitManager()
+        self.mindfulSessionManager = MindfulSessionManager()
         
         let thisWeek = getCurrentWeek()
         weeks = [thisWeek]
@@ -89,13 +92,14 @@ class DailyStatisticsViewModel: ObservableObject {
         }
     }
     
-    // MARK: - 통계
+    // MARK: - HRV 데이터 처리
     private func loadDailyHRVData() {
-        healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, error in
+        /// HRV 데이터 가져오기
+        healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
             guard let self = self else { return }
             
-            if let error = error {
-                print("Error fetching daily HRV data: \(error.localizedDescription)")
+            if let hrvError = hrvError {
+                print("Error fetching daily HRV data: \(hrvError.localizedDescription)")
                 return
             }
             
@@ -112,30 +116,40 @@ class DailyStatisticsViewModel: ObservableObject {
                 return
             }
             
-            DispatchQueue.main.async {
-                let sortedSamples = samples.sorted { $0.startDate < $1.startDate }
-                
-                /// 일일 스트레스 추이
-                self.stressTrendData = sortedSamples.map { sample in
-                    let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                    let stressLevel = StressLevel.getLevel(from: hrvValue)
-                    return (sample.startDate, stressLevel)
+            /// 마음챙기기 데이터 가져오기
+            self.mindfulSessionManager.fetchMindfulSessions(for: self.currentDate) { sessions, mindError in
+                if let mindError = mindError {
+                    print("Error fetching daily mindSession data: \(mindError.localizedDescription)")
+                    return
                 }
                 
-                /// 일일 마음 청소 통계 업데이트
-                let highStressSamples = samples.filter { sample in
-                    let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                    let stressLevel = StressLevel.getLevel(from: hrvValue)
-                    return stressLevel == .high || stressLevel == .extreme
+                DispatchQueue.main.async {
+                    let sortedSamples = samples.sorted { $0.startDate < $1.startDate }
+                    
+                    /// 일일 스트레스 추이
+                    self.stressTrendData = sortedSamples.map { sample in
+                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                        let stressLevel = StressLevel.getLevel(from: hrvValue)
+                        return (sample.startDate, stressLevel)
+                    }
+                    
+                    /// 일일 마음 청소 통계 업데이트
+                    let highStressSamples = samples.filter { sample in
+                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                        let stressLevel = StressLevel.getLevel(from: hrvValue)
+                        return stressLevel == .high || stressLevel == .extreme
+                    }
+                    
+                    self.dailyRecored = DailyStressRecord(
+                        date: self.currentDate,
+                        recommendedReliefCount: highStressSamples.count,
+                        completedReliefCount: sessions?.count ?? 0
+                    )
                 }
-                
-                self.dailyRecored = DailyStressRecord(
-                    date: self.currentDate,
-                    recommendedReliefCount: highStressSamples.count,
-                    completedReliefCount: 0
-                )
             }
-            
         }
     }
+    
+    
+    
 }

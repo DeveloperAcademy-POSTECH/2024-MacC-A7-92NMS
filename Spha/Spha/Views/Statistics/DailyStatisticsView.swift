@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct DailyStatisticsView: View {
-    @StateObject private var viewModel = DailyStatisticsViewModel(HealthKitManager())
+    @StateObject private var viewModel = DailyStatisticsViewModel(HealthKitManager(), MindfulSessionManager())
     @State private var selectedDate: Date? = nil
     
     var body: some View {
@@ -20,10 +20,9 @@ struct DailyStatisticsView: View {
         }
         .background(Color.black)
     }
-    
 }
 
-
+// MARK: - 주간 달력
 private struct WeeklyCalendarHeaderView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
@@ -120,8 +119,7 @@ private struct DailyPieChartView: View {
                 .animation(.linear, value: viewModel.breathingRatio)
         }
         .padding(.vertical, 20)
-        
-        
+                
         HStack{
             VStack{
                 HStack{
@@ -165,9 +163,6 @@ private struct DailyPieChartView: View {
         }
         .padding(.bottom, 36)
     }
-    
-    
-    
 }
 
 // MARK: - 일일 스트레스 추이 그래프
