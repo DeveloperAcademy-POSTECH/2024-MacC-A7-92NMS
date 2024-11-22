@@ -19,8 +19,8 @@ class WatchBreathingMainViewModel: BreathingManager {
     private var hapticManager = HapticManager()
 
     func startBreathingIntro() {
-        startPhase(phase: .intro, duration: 2, text: "마음청소를 시작할게요") {
-            self.startPhase(phase: .intro, duration: 1, text: "호흡에 집중하세요") {
+        startPhase(phase: .ready, duration: 2, text: "마음청소를 시작할게요") {
+            self.startPhase(phase: .focus, duration: 1, text: "호흡에 집중하세요") {
                 self.startBreathingCycle()
             }
         }
@@ -81,8 +81,10 @@ class WatchBreathingMainViewModel: BreathingManager {
 
     func videoName(for text: String) -> String {
         switch text {
-        case "마음청소를 시작할게요", "호흡에 집중하세요":
+        case "마음청소를 시작할게요":
             return "start"
+        case "호흡에 집중하세요":
+            return "pause"
         case "숨을 들이 쉬세요":
             return "inhale"
         case "잠시 멈추세요":

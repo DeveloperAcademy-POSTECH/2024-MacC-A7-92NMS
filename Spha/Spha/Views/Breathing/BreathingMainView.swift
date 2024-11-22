@@ -17,24 +17,26 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            
+            MP4PlayerView(videoURLString: viewModel.videoName(for: viewModel.phaseText))
+                .frame(width: 300, height: 300)
+                .padding(.top, 164)
             
             Spacer()
             
             if viewModel.showTimer {
                 Text("\(viewModel.timerCount)")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 10)
                     .transition(.opacity)
             }
             
             if viewModel.showText {
                 Text(viewModel.phaseText)
-                    .font(.title)
-                    .padding(.bottom, 159)
+                    .customFont(.body_0)
+                    .foregroundColor(.gray0)
+                    .padding(.bottom, 153)
                     .transition(.opacity)
             }
         }
@@ -42,12 +44,31 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { router.backToMain() }) {
                     Image(systemName: "xmark")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack(spacing: 8) {
+                    ForEach(0..<3, id: \.self) { index in
+                        Circle()
+                            .fill(index < viewModel.activeCircle ? Color.gray : Color.white)
+                            .frame(width: 10, height: 10)
+                    }
                 }
             }
         }
+        .navigationBarBackButtonHidden()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
         .onAppear {
             viewModel.startBreathingIntro()
         }
+        .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
+            if isCompleted {
+                router.push(view: .breathingOutroView)
+            }
+        }
+
     }
 }
