@@ -57,9 +57,9 @@ class BreathingMainViewModel: BreathingManager {
     func startBreathingPhase(completion: @escaping () -> Void) {
         showTimer = true
         startPhase(phase: .inhale, duration: 5, text: "숨을 들이 쉬세요") {
-            self.startPhase(phase: .hold, duration: 5, text: "잠시 멈추세요") {
+            self.startPhase(phase: .hold1, duration: 5, text: "잠시 멈추세요") {
                 self.startPhase(phase: .exhale, duration: 5, text: "숨을 내쉬세요") {
-                    self.startPhase(phase: .hold, duration: 5, text: "잠시 멈추세요") {
+                    self.startPhase(phase: .hold2, duration: 5, text: "잠시 멈추세요") {
                         completion()
                     }
                 }

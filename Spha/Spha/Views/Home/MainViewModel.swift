@@ -36,7 +36,7 @@ class MainViewModel: ObservableObject {
     let HRVService = HealthKitManager()
     let MindfulService = MindfulSessionManager()
 
-    let stressSdnnValue: Int = 40
+    let stressSdnnValue: Double = 40
     
     // DailyHRVData 요청
     private func fetchTodayHRVData() {
@@ -49,9 +49,9 @@ class MainViewModel: ObservableObject {
                 
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-//                    if sdnnValue > stressSdnnValue {
-//                        stressCount += 1
-//                    }
+                    if sdnnValue > self.stressSdnnValue {
+                        stressCount += 1
+                    }
                 }
                 
                 self.recommendedCleaningCount = stressCount
