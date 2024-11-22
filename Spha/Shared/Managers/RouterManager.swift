@@ -27,6 +27,8 @@ class RouterManager: ObservableObject {
             OnboardingStartView()
         case .onboardingView:
             OnboardingContainerView()
+        case .dailyStatisticsView:
+            DailyStatisticsView()
         }
     }
     
@@ -52,5 +54,6 @@ enum SphaView: Hashable {
     case breathingOutroView
     case onboardingStartView
     case onboardingView
+    case dailyStatisticsView
 }
 

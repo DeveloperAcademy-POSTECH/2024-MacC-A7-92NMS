@@ -19,6 +19,8 @@ struct DailyStatisticsView: View {
             Spacer()
         }
         .background(Color.black)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle(viewModel.currentDate.dateTitleString)
     }
 }
 

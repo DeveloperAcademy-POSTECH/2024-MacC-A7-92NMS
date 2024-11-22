@@ -16,7 +16,7 @@ struct MainView: View {
                     Spacer()
                     
                     Button {
-                        
+                        router.push(view: .dailyStatisticsView)
                     } label: {
                         Image(systemName: "chart.bar.fill")
                             .resizable()
@@ -141,6 +141,7 @@ struct MainView: View {
             }
             
         } // ZStack
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             // Notification을 관찰하여 상태 초기화
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
