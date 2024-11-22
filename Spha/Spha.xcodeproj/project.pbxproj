@@ -52,6 +52,38 @@
 		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
 		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
 		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
+		468F80902CEF288F008E7F48 /* hold1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808A2CEF288F008E7F48 /* hold1.mp4 */; };
+		468F80912CEF288F008E7F48 /* hold1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808A2CEF288F008E7F48 /* hold1.mp4 */; };
+		468F80922CEF288F008E7F48 /* hold2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808B2CEF288F008E7F48 /* hold2.mp4 */; };
+		468F80932CEF288F008E7F48 /* hold2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808B2CEF288F008E7F48 /* hold2.mp4 */; };
+		468F80942CEF288F008E7F48 /* full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808C2CEF288F008E7F48 /* full.mp4 */; };
+		468F80952CEF288F008E7F48 /* full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808C2CEF288F008E7F48 /* full.mp4 */; };
+		468F80962CEF288F008E7F48 /* inhale.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808D2CEF288F008E7F48 /* inhale.mp4 */; };
+		468F80972CEF288F008E7F48 /* inhale.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808D2CEF288F008E7F48 /* inhale.mp4 */; };
+		468F80982CEF288F008E7F48 /* exhale.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808E2CEF288F008E7F48 /* exhale.mp4 */; };
+		468F80992CEF288F008E7F48 /* exhale.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808E2CEF288F008E7F48 /* exhale.mp4 */; };
+		468F809A2CEF288F008E7F48 /* start.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808F2CEF288F008E7F48 /* start.mp4 */; };
+		468F809B2CEF288F008E7F48 /* start.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F808F2CEF288F008E7F48 /* start.mp4 */; };
+		468F809D2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */; };
+		468F809E2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */; };
+		468F80A02CEF573B008E7F48 /* pause.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F809F2CEF573B008E7F48 /* pause.mp4 */; };
+		468F80A12CEF573B008E7F48 /* pause.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 468F809F2CEF573B008E7F48 /* pause.mp4 */; };
+		46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 334D95D22CEE0D5E007600D7 /* clean.mp4 */; };
+		46AEF5FC2CEF7A9A005AECFB /* WatchMainStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */; };
+		46AEF5FD2CEF884B005AECFB /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */; };
+		46AEF5FE2CEF884B005AECFB /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFED2CEDC67100513149 /* AppleSDGothicNeoM.ttf */; };
+		46AEF5FF2CEF884C005AECFB /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */; };
+		46AEF6002CEF884C005AECFB /* AppleSDGothicNeoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFED2CEDC67100513149 /* AppleSDGothicNeoM.ttf */; };
+		46AEF6012CEF8852005AECFB /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
+		46AEF6022CEF8855005AECFB /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
+		46AEF6032CEF8857005AECFB /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D232CEBA4B300FFE20F /* Date+.swift */; };
+		46AEF6072CEF8999005AECFB /* WatchMainStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */; };
+		46AEF6082CEF8A5C005AECFB /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA72CE3002700FFE20F /* HealthKitManager.swift */; };
+		46AEF6092CEF8A6D005AECFB /* MindfulSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D272CEB8D8F00F1EE00 /* MindfulSessionManager.swift */; };
+		46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D282CECB01300FFE20F /* MindDustLevel.swift */; };
+		46AEF60B2CEF8C64005AECFB /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
+		46AEF6102CEFCFDF005AECFB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */; };
+		46AEF6122CEFD561005AECFB /* WatchBreathingOutroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -146,6 +178,18 @@
 		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
 		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
 		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
+		468F808A2CEF288F008E7F48 /* hold1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hold1.mp4; sourceTree = "<group>"; };
+		468F808B2CEF288F008E7F48 /* hold2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hold2.mp4; sourceTree = "<group>"; };
+		468F808C2CEF288F008E7F48 /* full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = full.mp4; sourceTree = "<group>"; };
+		468F808D2CEF288F008E7F48 /* inhale.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = inhale.mp4; sourceTree = "<group>"; };
+		468F808E2CEF288F008E7F48 /* exhale.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = exhale.mp4; sourceTree = "<group>"; };
+		468F808F2CEF288F008E7F48 /* start.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = start.mp4; sourceTree = "<group>"; };
+		468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMP4PlayerView.swift; sourceTree = "<group>"; };
+		468F809F2CEF573B008E7F48 /* pause.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pause.mp4; sourceTree = "<group>"; };
+		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
+		46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusViewModel.swift; sourceTree = "<group>"; };
+		46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroViewModel.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -209,6 +253,13 @@
 		334D95D12CEE0D44007600D7 /* MP4 */ = {
 			isa = PBXGroup;
 			children = (
+				468F808D2CEF288F008E7F48 /* inhale.mp4 */,
+				468F808E2CEF288F008E7F48 /* exhale.mp4 */,
+				468F808A2CEF288F008E7F48 /* hold1.mp4 */,
+				468F808B2CEF288F008E7F48 /* hold2.mp4 */,
+				468F808F2CEF288F008E7F48 /* start.mp4 */,
+				468F809F2CEF573B008E7F48 /* pause.mp4 */,
+				468F808C2CEF288F008E7F48 /* full.mp4 */,
 				334D95D22CEE0D5E007600D7 /* clean.mp4 */,
 				334D95D82CEE127B007600D7 /* dirty01.mp4 */,
 				334D95D72CEE127A007600D7 /* dirty02.mp4 */,
@@ -305,11 +356,13 @@
 		4667B0832CECB14A00F58DB3 /* Breathing */ = {
 			isa = PBXGroup;
 			children = (
-				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
 				4667B0872CECB16600F58DB3 /* WatchBreathingSelectionView.swift */,
+				4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */,
 				4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */,
 				460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */,
-				4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */,
+				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
+				46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */,
+				468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */,
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -318,6 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				4667B0852CECB15900F58DB3 /* WatchMainView.swift */,
+				46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */,
+				46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -453,6 +508,7 @@
 			children = (
 				B5296CBA2CE3623F00FFE20F /* NotificationManager.swift */,
 				4667B0812CECB14000F58DB3 /* WatchRouterManager.swift */,
+				46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -583,13 +639,22 @@
 				33BA0AE52CEF210300F3B570 /* INHALE.mp4 in Resources */,
 				33BA0AE62CEF210300F3B570 /* START.mp4 in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
+				468F80902CEF288F008E7F48 /* hold1.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				334D95DB2CEE1293007600D7 /* dirty03.mp4 in Resources */,
 				334D95DC2CEE1293007600D7 /* dirty04.mp4 in Resources */,
+				468F80A02CEF573B008E7F48 /* pause.mp4 in Resources */,
 				334D95DD2CEE1293007600D7 /* none.mp4 in Resources */,
+				46AEF5FD2CEF884B005AECFB /* AppleSDGothicNeoSB.ttf in Resources */,
+				46AEF5FE2CEF884B005AECFB /* AppleSDGothicNeoM.ttf in Resources */,
 				B5296C812CE2FEAD00FFE20F /* Preview Assets.xcassets in Resources */,
+				468F80942CEF288F008E7F48 /* full.mp4 in Resources */,
+				468F80922CEF288F008E7F48 /* hold2.mp4 in Resources */,
 				B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */,
+				468F80962CEF288F008E7F48 /* inhale.mp4 in Resources */,
 				334D95D32CEE1078007600D7 /* clean.mp4 in Resources */,
+				468F809A2CEF288F008E7F48 /* start.mp4 in Resources */,
+				468F80982CEF288F008E7F48 /* exhale.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +663,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
+				468F80932CEF288F008E7F48 /* hold2.mp4 in Resources */,
+				468F80912CEF288F008E7F48 /* hold1.mp4 in Resources */,
+				46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */,
+				468F80992CEF288F008E7F48 /* exhale.mp4 in Resources */,
+				468F80952CEF288F008E7F48 /* full.mp4 in Resources */,
+				468F80A12CEF573B008E7F48 /* pause.mp4 in Resources */,
+				468F80972CEF288F008E7F48 /* inhale.mp4 in Resources */,
+				468F809B2CEF288F008E7F48 /* start.mp4 in Resources */,
+				46AEF5FF2CEF884C005AECFB /* AppleSDGothicNeoSB.ttf in Resources */,
+				46AEF6002CEF884C005AECFB /* AppleSDGothicNeoM.ttf in Resources */,
 				B5296C922CE2FEC500FFE20F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468F809D2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */,
 				33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */,
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
 				33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */,
@@ -651,19 +727,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468F809E2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */,
 				B5296CBB2CE3623F00FFE20F /* NotificationManager.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
+				46AEF6022CEF8855005AECFB /* Color+.swift in Sources */,
 				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
+				46AEF60B2CEF8C64005AECFB /* FilePathHelper.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
 				B5296CD62CE48F6000FFE20F /* NotificationView.swift in Sources */,
 				460BCEE12CEE70B00018927C /* WatchBreathingMainViewModel.swift in Sources */,
+				46AEF6092CEF8A6D005AECFB /* MindfulSessionManager.swift in Sources */,
+				46AEF6102CEFCFDF005AECFB /* HapticManager.swift in Sources */,
 				4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */,
+				46AEF6032CEF8857005AECFB /* Date+.swift in Sources */,
+				46AEF6012CEF8852005AECFB /* Font+.swift in Sources */,
 				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
 				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
+				46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */,
 				460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */,
 				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
 				4667B0862CECB15900F58DB3 /* WatchMainView.swift in Sources */,
+				46AEF6122CEFD561005AECFB /* WatchBreathingOutroViewModel.swift in Sources */,
 				4667B0882CECB16600F58DB3 /* WatchBreathingSelectionView.swift in Sources */,
+				46AEF6072CEF8999005AECFB /* WatchMainStatusViewModel.swift in Sources */,
+				46AEF6082CEF8A5C005AECFB /* HealthKitManager.swift in Sources */,
+				46AEF5FC2CEF7A9A005AECFB /* WatchMainStatusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

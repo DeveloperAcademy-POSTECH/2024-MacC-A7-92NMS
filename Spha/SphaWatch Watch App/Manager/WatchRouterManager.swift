@@ -8,8 +8,8 @@
 import SwiftUI
 
 class WatchRouterManager: ObservableObject {
+    
     @Published var path: [SphaView] = []
-    @Published var selectedTab: Int = 0  // 탭 상태를 관리
     
     @ViewBuilder func view(for route: SphaView) -> some View {
         switch route {
@@ -33,8 +33,8 @@ class WatchRouterManager: ObservableObject {
     }
     
     func backToWatchMain() {
-        path = [.watchMainView]
-        selectedTab = 0  // 첫 번째 탭으로 이동
+        path.removeAll()
+        path.append(.watchMainView)
     }
 }
 
