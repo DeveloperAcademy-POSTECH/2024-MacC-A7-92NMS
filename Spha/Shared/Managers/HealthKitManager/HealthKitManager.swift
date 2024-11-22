@@ -10,7 +10,7 @@ import HealthKit
 import UserNotifications
 
 protocol HealthKitInterface {
-    func requestAuthorization() // HealthKit 접근 권한 요청
+    func requestAuthorization(completion: @escaping (Bool) -> Void) // HealthKit 접근 권한 요청
     func fetchDailyHRV(for date: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 일간 HRV 데이터 요청
     func fetchMonthlyHRV(for month: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 월간 HRV 데이터 요청
     func monitorHRVUpdates() // HRV 업데이트 모니터링
@@ -27,7 +27,7 @@ class HealthKitManager: HealthKitInterface {
     
     
     // 권한 요청 메소드
-    func requestAuthorization() {
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
         if !HKHealthStore.isHealthDataAvailable() {return} // HealthKit 사용 가능인지 체크
         self.healthStore.requestAuthorization(toShare: share, read: read) { success, error in
             if error != nil {
@@ -39,6 +39,7 @@ class HealthKitManager: HealthKitInterface {
                     self.enableBackgroundHRVDelivery()
                     // HRV 데이터 변경 관찰 시작
                     self.monitorHRVUpdates()
+                    completion(success)
                 } else {
                     print("권한이 없습니다")
                 }
