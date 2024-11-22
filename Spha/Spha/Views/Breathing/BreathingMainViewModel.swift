@@ -45,7 +45,7 @@ class BreathingMainViewModel: BreathingManager , ObservableObject {
 
     func startBreathingCycle() {
         activeCircle = 0
-        repeatCycle(times: 1) {
+        repeatCycle(times: 3) {
             self.isBreathingCompleted = true
         }
     }
