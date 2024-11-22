@@ -14,11 +14,16 @@ struct OnboardingContainerView: View {
     @State private var authorizationCompleted = false
     
     private let pageCount = 6
-    private let hrvService = HealthKitManager()
+    private let hrvService: HealthKitInterface
+    private let mindfulService: MindfulSessionInterface
+    
+    init(hrvService: HealthKitInterface, mindfulService: MindfulSessionInterface) {
+        self.hrvService = hrvService
+        self.mindfulService = mindfulService
+    }
     
     var body: some View {
         VStack {
-            
             // 인디케이터
             HStack {
                 ForEach(0..<pageCount, id: \.self) { index in
@@ -28,7 +33,6 @@ struct OnboardingContainerView: View {
                         .animation(.easeInOut, value: currentPage)
                 }
             }
-            
             .padding(.bottom, 20)
             
             // TabView
@@ -40,27 +44,32 @@ struct OnboardingContainerView: View {
                 HealthKitHRVAuth().tag(4)
                 MindfulSessionAuth().tag(5)
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // 기본 인디케이터 숨김
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            // 버튼 (하단)
             Button(action: {
-                // Switch로 구현
-                
-                
-                if currentPage < pageCount - 1 {
+                switch currentPage {
+                case 3:
+                    print("Request notification Authorization!")
                     currentPage += 1
-                } else {// 시작하기 버튼을 눌렀을 때
-                    // 권한 요청 메서드
-                    hrvService.requestAuthorization { _ in
-                        DispatchQueue.main.async {
-                            router.backToMain()
+                case 4:
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        hrvService.requestAuthorization { _ in
+                            DispatchQueue.main.async {
+                                currentPage += 1
+                            }
                         }
                     }
+                case 5:
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        mindfulService.requestAuthorization { _ in
+                            DispatchQueue.main.async {
+                                self.router.backToMain()
+                            }
+                        }
+                    }
+                default:
+                    currentPage += 1
                 }
-                
-                
-                
-                
             }, label: {
                 ZStack {
                     Rectangle()
@@ -75,12 +84,11 @@ struct OnboardingContainerView: View {
             })
             .padding(.horizontal, 8)
             .padding(.bottom, 16)
-            
         }
         .background(Color.black.ignoresSafeArea())
     }
 }
 
 #Preview {
-    OnboardingContainerView()
+    OnboardingContainerView(hrvService: HealthKitManager(), mindfulService: MindfulSessionManager())
 }

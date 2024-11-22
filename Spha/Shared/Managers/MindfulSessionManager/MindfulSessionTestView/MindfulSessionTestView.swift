@@ -107,7 +107,7 @@ struct MindfulSessionTestView: View {
 
     // MARK: - 권한 요청
     private func requestAuthorization() {
-        mindfulSessionManager.requestAuthorization()
+        mindfulSessionManager.requestAuthorization { _ in   }
         checkAuthorizationStatus()
     }
 
