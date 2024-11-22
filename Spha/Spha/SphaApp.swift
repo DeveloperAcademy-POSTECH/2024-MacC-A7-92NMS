@@ -9,21 +9,28 @@ import SwiftUI
 
 @main
 struct SphaApp: App {
-
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var router: RouterManager = RouterManager()
-          
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000, vertical: 0), for: .default)
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path){
-                 OnboardingStartView()
+                OnboardingStartView()
                     .navigationDestination(for: SphaView.self){ sphaView in
                         router.view(for: sphaView)
                     }
             }
-            .tint(.black)
+            .tint(.white)
             .environmentObject(router)
         }
     }
-
+    
 }
