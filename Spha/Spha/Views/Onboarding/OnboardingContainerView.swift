@@ -52,18 +52,22 @@ struct OnboardingContainerView: View {
                     print("Request notification Authorization!")
                     currentPage += 1
                 case 4:
+                    isRequestingAuthorization = true // 비동기 요청 시작
                     DispatchQueue.global(qos: .userInitiated).async {
                         hrvService.requestAuthorization { _ in
                             DispatchQueue.main.async {
                                 currentPage += 1
+                                isRequestingAuthorization = false // 요청 완료
                             }
                         }
                     }
                 case 5:
+                    isRequestingAuthorization = true // 비동기 요청 시작
                     DispatchQueue.global(qos: .userInitiated).async {
                         mindfulService.requestAuthorization { _ in
                             DispatchQueue.main.async {
                                 self.router.backToMain()
+                                isRequestingAuthorization = false // 요청 완료
                             }
                         }
                     }
@@ -82,6 +86,8 @@ struct OnboardingContainerView: View {
                         .foregroundColor(.white)
                 }
             })
+            .disabled(isRequestingAuthorization) // 요청 중일 때 버튼 비활성화
+            .animation(.easeInOut, value: isRequestingAuthorization) // 상태 변화 애니메이션 추가
             .padding(.horizontal, 8)
             .padding(.bottom, 16)
         }
