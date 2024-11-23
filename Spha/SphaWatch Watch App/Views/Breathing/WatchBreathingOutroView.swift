@@ -23,7 +23,7 @@ struct WatchBreathingOutroView: View {
         }
         .opacity(opacity)
         .onAppear {
-            //TODO: 오늘의 Mindful 세션 조회 후 개수 +1
+            viewModel.recordTestMindfulSession()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation(.easeOut(duration: 1.0)) {

@@ -9,6 +9,23 @@ import Foundation
 import Combine
 
 class WatchBreathingOutroViewModel: ObservableObject {
+    @Published var statusMessage: String? = nil
+    private let mindfulSessionManager = MindfulSessionManager()
 
-    // TODO: - 오늘의 Mindful Session 조회 후 세션 개수 +1
+    func recordTestMindfulSession() {
+            let startDate = Date()
+            let endDate = Calendar.current.date(byAdding: .minute, value: 10, to: startDate)!
+
+            mindfulSessionManager.recordMindfulSession(startDate: startDate, endDate: endDate) { success, error in
+                DispatchQueue.main.async {
+                    if success {
+                        self.statusMessage = "Test Mindful Session Recorded Successfully!"
+                    } else if let error = error {
+                        self.statusMessage = "Error Recording Session: \(error.localizedDescription)"
+                    } else {
+                        self.statusMessage = "Failed to record session."
+                    }
+                }
+            }
+        }
 }
