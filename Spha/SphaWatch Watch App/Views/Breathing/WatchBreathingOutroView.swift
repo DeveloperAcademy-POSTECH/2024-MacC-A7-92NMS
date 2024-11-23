@@ -19,9 +19,9 @@ struct WatchBreathingOutroView: View {
                 .font(.caption)
                 .padding()
         }
-        .opacity(viewModel.opacity)  // Bind opacity from ViewModel
+        .opacity(viewModel.opacity)
         .onAppear {
-            viewModel.startFadeOutProcess(router: router)  // Trigger ViewModel action on appear
+            viewModel.startFadeOutProcess(router: router)
         }
         .navigationBarBackButtonHidden(true)
     }
