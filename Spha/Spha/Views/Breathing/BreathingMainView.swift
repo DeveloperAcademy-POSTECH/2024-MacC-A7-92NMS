@@ -10,20 +10,19 @@ import SwiftUI
 struct BreathingMainView<BreathViewModel>: View where BreathViewModel: BreathingManager {
     @EnvironmentObject var router: RouterManager
     @ObservedObject private var viewModel: BreathViewModel
-    
+
     init(breathManager: BreathViewModel) {
         self.viewModel = breathManager
     }
-    
+
     var body: some View {
         VStack {
-            
-            MP4PlayerView(videoURLString: viewModel.videoName(for: viewModel.phaseText))
+            MP4PlayerView(videoURLString: BreathingPhase(rawValue: viewModel.phaseText)?.videoName ?? "start")
                 .frame(width: 300, height: 300)
                 .padding(.top, 164)
-            
+
             Spacer()
-            
+
             if viewModel.showTimer {
                 Text("\(viewModel.timerCount)")
                     .font(.title)
@@ -31,7 +30,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                     .padding(.bottom, 10)
                     .transition(.opacity)
             }
-            
+
             if viewModel.showText {
                 Text(viewModel.phaseText)
                     .customFont(.body_0)
@@ -47,7 +46,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                         .foregroundColor(.white)
                 }
             }
-            
+
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 8) {
                     ForEach(0..<3, id: \.self) { index in
@@ -69,6 +68,5 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                 router.push(view: .breathingOutroView)
             }
         }
-
     }
 }

@@ -8,90 +8,56 @@
 import Foundation
 import SwiftUI
 
-class BreathingMainViewModel: BreathingManager , ObservableObject {
-    @Published var phaseText: String = "마음청소를 시작할게요"
+@MainActor
+class BreathingMainViewModel: BreathingManager, ObservableObject {
+    @Published var phaseText: String = BreathingPhase.ready.rawValue
     @Published var showText: Bool = true
     @Published var timerCount: Int = 0
     @Published var showTimer: Bool = false
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
 
-    private var currentTimer: Timer?
-
     func startBreathingIntro() {
-        startPhase(phase: .ready, duration: 2, text: "마음청소를 시작할게요") {
-            self.startPhase(phase: .focus, duration: 1, text: "호흡에 집중하세요") {
-                self.startBreathingCycle()
-            }
+        Task {
+            await startPhase(phase: .ready, duration: 2)
+            await startPhase(phase: .focus, duration: 1)
+            await startBreathingCycle()
         }
     }
 
-
-    func startPhase(phase: BreathingPhase, duration: Int, text: String, completion: @escaping () -> Void) {
-        phaseText = text
+    func startPhase(phase: BreathingPhase, duration: Int) async {
+        phaseText = phase.rawValue
         timerCount = duration
         showText = true
+        showTimer = true
 
-        currentTimer?.invalidate()
-        currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.timerCount -= 1
-            if self.timerCount <= 0 {
-                timer.invalidate()
-                completion()
+        while timerCount > 0 {
+            do {
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                timerCount -= 1
+            } catch {
+                print("Task was interrupted: \(error)")
+                break
             }
         }
-    }
 
+        showTimer = false
+    }
 
     func startBreathingCycle() {
-        activeCircle = 0
-        repeatCycle(times: 3) {
-            self.isBreathingCompleted = true
-        }
-    }
-
-    private func repeatCycle(times: Int, completion: @escaping () -> Void) {
-        guard times > 0 else {
-            completion()
-            return
-        }
-        activeCircle += 1
-        startBreathingPhase {
-            self.repeatCycle(times: times - 1, completion: completion)
-        }
-    }
-
-    func startBreathingPhase(completion: @escaping () -> Void) {
-        showTimer = true
-        startPhase(phase: .inhale, duration: 5, text: "숨을 들이 쉬세요") {
-            self.startPhase(phase: .hold1, duration: 5, text: "잠시 멈추세요") {
-                self.startPhase(phase: .exhale, duration: 5, text: "숨을 내쉬세요") {
-                    self.startPhase(phase: .hold2, duration: 5, text: "한번 더 멈추세요") {
-                        completion()
-                    }
-                }
+        Task {
+            for cycle in 1...3 {
+                activeCircle = cycle
+                await startBreathingPhase()
             }
+            isBreathingCompleted = true
         }
     }
 
-    func videoName(for text: String) -> String {
-        switch text {
-        case "마음청소를 시작할게요":
-            return "start"
-        case "호흡에 집중하세요":
-            return "pause"
-        case "숨을 들이 쉬세요":
-            return "inhale"
-        case "잠시 멈추세요":
-            return "hold1"
-        case "숨을 내쉬세요":
-            return "exhale"
-        case "한번 더 멈추세요":
-            return "hold2"
-        case "clean":
-            return "clean"
-        default:
-            return "start"
-        }
+    func startBreathingPhase() async {
+        await startPhase(phase: .inhale, duration: 5)
+        await startPhase(phase: .hold1, duration: 5)
+        await startPhase(phase: .exhale, duration: 5)
+        await startPhase(phase: .hold2, duration: 5)
     }
 }

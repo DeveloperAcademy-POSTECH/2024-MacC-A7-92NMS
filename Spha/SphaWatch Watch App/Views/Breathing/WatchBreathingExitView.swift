@@ -15,8 +15,7 @@ struct WatchBreathingExitView: View {
             Button(action: {
                 // 버튼 클릭 시 이전 WatchBreathingSelectionView로 이동
                 router.pop()
-                
-                
+                 
             }) {
                 Text("종료")
                     .font(.caption2)

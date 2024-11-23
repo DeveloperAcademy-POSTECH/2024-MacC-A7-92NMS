@@ -5,7 +5,6 @@
 //  Created by 추서연 on 11/21/24.
 //
 import Foundation
-import SwiftUI
 
 class WatchBreathingMainViewModel: BreathingManager {
     @Published var phaseText: String = "마음청소를 시작할게요"
@@ -15,33 +14,15 @@ class WatchBreathingMainViewModel: BreathingManager {
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
 
-    private var currentTimer: Timer?
     private var hapticManager = HapticManager()
 
     func startBreathingIntro() {
-        startPhase(phase: .ready, duration: 2, text: "마음청소를 시작할게요") {
-            self.startPhase(phase: .focus, duration: 1, text: "호흡에 집중하세요") {
-                self.startBreathingCycle()
-            }
+        Task {
+            await startPhase(phase: .ready, duration: 2)
+            await startPhase(phase: .focus, duration: 1)
+            startBreathingCycle()
         }
     }
-
-
-    func startPhase(phase: BreathingPhase, duration: Int, text: String, completion: @escaping () -> Void) {
-        phaseText = text
-        timerCount = duration
-        showText = true
-
-        currentTimer?.invalidate()
-        currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            self.timerCount -= 1
-            if self.timerCount <= 0 {
-                timer.invalidate()
-                completion()
-            }
-        }
-    }
-
 
     func startBreathingCycle() {
         activeCircle = 0
@@ -63,40 +44,44 @@ class WatchBreathingMainViewModel: BreathingManager {
 
     func startBreathingPhase(completion: @escaping () -> Void) {
         showTimer = true
-        self.hapticManager.playInhaleHaptic()
-        startPhase(phase: .inhale, duration: 5, text: "숨을 들이 쉬세요") {
-            self.hapticManager.playHoldHaptic()
-            self.startPhase(phase: .hold1, duration: 5, text: "잠시 멈추세요") {
-                self.hapticManager.playExhaleHaptic()
-                self.startPhase(phase: .exhale, duration: 5, text: "숨을 내쉬세요") {
-                    self.hapticManager.playHoldHaptic()
-                    self.startPhase(phase: .hold2, duration: 5, text: "한번 더 멈추세요") {
-                        
-                        completion()
-                    }
-                }
-            }
+        
+        hapticManager.playInhaleHaptic()
+        Task {
+            await startPhase(phase: .inhale, duration: 5)
+            hapticManager.playHoldHaptic()
+            await startPhase(phase: .hold1, duration: 5)
+            hapticManager.playExhaleHaptic()
+            await startPhase(phase: .exhale, duration: 5)
+            hapticManager.playHoldHaptic()
+            await startPhase(phase: .hold2, duration: 5)
+            hapticManager.stopHaptic()
+            completion()
         }
     }
 
     func videoName(for text: String) -> String {
-        switch text {
-        case "마음청소를 시작할게요":
+        guard let phase = BreathingPhase(rawValue: text) else {
             return "start"
-        case "호흡에 집중하세요":
-            return "pause"
-        case "숨을 들이 쉬세요":
-            return "inhale"
-        case "잠시 멈추세요":
-            return "hold1"
-        case "숨을 내쉬세요":
-            return "exhale"
-        case "한번 더 멈추세요":
-            return "hold2"
-        case "clean":
-            return "clean"
-        default:
-            return "start"
+        }
+        return phase.videoName
+    }
+
+    func startPhase(phase: BreathingPhase, duration: Int) async {
+        phaseText = phase.rawValue
+        showText = true
+        timerCount = duration
+        
+        for _ in 0..<duration {
+            do {
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                timerCount -= 1
+            } catch {
+                print("Error while sleeping: \(error)")
+            }
+        }
+        
+        if timerCount <= 0 {
+            
         }
     }
 }

@@ -14,6 +14,7 @@ class RouterManager: ObservableObject {
     // 추가: 상태 업데이트를 위한 Notification 이름
     static let backToMainNotification = Notification.Name("backToMainNotification")
     
+    @MainActor 
     @ViewBuilder func view(for route: SphaView) -> some View {
         switch route {
         case .mainView:
