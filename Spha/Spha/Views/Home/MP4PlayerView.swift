@@ -32,8 +32,9 @@ struct MP4PlayerLayerView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: PlayerUIView, context: Context) {
-        // 업데이트 시 동작 추가 가능
-    }
+            // URL이 변경되었을 때 플레이어 업데이트
+        uiView.updateVideoURL(videoURL)
+        }
 }
 
 class PlayerUIView: UIView {
@@ -50,8 +51,9 @@ class PlayerUIView: UIView {
     }
 
     private func setupPlayer(videoURL: URL) {
-        player = AVPlayer(url: videoURL)
-        playerLayer = AVPlayerLayer(player: player)
+        playerLayer?.removeFromSuperlayer()
+                player = AVPlayer(url: videoURL)
+                playerLayer = AVPlayerLayer(player: player)
 
         if let playerLayer = playerLayer {
             playerLayer.videoGravity = .resizeAspectFill
@@ -69,6 +71,12 @@ class PlayerUIView: UIView {
             object: player?.currentItem
         )
     }
+    func updateVideoURL(_ newURL: URL) {
+            guard player?.currentItem?.asset != AVURLAsset(url: newURL) else {
+                return // 동일한 URL이면 무시
+            }
+            setupPlayer(videoURL: newURL)
+        }
 
     @objc private func playerDidFinishPlaying() {
         player?.seek(to: .zero)

@@ -22,7 +22,7 @@ struct BreathingGuide: View {
             
             Spacer()
             
-            MP4PlayerView(videoURLString: FilePathHelper.full)
+            MP4PlayerView(videoURLString: "full")
                 .frame(width: 180, height: 180)
             
             Spacer()

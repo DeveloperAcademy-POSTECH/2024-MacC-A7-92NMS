@@ -20,15 +20,10 @@ struct WatchBreathingOutroView: View {
             Text("마음이 깨끗해졌어요")
                 .font(.caption)
                 .padding()
-            
-            Text(viewModel.statusMessage) // ViewModel의 상태 메시지 표시
-                .font(.subheadline)
-                .padding()
         }
         .opacity(opacity)
         .onAppear {
-            // 오늘의 Mindful 세션 조회 후 개수 +1
-            viewModel.fetchTodaySessions()
+            //TODO: 오늘의 Mindful 세션 조회 후 개수 +1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation(.easeOut(duration: 1.0)) {
