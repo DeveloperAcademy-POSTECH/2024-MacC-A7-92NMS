@@ -121,20 +121,17 @@ struct MainView: View {
             // BreathingIntroView 오버레이 뷰
             if viewModel.showBreathingIntro {
                 VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
-                    Text("BreathingIntroView")
                 }
+                .navigationBarBackButtonHidden()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.blue)
+                .background(Color.black)
                 .opacity(viewModel.breathingIntroOpacity) // 페이드인 효과
                 .onAppear {
                     withAnimation(.easeIn(duration: 1.0)) {
                         viewModel.breathingIntroOpacity = 1.0
                     }
                     // 일정 시간 후 다른 화면으로 이동
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                         router.push(view: .breathingMainView)
                     }
                 }
