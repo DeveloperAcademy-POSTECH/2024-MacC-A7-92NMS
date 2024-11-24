@@ -23,13 +23,6 @@
 		339C2D2C2CEB961200F1EE00 /* MindfulSessionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C2D2B2CEB961200F1EE00 /* MindfulSessionTestView.swift */; };
 		33ADDFF02CEDC68400513149 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFEF2CEDC68400513149 /* Color+.swift */; };
 		33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ADDFF12CEDC6AE00513149 /* Font+.swift */; };
-
-		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
-		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
-		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
-		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
-		460BCEE12CEE70B00018927C /* WatchBreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */; };
-
 		33BA0ACC2CEE1F2300F3B570 /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */; };
 		33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */; };
 		33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */; };
@@ -38,6 +31,7 @@
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
 		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
 		33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */; };
+		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
 		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
@@ -152,11 +146,6 @@
 		33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoSB.ttf; sourceTree = "<group>"; };
 		33ADDFEF2CEDC68400513149 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		33ADDFF12CEDC6AE00513149 /* Font+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
-		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
-		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
-		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
-		460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainViewModel.swift; sourceTree = "<group>"; };
-		460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainViewModel.swift; sourceTree = "<group>"; };
 		33BA0ACB2CEE1F2300F3B570 /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
 		33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHRVAuth.swift; sourceTree = "<group>"; };
 		33BA0AD52CEF1E4E00F3B570 /* OnboardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStartView.swift; sourceTree = "<group>"; };
@@ -165,6 +154,8 @@
 		33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGuide.swift; sourceTree = "<group>"; };
 		33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuth.swift; sourceTree = "<group>"; };
 		33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionAuth.swift; sourceTree = "<group>"; };
+		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
+		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
 		460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainViewModel.swift; sourceTree = "<group>"; };
 		460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainViewModel.swift; sourceTree = "<group>"; };

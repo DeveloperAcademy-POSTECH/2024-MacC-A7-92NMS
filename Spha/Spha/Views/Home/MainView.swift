@@ -16,7 +16,7 @@ struct MainView: View {
                     Spacer()
                     
                     Button {
-                        
+                        router.push(view: .dailyStatisticsView)
                     } label: {
                         Image(systemName: "chart.bar.fill")
                             .resizable()
@@ -25,6 +25,7 @@ struct MainView: View {
                     }
                     .padding(.trailing, 8)
                 }
+                .border(Color.yellow)
                 .padding(.top, 16)
                 .padding(.horizontal, 16)
                 
@@ -36,7 +37,7 @@ struct MainView: View {
                         .foregroundStyle(.white)
                     
                     Button {
-                        
+                        router.push(view: .mainInfoView)
                     } label: {
                         Image(systemName: "info.circle")
                             .resizable()
@@ -100,6 +101,7 @@ struct MainView: View {
                             .foregroundStyle(.gray)
                     }
                 }
+                .padding(.bottom, 16)
                 
                 Spacer()
                 
@@ -107,7 +109,7 @@ struct MainView: View {
                     viewModel.startBreathingIntro()
                 } label: {
                     // 임시 버튼 라벨
-                    Image(systemName: "archivebox.circle.fill")
+                    Image("mainButton")
                         .resizable()
                         .frame(width: 80, height: 80)
                         .foregroundStyle(.gray)
@@ -143,6 +145,10 @@ struct MainView: View {
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
                 viewModel.resetBreathingIntro()
             }
+            
+            
+            viewModel.fetchTodaySessions()
+            viewModel.fetchTodayHRVData()
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)

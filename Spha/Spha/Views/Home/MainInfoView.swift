@@ -56,9 +56,10 @@ struct MainInfoView: View {
                 Spacer()
                 
                 Button(action: {
-                    
+                    router.backToMain()
                 }, label: {
                     Text("확인")
+                        .foregroundStyle(.blue)
                         .bold()
                 })
             }

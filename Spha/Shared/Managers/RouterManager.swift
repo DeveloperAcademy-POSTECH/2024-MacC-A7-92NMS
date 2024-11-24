@@ -30,6 +30,10 @@ class RouterManager: ObservableObject {
             let hrvService = HealthKitManager()
             let mindfulService = MindfulSessionManager()
             OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService)
+        case .mainInfoView:
+            MainInfoView()
+        case .dailyStatisticsView:
+            DailyStatisticsView()
         }
     }
     
@@ -55,5 +59,7 @@ enum SphaView: Hashable {
     case breathingOutroView
     case onboardingStartView
     case onboardingView
+    case mainInfoView
+    case dailyStatisticsView
 }
 
