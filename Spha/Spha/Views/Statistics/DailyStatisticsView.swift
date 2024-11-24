@@ -9,16 +9,16 @@ import SwiftUI
 import Charts
 
 struct DailyStatisticsView: View {
-    @StateObject private var viewModel = DailyStatisticsViewModel()
+    @StateObject private var viewModel = DailyStatisticsViewModel(HealthKitManager())
     @State private var selectedDate: Date? = nil
     
     var body: some View {
-       VStack {
+        VStack {
             WeeklyCalendarHeaderView(viewModel: viewModel)
-            DailyChartsView()
+            DailyChartsView(viewModel: viewModel)
             Spacer()
-       }
-       .background(Color.black)
+        }
+        .background(Color.black)
     }
     
 }
@@ -84,18 +84,20 @@ private struct DayItemView: View {
 
 // MARK: - 일일 통계 차트
 private struct DailyChartsView: View {
+    @ObservedObject var viewModel: DailyStatisticsViewModel
+    
     var body: some View {
         VStack {
-            DailyPieChartView()
+            DailyPieChartView(viewModel: viewModel)
             Divider().background(.white)
-            DailyStressTrendView()
+            DailyStressTrendView(viewModel: viewModel)
         }
     }
 }
 
 private struct DailyPieChartView: View {
-    let recommendCleaningCount = 3.0
-    let actualCleaningCount = 1.0
+    @StateObject private var mainViewModel = MainViewModel()
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
         Text("일일 마음 청소 통계")
@@ -103,16 +105,19 @@ private struct DailyPieChartView: View {
             .padding(.top, 36)
         
         ZStack {
+            MP4PlayerView(videoURLString: mainViewModel.remainingCleaningCount.assetName)
+                .frame(width: 90, height: 90)
+            
             Circle()
                 .stroke(lineWidth: 3.0)
                 .foregroundStyle(Color.gray1)
             
             Circle()
-                .trim(from: 0.0, to: (actualCleaningCount/recommendCleaningCount))
+                .trim(from: 0.0, to: viewModel.breathingRatio)
                 .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(.white)
                 .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear)
+                .animation(.linear, value: viewModel.breathingRatio)
         }
         .padding(.vertical, 20)
         
@@ -120,7 +125,7 @@ private struct DailyPieChartView: View {
         HStack{
             VStack{
                 HStack{
-                    Text("0")
+                    Text("\(viewModel.recommendedCount)")
                         .customFont(.title_0)
                         .foregroundStyle(.white)
                         .bold()
@@ -143,7 +148,7 @@ private struct DailyPieChartView: View {
             
             VStack{
                 HStack{
-                    Text("0")
+                    Text("\(viewModel.completedCount)")
                         .customFont(.title_0)
                         .foregroundStyle(.white)
                         .bold()
@@ -167,58 +172,77 @@ private struct DailyPieChartView: View {
 
 // MARK: - 일일 스트레스 추이 그래프
 private struct DailyStressTrendView: View {
+    @ObservedObject var viewModel: DailyStatisticsViewModel
+    
     var body: some View {
-        HStack {
-            Text("일일 스트레스 추이")
-            Spacer()
-            Text("일일 과부하 수 1회")
-        }
-        .foregroundStyle(.white)
-        .padding()
-        
-        Chart {
-            /// y축 수평 기준선
-            ForEach(StressLevel.allCases, id: \.self) { level in
-                RuleMark(
-                    y: .value("Level", level.numberValue)
-                )
-                .foregroundStyle(Color.gray0)
+        VStack {
+            HStack {
+                Text("일일 스트레스 추이")
+                Spacer()
+                Text("일일 과부하 수 \(viewModel.extremeCount)회")
             }
+            .foregroundStyle(.white)
+            .padding()
             
-            /// x축 수직 시간 기준선
-            ForEach(Array(stride(from: 0, through: 24, by: 6)), id: \.self) { hour in
-                RuleMark(
-                    x: .value("Hour", Double(hour))
-                )
-                .foregroundStyle(Color.gray0)
-                .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-            }
-        }
-        .chartYScale(domain: -0.5...3)
-        .chartXScale(domain: -0.5...26.5)
-        /// y축 설정
-        .chartYAxis {
-            AxisMarks(position: .leading,
-                      values: StressLevel.allCases.map { Double($0.numberValue) }) { value in
-                AxisValueLabel {
-                    Text(StressLevel.allCases[value.index].title)
-                        .font(.system(size: 12))
-                        .foregroundStyle(Color.gray0)
+            Chart {
+                /// y축 수평 기준선
+                ForEach(StressLevel.allCases, id: \.self) { level in
+                    RuleMark(
+                        y: .value("Level", level.numberValue)
+                    )
+                    .foregroundStyle(Color.gray0)
+                }
+                
+                /// x축 수직 시간 기준선
+                ForEach(Array(stride(from: 0, through: 24, by: 6)), id: \.self) { hour in
+                    RuleMark(
+                        x: .value("Hour", Double(hour))
+                    )
+                    .foregroundStyle(Color.gray0)
+                    .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                }
+                
+                /// 스트레스 레벨 데이터 라인과 포인트
+                ForEach(viewModel.stressTrendData.indices, id: \.self) { index in
+                    LineMark(
+                        x: .value("Time", Calendar.current.component(.hour, from: viewModel.stressTrendData[index].0)),
+                        y: .value("Stress", viewModel.stressTrendData[index].1.numberValue)
+                    )
+                    .foregroundStyle(.white)
+                    
+                    PointMark(
+                        x: .value("Time", Calendar.current.component(.hour, from: viewModel.stressTrendData[index].0)),
+                        y: .value("Stress", viewModel.stressTrendData[index].1.numberValue)
+                    )
+                    .foregroundStyle(.white)
                 }
             }
-        }
-        /// x축 설정
-        .chartXAxis {
-            AxisMarks(values: .stride(by: 6)) { value in
-                AxisValueLabel(anchor: .center) {
-                    Text(String(format: "%02d:00", value.index * 6))
-                        .font(.system(size: 8))
-                        .foregroundStyle(Color.gray0)
+            .chartYScale(domain: -0.5...3.5)
+            .chartXScale(domain: -0.5...24.5)
+            /// y축 설정
+            .chartYAxis {
+                AxisMarks(position: .leading,
+                          values: StressLevel.allCases.map { Double($0.numberValue) }) { value in
+                    AxisValueLabel {
+                        Text(StressLevel.allCases[value.index].title)
+                            .font(.system(size: 12))
+                            .foregroundStyle(Color.gray0)
+                    }
                 }
             }
+            /// x축 설정
+            .chartXAxis {
+                AxisMarks(values: .stride(by: 6)) { value in
+                    AxisValueLabel(anchor: .center) {
+                        Text(String(format: "%02d:00", value.index * 6))
+                            .font(.system(size: 8))
+                            .foregroundStyle(Color.gray0)
+                    }
+                }
+            }
+            .frame(height: 200)
+            .padding()
         }
-        .frame(height: 200)
-        .padding()
     }
 }
 
