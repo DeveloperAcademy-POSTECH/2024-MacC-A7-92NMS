@@ -33,7 +33,6 @@ struct OnboardingContainerView: View {
                         .animation(.easeInOut, value: currentPage)
                 }
             }
-            .border(Color.red)
             .padding(.bottom, 20)
             
             // TabView

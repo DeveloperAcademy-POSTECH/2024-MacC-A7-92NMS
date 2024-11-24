@@ -3,6 +3,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
     @StateObject private var viewModel = MainViewModel()
+    @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
     
     var body: some View {
         ZStack {
@@ -117,6 +118,18 @@ struct MainView: View {
                 
                 Spacer()
                 
+            }
+            
+            // OnboardingStartView 오버레이
+            if isFirstLaunch {
+                OnboardingStartView()
+                    .onDisappear {
+                        // 온보딩 완료 후 처리
+                        isFirstLaunch = false
+                        UserDefaults.standard.set(true, forKey: "hasLaunchedBefore") // 최초 실행 여부 저장
+                    }
+                    .transition(.opacity) // 페이드 효과
+                    .zIndex(1) // 항상 최상위에 위치
             }
             
             // BreathingIntroView 오버레이 뷰
