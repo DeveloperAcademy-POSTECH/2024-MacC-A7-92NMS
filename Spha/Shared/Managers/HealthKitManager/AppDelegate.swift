@@ -13,10 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var healthKitManager = HealthKitManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // 알림 권한 요청
-        healthKitManager.requestNotificationAuthorization()
-        // HealthKit 권한 요청
-        healthKitManager.requestAuthorization { _ in        }
         
         // MARK: - UNUserNotificationCenterDelegate 설정 [테스트용!]
         UNUserNotificationCenter.current().delegate = self
