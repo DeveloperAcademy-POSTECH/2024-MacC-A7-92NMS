@@ -25,7 +25,6 @@ struct MainView: View {
                     }
                     .padding(.trailing, 8)
                 }
-                .border(Color.yellow)
                 .padding(.top, 16)
                 .padding(.horizontal, 16)
                 
