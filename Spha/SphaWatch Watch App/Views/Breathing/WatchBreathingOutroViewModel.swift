@@ -18,10 +18,11 @@ class WatchBreathingOutroViewModel: ObservableObject {
     //MindfulSession 세션 저장
     func recordTestMindfulSession() {
         let startDate = Date()
-        let endDate = Calendar.current.date(byAdding: .minute, value: 10, to: startDate)!
+        let endDate = Calendar.current.date(byAdding: .minute, value: 1, to: startDate)!
 
-        mindfulSessionManager.recordMindfulSession(startDate: startDate, endDate: endDate) { success, error in
+        mindfulSessionManager.recordMindfulSession(startDate: startDate, endDate: endDate) { [weak self] success, error in
             DispatchQueue.main.async {
+                guard let self = self else { return }
                 if success {
                     self.statusMessage = "Test Mindful Session Recorded Successfully!"
                 } else if let error = error {
@@ -32,6 +33,7 @@ class WatchBreathingOutroViewModel: ObservableObject {
             }
         }
     }
+
 
     func startFadeOutProcess(router: WatchRouterManager) {
         recordTestMindfulSession()
