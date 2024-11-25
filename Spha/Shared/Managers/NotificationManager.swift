@@ -92,10 +92,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     ) {
         switch response.actionIdentifier {
         case "OPEN_APP":
-            // TODO: WatchBreathingMainView로 이동하도록
-            #if os(watchOS)
-            WKApplication.shared().activate()
-            #endif
+        #if os(watchOS)
+        // TODO: WatchApp 진입
+        #endif
         case "CANCEL":
             print("알림 취소")
         default:
