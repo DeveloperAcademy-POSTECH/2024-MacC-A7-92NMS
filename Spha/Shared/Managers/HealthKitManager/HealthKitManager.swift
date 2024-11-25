@@ -25,7 +25,6 @@ class HealthKitManager: HealthKitInterface {
     let read = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
     let share = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
     
-    
     // 권한 요청 메소드
     func requestAuthorization(completion: @escaping (Bool) -> Void) {
         if !HKHealthStore.isHealthDataAvailable() {return} // HealthKit 사용 가능인지 체크
@@ -34,12 +33,12 @@ class HealthKitManager: HealthKitInterface {
                 print(error.debugDescription)
             }else{
                 if success {
+                    completion(success)
                     print("권한이 허락되었습니다")
                     // HRV 데이터 백그라운드 전달 활성화
                     self.enableBackgroundHRVDelivery()
                     // HRV 데이터 변경 관찰 시작
                     self.monitorHRVUpdates()
-                    completion(success)
                 } else {
                     print("권한이 없습니다")
                 }

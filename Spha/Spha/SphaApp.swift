@@ -17,6 +17,7 @@ struct SphaApp: App {
         WindowGroup {
             NavigationStack(path: $router.path){
                  OnboardingStartView()
+                 // MainInfoView()
                     .navigationDestination(for: SphaView.self){ sphaView in
                         router.view(for: sphaView)
                     }
