@@ -75,6 +75,7 @@ struct MainView: View {
                                 .foregroundStyle(.white)
                                 .bold()
                         }
+                        .padding(.bottom, 8)
                         
                         Text("권장 청소 횟수")
                             .customFont(.caption_1)
@@ -98,6 +99,8 @@ struct MainView: View {
                                 .foregroundStyle(.white)
                                 .bold()
                         }
+                        .padding(.bottom, 8)
+                        
                         Text("실행한 청소 횟수")
                             .customFont(.caption_1)
                             .foregroundStyle(.gray)
