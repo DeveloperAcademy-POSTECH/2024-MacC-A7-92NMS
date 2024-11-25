@@ -1,24 +1,29 @@
 //
 //  NotificationManager.swift
-//  SphaWatch Watch App
+//  Spha
 //
-//  Created by 지영 on 11/12/24.
+//  Created by 지영 on 11/25/24.
 //
 
-import WatchKit
+import Foundation
 import UserNotifications
+#if os(watchOS)
+import WatchKit
+#endif
 
 protocol NotificationInterface {
-    func handleStress()
+    func sendBreathingAlert()
 }
 
 class NotificationManager: NSObject, NotificationInterface {
+    static let shared = NotificationManager()
     private let notificationCenter = UNUserNotificationCenter.current()
     
-    override init() {
+    private override init() {
         super.init()
         setupNotifications()
     }
+
     
     private func setupNotifications() {
         let openAppAction = UNNotificationAction(
@@ -57,14 +62,16 @@ class NotificationManager: NSObject, NotificationInterface {
         notificationCenter.delegate = self
     }
     
-    func handleStress() {
+    func sendBreathingAlert() {
         let content = UNMutableNotificationContent()
         content.title = "Spha"
-        content.body = "마음이 더러워 졌어요\n청소하러 가요"
+        content.body = "마음에 먼지가 쌓였어요\n청소하러 가요"
         content.sound = .default
         content.categoryIdentifier = "HRV_ALERT"  // 카테고리 지정
         
+        #if os(watchOS)
         WKInterfaceDevice.current().play(.notification)
+        #endif
         
         let request = UNNotificationRequest(
             identifier: UUID().uuidString,
@@ -76,7 +83,7 @@ class NotificationManager: NSObject, NotificationInterface {
     }
 }
 
-// 알림 액션 처리를 위한 델리게이트 확장
+// MARK: - UNUserNotificationCenterDelegate
 extension NotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
@@ -85,13 +92,15 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     ) {
         switch response.actionIdentifier {
         case "OPEN_APP":
-            print("앱 실행")
-            // TODO: 앱 실행 관련 추가 로직 구현
+        #if os(watchOS)
+        // TODO: WatchApp 진입
+        #endif
         case "CANCEL":
             print("알림 취소")
         default:
             break
         }
+        
         
         completionHandler()
     }
@@ -105,3 +114,4 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         completionHandler([.banner, .sound])
     }
 }
+
