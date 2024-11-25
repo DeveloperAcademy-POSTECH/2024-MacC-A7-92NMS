@@ -12,6 +12,7 @@ import WatchKit
 #endif
 
 protocol NotificationInterface {
+    func setupNotifications(completion: @escaping (Bool, Error?) -> Void)
     func sendBreathingAlert()
 }
 
@@ -21,11 +22,10 @@ class NotificationManager: NSObject, NotificationInterface {
     
     private override init() {
         super.init()
-        setupNotifications()
+        // setupNotifications()
     }
 
-    
-    private func setupNotifications() {
+    func setupNotifications(completion: @escaping (Bool, Error?) -> Void) {
         let openAppAction = UNNotificationAction(
             identifier: "OPEN_APP",
             title: "마음 청소하러 가기",
@@ -56,6 +56,7 @@ class NotificationManager: NSObject, NotificationInterface {
             } else if let error = error{
                 print("Error: \(error.localizedDescription))")
             }
+            completion(granted, error)
         }
         
         // 델리게이트 설정
@@ -105,13 +106,13 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
-    // 앱이 포그라운드 상태일 때 알림을 표시하기 위한 메서드
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-    ) {
-        completionHandler([.banner, .sound])
-    }
+//    // 앱이 포그라운드 상태일 때 알림을 표시하기 위한 메서드
+//    func userNotificationCenter(
+//        _ center: UNUserNotificationCenter,
+//        willPresent notification: UNNotification,
+//        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+//    ) {
+//        completionHandler([.banner, .sound])
+//    }
 }
 

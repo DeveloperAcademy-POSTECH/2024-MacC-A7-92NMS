@@ -31,7 +31,7 @@ class RouterManager: ObservableObject {
         case .onboardingView:
             let hrvService = HealthKitManager()
             let mindfulService = MindfulSessionManager()
-            OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService)
+            OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService, notificationManager: NotificationManager.shared)
                 .navigationBarHidden(true)
         case .mainInfoView:
             MainInfoView()
