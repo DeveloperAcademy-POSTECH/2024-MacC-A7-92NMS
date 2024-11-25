@@ -32,7 +32,7 @@ struct WatchMainStatusView: View {
                     }
                     
                     Text("권장 청소 횟수")
-                        .customFont(.caption_2)
+                        .font(.system(size: 10))
                         .foregroundStyle(.gray)
                 }
                 
@@ -54,7 +54,7 @@ struct WatchMainStatusView: View {
                             .bold()
                     }
                     Text("실행한 청소 횟수")
-                        .customFont(.caption_2)
+                        .font(.system(size: 10))
                         .foregroundStyle(.gray)
                 }
             }
