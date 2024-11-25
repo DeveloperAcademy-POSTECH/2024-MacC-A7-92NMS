@@ -33,14 +33,14 @@ class MainViewModel: ObservableObject {
     }
     
     // 이용하는 서비스들
-    let HRVService = HealthKitManager()
-    let MindfulService = MindfulSessionManager()
+    let healthKitManager = HealthKitManager()
+    let mindfulSessionManager = MindfulSessionManager()
 
     let stressSdnnValue: Double = 40
     
     // DailyHRVData 요청
     func fetchTodayHRVData() {
-        HRVService.fetchDailyHRV(for: Date()) { samples, error in
+        healthKitManager.fetchDailyHRV(for: Date()) { samples, error in
             if let error = error {
                 print("Error fetching daily HRV data: \(error.localizedDescription)")
             } else if let samples = samples {
@@ -66,7 +66,7 @@ class MainViewModel: ObservableObject {
     
     // DailyMindfulSession 요청
     func fetchTodaySessions() {
-        MindfulService.fetchMindfulSessions(for: Date()) { sessions, error in
+        mindfulSessionManager.fetchMindfulSessions(for: Date()) { sessions, error in
             if let error = error {
                 print("Error fetching today's sessions: \(error.localizedDescription)")
             } else if let sessions = sessions {
