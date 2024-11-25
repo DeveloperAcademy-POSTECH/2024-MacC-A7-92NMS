@@ -7,7 +7,6 @@ struct MainView: View {
     @State private var introOpacity = 0.0
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
     
-    
     var body: some View {
         ZStack {
             // 그라데이션 배경
@@ -148,12 +147,17 @@ struct MainView: View {
                 viewModel.resetBreathingIntro()
             }
             
-            
-            viewModel.fetchTodaySessions()
-            viewModel.fetchTodayHRVData()
+            if !isFirstLaunch {
+                viewModel.fetchTodaySessions()
+                viewModel.fetchTodayHRVData()
+            }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)
+        }
+        .onChange(of: self.isFirstLaunch) { oldValue, newValue in
+            viewModel.fetchTodaySessions()
+            viewModel.fetchTodayHRVData()
         }
     }
     

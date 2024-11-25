@@ -34,6 +34,7 @@ struct OnboardingContainerView: View {
                 }
             }
             .padding(.bottom, 20)
+            .padding(.top, 16)
             
             // TabView
             TabView(selection: $currentPage) {
@@ -42,7 +43,6 @@ struct OnboardingContainerView: View {
                 WatchGuide().tag(2)
                 NotificationAuth().tag(3)
                 HealthKitHRVAuth().tag(4)
-                MindfulSessionAuth().tag(5)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
