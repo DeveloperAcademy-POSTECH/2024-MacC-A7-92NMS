@@ -102,7 +102,6 @@ private struct DailyPieChartView: View {
     
     var body: some View {
         Text("일일 마음 청소 통계")
-            .foregroundStyle(.white)
             .padding(.top, 36)
         
         ZStack {
@@ -127,12 +126,10 @@ private struct DailyPieChartView: View {
                 HStack{
                     Text("\(viewModel.recommendedCount)")
                         .customFont(.title_0)
-                        .foregroundStyle(.white)
                         .bold()
                     
                     Text("회")
                         .customFont(.caption_0)
-                        .foregroundStyle(.white)
                         .bold()
                 }
                 
@@ -150,12 +147,10 @@ private struct DailyPieChartView: View {
                 HStack{
                     Text("\(viewModel.completedCount)")
                         .customFont(.title_0)
-                        .foregroundStyle(.white)
                         .bold()
                     
                     Text("회")
                         .customFont(.caption_0)
-                        .foregroundStyle(.white)
                         .bold()
                 }
                 Text("실행한 청소 횟수")
@@ -178,7 +173,6 @@ private struct DailyStressTrendView: View {
                 Spacer()
                 Text("일일 과부하 수 \(viewModel.extremeCount)회")
             }
-            .foregroundStyle(.white)
             .padding()
             
             Chart {
@@ -205,13 +199,11 @@ private struct DailyStressTrendView: View {
                         x: .value("Time", Calendar.current.component(.hour, from: viewModel.stressTrendData[index].0)),
                         y: .value("Stress", viewModel.stressTrendData[index].1.numberValue)
                     )
-                    .foregroundStyle(.white)
                     
                     PointMark(
                         x: .value("Time", Calendar.current.component(.hour, from: viewModel.stressTrendData[index].0)),
                         y: .value("Stress", viewModel.stressTrendData[index].1.numberValue)
                     )
-                    .foregroundStyle(.white)
                 }
             }
             .chartYScale(domain: -0.5...3.5)
