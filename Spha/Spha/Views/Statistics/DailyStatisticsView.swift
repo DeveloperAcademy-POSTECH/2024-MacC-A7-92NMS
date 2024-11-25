@@ -68,11 +68,12 @@ private struct DayItemView: View {
     var body: some View {
         VStack(spacing: 0) {
             Text(date.dayString)
-                .font(.caption)
+                .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
                                     isSelected ? .white : .gray)
             
             Text(date.dayNumber)
+                .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
                                     isSelected ? .white : .white)
         }
