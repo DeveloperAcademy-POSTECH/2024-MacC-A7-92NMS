@@ -45,6 +45,10 @@ class HealthKitManager: HealthKitInterface {
                 completion(false, error)
             } else {
                 print("HealthKit authorization was \(success ? "successful" : "unsuccessful").")
+                // HRV 데이터 백그라운드 전달 활성화
+                self.enableBackgroundHRVDelivery()
+                // HRV 데이터 변경 관찰 시작
+                self.monitorHRVUpdates()
                 completion(success, nil)
             }
         }
