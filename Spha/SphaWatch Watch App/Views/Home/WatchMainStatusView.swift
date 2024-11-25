@@ -60,5 +60,9 @@ struct WatchMainStatusView: View {
             }
         
         }
+        .onAppear {
+                    // Fetch mindful sessions 호흡 실행 횟수
+                    viewModel.fetchTodaySessions()
+                }
     }
 }
