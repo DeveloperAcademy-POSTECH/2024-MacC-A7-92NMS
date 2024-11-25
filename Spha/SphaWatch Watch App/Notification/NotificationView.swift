@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct NotificationView: View {
-    let notiManager = NotificationManager()
+//    let notiManager = NotificationManager()
     
     var body: some View {
         VStack {
             Button("테스트 알림") {
-                notiManager.handleStress()
+                NotificationManager.shared.sendBreathingAlert()
             }
         }
     }

@@ -23,6 +23,7 @@ class NotificationManager: NSObject, NotificationInterface {
         super.init()
         setupNotifications()
     }
+
     
     private func setupNotifications() {
         let openAppAction = UNNotificationAction(
@@ -91,13 +92,15 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     ) {
         switch response.actionIdentifier {
         case "OPEN_APP":
-            print("앱 실행")
-            // TODO: 앱 실행 관련 추가 로직 구현
+            #if os(watchOS)
+            WKApplication.shared().activate()
+            #endif
         case "CANCEL":
             print("알림 취소")
         default:
             break
         }
+        
         
         completionHandler()
     }
