@@ -34,57 +34,65 @@ class MainViewModel: ObservableObject {
     }
     
     // 이용하는 서비스들
-    let HRVService = HealthKitManager()
-    let MindfulService = MindfulSessionManager()
+    let healthKitManager = HealthKitManager()
+    let mindfulSessionManager = MindfulSessionManager()
 
     let stressSdnnValue: Double = 40
     
     // DailyHRVData 요청
-    private func fetchTodayHRVData() {
-        HRVService.fetchDailyHRV(for: Date()) { samples, error in
+    func fetchTodayHRVData() {
+        healthKitManager.fetchDailyHRV(for: Date()) { samples, error in
             if let error = error {
                 print("Error fetching daily HRV data: \(error.localizedDescription)")
             } else if let samples = samples {
-                
                 var stressCount: Int = 0
-                
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
                     if sdnnValue > self.stressSdnnValue {
                         stressCount += 1
                     }
                 }
-                
-                self.recommendedCleaningCount = stressCount
-                
+                DispatchQueue.main.async {
+                    self.recommendedCleaningCount = stressCount
+                }
                 print("Successfully fetched today's HRV data.")
             } else {
+                DispatchQueue.main.async {
+                    self.recommendedCleaningCount = 0
+                }
                 print("No daily HRV data available.")
             }
         }
     }
     
     // DailyMindfulSession 요청
-    private func fetchTodaySessions() {
-        MindfulService.fetchMindfulSessions(for: Date()) { sessions, error in
-                if let error = error {
-                    print("Error fetching today's sessions: \(error.localizedDescription)")
-                } else if let sessions = sessions {
+    func fetchTodaySessions() {
+        mindfulSessionManager.fetchMindfulSessions(for: Date()) { sessions, error in
+            if let error = error {
+                print("Error fetching today's sessions: \(error.localizedDescription)")
+            } else if let sessions = sessions {
+                DispatchQueue.main.async {
                     self.actualCleaningCount = sessions.count
-                } else {
+                }
+            } else {
+                DispatchQueue.main.async {
                     self.actualCleaningCount = 0
-                    print("No sessions found for today.")
-                } 
+                }
+                print("No sessions found for today.")
+            }
         }
     }
     
     // BreathingIntroView 상태 초기화 및 페이드인
     func resetBreathingIntro() {
-        showBreathingIntro = false
-        breathingIntroOpacity = 0.0
+        DispatchQueue.main.async {
+            self.showBreathingIntro = false
+            self.breathingIntroOpacity = 0.0
+        }
     }
     
     // BreathingIntroView 시작
+
     func startBreathingIntro(router: RouterManager) {
             showBreathingIntro = true
             breathingIntroOpacity = 0.0            
@@ -96,5 +104,6 @@ class MainViewModel: ObservableObject {
                 router.push(view: .breathingMainView)
             }
         }
+
 
 }

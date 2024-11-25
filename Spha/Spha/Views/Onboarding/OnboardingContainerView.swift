@@ -13,7 +13,7 @@ struct OnboardingContainerView: View {
     @State private var isRequestingAuthorization = false
     @State private var authorizationCompleted = false
     
-    private let pageCount = 6
+    private let pageCount = 5
     private let hrvService: HealthKitInterface
     private let mindfulService: MindfulSessionInterface
     
@@ -54,20 +54,14 @@ struct OnboardingContainerView: View {
                 case 4:
                     isRequestingAuthorization = true // 비동기 요청 시작
                     DispatchQueue.global(qos: .userInitiated).async {
-                        hrvService.requestAuthorization { _ in
-                            DispatchQueue.main.async {
-                                currentPage += 1
-                                isRequestingAuthorization = false // 요청 완료
-                            }
-                        }
-                    }
-                case 5:
-                    isRequestingAuthorization = true // 비동기 요청 시작
-                    DispatchQueue.global(qos: .userInitiated).async {
-                        mindfulService.requestAuthorization { _ in
-                            DispatchQueue.main.async {
-                                self.router.backToMain()
-                                isRequestingAuthorization = false // 요청 완료
+                        hrvService.requestAuthorization { success, error  in
+                            if success {
+                                DispatchQueue.main.async {
+                                    self.router.backToMain()
+                                    isRequestingAuthorization = false // 요청 완료
+                                }
+                            } else {
+                                print("healthKit 권한 요청 실패")
                             }
                         }
                     }

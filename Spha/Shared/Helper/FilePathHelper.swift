@@ -22,11 +22,11 @@ class FilePathHelper {
     static let none = "none"
     
     // MARK: - Breathing File Name
-    static let exhale = "EXHALE"
-    static let full = "FULL"
-    static let hold1 = "HOLD_1"
-    static let hold2 = "HOLD_2"
-    static let inhale = "INHALE"
-    static let start = "START"
+    static let exhale = "exhale"
+    static let full = "full"
+    static let hold1 = "hold1"
+    static let hold2 = "hold2"
+    static let inhale = "inhale"
+    static let start = "start"
 
 }
