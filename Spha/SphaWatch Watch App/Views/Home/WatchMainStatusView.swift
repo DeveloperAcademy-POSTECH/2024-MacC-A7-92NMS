@@ -58,11 +58,12 @@ struct WatchMainStatusView: View {
                         .foregroundStyle(.gray)
                 }
             }
-        
+            
         }
         .onAppear {
-                    // Fetch mindful sessions 호흡 실행 횟수
-                    viewModel.fetchTodaySessions()
-                }
+            // Fetch mindful sessions 호흡 실행 횟수
+            viewModel.fetchTodayHRVData()
+            viewModel.fetchTodaySessions()
+        }
     }
 }

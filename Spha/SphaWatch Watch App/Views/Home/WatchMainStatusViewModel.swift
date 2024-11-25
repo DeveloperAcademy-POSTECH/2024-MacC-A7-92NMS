@@ -36,33 +36,34 @@ class WatchMainStatusViewModel: ObservableObject {
     let HRVService = HealthKitManager()
     let MindfulService = MindfulSessionManager()
 
-    let stressSdnnValue: Int = 40
+    let stressSdnnValue: Double = 40
     
     // DailyHRVData 요청
-    private func fetchTodayHRVData() {
+    func fetchTodayHRVData() {
         HRVService.fetchDailyHRV(for: Date()) { samples, error in
             if let error = error {
                 print("Error fetching daily HRV data: \(error.localizedDescription)")
             } else if let samples = samples {
                 
                 var stressCount: Int = 0
-                
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-//                    if sdnnValue > stressSdnnValue {
-//                        stressCount += 1
-//                    }
+                    if sdnnValue > self.stressSdnnValue {
+                        stressCount += 1
+                    }
                 }
-                
-                self.recommendedCleaningCount = stressCount
-                
+                DispatchQueue.main.async {
+                    self.recommendedCleaningCount = stressCount
+                }
                 print("Successfully fetched today's HRV data.")
             } else {
+                DispatchQueue.main.async {
+                    self.recommendedCleaningCount = 0
+                }
                 print("No daily HRV data available.")
             }
         }
     }
-    
     // DailyMindfulSession 요청
     func fetchTodaySessions() {
         MindfulService.fetchMindfulSessions(for: Date()) { sessions, error in
