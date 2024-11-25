@@ -3,10 +3,10 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
     @StateObject private var viewModel = MainViewModel()
-
+    
     @State private var introOpacity = 0.0
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
-
+    
     
     var body: some View {
         ZStack {
@@ -134,8 +134,6 @@ struct MainView: View {
                     .zIndex(1) // 항상 최상위에 위치
             }
             
-        } // ZStack
-        .navigationBarBackButtonHidden(true)
             // BreathingIntroView 오버레이 뷰
             if viewModel.showBreathingIntro {
                 Color.black
@@ -143,7 +141,6 @@ struct MainView: View {
                     .edgesIgnoringSafeArea(.all)
                     .transition(.opacity) // Fade-in
             }
-            
         }
         .onAppear {
             // Notification을 관찰하여 상태 초기화

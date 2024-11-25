@@ -32,6 +32,6 @@ struct SphaWatch_Watch_AppApp: App {
         }
     }
     private func requestAuthorization() {
-        mindfulSessionManager.requestAuthorization()
+        mindfulSessionManager.requestAuthorization{ _ in }
     }
 }
