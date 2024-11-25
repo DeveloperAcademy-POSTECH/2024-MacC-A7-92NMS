@@ -35,6 +35,7 @@ class WatchBreathingMainViewModel: BreathingManager {
     func stopBreathingCycle() {
         hapticManager.stopHaptic() // 햅틱 피드백 멈추기
         currentTask?.cancel() // 현재 태스크 취소
+        currentTask=nil
         isBreathingCompleted = false
     }
     
