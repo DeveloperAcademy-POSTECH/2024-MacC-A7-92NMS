@@ -45,8 +45,8 @@ class WatchBreathingOutroViewModel: ObservableObject {
                 strongSelf.opacity = 0.0  // Fade out
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                guard let strongSelf = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                guard self != nil else { return }
                 router.backToWatchMain()
                 router.pop()
             }
