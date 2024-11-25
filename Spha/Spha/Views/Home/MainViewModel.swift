@@ -48,7 +48,11 @@ class MainViewModel: ObservableObject {
             if let error = error {
                 print("Error fetching daily HRV data: \(error.localizedDescription)")
             } else if let samples = samples {
-                self.isHRVDataExists = true
+                
+                DispatchQueue.main.async {
+                    self.isHRVDataExists = true
+                }
+                
                 var stressCount: Int = 0
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
