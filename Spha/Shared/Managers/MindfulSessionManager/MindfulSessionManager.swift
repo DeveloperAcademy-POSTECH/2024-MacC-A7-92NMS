@@ -8,7 +8,7 @@ import Foundation
 import HealthKit
 
 protocol MindfulSessionInterface {
-    func requestAuthorization() // HealthKit 접근 권한 요청
+    func requestAuthorization(completion: @escaping (Bool) -> Void)
     func recordMindfulSession(startDate: Date, endDate: Date, completion: @escaping (Bool, Error?) -> Void) // Mindful Session 데이터 기록
     func fetchMindfulSessions(for date: Date, completion: @escaping ([HKCategorySample]?, Error?) -> Void) // 특정 날짜의 Mindful Session 데이터 조회
     func fetchMonthlyMindfulSessions(for month: Date, completion: @escaping ([HKCategorySample]?, Error?) -> Void) // 특정 달의 Mindful Session 데이터 조회
@@ -19,7 +19,7 @@ class MindfulSessionManager: MindfulSessionInterface {
     let healthStore = HKHealthStore()
 
     // MARK: - HealthKit 권한 요청
-    func requestAuthorization() {
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
         guard let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) else {
             print("Mindfulness session type is not available")
             return
@@ -29,6 +29,7 @@ class MindfulSessionManager: MindfulSessionInterface {
         
         healthStore.requestAuthorization(toShare: readWriteTypes, read: readWriteTypes) { success, error in
             if success {
+                completion(success)
                 print("HealthKit authorization granted for Mindfulness sessions")
             } else if let error = error {
                 print("HealthKit authorization failed: \(error.localizedDescription)")
