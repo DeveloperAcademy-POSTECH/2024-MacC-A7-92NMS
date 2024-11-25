@@ -11,6 +11,13 @@ import SwiftUI
 @main
 struct SphaWatch_Watch_AppApp: App {
     @StateObject var router: WatchRouterManager = WatchRouterManager()
+    private let mindfulSessionManager = MindfulSessionManager()
+    
+    init() {
+            // 앱 시작시 권한 요청
+            requestAuthorization()
+        }
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
@@ -23,5 +30,8 @@ struct SphaWatch_Watch_AppApp: App {
             }
             .environmentObject(router)
         }
+    }
+    private func requestAuthorization() {
+        mindfulSessionManager.requestAuthorization()
     }
 }
