@@ -27,13 +27,15 @@ class RouterManager: ObservableObject {
             BreathingOutroView()
         case .onboardingStartView:
             OnboardingStartView()
+                .navigationBarHidden(true)
         case .onboardingView:
             let hrvService = HealthKitManager()
             let mindfulService = MindfulSessionManager()
             OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService)
+                .navigationBarHidden(true)
         case .mainInfoView:
             MainInfoView()
-                .navigationBarHidden(true) // 네비게이션 바 숨기기
+                .navigationBarHidden(true)
         case .dailyStatisticsView:
             DailyStatisticsView()
         }

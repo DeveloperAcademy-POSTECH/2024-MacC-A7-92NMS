@@ -14,9 +14,12 @@ class MainViewModel: ObservableObject {
     @Published var breathingIntroOpacity: Double = 0.0
     @Published var recommendedCleaningCount: Int = 0
     @Published var actualCleaningCount: Int = 0
-
+    @Published var isHRVDataExists: Bool = false
+    
     // 계산 속성: 남은 청소 횟수
     var remainingCleaningCount: MindDustLevel {
+        if !isHRVDataExists { return .none }
+        
         let count = recommendedCleaningCount - actualCleaningCount
         
         if count <= 0 { return .dustLevel1}
@@ -45,6 +48,11 @@ class MainViewModel: ObservableObject {
             if let error = error {
                 print("Error fetching daily HRV data: \(error.localizedDescription)")
             } else if let samples = samples {
+                
+                DispatchQueue.main.async {
+                    self.isHRVDataExists = true
+                }
+                
                 var stressCount: Int = 0
                 for sample in samples {
                     let sdnnValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))

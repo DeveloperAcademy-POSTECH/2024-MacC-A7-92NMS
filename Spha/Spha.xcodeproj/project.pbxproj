@@ -30,7 +30,6 @@
 		33BA0ADA2CEF202F00F3B570 /* BreathingGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */; };
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
 		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
-		33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */; };
 		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
 		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
@@ -154,7 +153,6 @@
 		33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuide.swift; sourceTree = "<group>"; };
 		33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGuide.swift; sourceTree = "<group>"; };
 		33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuth.swift; sourceTree = "<group>"; };
-		33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionAuth.swift; sourceTree = "<group>"; };
 		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 				33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */,
 				33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */,
 				33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */,
-				33BA0AEB2CEF255300F3B570 /* MindfulSessionAuth.swift */,
 			);
 			path = IndicatorViews;
 			sourceTree = "<group>";
@@ -675,7 +672,6 @@
 				468F809D2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */,
 				33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */,
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
-				33BA0AEC2CEF255300F3B570 /* MindfulSessionAuth.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
 				33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
@@ -885,7 +881,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -925,7 +921,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -964,7 +960,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
@@ -1001,7 +997,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2WSJ3W54FF;
+				DEVELOPMENT_TEAM = 6FFZZTFJHB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
