@@ -4,8 +4,6 @@
 //
 //  Created by 추서연 on 11/19/24.
 //
-
-
 import SwiftUI
 
 struct WatchBreathingMainView: View {
@@ -49,7 +47,8 @@ struct WatchBreathingMainView: View {
                 Text("Breathing Main")
             }
             
-            WatchBreathingExitView()
+            WatchBreathingExitView(viewModel: viewModel)
+                .environmentObject(viewModel)
                 .tabItem {
                     Text("Exit")
                 }

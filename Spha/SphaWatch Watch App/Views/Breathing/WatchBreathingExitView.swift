@@ -10,9 +10,12 @@ import SwiftUI
 struct WatchBreathingExitView: View {
     @EnvironmentObject var router: WatchRouterManager
     
+    var viewModel: WatchBreathingMainViewModel
+    
     var body: some View {
         VStack {
             Button(action: {
+                viewModel.stopBreathingCycle()
                 // 버튼 클릭 시 이전 WatchBreathingSelectionView로 이동
                 router.pop()
                  
@@ -29,6 +32,6 @@ struct WatchBreathingExitView: View {
 }
 
 #Preview {
-    WatchBreathingExitView()
+    WatchBreathingExitView(viewModel: WatchBreathingMainViewModel())
         .environmentObject(WatchRouterManager())
 }

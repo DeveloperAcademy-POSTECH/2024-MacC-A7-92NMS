@@ -11,6 +11,7 @@ import WatchKit
 
 class HapticManager {
     private var device: WKInterfaceDevice
+    private var isHapticStopped = false
 
     init() {
         device = WKInterfaceDevice.current()  // WatchOS에서 WKInterfaceDevice 사용
@@ -19,7 +20,9 @@ class HapticManager {
     func playInhaleHaptic() {
         Task {
             await startHapticRepeat(interval: 0.5, duration: 5) {
-                self.device.play(.stop)
+                if !self.isHapticStopped {
+                                    self.device.play(.stop)
+                                }
             }
         }
     }
@@ -27,7 +30,9 @@ class HapticManager {
     func playHoldHaptic() {
         Task {
             await startHapticRepeat(interval: 0.5, duration: 5) {
-                self.device.play(.start)
+                if !self.isHapticStopped {
+                                    self.device.play(.start)
+                                }
             }
         }
     }
@@ -35,12 +40,15 @@ class HapticManager {
     func playExhaleHaptic() {
         Task {
             await startHapticRepeat(interval: 0.5, duration: 5) {
-                self.device.play(.success)
+                if !self.isHapticStopped {
+                                    self.device.play(.success)
+                                }
             }
         }
     }
 
     func stopHaptic() {
+        self.isHapticStopped = true
         device.play(.stop)
     }
 
@@ -48,7 +56,7 @@ class HapticManager {
         var elapsed: TimeInterval = 0
         
         while elapsed < duration {
-            await Task.sleep(UInt64(interval * 1_000_000_000)) 
+            await Task.sleep(UInt64(interval * 1_000_000_000))
             elapsed += interval
             hapticAction()
         }
