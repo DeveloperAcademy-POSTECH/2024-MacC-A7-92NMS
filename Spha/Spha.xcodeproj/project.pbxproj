@@ -182,9 +182,9 @@
 		46AEF61F2CF02E2A005AECFB /* hold1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hold1.mp4; sourceTree = "<group>"; };
 		46AEF6222CF02E3A005AECFB /* hold2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hold2.mp4; sourceTree = "<group>"; };
 		46AEF6252CF02F15005AECFB /* pause.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = pause.mp4; sourceTree = "<group>"; };
+		46AEF6282CF252C7005AECFB /* BreathingOutroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroViewModel.swift; sourceTree = "<group>"; };
 		46AEF62C2CF2757A005AECFB /* SphaWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SphaWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		46AEF62D2CF27608005AECFB /* SphaWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SphaWatch Watch App.entitlements"; sourceTree = "<group>"; };
-		46AEF6282CF252C7005AECFB /* BreathingOutroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingOutroViewModel.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -885,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -925,7 +925,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 5GCYZU3KDQ;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -964,7 +964,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
@@ -1001,7 +1001,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
