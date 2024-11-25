@@ -30,6 +30,8 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
         timerCount = duration
         showText = true
         showTimer = true
+        
+        showTimer = !(phase == .ready || phase == .focus)
 
         while timerCount > 0 {
             do {
