@@ -21,7 +21,7 @@ struct WatchBreathingMP4PlayerView: View {
             .onChange(of: videoName) { newVideoName in
                 loadVideo(named: newVideoName)
             }
-            .frame(width: 100, height: 100)
+            .frame(width: 120, height: 120)
             .onDisappear {
                 player?.pause()
             }
