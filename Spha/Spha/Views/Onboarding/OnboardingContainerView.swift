@@ -16,10 +16,12 @@ struct OnboardingContainerView: View {
     private let pageCount = 5
     private let hrvService: HealthKitInterface
     private let mindfulService: MindfulSessionInterface
+    private let notificationService: NotificationInterface
     
-    init(hrvService: HealthKitInterface, mindfulService: MindfulSessionInterface) {
+    init(hrvService: HealthKitInterface, mindfulService: MindfulSessionInterface, notificationManager: NotificationInterface) {
         self.hrvService = hrvService
         self.mindfulService = mindfulService
+        self.notificationService = notificationManager
     }
     
     var body: some View {
@@ -50,7 +52,15 @@ struct OnboardingContainerView: View {
                 switch currentPage {
                 case 3:
                     print("Request notification Authorization!")
-                    currentPage += 1
+                    isRequestingAuthorization = true
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        notificationService.setupNotifications { success, error in
+                                DispatchQueue.main.async {
+                                    currentPage += 1
+                                    isRequestingAuthorization = false
+                                }
+                        }
+                    }
                 case 4:
                     isRequestingAuthorization = true // 비동기 요청 시작
                     DispatchQueue.global(qos: .userInitiated).async {
@@ -90,5 +100,5 @@ struct OnboardingContainerView: View {
 }
 
 #Preview {
-    OnboardingContainerView(hrvService: HealthKitManager(), mindfulService: MindfulSessionManager())
+    OnboardingContainerView(hrvService: HealthKitManager(), mindfulService: MindfulSessionManager(), notificationManager: NotificationManager.shared)
 }

@@ -20,6 +20,7 @@ protocol HealthKitInterface {
 class HealthKitManager: HealthKitInterface {
 
     let healthStore = HKHealthStore()
+    let notificationManager = NotificationManager.shared
     
     // 권한 요청 메소드
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
@@ -164,27 +165,6 @@ extension HealthKitManager {
     }
     
     func didUpdateHRVData() {
-        // HRV 데이터 확인 후 알림 생성 [테스트용]
-        fetchLatestHRV { sample, error in
-            guard let sample = sample else {
-                print("No new HRV data available.")
-                return
-            }
-            
-            // 알림 전송 설정
-            let content = UNMutableNotificationContent()
-            content.title = "HRV Data Updated"
-            content.body = String(format: "New HRV data recorded: %.2f ms", sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli)))
-            content.sound = .default
-            
-            print("HRVData가 업데이트 됨: \(sample)")
-            
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error sending notification: \(error.localizedDescription)")
-                }
-            }
-        }
+        notificationManager.sendBreathingAlert()
     }
 }

@@ -14,9 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // MARK: - UNUserNotificationCenterDelegate 설정 [테스트용!]
-        UNUserNotificationCenter.current().delegate = self
-        
         return true
     }
     
@@ -25,9 +22,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler(.newData)
     }
     
-    // MARK: - 포그라운드에서 알림을 수신했을 때 표시하도록 설정 [테스트용]
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // 알림을 배너로 표시
-        completionHandler([.banner, .sound, .badge])
-    }
 }
