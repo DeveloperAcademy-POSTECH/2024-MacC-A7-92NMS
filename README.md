@@ -47,7 +47,7 @@ Spha는 Apple Watch의 **HRV 데이터(심박 변이도)**를 실시간으로 �
 #### 3️⃣ 통계와 그래프로 장기적 관리
 - **일일 통계**: 하루 동안의 스트레스 변화 그래프 확인
 - **월별 통계**: 캘린더 형태로 스트레스 추이와 마음 구슬 상태 변화 기록
-- 애플 건강 앱의 **'마음챙기기 시간'**에 호흡 데이터 연동
+- 애플 건강 앱의 **마음챙기기 시간**에 호흡 데이터 연동
 
 #### 4️⃣ 마음 구슬 (Stress Visualization)
 - 스트레스 상태를 시각화해 사용자가 즉각적인 심리적 변화를 확인 가능
@@ -84,8 +84,6 @@ Spha는 Apple Watch의 **HRV 데이터(심박 변이도)**를 실시간으로 �
 - **Collaboration Tools**: Notion, Figma, Miro, Discord
 - **Project Management**: GitHub Issues, GitHub Projects
 - **Design**: Figma
-- [커밋 컨벤션]
-- [코드 컨벤션]
 
 #### 2. 채택 개발 기술과 브랜치 전략
 
