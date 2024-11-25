@@ -106,13 +106,13 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         completionHandler()
     }
     
-    // 앱이 포그라운드 상태일 때 알림을 표시하기 위한 메서드
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        willPresent notification: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-    ) {
-        completionHandler([.banner, .sound])
-    }
+//    // 앱이 포그라운드 상태일 때 알림을 표시하기 위한 메서드
+//    func userNotificationCenter(
+//        _ center: UNUserNotificationCenter,
+//        willPresent notification: UNNotification,
+//        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+//    ) {
+//        completionHandler([.banner, .sound])
+//    }
 }
 
