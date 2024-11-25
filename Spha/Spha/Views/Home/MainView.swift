@@ -3,6 +3,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
     @StateObject private var viewModel = MainViewModel()
+    @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
     
     var body: some View {
         ZStack {
@@ -16,7 +17,7 @@ struct MainView: View {
                     Spacer()
                     
                     Button {
-                        
+                        router.push(view: .dailyStatisticsView)
                     } label: {
                         Image(systemName: "chart.bar.fill")
                             .resizable()
@@ -36,7 +37,7 @@ struct MainView: View {
                         .foregroundStyle(.white)
                     
                     Button {
-                        
+                        router.push(view: .mainInfoView)
                     } label: {
                         Image(systemName: "info.circle")
                             .resizable()
@@ -100,6 +101,7 @@ struct MainView: View {
                             .foregroundStyle(.gray)
                     }
                 }
+                .padding(.bottom, 16)
                 
                 Spacer()
                 
@@ -107,7 +109,7 @@ struct MainView: View {
                     viewModel.startBreathingIntro()
                 } label: {
                     // 임시 버튼 라벨
-                    Image(systemName: "archivebox.circle.fill")
+                    Image("mainButton")
                         .resizable()
                         .frame(width: 80, height: 80)
                         .foregroundStyle(.gray)
@@ -116,6 +118,18 @@ struct MainView: View {
                 
                 Spacer()
                 
+            }
+            
+            // OnboardingStartView 오버레이
+            if isFirstLaunch {
+                OnboardingStartView()
+                    .onDisappear {
+                        // 온보딩 완료 후 처리
+                        isFirstLaunch = false
+                        UserDefaults.standard.set(true, forKey: "hasLaunchedBefore") // 최초 실행 여부 저장
+                    }
+                    .transition(.opacity) // 페이드 효과
+                    .zIndex(1) // 항상 최상위에 위치
             }
             
             // BreathingIntroView 오버레이 뷰
@@ -143,6 +157,10 @@ struct MainView: View {
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
                 viewModel.resetBreathingIntro()
             }
+            
+            
+            viewModel.fetchTodaySessions()
+            viewModel.fetchTodayHRVData()
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)

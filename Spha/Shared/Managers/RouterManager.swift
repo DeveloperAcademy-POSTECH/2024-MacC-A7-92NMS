@@ -19,6 +19,7 @@ class RouterManager: ObservableObject {
         switch route {
         case .mainView:
             MainView()
+                .navigationBarHidden(true) // 네비게이션 바 숨기기
         case .breathingMainView:
             let breathingViewModel = BreathingMainViewModel()
             BreathingMainView(breathManager: breathingViewModel)
@@ -30,12 +31,18 @@ class RouterManager: ObservableObject {
             let hrvService = HealthKitManager()
             let mindfulService = MindfulSessionManager()
             OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService)
+        case .mainInfoView:
+            MainInfoView()
+                .navigationBarHidden(true) // 네비게이션 바 숨기기
+        case .dailyStatisticsView:
+            DailyStatisticsView()
         }
     }
     
     func push(view: SphaView) {
         path.append(view)
     }
+    
     
     func pop() {
         path.removeLast()
@@ -55,5 +62,7 @@ enum SphaView: Hashable {
     case breathingOutroView
     case onboardingStartView
     case onboardingView
+    case mainInfoView
+    case dailyStatisticsView
 }
 
