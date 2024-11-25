@@ -9,7 +9,8 @@ import SwiftUI
 struct WatchBreathingMainView: View {
     @EnvironmentObject var router: WatchRouterManager
     @StateObject private var viewModel = WatchBreathingMainViewModel()
-
+    @State private var playerOpacity: Double = 0
+    
     var body: some View {
         TabView {
             VStack {
@@ -25,7 +26,8 @@ struct WatchBreathingMainView: View {
                 Spacer()
                 
                 WatchBreathingMP4PlayerView(videoName: viewModel.videoName(for: viewModel.phaseText))
-                
+                    .opacity(playerOpacity)
+                    .animation(.easeIn(duration: 0.5), value: playerOpacity)
                 Spacer()
                 
                 if viewModel.showText {
@@ -36,6 +38,12 @@ struct WatchBreathingMainView: View {
             }
             .onAppear {
                 viewModel.startBreathingIntro()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation {
+                        playerOpacity = 1
+                    }
+                }
             }
             .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
                 if isCompleted {

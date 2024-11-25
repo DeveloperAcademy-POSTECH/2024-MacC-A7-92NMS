@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class MainViewModel: ObservableObject {
     @Published var showBreathingIntro = false
@@ -91,11 +92,18 @@ class MainViewModel: ObservableObject {
     }
     
     // BreathingIntroView 시작
-    func startBreathingIntro() {
-        DispatchQueue.main.async {
-            self.showBreathingIntro = true
-            self.breathingIntroOpacity = 0.0 // 초기화
+
+    func startBreathingIntro(router: RouterManager) {
+            showBreathingIntro = true
+            breathingIntroOpacity = 0.0            
+            // 페이드인 애니메이션
+            withAnimation(.easeIn(duration: 1.0)) {
+                breathingIntroOpacity = 1.0
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                router.push(view: .breathingMainView)
+            }
         }
-    }
+
 
 }
