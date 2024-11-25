@@ -3,6 +3,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
     @StateObject private var viewModel = MainViewModel()
+    @State private var introOpacity = 0.0
     
     var body: some View {
         ZStack {
@@ -43,7 +44,7 @@ struct MainView: View {
                             .frame(width: 15, height: 15)
                             .foregroundStyle(.white)
                     }
-
+                    
                 }
                 
                 Text("\(viewModel.remainingCleaningCount.description)")
@@ -104,7 +105,7 @@ struct MainView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.startBreathingIntro()
+                    viewModel.startBreathingIntro(router: router)
                 } label: {
                     // 임시 버튼 라벨
                     Image(systemName: "archivebox.circle.fill")
@@ -112,7 +113,6 @@ struct MainView: View {
                         .frame(width: 80, height: 80)
                         .foregroundStyle(.gray)
                 }
-
                 
                 Spacer()
                 
@@ -120,24 +120,13 @@ struct MainView: View {
             
             // BreathingIntroView 오버레이 뷰
             if viewModel.showBreathingIntro {
-                VStack {
-                }
-                .navigationBarBackButtonHidden()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black)
-                .opacity(viewModel.breathingIntroOpacity) // 페이드인 효과
-                .onAppear {
-                    withAnimation(.easeIn(duration: 1.0)) {
-                        viewModel.breathingIntroOpacity = 1.0
-                    }
-                    // 일정 시간 후 다른 화면으로 이동
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        router.push(view: .breathingMainView)
-                    }
-                }
+                Color.black
+                    .opacity(viewModel.breathingIntroOpacity)
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity) // Fade-in
             }
             
-        } // ZStack
+        }
         .onAppear {
             // Notification을 관찰하여 상태 초기화
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
