@@ -37,16 +37,21 @@ class WatchBreathingOutroViewModel: ObservableObject {
 
     func startFadeOutProcess(router: WatchRouterManager) {
         recordTestMindfulSession()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let strongSelf = self else { return }
+
             withAnimation(.easeOut(duration: 1.0)) {
-                self.opacity = 0.0  // Fade out
+                strongSelf.opacity = 0.0  // Fade out
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                guard let strongSelf = self else { return }
                 router.backToWatchMain()
                 router.pop()
             }
         }
     }
+
+
 }
