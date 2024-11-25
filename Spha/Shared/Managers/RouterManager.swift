@@ -27,7 +27,9 @@ class RouterManager: ObservableObject {
         case .onboardingStartView:
             OnboardingStartView()
         case .onboardingView:
-            OnboardingContainerView()
+            let hrvService = HealthKitManager()
+            let mindfulService = MindfulSessionManager()
+            OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService)
         case .dailyStatisticsView:
             DailyStatisticsView()
         }
