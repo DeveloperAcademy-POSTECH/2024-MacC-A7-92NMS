@@ -10,7 +10,7 @@ import HealthKit
 import UserNotifications
 
 protocol HealthKitInterface {
-    func requestAuthorization(completion: @escaping (Bool) -> Void) // HealthKit 접근 권한 요청
+    func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) // HealthKit 관련 권한 요청
     func fetchDailyHRV(for date: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 일간 HRV 데이터 요청
     func fetchMonthlyHRV(for month: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 월간 HRV 데이터 요청
     func monitorHRVUpdates() // HRV 업데이트 모니터링
@@ -20,28 +20,36 @@ protocol HealthKitInterface {
 class HealthKitManager: HealthKitInterface {
 
     let healthStore = HKHealthStore()
-
-    // 읽기 및 쓰기 권한 설정 - HRV 데이터를 위한 권한 추가
-    let read = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
-    let share = Set([HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN)!])
     
     // 권한 요청 메소드
-    func requestAuthorization(completion: @escaping (Bool) -> Void) {
-        if !HKHealthStore.isHealthDataAvailable() {return} // HealthKit 사용 가능인지 체크
-        self.healthStore.requestAuthorization(toShare: share, read: read) { success, error in
-            if error != nil {
-                print(error.debugDescription)
-            }else{
-                if success {
-                    completion(success)
-                    print("권한이 허락되었습니다")
-                    // HRV 데이터 백그라운드 전달 활성화
-                    self.enableBackgroundHRVDelivery()
-                    // HRV 데이터 변경 관찰 시작
-                    self.monitorHRVUpdates()
-                } else {
-                    print("권한이 없습니다")
-                }
+    func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "Health data is not available on this device."]))
+            return
+        }
+
+        // 읽기 및 쓰기 권한이 필요한 데이터 타입
+        guard let hrvType = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN),
+              let mindfulnessType = HKObjectType.categoryType(forIdentifier: .mindfulSession) else {
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to create HRV or Mindfulness data types."]))
+            return
+        }
+
+        let readTypes: Set<HKObjectType> = [hrvType, mindfulnessType]
+        let shareTypes: Set<HKSampleType> = [hrvType, mindfulnessType]
+
+        // 권한 요청
+        healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { success, error in
+            if let error = error {
+                print("Error requesting HealthKit authorization: \(error.localizedDescription)")
+                completion(false, error)
+            } else {
+                print("HealthKit authorization was \(success ? "successful" : "unsuccessful").")
+                // HRV 데이터 백그라운드 전달 활성화
+                self.enableBackgroundHRVDelivery()
+                // HRV 데이터 변경 관찰 시작
+                self.monitorHRVUpdates()
+                completion(success, nil)
             }
         }
     }

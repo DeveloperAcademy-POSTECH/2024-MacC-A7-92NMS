@@ -12,19 +12,13 @@ struct OnboardingStartView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            
-            Text("Spha-")
-                .customFont(.title_0)
-                .foregroundStyle(.white)
-            
-            Spacer()
+            Image("SPHAlogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120)
+                .padding(.top, 100)
+                .padding(.bottom, 20)
 
-            MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
-                .frame(width: 330, height: 330)
-            
-            Spacer()
-            
             Text("더러워진 마음을")
                 .customFont(.body_1)
                 .foregroundStyle(.white)
@@ -32,7 +26,11 @@ struct OnboardingStartView: View {
             Text("호흡으로 청소하세요")
                 .customFont(.body_1)
                 .foregroundStyle(.white)
+                .padding(.bottom, 16)
             
+            MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
+                .frame(width: 330, height: 330)
+
             Spacer()
             
             Button(action: {

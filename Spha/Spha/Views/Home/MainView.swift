@@ -3,6 +3,10 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
     @StateObject private var viewModel = MainViewModel()
+
+    @State private var introOpacity = 0.0
+    @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+
     
     var body: some View {
         ZStack {
@@ -36,14 +40,14 @@ struct MainView: View {
                         .foregroundStyle(.white)
                     
                     Button {
-                        
+                        router.push(view: .mainInfoView)
                     } label: {
                         Image(systemName: "info.circle")
                             .resizable()
                             .frame(width: 15, height: 15)
                             .foregroundStyle(.white)
                     }
-
+                    
                 }
                 
                 Text("\(viewModel.remainingCleaningCount.description)")
@@ -100,50 +104,56 @@ struct MainView: View {
                             .foregroundStyle(.gray)
                     }
                 }
+                .padding(.bottom, 16)
                 
                 Spacer()
                 
                 Button {
-                    viewModel.startBreathingIntro()
+                    viewModel.startBreathingIntro(router: router)
                 } label: {
                     // 임시 버튼 라벨
-                    Image(systemName: "archivebox.circle.fill")
+                    Image("mainButton")
                         .resizable()
                         .frame(width: 80, height: 80)
                         .foregroundStyle(.gray)
                 }
-
                 
                 Spacer()
                 
             }
             
-            // BreathingIntroView 오버레이 뷰
-            if viewModel.showBreathingIntro {
-                VStack {
-                }
-                .navigationBarBackButtonHidden()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.black)
-                .opacity(viewModel.breathingIntroOpacity) // 페이드인 효과
-                .onAppear {
-                    withAnimation(.easeIn(duration: 1.0)) {
-                        viewModel.breathingIntroOpacity = 1.0
+            // OnboardingStartView 오버레이
+            if isFirstLaunch {
+                OnboardingStartView()
+                    .onDisappear {
+                        // 온보딩 완료 후 처리
+                        isFirstLaunch = false
+                        UserDefaults.standard.set(true, forKey: "hasLaunchedBefore") // 최초 실행 여부 저장
                     }
-                    // 일정 시간 후 다른 화면으로 이동
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        router.push(view: .breathingMainView)
-                    }
-                }
+                    .transition(.opacity) // 페이드 효과
+                    .zIndex(1) // 항상 최상위에 위치
             }
             
         } // ZStack
         .navigationBarBackButtonHidden(true)
+            // BreathingIntroView 오버레이 뷰
+            if viewModel.showBreathingIntro {
+                Color.black
+                    .opacity(viewModel.breathingIntroOpacity)
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity) // Fade-in
+            }
+            
+        }
         .onAppear {
             // Notification을 관찰하여 상태 초기화
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
                 viewModel.resetBreathingIntro()
             }
+            
+            
+            viewModel.fetchTodaySessions()
+            viewModel.fetchTodayHRVData()
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)

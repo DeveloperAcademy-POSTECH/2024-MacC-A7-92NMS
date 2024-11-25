@@ -13,9 +13,10 @@ class WatchBreathingMainViewModel: BreathingManager {
     @Published var showTimer: Bool = false
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
-
+    
     private var hapticManager = HapticManager()
-
+    private var currentTask: Task<Void, Never>?
+    
     func startBreathingIntro() {
         Task {
             await startPhase(phase: .ready, duration: 2)
@@ -23,14 +24,21 @@ class WatchBreathingMainViewModel: BreathingManager {
             startBreathingCycle()
         }
     }
-
+    
     func startBreathingCycle() {
         activeCircle = 0
         repeatCycle(times: 3) {
             self.isBreathingCompleted = true
         }
     }
-
+    
+    func stopBreathingCycle() {
+        hapticManager.stopHaptic() // 햅틱 피드백 멈추기
+        currentTask?.cancel() // 현재 태스크 취소
+        currentTask=nil
+        isBreathingCompleted = false
+    }
+    
     private func repeatCycle(times: Int, completion: @escaping () -> Void) {
         guard times > 0 else {
             completion()
@@ -41,7 +49,7 @@ class WatchBreathingMainViewModel: BreathingManager {
             self.repeatCycle(times: times - 1, completion: completion)
         }
     }
-
+    
     func startBreathingPhase(completion: @escaping () -> Void) {
         showTimer = true
         
@@ -58,14 +66,14 @@ class WatchBreathingMainViewModel: BreathingManager {
             completion()
         }
     }
-
+    
     func videoName(for text: String) -> String {
         guard let phase = BreathingPhase(rawValue: text) else {
             return "start"
         }
         return phase.videoName
     }
-
+    
     func startPhase(phase: BreathingPhase, duration: Int) async {
         phaseText = phase.rawValue
         showText = true

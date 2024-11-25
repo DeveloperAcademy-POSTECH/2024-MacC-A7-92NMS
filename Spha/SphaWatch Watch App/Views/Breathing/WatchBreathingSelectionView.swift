@@ -21,6 +21,28 @@ struct WatchBreathingSelectionView: View {
                 .padding(.bottom,28)
             
             HStack{
+                Image(systemName:"arrow.up")
+                    .frame(width: 26, height: 5)
+                    .font(.caption2)
+                    .foregroundColor(.white)
+                    .padding(3)
+                Text("")
+                    .frame(width: 26, height: 5)
+                    .font(.caption2)
+                    .foregroundColor(.white)
+                    .padding(3)
+                Image(systemName:"arrow.down")
+                    .frame(width: 26, height: 5)
+                    .font(.caption2)
+                    .foregroundColor(.white)
+                    .padding(3)
+                Text("")
+                    .frame(width: 26, height: 5)
+                    .font(.caption2)
+                    .foregroundColor(.white)
+                    .padding(3)
+            }
+            HStack{
                 Rectangle()
                     .frame(width: 26, height: 5)
                     .cornerRadius(10)
@@ -42,7 +64,36 @@ struct WatchBreathingSelectionView: View {
                     .foregroundColor(.gray2)
                     .padding(3)
             }
-            .padding(.bottom,28)
+            HStack{
+                Text("5")
+                    .customFont(.caption_2)
+                    .frame(width: 26, height: 5)
+                    .foregroundColor(.white)
+                    .padding(.top,0)
+                    .padding(.horizontal,3)
+                Text("5")
+                    .customFont(.caption_2)
+                    .frame(width: 26, height: 5)
+                    .foregroundColor(.white)
+                    .padding(.top,0)
+                    .padding(.horizontal,3)
+                Text("5")
+                    .customFont(.caption_2)
+                    .frame(width: 26, height: 5)
+                    .foregroundColor(.white)
+                    .padding(.top,0)
+                    .padding(.horizontal,3)
+                Text("5")
+                    .customFont(.caption_2)
+                    .frame(width: 26, height: 5)
+                    .foregroundColor(.white)
+                    .padding(.top,0)
+                    .padding(.horizontal,3)
+                
+                
+                
+            }
+            .padding(.bottom,15)
             
             // '마음청소 시작하기'를 버튼으로 변경
             Button(action: {

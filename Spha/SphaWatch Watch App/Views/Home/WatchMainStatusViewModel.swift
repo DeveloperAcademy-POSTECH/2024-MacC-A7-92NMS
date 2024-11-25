@@ -64,7 +64,7 @@ class WatchMainStatusViewModel: ObservableObject {
     }
     
     // DailyMindfulSession 요청
-    private func fetchTodaySessions() {
+    func fetchTodaySessions() {
         MindfulService.fetchMindfulSessions(for: Date()) { sessions, error in
                 if let error = error {
                     print("Error fetching today's sessions: \(error.localizedDescription)")
