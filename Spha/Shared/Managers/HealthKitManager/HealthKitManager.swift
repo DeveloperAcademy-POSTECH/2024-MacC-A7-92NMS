@@ -172,19 +172,7 @@ extension HealthKitManager {
     
     func didUpdateHRVData() {
         // 알림 전송 설정
-        let content = UNMutableNotificationContent()
-        content.title = "Spha"
-        content.body = "마음에 먼지가 쌓였어요\n청소하러 가요"
-        content.sound = .default
-        content.categoryIdentifier = "HRV_ALERT"  // 카테고리 지정
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Error sending notification: \(error.localizedDescription)")
-            }
-        }
+        NotificationManager.shared.sendBreathingAlert()
     }
     
 }
