@@ -602,6 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				46AEF61A2CF02E05005AECFB /* start.mp4 in Resources */,
@@ -626,6 +627,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AF72CF5B0F000F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
 				46AEF6242CF02E3A005AECFB /* hold2.mp4 in Resources */,
 				46AEF6272CF02F15005AECFB /* pause.mp4 in Resources */,
@@ -886,7 +888,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -926,7 +928,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
