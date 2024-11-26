@@ -10,16 +10,10 @@ import UserNotifications
 
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
-    var healthKitManager = HealthKitManager()
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        return true
-    }
-    
+    var healthKitManager = HealthKitManager.shared
+
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         healthKitManager.didUpdateHRVData()
         completionHandler(.newData)
     }
-    
 }
