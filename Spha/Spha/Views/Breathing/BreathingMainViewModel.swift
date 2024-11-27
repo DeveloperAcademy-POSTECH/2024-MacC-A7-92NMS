@@ -20,8 +20,8 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
     func startBreathingIntro() {
         Task {
             await startPhase(phase: .ready, duration: 2)
-            await startPhase(phase: .focus, duration: 1)
-            await startBreathingCycle()
+            await startPhase(phase: .focus, duration: 2)
+            startBreathingCycle()
         }
     }
 
