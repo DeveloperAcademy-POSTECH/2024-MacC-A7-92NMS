@@ -139,8 +139,7 @@ private struct DailyPieChartView: View {
             .padding(.top, 36)
         
         ZStack {
-            // TODO: 비디오 업데이트 반영 안됨
-            MP4PlayerView(videoURLString: mainViewModel.remainingCleaningCount.assetName)
+            MP4PlayerView(videoURLString: viewModel.mindDustLevel)
                 .frame(width: 90, height: 90)
             
             Circle()
