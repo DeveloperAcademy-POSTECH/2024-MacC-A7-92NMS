@@ -171,8 +171,24 @@ extension HealthKitManager {
     }
     
     func didUpdateHRVData() {
-        // 알림 전송 설정
-        NotificationManager.shared.sendBreathingAlert()
+        print("didUpdateHRVData()")
+        HealthKitManager.shared.fetchLatestHRV { sample, error in
+            print("fetch 메서드 실행")
+            if error != nil {
+                print("error in didUpdateHRVData")
+                return
+            }
+            guard let sample = sample else {
+                print("sample 바인딩 실패")
+                return }
+            
+            print("\(sample)")
+            
+            let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+            if hrvValue < 45 { // StressLevel과 함께 리펙토링 고려
+                print("noti, hrvValue = \(hrvValue)")
+                NotificationManager.shared.sendBreathingAlert()
+            }
+        }
     }
-    
 }
