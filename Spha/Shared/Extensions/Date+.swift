@@ -23,6 +23,12 @@ extension Date {
         return formatter
     }()
     
+    static let calendarMonthFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "YYYY년 M월"
+                return formatter
+            }()
+    
     // Calendar 인스턴스도 재사용
     static let calendar = Calendar.current
     

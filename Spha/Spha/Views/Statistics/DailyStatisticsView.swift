@@ -26,7 +26,8 @@ struct DailyStatisticsView: View {
 private struct HeaderView: View {
     @EnvironmentObject var router: RouterManager
     @ObservedObject var viewModel: DailyStatisticsViewModel
-    
+    @State private var showCalendar = false
+
     var body: some View {
         HStack {
             Button {
@@ -44,14 +45,195 @@ private struct HeaderView: View {
             Spacer()
             
             Button {
-                // calendar modal
+                showCalendar.toggle()
             } label: {
                 Image(systemName: "calendar")
                     .foregroundStyle(.blue)
             }
+            .sheet(isPresented: $showCalendar) {
+                MonthlyCalendarSheet(selectedDate: $viewModel.currentDate)
+                            }
+
         }
         .padding(12)
         .font(.system(size: 17, weight: .semibold))
+    }
+}
+
+// MARK: - 월간 달력
+struct MonthlyCalendarSheet: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var selectedDate: Date
+    
+    private var currentMonth: Date {
+        let components = Date.calendar.dateComponents([.year, .month], from: Date())
+        return Date.calendar.date(from: components)!
+    }
+    
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 0) {
+                // 요일 헤더 (월-일)
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 16) {
+                    ForEach(getWeekdayHeadersStartingMonday(), id: \.self) { weekday in
+                        Text(weekday)
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                            .frame(height: 44)
+                    }
+                }
+                .padding(.horizontal)
+                .background(Color.black)
+                
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        LazyVStack(spacing: 35) {
+                            ForEach((-100...1), id: \.self) { monthOffset in
+                                let monthDate = Date.calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)!
+                                MonthView(date: monthDate, selectedDate: $selectedDate)
+                                    .id(monthOffset)
+                            }
+                        }
+                        .padding()
+                        .onAppear {
+                            proxy.scrollTo(0, anchor: .center)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("월간 달력")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("닫기") {
+                        dismiss()
+                    }
+                    .foregroundColor(.white)
+                }
+            }
+            .toolbarBackground(.black, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .background(Color.black)
+        }
+        .preferredColorScheme(.dark)
+    }
+    
+    private func getWeekdayHeadersStartingMonday() -> [String] {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        var weekdays = formatter.shortWeekdaySymbols
+        // 일요일을 마지막으로 이동
+        if let sunday = weekdays?.removeFirst() {
+            weekdays?.append(sunday)
+        }
+        return weekdays?.map { $0.uppercased() } ?? []
+    }
+}
+
+struct MonthView: View {
+    let date: Date
+    @Binding var selectedDate: Date
+    @Environment(\.dismiss) var dismiss
+    
+    private var monthString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter.string(from: date)
+    }
+    
+    var body: some View {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 16) {
+            ForEach(getDaysInMonthStartingMonday(), id: \.offset) { index, date in
+                if let date = date {
+                    VStack(spacing: 4) {
+                        // 1일인 경우에만 월 표시
+                        if date.dayNumber == "1" {
+                            Text(monthString)
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.white)
+                        } else {
+                            Color.clear
+                                .frame(height: 17) // 월 표시 텍스트의 높이만큼 더미 공간
+                        }
+                        
+                        MonthlyDayView(
+                            date: date,
+                            isSelected: Date.calendar.isDate(date, inSameDayAs: selectedDate),
+                            isToday: Date.calendar.isDate(date, inSameDayAs: Date()),
+                            onTap: {
+                                if date <= Date() {
+                                    selectedDate = date
+                                    dismiss()
+                                }
+                            }
+                        )
+                    }
+                } else {
+                    VStack {
+                        Color.clear.frame(height: 17)
+                        Color.clear.frame(width: 44, height: 44)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getDaysInMonthStartingMonday() -> [(offset: Int, element: Date?)] {
+        let range = Date.calendar.range(of: .day, in: .month, for: date)!
+        let firstDayOfMonth = Date.calendar.date(from: Date.calendar.dateComponents([.year, .month], from: date))!
+        var firstWeekday = Date.calendar.component(.weekday, from: firstDayOfMonth) - 2 // 월요일을 시작으로
+        if firstWeekday < 0 { firstWeekday += 7 } // 일요일인 경우 조정
+        
+        var days = Array(repeating: nil as Date?, count: firstWeekday)
+        
+        for day in 1...range.count {
+            if let date = Date.calendar.date(byAdding: .day, value: day - 1, to: firstDayOfMonth) {
+                days.append(date)
+            }
+        }
+        
+        while days.count % 7 != 0 {
+            days.append(nil)
+        }
+        
+        return days.enumerated().map { ($0, $1) }
+    }
+}
+
+struct MonthlyDayView: View {
+    let date: Date
+    let isSelected: Bool
+    let isToday: Bool
+    let onTap: () -> Void
+    
+    var body: some View {
+        ZStack {
+            // 기본 회색 원형 테두리
+            Circle()
+                .stroke(Color.gray.opacity(0.3), lineWidth: 3.0)
+            
+            // 진행도를 나타내는 흰색 원형
+            Circle()
+                .trim(from: 0.0, to: 1/3)
+                .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(.white)
+                .rotationEffect(Angle(degrees: 270.0))
+            
+            // 날짜 텍스트
+            Text(date.dayNumber)
+                .font(.footnote)
+                .foregroundColor(getDayColor())
+        }
+        .frame(width: 44, height: 44)
+        .onTapGesture(perform: onTap)
+    }
+    
+    private func getDayColor() -> Color {
+        if date > Date() {
+            return .gray.opacity(0.3)
+        }
+        return isSelected ? .white : .white
     }
 }
 
