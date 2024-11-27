@@ -38,6 +38,7 @@ class RouterManager: ObservableObject {
                 .navigationBarHidden(true)
         case .dailyStatisticsView:
             DailyStatisticsView()
+                .navigationBarHidden(true)
         }
     }
     
