@@ -28,8 +28,9 @@
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
 		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
 		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
-		33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
 		33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */; };
+		// 33BA0AF72CF5B0F000F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
+		33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
 		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
@@ -153,6 +154,7 @@
 		33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuth.swift; sourceTree = "<group>"; };
 		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
+		33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiMP4PlayerView.swift; sourceTree = "<group>"; };
 		460BCEDB2CEE706A0018927C /* BreathingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingManager.swift; sourceTree = "<group>"; };
 		460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingMainViewModel.swift; sourceTree = "<group>"; };
 		460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainViewModel.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */,
 				4667B0732CE7EA9C00F58DB3 /* BreathingOutroView.swift */,
 				46AEF6282CF252C7005AECFB /* BreathingOutroViewModel.swift */,
+				33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */,
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				46AEF61A2CF02E05005AECFB /* start.mp4 in Resources */,
@@ -624,6 +628,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BA0AF72CF5B0F000F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
 				46AEF6242CF02E3A005AECFB /* hold2.mp4 in Resources */,
 				46AEF6272CF02F15005AECFB /* pause.mp4 in Resources */,
@@ -653,6 +658,7 @@
 				33BA0AD42CEE284400F3B570 /* HealthKitHRVAuth.swift in Sources */,
 				B5296D3B2CF459E900FFE20F /* NotificationManager.swift in Sources */,
 				B5296D292CECB01400FFE20F /* MindDustLevel.swift in Sources */,
+				33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */,
 				464B4ED32CE4961B00218B35 /* RouterManager.swift in Sources */,
 				B5296D332CEF241400FFE20F /* DailyStressRecord.swift in Sources */,
 				334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */,
@@ -883,7 +889,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -923,7 +929,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

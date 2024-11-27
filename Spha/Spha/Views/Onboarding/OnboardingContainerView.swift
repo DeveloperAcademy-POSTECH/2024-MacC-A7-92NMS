@@ -67,6 +67,8 @@ struct OnboardingContainerView: View {
                         hrvService.requestAuthorization { success, error  in
                             if success {
                                 DispatchQueue.main.async {
+                                    // 온보딩 완료 후 처리
+                                    UserDefaults.standard.set(true, forKey: "hasLaunchedBefore") // 최초 실행 여부 저장
                                     self.router.backToMain()
                                     isRequestingAuthorization = false // 요청 완료
                                 }
