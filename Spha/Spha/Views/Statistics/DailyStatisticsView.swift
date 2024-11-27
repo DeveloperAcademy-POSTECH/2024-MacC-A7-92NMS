@@ -14,18 +14,51 @@ struct DailyStatisticsView: View {
     
     var body: some View {
         VStack {
-            WeeklyCalendarHeaderView(viewModel: viewModel)
+            HeaderView(viewModel: viewModel)
+            WeeklyCalendarView(viewModel: viewModel)
             DailyChartsView(viewModel: viewModel)
             Spacer()
         }
         .background(Color.black)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(viewModel.currentDate.dateTitleString)
     }
 }
 
+private struct HeaderView: View {
+    @EnvironmentObject var router: RouterManager
+    @ObservedObject var viewModel: DailyStatisticsViewModel
+    
+    var body: some View {
+        HStack {
+            Button {
+                router.pop()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .foregroundStyle(.blue)
+            }
+            
+            Spacer()
+            
+            Text(viewModel.currentDate.dateTitleString)
+                .foregroundStyle(.white)
+            
+            Spacer()
+            
+            Button {
+                // calendar modal
+            } label: {
+                Image(systemName: "calendar")
+                    .foregroundStyle(.blue)
+            }
+        }
+        .padding(12)
+        .font(.system(size: 17, weight: .semibold))
+    }
+}
+
+
+
 // MARK: - 주간 달력
-private struct WeeklyCalendarHeaderView: View {
+private struct WeeklyCalendarView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
@@ -98,7 +131,6 @@ private struct DailyChartsView: View {
 }
 
 private struct DailyPieChartView: View {
-    @StateObject private var mainViewModel = MainViewModel()
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
@@ -106,7 +138,8 @@ private struct DailyPieChartView: View {
             .padding(.top, 36)
         
         ZStack {
-            MP4PlayerView(videoURLString: mainViewModel.remainingCleaningCount.assetName)
+            MP4PlayerView(videoURLString: viewModel.mindDustLevel)
+
                 .frame(width: 90, height: 90)
             
             Circle()
@@ -214,6 +247,7 @@ private struct DailyStressTrendView: View {
                 AxisMarks(position: .leading,
                           values: StressLevel.allCases.map { Double($0.numberValue) }) { value in
                     AxisValueLabel {
+                        // FIXME: Charts: Custom UnitPoint values are not supported in AxisValueLabel's anchor property. Please use leading, topLeading, center, etc.
                         Text(StressLevel.allCases[value.index].title)
                             .font(.system(size: 12))
                             .foregroundStyle(Color.gray0)

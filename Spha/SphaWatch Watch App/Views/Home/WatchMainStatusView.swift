@@ -9,18 +9,17 @@ import SwiftUI
 
 struct WatchMainStatusView: View {
     @EnvironmentObject var router: WatchRouterManager
-    @StateObject private var viewModel = WatchMainStatusViewModel()
+    @StateObject private var viewModel = WatchMainStatusViewModel(HealthKitManager(), MindfulSessionManager())
     
     var body: some View {
         
         VStack{
-            WatchBreathingMP4PlayerView(videoName: viewModel.remainingCleaningCount.assetName)
+            WatchBreathingMP4PlayerView(videoName: viewModel.mindDustLevel)
             
-
             HStack{
                 VStack{
                     HStack{
-                        Text("\(viewModel.recommendedCleaningCount)")
+                        Text("\(viewModel.recommendedCount)")
                             .customFont(.body_1)
                             .foregroundStyle(.white)
                             .bold()
@@ -43,7 +42,7 @@ struct WatchMainStatusView: View {
                 
                 VStack{
                     HStack{
-                        Text("\(viewModel.actualCleaningCount)")
+                        Text("\(viewModel.completedCount)")
                             .customFont(.body_1)
                             .foregroundStyle(.white)
                             .bold()
@@ -62,8 +61,7 @@ struct WatchMainStatusView: View {
         }
         .onAppear {
             // Fetch mindful sessions 호흡 실행 횟수
-            viewModel.fetchTodayHRVData()
-            viewModel.fetchTodaySessions()
+            viewModel.updateTodayRecord()
         }
     }
 }

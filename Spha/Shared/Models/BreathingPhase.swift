@@ -28,4 +28,12 @@ enum BreathingPhase: String {
         case .clean: return "clean"
         }
     }
+    
+    static let boxBreathingSequence: [String] = [
+        BreathingPhase.ready.videoName , 
+        BreathingPhase.focus.videoName,
+        BreathingPhase.inhale.videoName, BreathingPhase.hold1.videoName, BreathingPhase.exhale.videoName, BreathingPhase.hold2.videoName,
+        BreathingPhase.inhale.videoName, BreathingPhase.hold1.videoName, BreathingPhase.exhale.videoName, BreathingPhase.hold2.videoName,
+        BreathingPhase.inhale.videoName, BreathingPhase.hold1.videoName, BreathingPhase.exhale.videoName, BreathingPhase.hold2.videoName
+    ]
 }
