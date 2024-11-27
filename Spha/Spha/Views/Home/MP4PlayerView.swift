@@ -35,6 +35,14 @@ class PlayerUIView: UIView {
     init(frame: CGRect, videoURL: URL) {
         super.init(frame: frame)
         setupPlayer(videoURL: videoURL)
+        
+        // 앱 상태 전환 감지
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appWillEnterForeground),
+            name: UIApplication.willEnterForegroundNotification,
+            object: nil
+        )
     }
 
     required init?(coder: NSCoder) {
@@ -87,6 +95,12 @@ class PlayerUIView: UIView {
         player?.play()
     }
 
+    
+    @objc private func appWillEnterForeground() {
+        // 포그라운드로 돌아올 때 플레이어 재생
+        player?.play()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer?.frame = bounds

@@ -86,22 +86,26 @@ class NotificationManager: NSObject, NotificationInterface {
 
 // MARK: - UNUserNotificationCenterDelegate
 extension NotificationManager: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        didReceive response: UNNotificationResponse,
-        withCompletionHandler completionHandler: @escaping () -> Void
-    ) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        #if os(watchOS)
+        // Handle watchOS-specific action
         switch response.actionIdentifier {
         case "OPEN_APP":
-        #if os(watchOS)
-        // TODO: WatchApp 진입
-        #endif
-        case "CANCEL":
-            print("알림 취소")
+            // Watch-specific navigation or logic
+            NotificationCenter.default.post(name: Notification.Name("goToBreathingNotification"), object: nil)
         default:
             break
         }
-        
+        #else
+        // Handle iOS/macOS action
+        switch response.actionIdentifier {
+        case "OPEN_APP":
+            NotificationCenter.default.post(name: Notification.Name("goToBreathingNotification"), object: nil)
+        default:
+            break
+        }
+        #endif
         
         completionHandler()
     }

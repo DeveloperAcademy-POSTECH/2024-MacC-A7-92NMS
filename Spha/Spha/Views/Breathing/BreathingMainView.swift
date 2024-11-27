@@ -17,12 +17,12 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
 
     var body: some View {
         VStack {
-            MP4PlayerView(videoURLString: BreathingPhase(rawValue: viewModel.phaseText)?.videoName ?? "start")
+            MultiMP4PlayerView(videoNames: BreathingPhase.boxBreathingSequence)
                 .frame(width: 300, height: 300)
                 .padding(.top, 164)
-
+            
             Spacer()
-
+            
             if viewModel.showTimer {
                 Text("\(viewModel.timerCount)")
                     .font(.title)
@@ -30,7 +30,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                     .padding(.bottom, 10)
                     .transition(.opacity)
             }
-
+            
             if viewModel.showText {
                 Text(viewModel.phaseText)
                     .customFont(.body_0)
@@ -46,7 +46,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                         .foregroundColor(.white)
                 }
             }
-
+            
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 8) {
                     ForEach(0..<3, id: \.self) { index in
@@ -63,10 +63,13 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
         .onAppear {
             viewModel.startBreathingIntro()
         }
-        .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
-            if isCompleted {
-                router.push(view: .breathingOutroView)
-            }
+        .onChange(of: viewModel.isBreathingCompleted) { _, _ in
+            router.push(view: .breathingOutroView)
+            
         }
     }
+}
+
+#Preview {
+    BreathingMainView(breathManager: BreathingMainViewModel())
 }
