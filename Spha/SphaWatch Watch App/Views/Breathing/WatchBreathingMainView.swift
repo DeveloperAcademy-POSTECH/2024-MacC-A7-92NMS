@@ -24,10 +24,7 @@ struct WatchBreathingMainView: View {
                 .padding(3)
                 
                 Spacer()
-                
-                WatchBreathingMP4PlayerView(videoName: viewModel.videoName(for: viewModel.phaseText))
-                    .opacity(playerOpacity)
-                    .animation(.easeIn(duration: 0.5), value: playerOpacity)
+                WatchBreathingAnimationView(videoName: viewModel.videoName(for: viewModel.phaseText))
                 Spacer()
                 
                 if viewModel.showText {
