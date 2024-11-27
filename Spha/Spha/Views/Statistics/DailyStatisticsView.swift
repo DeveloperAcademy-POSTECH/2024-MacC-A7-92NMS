@@ -106,7 +106,7 @@ private struct DailyPieChartView: View {
             .padding(.top, 36)
         
         ZStack {
-            MP4PlayerView(videoURLString: mainViewModel.remainingCleaningCount.assetName)
+            MP4PlayerView(videoURLString: viewModel.mindDustLevel)
                 .frame(width: 90, height: 90)
             
             Circle()
