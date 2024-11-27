@@ -28,6 +28,8 @@
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
 		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
 		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
+		33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
+		33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */; };
 		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
@@ -96,6 +98,8 @@
 		B5296D332CEF241400FFE20F /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
 		B5296D3B2CF459E900FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D3A2CF459E900FFE20F /* NotificationManager.swift */; };
 		B5296D3C2CF459E900FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D3A2CF459E900FFE20F /* NotificationManager.swift */; };
+		B5AB63562CF7543300073778 /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
+		B5AB63572CF7543A00073778 /* StressLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA92CE3005800FFE20F /* StressLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -688,6 +692,7 @@
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
 				46AEF6022CEF8855005AECFB /* Color+.swift in Sources */,
 				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
+				B5AB63562CF7543300073778 /* DailyStressRecord.swift in Sources */,
 				46AEF60B2CEF8C64005AECFB /* FilePathHelper.swift in Sources */,
 				B5296D3C2CF459E900FFE20F /* NotificationManager.swift in Sources */,
 				B5296C8E2CE2FEC300FFE20F /* SphaWatchApp.swift in Sources */,
@@ -699,6 +704,7 @@
 				46AEF6012CEF8852005AECFB /* Font+.swift in Sources */,
 				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
 				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
+				B5AB63572CF7543A00073778 /* StressLevel.swift in Sources */,
 				46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */,
 				460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */,
 				4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */,
