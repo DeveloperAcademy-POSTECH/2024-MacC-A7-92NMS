@@ -63,8 +63,8 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
         .onAppear {
             viewModel.startBreathingIntro()
         }
-        .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
-            if isCompleted {
+        .onChange(of: viewModel.isBreathingCompleted) { oldValue, newValue in
+            if newValue {
                 router.push(view: .breathingOutroView)
             }
         }
