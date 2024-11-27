@@ -17,11 +17,11 @@ class DailyStatisticsViewModel: ObservableObject {
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
     
-    @Published var dailyRecord: DailyStressRecord?
+    @Published var dailyRecored: DailyStressRecord?
     @Published var stressTrendData: [(Date, StressLevel)] = []
     
     var breathingRatio: CGFloat {
-        guard let record = dailyRecord,
+        guard let record = dailyRecored,
               record.recommendedReliefCount > 0 else {
             return 0.0
         }
@@ -29,19 +29,15 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     
     var recommendedCount: Int {
-        return dailyRecord?.recommendedReliefCount ?? 0
+        return dailyRecored?.recommendedReliefCount ?? 0
     }
     
     var completedCount: Int {
-        return dailyRecord?.completedReliefCount ?? 0
+        return dailyRecored?.completedReliefCount ?? 0
     }
     
     var extremeCount: Int {
         return stressTrendData.filter { $0.1 == .extreme }.count
-    }
-    
-    var mindDustLevel: String {
-        return dailyRecord?.mindDustLevel.assetName ?? MindDustLevel.none.assetName
     }
     
     let calendar = Date.calendar
@@ -111,7 +107,7 @@ class DailyStatisticsViewModel: ObservableObject {
             guard let samples = samples else {
                 print("HRV 데이터 없음")
                 DispatchQueue.main.async {
-                    self.dailyRecord = DailyStressRecord(
+                    self.dailyRecored = DailyStressRecord(
                         date: self.currentDate,
                         recommendedReliefCount: 0,
                         completedReliefCount: 0
@@ -145,7 +141,7 @@ class DailyStatisticsViewModel: ObservableObject {
                         return stressLevel == .high || stressLevel == .extreme
                     }
                     
-                    self.dailyRecord = DailyStressRecord(
+                    self.dailyRecored = DailyStressRecord(
                         date: self.currentDate,
                         recommendedReliefCount: highStressSamples.count,
                         completedReliefCount: sessions?.count ?? 0

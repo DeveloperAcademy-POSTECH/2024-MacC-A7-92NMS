@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
-    @StateObject private var viewModel = MainViewModel(HealthKitManager(), MindfulSessionManager())
+    @StateObject private var viewModel = MainViewModel()
     
     @State private var introOpacity = 0.0
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
@@ -49,7 +49,7 @@ struct MainView: View {
                     
                 }
                 
-                Text("\(String(describing: viewModel.mindDustLvDescription))")
+                Text("\(viewModel.remainingCleaningCount.description)")
                     .customFont(.title_1)
                     .foregroundStyle(.white)
                     .bold()
@@ -57,7 +57,7 @@ struct MainView: View {
                 
                 Spacer()
                 
-                MP4PlayerView(videoURLString: viewModel.mindDustLevel)
+                MP4PlayerView(videoURLString: viewModel.remainingCleaningCount.assetName)
                     .frame(width: 330, height: 330)
                 
                 Spacer()
@@ -65,7 +65,7 @@ struct MainView: View {
                 HStack{
                     VStack{
                         HStack{
-                            Text("\(viewModel.recommendedCount)")
+                            Text("\(viewModel.recommendedCleaningCount)")
                                 .customFont(.title_0)
                                 .foregroundStyle(.white)
                                 .bold()
@@ -89,7 +89,7 @@ struct MainView: View {
                     
                     VStack{
                         HStack{
-                            Text("\(viewModel.completedCount)")
+                            Text("\(viewModel.actualCleaningCount)")
                                 .customFont(.title_0)
                                 .foregroundStyle(.white)
                                 .bold()
@@ -146,14 +146,16 @@ struct MainView: View {
             }
             
             if !isFirstLaunch {
-                viewModel.updateTodayRecord()
+                viewModel.fetchTodaySessions()
+                viewModel.fetchTodayHRVData()
             }
         }
         .onDisappear {
             NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)
         }
         .onChange(of: self.isFirstLaunch) { oldValue, newValue in
-            viewModel.updateTodayRecord()
+            viewModel.fetchTodaySessions()
+            viewModel.fetchTodayHRVData()
         }
     }
     
