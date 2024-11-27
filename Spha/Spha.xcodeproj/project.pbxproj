@@ -28,9 +28,8 @@
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
 		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
 		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
-		33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */; };
-		// 33BA0AF72CF5B0F000F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
 		33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
+		33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */; };
 		460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDD2CEE70830018927C /* BreathingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDB2CEE706A0018927C /* BreathingManager.swift */; };
 		460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BCEDE2CEE708D0018927C /* BreathingMainViewModel.swift */; };
@@ -102,6 +101,7 @@
 		B5296D3C2CF459E900FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D3A2CF459E900FFE20F /* NotificationManager.swift */; };
 		B5AB63562CF7543300073778 /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
 		B5AB63572CF7543A00073778 /* StressLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA92CE3005800FFE20F /* StressLevel.swift */; };
+		B5AB63582CF758CE00073778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -631,13 +631,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BA0AF72CF5B0F000F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
 				46AEF6242CF02E3A005AECFB /* hold2.mp4 in Resources */,
 				46AEF6272CF02F15005AECFB /* pause.mp4 in Resources */,
 				46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */,
 				46AEF61B2CF02E05005AECFB /* start.mp4 in Resources */,
 				46AEF6212CF02E2A005AECFB /* hold1.mp4 in Resources */,
+				B5AB63582CF758CE00073778 /* Assets.xcassets in Resources */,
 				46AEF5FF2CEF884C005AECFB /* AppleSDGothicNeoSB.ttf in Resources */,
 				46AEF6182CF02DBC005AECFB /* exhale.mp4 in Resources */,
 				46AEF6002CEF884C005AECFB /* AppleSDGothicNeoM.ttf in Resources */,
@@ -867,7 +867,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -884,8 +884,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia1.Spha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -907,7 +907,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Spha/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
@@ -924,8 +924,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia1.Spha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -946,7 +946,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
@@ -956,14 +956,14 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia1.Spha;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia1.Spha.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -983,7 +983,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SphaWatch Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FFZZTFJHB;
+				DEVELOPMENT_TEAM = 2WSJ3W54FF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
@@ -993,14 +993,14 @@
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia.Spha;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia1.Spha;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sophia.Spha.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sophia1.Spha.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
