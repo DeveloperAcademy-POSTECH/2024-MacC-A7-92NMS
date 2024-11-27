@@ -42,12 +42,11 @@ struct WatchBreathingMainView: View {
                     }
                 }
             }
-            .onChange(of: viewModel.isBreathingCompleted) { isCompleted in
-                if isCompleted {
+            .onChange(of: viewModel.isBreathingCompleted) { oldValue, newValue in
+                if newValue {
                     router.push(view: .watchbreathingOutroView)
                 }
             }
-            
             .tabItem {
                 Text("Breathing Main")
             }

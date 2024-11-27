@@ -38,8 +38,8 @@ struct WatchBreathingAnimationView: View {
                 .frame(width: circleSize, height: circleSize)
                 .blur(radius: 2) // 경계 블러 처리
         }
-        .onChange(of: videoName) { newVideoName in
-            startAnimation(for: newVideoName)
+        .onChange(of: videoName) { oldValue, newValue in
+            startAnimation(for: newValue)
         }
         .onAppear {
             startAnimation(for: videoName)
