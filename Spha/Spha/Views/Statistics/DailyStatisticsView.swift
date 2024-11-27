@@ -98,7 +98,6 @@ private struct DailyChartsView: View {
 }
 
 private struct DailyPieChartView: View {
-    @StateObject private var mainViewModel = MainViewModel()
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
