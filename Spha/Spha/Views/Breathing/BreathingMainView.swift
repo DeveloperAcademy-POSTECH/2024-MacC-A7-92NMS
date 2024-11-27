@@ -63,6 +63,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
         .onAppear {
             viewModel.startBreathingIntro()
         }
+
         .onChange(of: viewModel.isBreathingCompleted) { _, _ in
             router.push(view: .breathingOutroView)
             

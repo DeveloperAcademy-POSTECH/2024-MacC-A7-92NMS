@@ -18,8 +18,8 @@ struct WatchBreathingMP4PlayerView: View {
             .onAppear {
                 loadVideo(named: videoName)
             }
-            .onChange(of: videoName) { newVideoName in
-                loadVideo(named: newVideoName)
+            .onChange(of: videoName) { oldValue, newValue in
+                loadVideo(named: newValue)
             }
             .frame(width: 120, height: 120)
             .onDisappear {
