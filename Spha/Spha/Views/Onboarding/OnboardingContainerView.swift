@@ -11,7 +11,7 @@ struct OnboardingContainerView: View {
     @EnvironmentObject var router: RouterManager
     @State private var currentPage = 0
     @State private var isRequestingAuthorization = false
-    @State private var authorizationCompleted = false
+    @State private var notificationAuthCompleted = false
     
     private let pageCount = 4
     private let hrvService: HealthKitInterface
@@ -43,6 +43,22 @@ struct OnboardingContainerView: View {
                 ExplainMenu().tag(0)
                 BreathingGuide().tag(1)
                 WatchGuide().tag(2)
+                    .onDisappear {
+                        if notificationAuthCompleted { return }
+                        isRequestingAuthorization = true
+                        DispatchQueue.global(qos: .userInitiated).async {
+                            notificationService.setupNotifications { success, error in
+                                    DispatchQueue.main.async {
+                                        
+                                        if success && !notificationAuthCompleted {
+                                            notificationAuthCompleted = true
+                                        }
+                                        
+                                        isRequestingAuthorization = false
+                                    }
+                            }
+                        }
+                    }
                 HealthKitHRVAuth().tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -56,6 +72,11 @@ struct OnboardingContainerView: View {
                         notificationService.setupNotifications { success, error in
                                 DispatchQueue.main.async {
                                     currentPage += 1
+                                    
+                                    if success && !notificationAuthCompleted {
+                                        notificationAuthCompleted = true
+                                    }
+                                    
                                     isRequestingAuthorization = false
                                 }
                         }
@@ -75,6 +96,7 @@ struct OnboardingContainerView: View {
                                 print("healthKit 권한 요청 실패")
                             }
                         }
+                        
                     }
                 default:
                     currentPage += 1

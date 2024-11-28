@@ -40,7 +40,6 @@ struct WatchGuide: View {
         }
         .background(.black)
     }
-    
 }
 
 #Preview {
