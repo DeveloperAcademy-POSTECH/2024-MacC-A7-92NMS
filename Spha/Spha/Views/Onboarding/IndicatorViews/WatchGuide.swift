@@ -22,9 +22,10 @@ struct WatchGuide: View {
             
             Spacer()
             
-            Image("WatchGuideImage")
-                .frame(width: 15, height: 15)
-                .foregroundStyle(.white)
+            Image("watchGuideImage")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 300)
             
             Spacer()
             

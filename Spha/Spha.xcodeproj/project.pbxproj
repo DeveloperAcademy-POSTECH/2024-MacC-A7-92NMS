@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */; };
+		33461DDE2CF84AE9008776BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C912CE2FEC500FFE20F /* Assets.xcassets */; };
 		334D95CB2CEE0A69007600D7 /* FilePathHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */; };
 		334D95CD2CEE0B04007600D7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CC2CEE0B04007600D7 /* MainViewModel.swift */; };
 		334D95D02CEE0D1A007600D7 /* MP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D95CF2CEE0D1A007600D7 /* MP4PlayerView.swift */; };
@@ -26,7 +27,6 @@
 		33BA0AD82CEF1F5600F3B570 /* ExplainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */; };
 		33BA0ADA2CEF202F00F3B570 /* BreathingGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */; };
 		33BA0AE82CEF21FA00F3B570 /* WatchGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */; };
-		33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */; };
 		33BA0AF12CEF700C00F3B570 /* MainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */; };
 		33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */; };
 		33CD4EE42CF6F15E0030CD38 /* MultiMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */; };
@@ -152,7 +152,6 @@
 		33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainMenu.swift; sourceTree = "<group>"; };
 		33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingGuide.swift; sourceTree = "<group>"; };
 		33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGuide.swift; sourceTree = "<group>"; };
-		33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAuth.swift; sourceTree = "<group>"; };
 		33BA0AF02CEF700C00F3B570 /* MainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoView.swift; sourceTree = "<group>"; };
 		33BA0AF22CEF8CAD00F3B570 /* AppleSDGothicNeoR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleSDGothicNeoR.ttf; sourceTree = "<group>"; };
 		33CD4EE32CF6F15E0030CD38 /* MultiMP4PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiMP4PlayerView.swift; sourceTree = "<group>"; };
@@ -306,7 +305,6 @@
 				33BA0AD72CEF1F5600F3B570 /* ExplainMenu.swift */,
 				33BA0AD92CEF202F00F3B570 /* BreathingGuide.swift */,
 				33BA0AE72CEF21FA00F3B570 /* WatchGuide.swift */,
-				33BA0AE92CEF23B600F3B570 /* NotificationAuth.swift */,
 				33BA0AD32CEE284400F3B570 /* HealthKitHRVAuth.swift */,
 			);
 			path = IndicatorViews;
@@ -606,6 +604,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33461DDE2CF84AE9008776BF /* Assets.xcassets in Resources */,
 				33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
@@ -671,7 +670,6 @@
 				33ADDFF02CEDC68400513149 /* Color+.swift in Sources */,
 				33BA0AD82CEF1F5600F3B570 /* ExplainMenu.swift in Sources */,
 				B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */,
-				33BA0AEA2CEF23B600F3B570 /* NotificationAuth.swift in Sources */,
 				334D95D02CEE0D1A007600D7 /* MP4PlayerView.swift in Sources */,
 				460BCEDC2CEE706A0018927C /* BreathingManager.swift in Sources */,
 				33ADDFF22CEDC6AE00513149 /* Font+.swift in Sources */,

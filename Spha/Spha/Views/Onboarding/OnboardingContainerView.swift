@@ -13,7 +13,7 @@ struct OnboardingContainerView: View {
     @State private var isRequestingAuthorization = false
     @State private var authorizationCompleted = false
     
-    private let pageCount = 5
+    private let pageCount = 4
     private let hrvService: HealthKitInterface
     private let mindfulService: MindfulSessionInterface
     private let notificationService: NotificationInterface
@@ -43,14 +43,13 @@ struct OnboardingContainerView: View {
                 ExplainMenu().tag(0)
                 BreathingGuide().tag(1)
                 WatchGuide().tag(2)
-                NotificationAuth().tag(3)
-                HealthKitHRVAuth().tag(4)
+                HealthKitHRVAuth().tag(3)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             Button(action: {
                 switch currentPage {
-                case 3:
+                case 2:
                     print("Request notification Authorization!")
                     isRequestingAuthorization = true
                     DispatchQueue.global(qos: .userInitiated).async {
@@ -61,7 +60,7 @@ struct OnboardingContainerView: View {
                                 }
                         }
                     }
-                case 4:
+                case 3:
                     isRequestingAuthorization = true // 비동기 요청 시작
                     DispatchQueue.global(qos: .userInitiated).async {
                         hrvService.requestAuthorization { success, error  in
