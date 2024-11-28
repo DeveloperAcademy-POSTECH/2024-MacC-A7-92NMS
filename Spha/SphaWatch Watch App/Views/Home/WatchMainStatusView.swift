@@ -31,14 +31,14 @@ struct WatchMainStatusView: View {
                     }
                     
                     Text("권장 청소 횟수")
-                        .font(.system(size: 10))
+                        .font(.system(size: 9))
                         .foregroundStyle(.gray)
                 }
                 
                 Rectangle()
                     .frame(width:1, height: 30)
                     .foregroundStyle(.gray)
-                    .padding(.horizontal, 6)
+                    .padding(.horizontal, 5)
                 
                 VStack{
                     HStack{
@@ -53,7 +53,7 @@ struct WatchMainStatusView: View {
                             .bold()
                     }
                     Text("실행한 청소 횟수")
-                        .font(.system(size: 10))
+                        .font(.system(size: 9))
                         .foregroundStyle(.gray)
                 }
             }
