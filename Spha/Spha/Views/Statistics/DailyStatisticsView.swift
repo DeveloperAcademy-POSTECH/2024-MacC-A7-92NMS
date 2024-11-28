@@ -42,13 +42,6 @@ private struct HeaderView: View {
                 .foregroundStyle(.white)
             
             Spacer()
-            
-            Button {
-                // calendar modal
-            } label: {
-                Image(systemName: "calendar")
-                    .foregroundStyle(.blue)
-            }
         }
         .padding(12)
         .font(.system(size: 17, weight: .semibold))
@@ -99,19 +92,19 @@ private struct DayItemView: View {
     let onTap: () -> Void
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 4) {
             Text(date.dayString)
                 .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
-                                    isSelected ? .white : .gray)
+                                    isSelected ? .white : .grays2)
             
             Text(date.dayNumber)
                 .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
-                                    isSelected ? .white : .white)
+                                    isSelected ? .white : .grays2)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(isSelected ? Color.gray : Color.clear)
+        .background(isSelected ? Color.gray2 : Color.clear)
         .clipShape(Capsule())
         .onTapGesture(perform: onTap)
     }
@@ -124,8 +117,10 @@ private struct DailyChartsView: View {
     var body: some View {
         VStack {
             DailyPieChartView(viewModel: viewModel)
-            Divider().background(.white)
+            Divider().background(Color.gray2)
             DailyStressTrendView(viewModel: viewModel)
+                .padding(.top, 20)
+            Spacer()
         }
     }
 }
@@ -134,66 +129,72 @@ private struct DailyPieChartView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
-        Text("일일 마음 청소 통계")
-            .padding(.top, 36)
-        
-        ZStack {
-            MP4PlayerView(videoURLString: viewModel.mindDustLevel)
-
-                .frame(width: 90, height: 90)
+        VStack {
+            Text("일일 마음 청소 통계")
+                .customFont(.body_0)
+                .bold()
+                .padding(.top, 20)
+                .foregroundStyle(.white)
             
-            Circle()
-                .stroke(lineWidth: 3.0)
-                .foregroundStyle(Color.gray1)
-            
-            Circle()
-                .trim(from: 0.0, to: viewModel.breathingRatio)
-                .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.white)
-                .rotationEffect(Angle(degrees: 270.0))
-                .animation(.linear, value: viewModel.breathingRatio)
-        }
-        .padding(.vertical, 20)
+            ZStack {
+                MP4PlayerView(videoURLString: viewModel.mindDustLevel)
+                    .frame(width: 90, height: 90)
                 
-        HStack{
-            VStack{
-                HStack{
-                    Text("\(viewModel.recommendedCount)")
-                        .customFont(.title_0)
-                        .bold()
+                Circle()
+                    .stroke(lineWidth: 3.0)
+                    .foregroundStyle(Color.gray1)
+                
+                Circle()
+                    .trim(from: 0.0, to: viewModel.breathingRatio)
+                    .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
+                    .foregroundColor(.white)
+                    .rotationEffect(Angle(degrees: 270.0))
+                    .animation(.linear, value: viewModel.breathingRatio)
+            }
+            .padding(.vertical, 20)
                     
-                    Text("회")
-                        .customFont(.caption_0)
-                        .bold()
+            HStack{
+                VStack{
+                    HStack{
+                        Text("\(viewModel.recommendedCount)")
+                            .customFont(.title_0)
+                            .bold()
+                        
+                        Text("회")
+                            .customFont(.caption_0)
+                            .bold()
+                    }
+                    
+                    Text("권장 청소 횟수")
+                        .customFont(.caption_1)
+                        .foregroundStyle(Color.gray0)
                 }
                 
-                Text("권장 청소 횟수")
-                    .customFont(.caption_1)
-                    .foregroundStyle(.gray)
-            }
-            
-            Rectangle()
-                .frame(width:1, height: 30)
-                .foregroundStyle(.gray)
-                .padding(.horizontal, 16)
-            
-            VStack{
-                HStack{
-                    Text("\(viewModel.completedCount)")
-                        .customFont(.title_0)
-                        .bold()
-                    
-                    Text("회")
-                        .customFont(.caption_0)
-                        .bold()
+                Rectangle()
+                    .frame(width:1, height: 45)
+                    .foregroundStyle(Color.gray1)
+                    .padding(.horizontal, 24)
+                
+                VStack{
+                    HStack{
+                        Text("\(viewModel.completedCount)")
+                            .customFont(.title_0)
+                            .bold()
+                        
+                        Text("회")
+                            .customFont(.caption_0)
+                            .bold()
+                    }
+                    Text("실행한 청소 횟수")
+                        .customFont(.caption_1)
+                        .foregroundStyle(Color.gray0)
                 }
-                Text("실행한 청소 횟수")
-                    .customFont(.caption_1)
-                    .foregroundStyle(.gray)
             }
+            .foregroundStyle(.white)
+            .padding(.bottom, 20)
         }
-        .padding(.bottom, 36)
     }
+    
 }
 
 // MARK: - 일일 스트레스 추이 그래프
@@ -202,12 +203,28 @@ private struct DailyStressTrendView: View {
     
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .firstTextBaseline, spacing: 4) {
                 Text("일일 스트레스 추이")
+                    .customFont(.caption_0)
+                    .bold()
+                    .foregroundStyle(.white)
+                
                 Spacer()
-                Text("일일 과부하 수 \(viewModel.extremeCount)회")
+                
+                Text("일일 과부하 수")
+                    .customFont(.caption_2)
+                    .bold()
+                    .foregroundStyle(.grays3)
+                
+                Text("\(viewModel.extremeCount)")
+                    .customFont(.title_0)
+                
+                Text("회")
+                    .customFont(.caption_1)
+                
             }
-            .padding()
+            .padding(EdgeInsets(top: 0, leading: 30, bottom: 20, trailing: 30))
+            .foregroundStyle(.white)
             
             Chart {
                 /// y축 수평 기준선
@@ -215,7 +232,7 @@ private struct DailyStressTrendView: View {
                     RuleMark(
                         y: .value("Level", level.numberValue)
                     )
-                    .foregroundStyle(Color.gray0)
+                    .foregroundStyle(Color.gray1)
                 }
                 
                 /// x축 수직 시간 기준선
@@ -223,8 +240,8 @@ private struct DailyStressTrendView: View {
                     RuleMark(
                         x: .value("Hour", Double(hour))
                     )
-                    .foregroundStyle(Color.gray0)
-                    .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
+                    .foregroundStyle(Color.gray1)
+                    .lineStyle(StrokeStyle(lineWidth: 1, dash: [2]))
                 }
                 
                 /// 스트레스 레벨 데이터 라인과 포인트
@@ -240,17 +257,19 @@ private struct DailyStressTrendView: View {
                     )
                 }
             }
-            .chartYScale(domain: -0.5...3.5)
-            .chartXScale(domain: -0.5...24.5)
+            .padding(.horizontal, 30)
+            .frame(height: 200, alignment: .leading)
+            .chartYScale(domain: -0.5...3.1)
+            .chartXScale(domain: -0.5...26.5)
             /// y축 설정
             .chartYAxis {
                 AxisMarks(position: .leading,
                           values: StressLevel.allCases.map { Double($0.numberValue) }) { value in
-                    AxisValueLabel {
-                        // FIXME: Charts: Custom UnitPoint values are not supported in AxisValueLabel's anchor property. Please use leading, topLeading, center, etc.
+                    AxisValueLabel(anchor: .center) {
                         Text(StressLevel.allCases[value.index].title)
-                            .font(.system(size: 12))
-                            .foregroundStyle(Color.gray0)
+                            .customFont(.caption_2)
+                            .foregroundStyle(.grays3)
+                            .frame(width: 42, alignment: .leading)
                     }
                 }
             }
@@ -259,13 +278,12 @@ private struct DailyStressTrendView: View {
                 AxisMarks(values: .stride(by: 6)) { value in
                     AxisValueLabel(anchor: .center) {
                         Text(String(format: "%02d:00", value.index * 6))
-                            .font(.system(size: 8))
-                            .foregroundStyle(Color.gray0)
+                            .customFont(.caption_3)
+                            .foregroundStyle(.grays2)
                     }
                 }
             }
-            .frame(height: 200)
-            .padding()
+            Spacer()
         }
     }
 }

@@ -12,7 +12,7 @@ extension Date {
     private static let fullFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy년 MM월 dd일 E요일"
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         return formatter
     }()
     
