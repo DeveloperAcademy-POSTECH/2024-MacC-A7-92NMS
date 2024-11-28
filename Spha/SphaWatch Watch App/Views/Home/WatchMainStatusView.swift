@@ -38,7 +38,7 @@ struct WatchMainStatusView: View {
                 Rectangle()
                     .frame(width:1, height: 30)
                     .foregroundStyle(.gray)
-                    .padding(.horizontal, 16)
+                    .padding(.horizontal, 6)
                 
                 VStack{
                     HStack{
@@ -57,6 +57,7 @@ struct WatchMainStatusView: View {
                         .foregroundStyle(.gray)
                 }
             }
+            .padding(.horizontal, 16)
             
         }
         .onAppear {

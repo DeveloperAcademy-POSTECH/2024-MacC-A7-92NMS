@@ -21,7 +21,7 @@ struct WatchBreathingExitView: View {
                  
             }) {
                 Text("종료")
-                    .font(.caption2)
+                    .font(.title3)
                     .padding(.vertical, 16)
                     .foregroundColor(.red)
                     .cornerRadius(40)

@@ -18,7 +18,7 @@ struct WatchBreathingSelectionView: View {
                 .padding(5)
             Text("즉각적인 스트레스를 완화해주는 호흡법이에요")
                 .customFont(.caption_3)
-                .padding(.bottom,28)
+                .padding(.bottom,18)
             
             HStack{
                 Image(systemName:"arrow.up")
@@ -107,6 +107,7 @@ struct WatchBreathingSelectionView: View {
                     .foregroundColor(.white)
                     .cornerRadius(26)
             }
+            .padding(.top, 6)
         }
     }
 }
