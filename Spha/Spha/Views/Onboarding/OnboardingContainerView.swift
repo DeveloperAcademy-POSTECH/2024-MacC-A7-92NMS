@@ -34,6 +34,9 @@ struct OnboardingContainerView: View {
                             .fill(index == currentPage ? Color.white : Color.gray)
                             .frame(width: 8, height: 8)
                             .animation(.easeInOut, value: currentPage)
+                            .padding(.trailing,
+                                     (index < pageCount - 1) ? 8 : 0
+                                     )
                     }
                 }
                 .padding(.bottom, 20)
@@ -117,7 +120,7 @@ struct OnboardingContainerView: View {
                 .disabled(isRequestingAuthorization) // 요청 중일 때 버튼 비활성화
                 .animation(.easeInOut, value: isRequestingAuthorization) // 상태 변화 애니메이션 추가
                 .padding(.horizontal, 8)
-                .padding(.bottom, 16)
+                .padding(.bottom, 32)
             }
             .background(Color.black.ignoresSafeArea())
             

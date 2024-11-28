@@ -15,6 +15,7 @@ struct ExplainMenu: View {
             Text("스트레스가 쌓일 때 마다")
                 .customFont(.body_1)
                 .foregroundStyle(.white)
+                .padding(.top, 24)
             
             Text("마음이 점점 더러워져요")
                 .customFont(.body_1)
@@ -25,7 +26,7 @@ struct ExplainMenu: View {
             HStack{
                 VStack {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel1.assetName)
-                        .frame(width: 180, height: 180)
+                        .frame(width: 150, height: 150)
                     
                     Text("먼지가 조금 생겼어요")
                         .foregroundStyle(.white)
@@ -34,7 +35,7 @@ struct ExplainMenu: View {
                 
                 VStack {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
-                        .frame(width: 180, height: 180)
+                        .frame(width: 150, height: 150)
                     
                     Text("점점 흐려져요")
                         .foregroundStyle(.white)
@@ -47,7 +48,7 @@ struct ExplainMenu: View {
             HStack{
                 VStack {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel3.assetName)
-                        .frame(width: 180, height: 180)
+                        .frame(width: 150, height: 150)
                     
                     Text("탁하고 답답해요")
                         .foregroundStyle(.white)
@@ -56,7 +57,7 @@ struct ExplainMenu: View {
                 
                 VStack {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel4.assetName)
-                        .frame(width: 180, height: 180)
+                        .frame(width: 150, height: 150)
                     
                     Text("터질 것 같아요")
                         .foregroundStyle(.white)

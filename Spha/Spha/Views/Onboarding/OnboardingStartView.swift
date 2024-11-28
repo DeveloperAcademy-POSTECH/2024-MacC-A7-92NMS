@@ -14,9 +14,8 @@ struct OnboardingStartView: View {
         VStack {
             Image("SPHAlogo")
                 .resizable()
-                .scaledToFit()
-                .frame(width: 120)
-                .padding(.top, 100)
+                .frame(width: 102, height: 30)
+                .padding(.top, 80)
                 .padding(.bottom, 20)
 
             Text("더러워진 마음을")
@@ -47,6 +46,7 @@ struct OnboardingStartView: View {
                         .foregroundColor(.white)
                 }
             })
+            .padding(.bottom, 16)
         }
         .padding()
         .background(.black)
