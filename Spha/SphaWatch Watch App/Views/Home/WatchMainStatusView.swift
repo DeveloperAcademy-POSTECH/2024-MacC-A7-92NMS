@@ -14,7 +14,7 @@ struct WatchMainStatusView: View {
     var body: some View {
         
         VStack{
-            WatchBreathingMP4PlayerView(videoName: viewModel.mindDustLevel)
+            WatchGifPlayerView(videoName: viewModel.mindDustLevel)
             
             HStack{
                 VStack{
