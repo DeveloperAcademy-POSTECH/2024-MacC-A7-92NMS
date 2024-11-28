@@ -69,8 +69,7 @@ class MainViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.isHRVRecordedToday = samples.isEmpty ? false : true
             }
-            
-            print("@@@@ samples : \(samples)")
+
             hrvSamples = samples
         }
         
