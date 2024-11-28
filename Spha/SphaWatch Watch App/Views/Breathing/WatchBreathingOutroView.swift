@@ -13,7 +13,7 @@ struct WatchBreathingOutroView: View {
     
     var body: some View {
         VStack {
-            WatchBreathingMP4PlayerView(videoName: "clean")
+            WatchGifPlayerView(videoName: "clean")
             
             Text("마음이 깨끗해졌어요")
                 .font(.caption)

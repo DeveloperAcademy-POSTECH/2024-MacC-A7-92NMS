@@ -45,8 +45,6 @@
 		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
 		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
 		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
-		468F809D2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */; };
-		468F809E2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */; };
 		46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 334D95D22CEE0D5E007600D7 /* clean.mp4 */; };
 		46AEF5FC2CEF7A9A005AECFB /* WatchMainStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */; };
 		46AEF5FD2CEF884B005AECFB /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */; };
@@ -79,6 +77,7 @@
 		46AEF6272CF02F15005AECFB /* pause.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 46AEF6252CF02F15005AECFB /* pause.mp4 */; };
 		46AEF6292CF252C7005AECFB /* BreathingOutroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF6282CF252C7005AECFB /* BreathingOutroViewModel.swift */; };
 		46C6950F2CF7452900E569DC /* WatchBreathingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6950E2CF7452900E569DC /* WatchBreathingAnimationView.swift */; };
+		46C695112CF8525400E569DC /* WatchGifPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C695102CF8525400E569DC /* WatchGifPlayerView.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -168,7 +167,6 @@
 		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
 		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
 		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
-		468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMP4PlayerView.swift; sourceTree = "<group>"; };
 		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
 		46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusViewModel.swift; sourceTree = "<group>"; };
 		46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -184,6 +182,7 @@
 		46AEF62C2CF2757A005AECFB /* SphaWatch-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SphaWatch-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		46AEF62D2CF27608005AECFB /* SphaWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SphaWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		46C6950E2CF7452900E569DC /* WatchBreathingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingAnimationView.swift; sourceTree = "<group>"; };
+		46C695102CF8525400E569DC /* WatchGifPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGifPlayerView.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -332,7 +331,6 @@
 				460BCEE02CEE70B00018927C /* WatchBreathingMainViewModel.swift */,
 				4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */,
 				46AEF6112CEFD561005AECFB /* WatchBreathingOutroViewModel.swift */,
-				468F809C2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift */,
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -342,6 +340,7 @@
 			children = (
 				4667B0852CECB15900F58DB3 /* WatchMainView.swift */,
 				46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */,
+				46C695102CF8525400E569DC /* WatchGifPlayerView.swift */,
 				46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */,
 			);
 			path = Home;
@@ -653,7 +652,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468F809D2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */,
 				33BA0AD62CEF1E4E00F3B570 /* OnboardingStartView.swift in Sources */,
 				331A5B8E2CE6109900E16AE2 /* AppDelegate.swift in Sources */,
 				B5296CAA2CE3005800FFE20F /* StressLevel.swift in Sources */,
@@ -695,7 +693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468F809E2CEF2A3B008E7F48 /* WatchBreathingMP4PlayerView.swift in Sources */,
 				B5296C902CE2FEC300FFE20F /* ContentView.swift in Sources */,
 				46AEF6022CEF8855005AECFB /* Color+.swift in Sources */,
 				4667B08A2CECBA5900F58DB3 /* WatchBreathingMainView.swift in Sources */,
@@ -711,6 +708,7 @@
 				46C6950F2CF7452900E569DC /* WatchBreathingAnimationView.swift in Sources */,
 				46AEF6012CEF8852005AECFB /* Font+.swift in Sources */,
 				4667B0822CECB14000F58DB3 /* WatchRouterManager.swift in Sources */,
+				46C695112CF8525400E569DC /* WatchGifPlayerView.swift in Sources */,
 				4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */,
 				B5AB63572CF7543A00073778 /* StressLevel.swift in Sources */,
 				46AEF60A2CEF8A71005AECFB /* MindDustLevel.swift in Sources */,
