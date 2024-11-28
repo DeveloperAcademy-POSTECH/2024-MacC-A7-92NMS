@@ -28,7 +28,7 @@ struct OnboardingStartView: View {
                 .foregroundStyle(.white)
                 .padding(.bottom, 16)
             
-            MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
+            MP4PlayerView(videoURLString: MindDustLevel.dustLevel1.assetName)
                 .frame(width: 330, height: 330)
 
             Spacer()
