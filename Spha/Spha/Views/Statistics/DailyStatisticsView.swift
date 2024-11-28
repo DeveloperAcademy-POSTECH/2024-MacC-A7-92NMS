@@ -106,7 +106,11 @@ private struct DayItemView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(isSelected ? Color.gray2 : Color.clear)
         .clipShape(Capsule())
-        .onTapGesture(perform: onTap)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.1)) {  // 여기에 애니메이션 추가
+                onTap()
+            }
+        }
     }
 }
 
