@@ -55,4 +55,25 @@ extension Date {
         formatter.dateFormat = "d"
         return formatter.string(from: self)
     }
+    
+    static let monthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter
+    }()
+    
+    var monthString: String {
+        return Date.monthFormatter.string(from: self)
+    }
+    
+    static func getWeekdayHeadersStartingMonday() -> [String] {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        var weekdays = formatter.shortWeekdaySymbols
+        if let sunday = weekdays?.removeFirst() {
+            weekdays?.append(sunday)
+        }
+        return weekdays?.map { $0.uppercased() } ?? []
+    }
 }
