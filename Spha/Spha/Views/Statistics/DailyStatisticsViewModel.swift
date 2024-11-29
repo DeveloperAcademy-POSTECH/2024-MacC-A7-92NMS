@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import SwiftUI
 
 class DailyStatisticsViewModel: ObservableObject {
     @Published var currentDate = Date() {
@@ -59,42 +60,7 @@ class DailyStatisticsViewModel: ObservableObject {
         updateDailyRecord()
     }
     
-    // MARK: - 주간 달력
-    func getCurrentWeek() -> [Date] {
-        let today = Date()
-        // 일단 일요일
-        var currentMonday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
-        
-        // 월요일 찾기
-        // 1: 일요일 2: 월요일 3: 화요일 4: 수요일 5: 목요일 6: 금요일 7: 토요일
-        if calendar.component(.weekday, from: currentMonday) != 2 { // 현재 날짜가 월요일이 아니면, 월요일로 이동
-            currentMonday = calendar.date(byAdding: .day,
-                                          // 2(월요일) - 현재 요일 = 이동해야 할 일수
-                                          value: 2 - calendar.component(.weekday, from: currentMonday),
-                                          to: currentMonday)!
-        }
-        
-        // 월요일부터 일주일 날짜 배열 만들기
-        return (0..<7).compactMap { dayOffset in
-            calendar.date(byAdding: .day, value: dayOffset, to: currentMonday)
-        }
-    }
-    
-    func loadPreviousWeek() {
-        guard let firstWeekMonday = weeks.first?.first else { return }
-        let previousMonday = calendar.date(byAdding: .weekOfYear, value: -1, to: firstWeekMonday)!
-        
-        let newWeek = (0..<7).compactMap { dayOffset in
-            calendar.date(byAdding: .day, value: dayOffset, to: previousMonday)
-        }
-        weeks.insert(newWeek, at: 0)
-    }
-    
-    func handleDateTap(_ date: Date) {
-        if date <= Date() {
-            currentDate = date // currentDate 변경 시 자동으로 loadDailyHRVData() 호출
-        }
-    }
+
     
     // MARK: - HRV 데이터 처리
     private func updateDailyRecord() {
@@ -154,7 +120,100 @@ class DailyStatisticsViewModel: ObservableObject {
             }
         }
     }
-    
-    
-    
 }
+
+// MARK: - 주간 달력
+extension DailyStatisticsViewModel {
+    func getCurrentWeek() -> [Date] {
+        let today = Date()
+        // 일단 일요일
+        var currentMonday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
+        
+        // 월요일 찾기
+        // 1: 일요일 2: 월요일 3: 화요일 4: 수요일 5: 목요일 6: 금요일 7: 토요일
+        if calendar.component(.weekday, from: currentMonday) != 2 { // 현재 날짜가 월요일이 아니면, 월요일로 이동
+            currentMonday = calendar.date(byAdding: .day,
+                                          // 2(월요일) - 현재 요일 = 이동해야 할 일수
+                                          value: 2 - calendar.component(.weekday, from: currentMonday),
+                                          to: currentMonday)!
+        }
+        
+        // 월요일부터 일주일 날짜 배열 만들기
+        return (0..<7).compactMap { dayOffset in
+            calendar.date(byAdding: .day, value: dayOffset, to: currentMonday)
+        }
+    }
+    
+    func loadPreviousWeek() {
+        guard let firstWeekMonday = weeks.first?.first else { return }
+        let previousMonday = calendar.date(byAdding: .weekOfYear, value: -1, to: firstWeekMonday)!
+        
+        let newWeek = (0..<7).compactMap { dayOffset in
+            calendar.date(byAdding: .day, value: dayOffset, to: previousMonday)
+        }
+        weeks.insert(newWeek, at: 0)
+    }
+    
+    func handleDateTap(_ date: Date) {
+        if date <= Date() {
+            currentDate = date // currentDate 변경 시 자동으로 loadDailyHRVData() 호출
+        }
+    }
+}
+
+
+// MARK: - 월간 달력
+extension DailyStatisticsViewModel {
+    var currentMonth: Date {
+        let components = calendar.dateComponents([.year, .month], from: Date())
+        return calendar.date(from: components)!
+    }
+    
+    var currentMonthOffset: Int {
+        let startDate = calendar.date(byAdding: .month, value: -50, to: currentMonth)!
+        let components = calendar.dateComponents([.month], from: startDate, to: Date())
+        return components.month ?? 0
+    }
+    
+    func getCalendarMonths() -> [Date] {
+        (-50...1).compactMap { monthOffset in
+            calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)
+        }
+    }
+    
+    func getDaysInMonthStartingMonday(for date: Date) -> [(offset: Int, element: Date?)] {
+        let range = calendar.range(of: .day, in: .month, for: date)!
+        let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: date))!
+        var firstWeekday = calendar.component(.weekday, from: firstDayOfMonth) - 2
+        if firstWeekday < 0 { firstWeekday += 7 }
+        
+        var days = Array(repeating: nil as Date?, count: firstWeekday)
+        
+        for day in 1...range.count {
+            if let date = calendar.date(byAdding: .day, value: day - 1, to: firstDayOfMonth) {
+                days.append(date)
+            }
+        }
+        
+        while days.count % 7 != 0 {
+            days.append(nil)
+        }
+        
+        return days.enumerated().map { ($0, $1) }
+    }
+    
+    func getDayColor(for date: Date, isSelected: Bool) -> Color {
+            if date > Date() {
+                return .gray.opacity(0.3)
+            }
+            return isSelected ? .white : .white
+        }
+        
+        func getCircleFillColor(for date: Date) -> Color {
+            if calendar.isDate(date, inSameDayAs: Date()) {
+                return .white.opacity(0.2)  // 오늘 날짜는 투명한 흰색 배경
+            }
+            return .clear  // 나머지 날짜는 투명 배경
+        }
+}
+

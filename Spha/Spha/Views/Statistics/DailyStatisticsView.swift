@@ -51,7 +51,7 @@ private struct HeaderView: View {
                     .foregroundStyle(.blue)
             }
             .sheet(isPresented: $showCalendar) {
-                MonthlyCalendarSheet(selectedDate: $viewModel.currentDate)
+                MonthlyCalendarSheet(viewModel: viewModel, selectedDate: $viewModel.currentDate)
             }
             
         }
@@ -63,26 +63,14 @@ private struct HeaderView: View {
 // MARK: - 월간 달력
 struct MonthlyCalendarSheet: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     @Binding var selectedDate: Date
-    
-    private var currentMonth: Date {
-        let components = Date.calendar.dateComponents([.year, .month], from: Date())
-        return Date.calendar.date(from: components)!
-    }
-    
-    // 수정된 currentMonthOffset 계산
-    private var currentMonthOffset: Int {
-        let startDate = Date.calendar.date(byAdding: .month, value: -100, to: currentMonth)!
-        let components = Date.calendar.dateComponents([.month], from: startDate, to: Date())
-        return components.month ?? 0
-    }
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                // 요일 헤더 (월-일)
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 16) {
-                    ForEach(getWeekdayHeadersStartingMonday(), id: \.self) { weekday in
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 0) {
+                    ForEach(Date.getWeekdayHeadersStartingMonday(), id: \.self) { weekday in
                         Text(weekday)
                             .font(.footnote)
                             .foregroundColor(.gray)
@@ -94,19 +82,22 @@ struct MonthlyCalendarSheet: View {
                 
                 ScrollViewReader { proxy in
                     ScrollView {
-                        LazyVStack(spacing: 35) {
-                            ForEach((-50...1), id: \.self) { monthOffset in
-                                let monthDate = Date.calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)!
-                                MonthView(date: monthDate, dismiss: dismiss, selectedDate: $selectedDate)
-                                    .id(monthOffset)
+                        LazyVStack(spacing: 0) {
+                            ForEach(viewModel.getCalendarMonths(), id: \.self) { monthDate in
+                                MonthView(
+                                    date: monthDate,
+                                    viewModel: viewModel,
+                                    selectedDate: $selectedDate,
+                                    dismiss: dismiss
+                                )
+                                .id(monthDate)
                             }
                         }
-                        .padding()
+                        .padding(.horizontal, 10)
                         .onAppear {
-                            // 약간의 지연 후 스크롤 실행
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                 withAnimation {
-                                    proxy.scrollTo(0, anchor: .center)
+                                    proxy.scrollTo(viewModel.currentMonth, anchor: .center)  // 현재 날짜로 스크롤
                                 }
                             }
                         }
@@ -128,101 +119,72 @@ struct MonthlyCalendarSheet: View {
         }
         .preferredColorScheme(.dark)
     }
-    
-    private func getWeekdayHeadersStartingMonday() -> [String] {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        var weekdays = formatter.shortWeekdaySymbols
-        // 일요일을 마지막으로 이동
-        if let sunday = weekdays?.removeFirst() {
-            weekdays?.append(sunday)
-        }
-        return weekdays?.map { $0.uppercased() } ?? []
-    }
 }
 
 struct MonthView: View {
     let date: Date
-    let dismiss: DismissAction
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     @Binding var selectedDate: Date
-    
-    private var monthString: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "M월"
-        formatter.locale = Locale(identifier: "ko_KR")
-        return formatter.string(from: date)
-    }
+    let dismiss: DismissAction
     
     var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {
-            ForEach(getDaysInMonthStartingMonday(), id: \.offset) { index, date in
-                if let date = date {
-                    VStack(spacing: 20) {
-                        // 1일인 경우에만 월 표시
-                        if date.dayNumber == "1" {
-                            Text(monthString)
-                                .font(.title3).bold()
-                                .foregroundColor(.white)
-                        } else {
-                            Color.clear
-                                .frame(height: 24) // 월 표시 텍스트의 높이만큼 더미 공간
-                        }
-                        
-                        MonthlyDayView(
-                            date: date,
-                            isSelected: Date.calendar.isDate(date, inSameDayAs: selectedDate),
-                            isToday: Date.calendar.isDate(date, inSameDayAs: Date()),
-                            onTap: {
-                                if date <= Date() {
-                                    selectedDate = date
-                                    dismiss()
-                                }
-                            }
-                        )
-                    }
-                } else {
-                    VStack {
-                        Color.clear.frame(height: 24)
-                        Color.clear.frame(width: 44, height: 44)
-                    }
-                }
-            }
-        }
-        .padding(.bottom, 17) // 월과 월 사이의 간격
-    }
-
-
-    
-    private func getDaysInMonthStartingMonday() -> [(offset: Int, element: Date?)] {
-        let range = Date.calendar.range(of: .day, in: .month, for: date)!
-        let firstDayOfMonth = Date.calendar.date(from: Date.calendar.dateComponents([.year, .month], from: date))!
-        var firstWeekday = Date.calendar.component(.weekday, from: firstDayOfMonth) - 2 // 월요일을 시작으로
-        if firstWeekday < 0 { firstWeekday += 7 } // 일요일인 경우 조정
-        
-        var days = Array(repeating: nil as Date?, count: firstWeekday)
-        
-        for day in 1...range.count {
-            if let date = Date.calendar.date(byAdding: .day, value: day - 1, to: firstDayOfMonth) {
-                days.append(date)
-            }
-        }
-        
-        while days.count % 7 != 0 {
-            days.append(nil)
-        }
-        
-        return days.enumerated().map { ($0, $1) }
-    }
-}
+           LazyVGrid(
+            columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7),
+               spacing: 0
+           ) {
+               ForEach(viewModel.getDaysInMonthStartingMonday(for: date), id: \.offset) { index, date in
+                   if let date = date {
+                       VStack(spacing: 0) {
+                           VStack {
+                               if date.dayNumber == "1" {
+                                   Text(date.monthString)
+                                       .font(.title3).bold()
+                                       .foregroundColor(.white)
+                               }
+                           }
+                           .frame(height: 22)
+                           .padding(.bottom, 20)  // monthString과 첫 주 사이 간격 20 유지
+                           
+                           MonthlyDayView(
+                               date: date,
+                               isSelected: viewModel.calendar.isDate(date, inSameDayAs: selectedDate),
+                               isToday: viewModel.calendar.isDate(date, inSameDayAs: Date()),
+                               viewModel: viewModel,
+                               onTap: {
+                                   if date <= Date() {
+                                       selectedDate = date
+                                       dismiss()
+                                   }
+                               }
+                           )
+                       }
+                   } else {
+                       VStack(spacing: 0) {
+                           Color.clear
+                               .frame(height: 22)
+                               .padding(.bottom, 20)  // 빈 셀에도 동일한 간격 적용
+                           Color.clear.frame(width: 44, height: 44)
+                       }
+                   }
+               }
+           }
+           .padding(.bottom, 36)
+       }
+   }
 
 struct MonthlyDayView: View {
     let date: Date
     let isSelected: Bool
     let isToday: Bool
+    @ObservedObject var viewModel: DailyStatisticsViewModel
     let onTap: () -> Void
     
     var body: some View {
         ZStack {
+            // 원형 배경
+            Circle()
+                .fill(viewModel.getCircleFillColor(for: date))
+            
             // 기본 회색 원형 테두리
             Circle()
                 .stroke(Color.gray.opacity(0.3), lineWidth: 3.0)
@@ -237,19 +199,13 @@ struct MonthlyDayView: View {
             // 날짜 텍스트
             Text(date.dayNumber)
                 .font(.footnote)
-                .foregroundColor(getDayColor())
+                .foregroundColor(viewModel.getDayColor(for: date, isSelected: isSelected))
         }
-        .frame(width: 44, height: 44)
+        .frame(width: 44)
         .onTapGesture(perform: onTap)
     }
-    
-    private func getDayColor() -> Color {
-        if date > Date() {
-            return .gray.opacity(0.3)
-        }
-        return isSelected ? .white : .white
-    }
 }
+
 
 
 
@@ -295,7 +251,7 @@ private struct DayItemView: View {
     let onTap: () -> Void
     
     var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: 0) {
             Text(date.dayString)
                 .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
