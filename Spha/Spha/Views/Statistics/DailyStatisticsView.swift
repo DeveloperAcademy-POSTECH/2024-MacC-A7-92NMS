@@ -27,7 +27,7 @@ private struct HeaderView: View {
     @EnvironmentObject var router: RouterManager
     @ObservedObject var viewModel: DailyStatisticsViewModel
     @State private var showCalendar = false
-
+    
     var body: some View {
         HStack {
             Button {
@@ -52,8 +52,8 @@ private struct HeaderView: View {
             }
             .sheet(isPresented: $showCalendar) {
                 MonthlyCalendarSheet(selectedDate: $viewModel.currentDate)
-                            }
-
+            }
+            
         }
         .padding(12)
         .font(.system(size: 17, weight: .semibold))
@@ -70,6 +70,13 @@ struct MonthlyCalendarSheet: View {
         return Date.calendar.date(from: components)!
     }
     
+    // 수정된 currentMonthOffset 계산
+    private var currentMonthOffset: Int {
+        let startDate = Date.calendar.date(byAdding: .month, value: -100, to: currentMonth)!
+        let components = Date.calendar.dateComponents([.month], from: startDate, to: Date())
+        return components.month ?? 0
+    }
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -79,7 +86,7 @@ struct MonthlyCalendarSheet: View {
                         Text(weekday)
                             .font(.footnote)
                             .foregroundColor(.gray)
-                            .frame(height: 44)
+                            .frame(height: 30)
                     }
                 }
                 .padding(.horizontal)
@@ -88,27 +95,31 @@ struct MonthlyCalendarSheet: View {
                 ScrollViewReader { proxy in
                     ScrollView {
                         LazyVStack(spacing: 35) {
-                            ForEach((-100...1), id: \.self) { monthOffset in
+                            ForEach((-50...1), id: \.self) { monthOffset in
                                 let monthDate = Date.calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)!
-                                MonthView(date: monthDate, selectedDate: $selectedDate)
+                                MonthView(date: monthDate, dismiss: dismiss, selectedDate: $selectedDate)
                                     .id(monthOffset)
                             }
                         }
                         .padding()
                         .onAppear {
-                            proxy.scrollTo(0, anchor: .center)
+                            // 약간의 지연 후 스크롤 실행
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                withAnimation {
+                                    proxy.scrollTo(0, anchor: .center)
+                                }
+                            }
                         }
                     }
                 }
             }
-            .navigationTitle("월간 달력")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("닫기") {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("취소") {
                         dismiss()
                     }
-                    .foregroundColor(.white)
+                    .foregroundColor(.blue)
                 }
             }
             .toolbarBackground(.black, for: .navigationBar)
@@ -132,8 +143,8 @@ struct MonthlyCalendarSheet: View {
 
 struct MonthView: View {
     let date: Date
+    let dismiss: DismissAction
     @Binding var selectedDate: Date
-    @Environment(\.dismiss) var dismiss
     
     private var monthString: String {
         let formatter = DateFormatter()
@@ -143,18 +154,18 @@ struct MonthView: View {
     }
     
     var body: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 7), spacing: 16) {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7)) {
             ForEach(getDaysInMonthStartingMonday(), id: \.offset) { index, date in
                 if let date = date {
-                    VStack(spacing: 4) {
+                    VStack(spacing: 20) {
                         // 1일인 경우에만 월 표시
                         if date.dayNumber == "1" {
                             Text(monthString)
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.title3).bold()
                                 .foregroundColor(.white)
                         } else {
                             Color.clear
-                                .frame(height: 17) // 월 표시 텍스트의 높이만큼 더미 공간
+                                .frame(height: 24) // 월 표시 텍스트의 높이만큼 더미 공간
                         }
                         
                         MonthlyDayView(
@@ -171,13 +182,16 @@ struct MonthView: View {
                     }
                 } else {
                     VStack {
-                        Color.clear.frame(height: 17)
+                        Color.clear.frame(height: 24)
                         Color.clear.frame(width: 44, height: 44)
                     }
                 }
             }
         }
+        .padding(.bottom, 17) // 월과 월 사이의 간격
     }
+
+
     
     private func getDaysInMonthStartingMonday() -> [(offset: Int, element: Date?)] {
         let range = Date.calendar.range(of: .day, in: .month, for: date)!
@@ -345,7 +359,7 @@ private struct DailyPieChartView: View {
                     .animation(.linear, value: viewModel.breathingRatio)
             }
             .padding(.vertical, 20)
-                    
+            
             HStack{
                 VStack{
                     HStack{
