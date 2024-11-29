@@ -18,6 +18,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
     var body: some View {
         VStack {
             MultiMP4PlayerView(videoNames: BreathingPhase.boxBreathingSequence)
+                .allowsHitTesting(false) 
                 .frame(width: 300, height: 300)
                 .padding(.top, 164)
             
@@ -63,10 +64,10 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
         .onAppear {
             viewModel.startBreathingIntro()
         }
-        .onChange(of: viewModel.isBreathingCompleted) { oldValue, newValue in
-            if newValue {
-                router.push(view: .breathingOutroView)
-            }
+
+        .onChange(of: viewModel.isBreathingCompleted) { _, _ in
+            router.push(view: .breathingOutroView)
+            
         }
     }
 }

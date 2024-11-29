@@ -67,11 +67,11 @@ struct WatchBreathingAnimationView: View {
         case "pause":
             return (size: 30, duration: 0, delay: 1) // 크기 유지, 1초 딜레이
         case "inhale":
-            return (size: 90, duration: 5, delay: nil) // 30에서 90으로 5초
+            return (size: 85, duration: 5, delay: nil) // 30에서 85으로 5초
         case "hold1", "hold2":
             return (size: circleSize, duration: 0, delay: 5) // 크기 유지, 5초 딜레이
         case "exhale":
-            return (size: 30, duration: 5, delay: nil) // 90에서 30으로 5초
+            return (size: 30, duration: 5, delay: nil) // 85에서 30으로 5초
         case "clean":
             return (size: 0, duration: 0, delay: nil) // 초기화
         default:

@@ -17,7 +17,7 @@ struct WatchBreathingMainView: View {
                 HStack(spacing: 8) {
                     ForEach(0..<3, id: \.self) { index in
                         Circle()
-                            .fill(index < viewModel.activeCircle ? Color.gray : Color.white)
+                            .fill(index < viewModel.activeCircle ? Color.white : Color.gray)
                             .frame(width: 6, height: 6)
                     }
                 }
@@ -25,6 +25,7 @@ struct WatchBreathingMainView: View {
                 
                 Spacer()
                 WatchBreathingAnimationView(videoName: viewModel.videoName(for: viewModel.phaseText))
+                    .frame(width:100, height:100)
                 Spacer()
                 
                 if viewModel.showText {

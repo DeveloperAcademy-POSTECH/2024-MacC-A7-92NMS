@@ -23,8 +23,8 @@ struct MainView: View {
                     } label: {
                         Image(systemName: "chart.bar.fill")
                             .resizable()
-                            .frame(width: 30, height: 25)
-                            .foregroundStyle(.white)
+                            .frame(width: 28, height: 20)
+                            .foregroundStyle(Color.buttonGraph)
                     }
                     .padding(.trailing, 8)
                 }
@@ -51,16 +51,19 @@ struct MainView: View {
                 
                 Text("\(String(describing: viewModel.mindDustLvDescription))")
                     .customFont(.title_1)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(
+                        viewModel.isHRVRecordedToday ?
+                            .white : Color.gray0
+                    )
                     .bold()
                     .padding(.top, 8)
                 
                 Spacer()
                 
                 MP4PlayerView(videoURLString: viewModel.mindDustLevel)
-                    .frame(width: 330, height: 330)
+                    .frame(width: 300, height: 300)
+                    .padding(.bottom, 16)
                 
-                Spacer()
                 
                 HStack{
                     VStack{
@@ -75,7 +78,7 @@ struct MainView: View {
                                 .foregroundStyle(.white)
                                 .bold()
                         }
-                        .padding(.bottom, 8)
+                        .padding(.bottom, 2)
                         
                         Text("권장 청소 횟수")
                             .customFont(.caption_1)
@@ -83,9 +86,9 @@ struct MainView: View {
                     }
                     
                     Rectangle()
-                        .frame(width:1, height: 30)
+                        .frame(width:1, height: 45)
                         .foregroundStyle(.gray)
-                        .padding(.horizontal, 16)
+                        .padding(.horizontal, 24)
                     
                     VStack{
                         HStack{
@@ -99,14 +102,14 @@ struct MainView: View {
                                 .foregroundStyle(.white)
                                 .bold()
                         }
-                        .padding(.bottom, 8)
+                        .padding(.bottom, 2)
                         
                         Text("실행한 청소 횟수")
                             .customFont(.caption_1)
                             .foregroundStyle(.gray)
                     }
                 }
-                .padding(.bottom, 16)
+                .padding(.bottom, 12)
                 
                 Spacer()
                 
@@ -116,7 +119,7 @@ struct MainView: View {
                     // 임시 버튼 라벨
                     Image("mainButton")
                         .resizable()
-                        .frame(width: 80, height: 80)
+                        .frame(width: 90, height: 90)
                         .foregroundStyle(.gray)
                 }
                 
