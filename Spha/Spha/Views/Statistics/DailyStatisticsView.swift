@@ -15,14 +15,59 @@ struct DailyStatisticsView: View {
     var body: some View {
         VStack {
             HeaderView(viewModel: viewModel)
-            WeeklyCalendarView(viewModel: viewModel)
-            DailyChartsView(viewModel: viewModel)
-            Spacer()
+            
+            // 주간 달력 TabView
+            TabView(selection: $viewModel.selectedDate) {
+                ForEach(viewModel.weeks, id: \.first) { week in
+                    WeekView(week: week, viewModel: viewModel)
+                        .tag(week[0])
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .frame(height: 56)
+            .padding(.horizontal, 24)
+            
+            // 일별 통계 TabView
+            TabView(selection: $viewModel.currentDate) {
+                ForEach(viewModel.availableDates, id: \.self) { date in
+                    DailyChartsView(viewModel: viewModel)
+                        .tag(date)
+                }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            .onChange(of: viewModel.currentDate) { newDate in
+                // 현재 날짜가 속한 주의 날짜들 확인
+                if let currentWeek = viewModel.weeks.first(where: { week in
+                    week.contains(where: { date in
+                        Calendar.current.isDate(date, inSameDayAs: newDate)
+                    })
+                }) {
+                    viewModel.selectedDate = currentWeek[0]
+                } else {
+                    // 현재 주에 없는 날짜라면 새로운 주 로드
+                    let newWeek = viewModel.getWeekForDate(newDate)
+                    if newDate < viewModel.weeks.first![0] {
+                        viewModel.weeks.insert(newWeek, at: 0)
+                        viewModel.selectedDate = newWeek[0]
+                    } else {
+                        viewModel.weeks.append(newWeek)
+                        viewModel.selectedDate = newWeek[0]
+                    }
+                }
+                
+                // 추가 날짜 로드
+                if newDate == viewModel.availableDates.first {
+                    viewModel.loadPreviousDay()
+                } else if newDate == viewModel.availableDates.last {
+                    viewModel.loadNextDay()
+                }
+            }
         }
         .background(Color.black)
     }
 }
 
+// MARK: - Header
 private struct HeaderView: View {
     @EnvironmentObject var router: RouterManager
     @ObservedObject var viewModel: DailyStatisticsViewModel
@@ -53,12 +98,12 @@ private struct HeaderView: View {
             .sheet(isPresented: $showCalendar) {
                 MonthlyCalendarSheet(viewModel: viewModel, selectedDate: $viewModel.currentDate)
             }
-            
         }
         .padding(12)
         .font(.system(size: 17, weight: .semibold))
     }
 }
+
 
 // MARK: - 월간 달력
 struct MonthlyCalendarSheet: View {
@@ -214,43 +259,25 @@ struct MonthlyDayView: View {
 }
 
 
-
-
 // MARK: - 주간 달력
-private struct WeeklyCalendarView: View {
+private struct WeekView: View {
+    let week: [Date]
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
-        TabView(selection: $viewModel.selectedDate) {
-            ForEach(viewModel.weeks, id: \.self) { week in
-                HStack(spacing: 32) {
-                    ForEach(week, id: \.self) { date in
-                        DayItemView(
-                            date: date,
-                            isSelected: viewModel.calendar.isDate(date, inSameDayAs: viewModel.currentDate),
-                            onTap: {
-                                viewModel.handleDateTap(date)
-                            }
-                        )
+        HStack(spacing: 32) {
+            ForEach(week, id: \.self) { date in
+                DayItemView(
+                    date: date,
+                    isSelected: viewModel.calendar.isDate(date, inSameDayAs: viewModel.currentDate),
+                    onTap: {
+                        viewModel.handleDateTap(date)
                     }
-                }
-                .tag(week[0])
-                .onAppear {
-                    if week == viewModel.weeks.first {
-                        viewModel.loadPreviousWeek()
-                    }
-                }
+                )
             }
-        }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-        .frame(height: 56)
-        .padding(.horizontal, 24)
-        .onAppear {
-            viewModel.selectedDate = viewModel.weeks.last![0]
         }
     }
 }
-
 
 private struct DayItemView: View {
     let date: Date
@@ -280,7 +307,7 @@ private struct DayItemView: View {
     }
 }
 
-// MARK: - 일일 통계 차트
+// MARK: - 일별 통계 차트
 private struct DailyChartsView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     

@@ -10,6 +10,7 @@ import HealthKit
 import SwiftUI
 
 class DailyStatisticsViewModel: ObservableObject {
+    // MARK: - Published Properties
     @Published var currentDate = Date() {
         didSet {
             updateDailyRecord()
@@ -17,12 +18,17 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     @Published var selectedDate = Date()
     @Published var weeks: [[Date]] = []
-    
+    @Published var availableDates: [Date] = []
     @Published var dailyRecord: DailyStressRecord?
     @Published var stressTrendData: [(Date, StressLevel)] = []
-    
     @Published private var dailyData: [String: DailyData] = [:]
-
+    
+    // MARK: - Properties
+    let calendar = Date.calendar
+    private let healthKitManager: HealthKitInterface
+    private let mindfulSessionManager: MindfulSessionInterface
+    
+    // MARK: - Computed Properties
     var breathingRatio: CGFloat {
         guard let record = dailyRecord,
               record.recommendedReliefCount > 0 else {
@@ -47,95 +53,79 @@ class DailyStatisticsViewModel: ObservableObject {
         return dailyRecord?.mindDustLevel.assetName ?? MindDustLevel.none.assetName
     }
     
-    let calendar = Date.calendar
-    
-    private let healthKitManager: HealthKitInterface
-    private let mindfulSessionManager: MindfulSessionInterface
-    
+    // MARK: - Initialization
     init(_ healthKitManager: HealthKitInterface, _ mindfulSessionManager: MindfulSessionInterface) {
         self.healthKitManager = HealthKitManager()
         self.mindfulSessionManager = MindfulSessionManager()
         
         let thisWeek = getCurrentWeek()
-        weeks = [thisWeek]
+        let lastWeek = getWeekForDate(calendar.date(byAdding: .weekOfYear, value: -1, to: Date())!)
+        let nextWeek = getWeekForDate(calendar.date(byAdding: .weekOfYear, value: 1, to: Date())!)
+        weeks = [lastWeek, thisWeek, nextWeek]
+        
+        initializeAvailableDates()
+        selectedDate = thisWeek[0]
         
         updateDailyRecord()
     }
     
-
+    // MARK: - 날짜 관리
+    private func initializeAvailableDates() {
+        availableDates = (-7...7).compactMap { offset in
+            calendar.date(byAdding: .day, value: offset, to: currentDate)
+        }.filter { $0 <= Date() }
+    }
     
-    // MARK: - HRV 데이터 처리
-    private func updateDailyRecord() {
-        /// HRV 데이터 가져오기
-        healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
-            guard let self = self else { return }
-            
-            if let hrvError = hrvError {
-                print("Error fetching daily HRV data: \(hrvError.localizedDescription)")
-                return
-            }
-            
-            // TODO: DispatchGroup 고려
-            guard let samples = samples else {
-                print("HRV 데이터 없음")
-                DispatchQueue.main.async {
-                    self.dailyRecord = DailyStressRecord(
-                        date: self.currentDate,
-                        recommendedReliefCount: 0,
-                        completedReliefCount: 0
-                    )
-                    self.stressTrendData = []
-                }
-                return
-            }
-            
-            /// 마음챙기기 데이터 가져오기
-            self.mindfulSessionManager.fetchMindfulSessions(for: self.currentDate) { sessions, mindError in
-                if let mindError = mindError {
-                    print("Error fetching daily mindSession data: \(mindError.localizedDescription)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    let sortedSamples = samples.sorted { $0.startDate < $1.startDate }
-                    
-                    /// 일일 스트레스 추이
-                    self.stressTrendData = sortedSamples.map { sample in
-                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                        let stressLevel = StressLevel.getLevel(from: hrvValue)
-                        return (sample.startDate, stressLevel)
-                    }
-                    
-                    /// 일일 마음 청소 통계 업데이트
-                    let highStressSamples = samples.filter { sample in
-                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-                        let stressLevel = StressLevel.getLevel(from: hrvValue)
-                        return stressLevel == .high || stressLevel == .extreme
-                    }
-                    
-                    self.dailyRecord = DailyStressRecord(
-                        date: self.currentDate,
-                        recommendedReliefCount: highStressSamples.count,
-                        completedReliefCount: sessions?.count ?? 0
-                    )
-                }
+    func loadPreviousDay() {
+        guard let firstDate = availableDates.first else { return }
+        if let newDate = calendar.date(byAdding: .day, value: -1, to: firstDate) {
+            availableDates.insert(newDate, at: 0)
+        }
+    }
+    
+    func loadNextDay() {
+        guard let lastDate = availableDates.last else { return }
+        if let newDate = calendar.date(byAdding: .day, value: 1, to: lastDate) {
+            if newDate <= Date() {
+                availableDates.append(newDate)
             }
         }
     }
-}
-
-// MARK: - 주간 달력
-extension DailyStatisticsViewModel {
+    
     func getCurrentWeek() -> [Date] {
-        // 현재 요일을 기준으로 그 주의 월요일 찾기
         let weekday = calendar.component(.weekday, from: currentDate)
-        let mondayOffset = weekday == 1 ? -6 : 2 - weekday // 일요일(1)이면 -6, 아니면 2에서 현재 요일을 뺀 값
-        
+        let mondayOffset = weekday == 1 ? -6 : 2 - weekday
         let currentMonday = calendar.date(byAdding: .day, value: mondayOffset, to: currentDate)!
         
-        // 월요일부터 일주일 날짜 배열 만들기
         return (0..<7).compactMap { dayOffset in
             calendar.date(byAdding: .day, value: dayOffset, to: currentMonday)
+        }
+    }
+    
+    func updateWeekForDate(_ date: Date) {
+        let newWeek = getWeekForDate(date)
+        
+        if !weeks.contains(where: { weekDates in
+            calendar.isDate(weekDates[0], equalTo: newWeek[0], toGranularity: .day)
+        }) {
+            if let firstWeek = weeks.first, let firstDate = firstWeek.first,
+               date < firstDate {
+                weeks.insert(newWeek, at: 0)
+            } else {
+                weeks.append(newWeek)
+            }
+        }
+        
+        selectedDate = newWeek[0]
+    }
+    
+    func getWeekForDate(_ date: Date) -> [Date] {
+        let weekday = calendar.component(.weekday, from: date)
+        let mondayOffset = weekday == 1 ? -6 : 2 - weekday
+        let monday = calendar.date(byAdding: .day, value: mondayOffset, to: date)!
+        
+        return (0..<7).compactMap { dayOffset in
+            calendar.date(byAdding: .day, value: dayOffset, to: monday)
         }
     }
     
@@ -151,14 +141,76 @@ extension DailyStatisticsViewModel {
     
     func handleDateTap(_ date: Date) {
         if date <= Date() {
-            currentDate = date // currentDate 변경 시 자동으로 loadDailyHRVData() 호출
+            currentDate = date
         }
     }
-}
-
-
-// MARK: - 월간 달력
-extension DailyStatisticsViewModel {
+    
+    func getCurrentWeekDates() -> [Date] {
+        if let currentWeek = weeks.first(where: { week in
+            week.contains(where: { date in
+                calendar.isDate(date, inSameDayAs: currentDate)
+            })
+        }) {
+            return currentWeek
+        }
+        return []
+    }
+    
+    // MARK: - HRV 데이터 처리
+    private func updateDailyRecord() {
+        healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
+            guard let self = self else { return }
+            
+            if let hrvError = hrvError {
+                print("Error fetching daily HRV data: \(hrvError.localizedDescription)")
+                return
+            }
+            
+            guard let samples = samples else {
+                print("HRV 데이터 없음")
+                DispatchQueue.main.async {
+                    self.dailyRecord = DailyStressRecord(
+                        date: self.currentDate,
+                        recommendedReliefCount: 0,
+                        completedReliefCount: 0
+                    )
+                    self.stressTrendData = []
+                }
+                return
+            }
+            
+            self.mindfulSessionManager.fetchMindfulSessions(for: self.currentDate) { sessions, mindError in
+                if let mindError = mindError {
+                    print("Error fetching daily mindSession data: \(mindError.localizedDescription)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    let sortedSamples = samples.sorted { $0.startDate < $1.startDate }
+                    
+                    self.stressTrendData = sortedSamples.map { sample in
+                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                        let stressLevel = StressLevel.getLevel(from: hrvValue)
+                        return (sample.startDate, stressLevel)
+                    }
+                    
+                    let highStressSamples = samples.filter { sample in
+                        let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                        let stressLevel = StressLevel.getLevel(from: hrvValue)
+                        return stressLevel == .high || stressLevel == .extreme
+                    }
+                    
+                    self.dailyRecord = DailyStressRecord(
+                        date: self.currentDate,
+                        recommendedReliefCount: highStressSamples.count,
+                        completedReliefCount: sessions?.count ?? 0
+                    )
+                }
+            }
+        }
+    }
+    
+    // MARK: - 월간 달력
     var currentMonth: Date {
         let components = calendar.dateComponents([.year, .month], from: Date())
         return calendar.date(from: components)!
@@ -198,23 +250,20 @@ extension DailyStatisticsViewModel {
     }
     
     func getDayColor(for date: Date, isSelected: Bool) -> Color {
-            if date > Date() {
-                return .gray.opacity(0.3)
-            }
-            return isSelected ? .white : .white
+        if date > Date() {
+            return .gray.opacity(0.3)
         }
-        
-        func getCircleFillColor(for date: Date) -> Color {
-            if calendar.isDate(date, inSameDayAs: Date()) {
-                return .white.opacity(0.2)  // 오늘 날짜는 투명한 흰색 배경
-            }
-            return .clear  // 나머지 날짜는 투명 배경
+        return isSelected ? .white : .white
+    }
+    
+    func getCircleFillColor(for date: Date) -> Color {
+        if calendar.isDate(date, inSameDayAs: Date()) {
+            return .white.opacity(0.2)
         }
-}
-
-// MARK: - 월간 달력 호흡 데이터
-extension DailyStatisticsViewModel {
-    // 날짜별 데이터 구조체
+        return .clear
+    }
+    
+    // MARK: - 월간 달력 호흡 데이터
     struct DailyData {
         let recommendedCount: Int
         let completedCount: Int
@@ -232,10 +281,8 @@ extension DailyStatisticsViewModel {
     func loadDailyRatio(for date: Date) {
         let key = Date.dateKey(date)
         
-        // 이미 로드된 데이터가 있거나 미래 날짜인 경우 스킵
         guard dailyData[key] == nil, date <= Date() else { return }
         
-        // 로딩 시작을 표시
         DispatchQueue.main.async {
             self.dailyData[key] = DailyData(recommendedCount: 0, completedCount: 0)
         }
@@ -248,9 +295,7 @@ extension DailyStatisticsViewModel {
                 return
             }
             
-            guard let samples = samples else {
-                return
-            }
+            guard let samples = samples else { return }
             
             self.mindfulSessionManager.fetchMindfulSessions(for: date) { sessions, mindError in
                 if let mindError = mindError {
