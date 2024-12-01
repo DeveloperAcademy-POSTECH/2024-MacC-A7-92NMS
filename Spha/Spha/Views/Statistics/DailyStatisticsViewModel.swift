@@ -127,18 +127,11 @@ class DailyStatisticsViewModel: ObservableObject {
 // MARK: - 주간 달력
 extension DailyStatisticsViewModel {
     func getCurrentWeek() -> [Date] {
-        let today = Date()
-        // 일단 일요일
-        var currentMonday = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today))!
+        // 현재 요일을 기준으로 그 주의 월요일 찾기
+        let weekday = calendar.component(.weekday, from: currentDate)
+        let mondayOffset = weekday == 1 ? -6 : 2 - weekday // 일요일(1)이면 -6, 아니면 2에서 현재 요일을 뺀 값
         
-        // 월요일 찾기
-        // 1: 일요일 2: 월요일 3: 화요일 4: 수요일 5: 목요일 6: 금요일 7: 토요일
-        if calendar.component(.weekday, from: currentMonday) != 2 { // 현재 날짜가 월요일이 아니면, 월요일로 이동
-            currentMonday = calendar.date(byAdding: .day,
-                                          // 2(월요일) - 현재 요일 = 이동해야 할 일수
-                                          value: 2 - calendar.component(.weekday, from: currentMonday),
-                                          to: currentMonday)!
-        }
+        let currentMonday = calendar.date(byAdding: .day, value: mondayOffset, to: currentDate)!
         
         // 월요일부터 일주일 날짜 배열 만들기
         return (0..<7).compactMap { dayOffset in
