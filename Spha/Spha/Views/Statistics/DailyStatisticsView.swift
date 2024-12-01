@@ -118,6 +118,9 @@ struct MonthlyCalendarSheet: View {
             .background(Color.black)
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+                    viewModel.loadMonthData(for: viewModel.currentMonth)
+                }
     }
 }
 
@@ -181,27 +184,31 @@ struct MonthlyDayView: View {
     
     var body: some View {
         ZStack {
-            // 원형 배경
             Circle()
                 .fill(viewModel.getCircleFillColor(for: date))
             
-            // 기본 회색 원형 테두리
             Circle()
                 .stroke(Color.gray.opacity(0.3), lineWidth: 3.0)
             
-            // 진행도를 나타내는 흰색 원형
-            Circle()
-                .trim(from: 0.0, to: 1/3)
-                .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(.white)
-                .rotationEffect(Angle(degrees: 270.0))
+            if date <= Date() {  // 미래 날짜는 제외
+                Circle()
+                    .trim(from: 0.0, to: viewModel.getBreathingRatio(for: date))
+                    .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
+                    .foregroundColor(.white)
+                    .rotationEffect(Angle(degrees: 270.0))
+                    .animation(.linear(duration: 0.3), value: viewModel.getBreathingRatio(for: date))
+            }
             
-            // 날짜 텍스트
             Text(date.dayNumber)
                 .font(.footnote)
                 .foregroundColor(viewModel.getDayColor(for: date, isSelected: isSelected))
         }
         .frame(width: 44)
+        .onAppear {
+            if date <= Date() {
+                viewModel.loadDailyRatio(for: date)
+            }
+        }
         .onTapGesture(perform: onTap)
     }
 }

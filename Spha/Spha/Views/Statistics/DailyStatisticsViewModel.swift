@@ -21,6 +21,8 @@ class DailyStatisticsViewModel: ObservableObject {
     @Published var dailyRecord: DailyStressRecord?
     @Published var stressTrendData: [(Date, StressLevel)] = []
     
+    @Published private var dailyData: [String: DailyData] = [:]
+
     var breathingRatio: CGFloat {
         guard let record = dailyRecord,
               record.recommendedReliefCount > 0 else {
@@ -217,3 +219,79 @@ extension DailyStatisticsViewModel {
         }
 }
 
+// MARK: - 월간 달력 호흡 데이터
+extension DailyStatisticsViewModel {
+    // 날짜별 데이터 구조체
+    struct DailyData {
+        let recommendedCount: Int
+        let completedCount: Int
+        
+        var ratio: CGFloat {
+            guard recommendedCount > 0 else { return 0.0 }
+            return CGFloat(completedCount) / CGFloat(recommendedCount)
+        }
+    }
+    
+    func getBreathingRatio(for date: Date) -> CGFloat {
+        return dailyData[Date.dateKey(date)]?.ratio ?? 0.0
+    }
+    
+    func loadDailyRatio(for date: Date) {
+        let key = Date.dateKey(date)
+        
+        // 이미 로드된 데이터가 있거나 미래 날짜인 경우 스킵
+        guard dailyData[key] == nil, date <= Date() else { return }
+        
+        // 로딩 시작을 표시
+        DispatchQueue.main.async {
+            self.dailyData[key] = DailyData(recommendedCount: 0, completedCount: 0)
+        }
+        
+        healthKitManager.fetchDailyHRV(for: date) { [weak self] samples, hrvError in
+            guard let self = self else { return }
+            
+            if let hrvError = hrvError {
+                print("Error fetching daily HRV data: \(hrvError.localizedDescription)")
+                return
+            }
+            
+            guard let samples = samples else {
+                return
+            }
+            
+            self.mindfulSessionManager.fetchMindfulSessions(for: date) { sessions, mindError in
+                if let mindError = mindError {
+                    print("Error fetching daily mindSession data: \(mindError.localizedDescription)")
+                    return
+                }
+                
+                let highStressSamples = samples.filter { sample in
+                    let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+                    let stressLevel = StressLevel.getLevel(from: hrvValue)
+                    return stressLevel == .high || stressLevel == .extreme
+                }
+                
+                let recommendedCount = highStressSamples.count
+                let completedCount = sessions?.count ?? 0
+                
+                DispatchQueue.main.async {
+                    self.dailyData[key] = DailyData(
+                        recommendedCount: recommendedCount,
+                        completedCount: completedCount
+                    )
+                }
+            }
+        }
+    }
+    
+    func loadMonthData(for date: Date) {
+        let daysInMonth = getDaysInMonthStartingMonday(for: date)
+        
+        for (_, dayDate) in daysInMonth {
+            guard let dayDate = dayDate else { continue }
+            if dayDate <= Date() {
+                loadDailyRatio(for: dayDate)
+            }
+        }
+    }
+}

@@ -76,4 +76,10 @@ extension Date {
         }
         return weekdays?.map { $0.uppercased() } ?? []
     }
+    
+    static func dateKey(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
 }
