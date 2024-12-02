@@ -63,10 +63,12 @@ class RouterManager: ObservableObject {
     }
 
     func backToMain() {
-        self.path = NavigationPath()
         // 상태 초기화를 알리는 Notification 전송
-        NotificationCenter.default.post(name: RouterManager.backToMainNotification, object: nil)
-        path.append(SphaView.mainView)
+        DispatchQueue.main.async { [weak self] in
+               self?.path = NavigationPath() // 초기화
+               self?.path.append(SphaView.mainView) // 메인 화면 추가
+           }
+           NotificationCenter.default.post(name: RouterManager.backToMainNotification, object: nil)
     }
     
     // 알림을 눌렀을 때 breathingMainView로 이동

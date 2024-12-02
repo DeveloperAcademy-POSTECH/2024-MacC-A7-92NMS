@@ -22,7 +22,8 @@ class BreathingOutroViewModel: ObservableObject {
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
-                guard let _ = self else { return }
+                guard let self = self else { return }
+                 self.opacity = 1.0 // 복원
                 completion()
             }
         }
