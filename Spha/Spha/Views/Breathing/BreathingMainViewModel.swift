@@ -50,6 +50,7 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
         Task {
             for cycle in 1...3 {
                 activeCircle = cycle
+                showText = activeCircle < 2
                 await startBreathingPhase()
             }
             isBreathingCompleted = true

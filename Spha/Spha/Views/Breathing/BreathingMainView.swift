@@ -21,18 +21,18 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                 .allowsHitTesting(false) 
                 .frame(width: 300, height: 300)
                 .padding(.top, 164)
-            
-            Spacer()
-            
+
             if viewModel.showTimer {
                 Text("\(viewModel.timerCount)")
                     .font(.title)
                     .foregroundColor(.white)
-                    .padding(.bottom, 10)
+                    .padding(.top, 10)
                     .transition(.opacity)
             }
             
-            if viewModel.showText {
+            Spacer()
+            
+            if viewModel.showText && viewModel.activeCircle < 2 {
                 Text(viewModel.phaseText)
                     .customFont(.body_0)
                     .foregroundColor(.gray0)
@@ -52,7 +52,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                 HStack(spacing: 8) {
                     ForEach(0..<3, id: \.self) { index in
                         Circle()
-                            .fill(index < viewModel.activeCircle ? Color.gray : Color.white)
+                            .fill(index < viewModel.activeCircle ? Color.white : Color.gray)
                             .frame(width: 10, height: 10)
                     }
                 }
