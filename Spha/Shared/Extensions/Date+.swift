@@ -23,6 +23,12 @@ extension Date {
         return formatter
     }()
     
+    static let calendarMonthFormatter: DateFormatter = {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "YYYY년 M월"
+                return formatter
+            }()
+    
     // Calendar 인스턴스도 재사용
     static let calendar = Calendar.current
     
@@ -48,5 +54,32 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
         return formatter.string(from: self)
+    }
+    
+    static let monthFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월"
+        formatter.locale = Locale(identifier: "ko_KR")
+        return formatter
+    }()
+    
+    var monthString: String {
+        return Date.monthFormatter.string(from: self)
+    }
+    
+    static func getWeekdayHeadersStartingMonday() -> [String] {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        var weekdays = formatter.shortWeekdaySymbols
+        if let sunday = weekdays?.removeFirst() {
+            weekdays?.append(sunday)
+        }
+        return weekdays?.map { $0.uppercased() } ?? []
+    }
+    
+    static func dateKey(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
     }
 }
