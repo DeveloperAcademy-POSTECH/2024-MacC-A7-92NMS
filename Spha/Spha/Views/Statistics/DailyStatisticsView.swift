@@ -152,7 +152,7 @@ struct MonthlyCalendarSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("취소") {
+                    Button("확인") {
                         dismiss()
                     }
                     .foregroundColor(.blue)
