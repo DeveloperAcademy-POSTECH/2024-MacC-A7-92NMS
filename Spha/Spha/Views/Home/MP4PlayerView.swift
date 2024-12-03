@@ -43,6 +43,13 @@ class PlayerUIView: UIView {
             name: UIApplication.willEnterForegroundNotification,
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
     }
 
     required init?(coder: NSCoder) {
@@ -98,7 +105,14 @@ class PlayerUIView: UIView {
     
     @objc private func appWillEnterForeground() {
         // 포그라운드로 돌아올 때 플레이어 재생
-        player?.play()
+        if player?.timeControlStatus != .playing {
+            player?.play()
+        }
+    }
+    
+    @objc private func appDidEnterBackground() {
+        // 필요시 플레이어 일시 정지
+        player?.pause()
     }
     
     override func layoutSubviews() {
