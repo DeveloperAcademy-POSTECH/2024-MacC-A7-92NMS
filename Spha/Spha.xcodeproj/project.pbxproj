@@ -954,7 +954,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = Spha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
@@ -991,7 +991,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = SphaWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = Spha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
