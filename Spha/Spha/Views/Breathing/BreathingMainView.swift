@@ -23,7 +23,7 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
                 .padding(.top, 164)
 
             if viewModel.showTimer {
-                Text("\(viewModel.timerCount)")
+                Text("\(Int(viewModel.timerCount))")
                     .font(.title)
                     .foregroundColor(.white)
                     .padding(.top, 10)

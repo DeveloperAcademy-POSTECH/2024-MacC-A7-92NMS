@@ -12,7 +12,7 @@ import SwiftUI
 class BreathingMainViewModel: BreathingManager, ObservableObject {
     @Published var phaseText: String = BreathingPhase.ready.rawValue
     @Published var showText: Bool = true
-    @Published var timerCount: Int = 0
+    @Published var timerCount: Double = 0
     @Published var showTimer: Bool = false
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
@@ -20,23 +20,24 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
     func startBreathingIntro() {
         Task {
             await startPhase(phase: .ready, duration: 2)
-            await startPhase(phase: .focus, duration: 2)
+            await startPhase(phase: .focus, duration: 1.01)
             startBreathingCycle()
         }
     }
 
-    func startPhase(phase: BreathingPhase, duration: Int) async {
+    func startPhase(phase: BreathingPhase, duration: Double) async {
         phaseText = phase.rawValue
         timerCount = duration
         showText = true
         showTimer = true
-        
+
         showTimer = !(phase == .ready || phase == .focus)
 
         while timerCount > 0 {
             do {
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-                timerCount -= 1
+                let sleepDuration = UInt64(1_000_000_000 * min(1.0, timerCount)) // 1초 또는 남은 시간을 나노초로 변환
+                try await Task.sleep(nanoseconds: sleepDuration)
+                timerCount -= min(1.0, timerCount) // 남은 시간을 조정
             } catch {
                 print("Task was interrupted: \(error)")
                 break

@@ -9,7 +9,7 @@ import Foundation
 class WatchBreathingMainViewModel: BreathingManager {
     @Published var phaseText: String = "마음청소를 시작할게요"
     @Published var showText: Bool = true
-    @Published var timerCount: Int = 0
+    @Published var timerCount: Double = 0
     @Published var showTimer: Bool = false
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
@@ -73,22 +73,24 @@ class WatchBreathingMainViewModel: BreathingManager {
         return phase.videoName
     }
     
-    func startPhase(phase: BreathingPhase, duration: Int) async {
+    func startPhase(phase: BreathingPhase, duration: Double) async {
         phaseText = phase.rawValue
         showText = true
         timerCount = duration
-        
-        for _ in 0..<duration {
+
+        while timerCount > 0 {
+            let sleepDuration = UInt64(min(0.1, timerCount) * 1_000_000_000) // 최소 0.1초 단위로 처리
             do {
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-                timerCount -= 1
+                try await Task.sleep(nanoseconds: sleepDuration)
+                timerCount -= 0.1
             } catch {
                 print("Error while sleeping: \(error)")
+                break
             }
         }
-        
+
         if timerCount <= 0 {
-            
+            showText = false
         }
     }
 }
