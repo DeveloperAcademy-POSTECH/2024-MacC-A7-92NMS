@@ -223,7 +223,7 @@ class DailyStatisticsViewModel: ObservableObject {
     }
     
     func getCalendarMonths() -> [Date] {
-        (-50...1).compactMap { monthOffset in
+        (-3...1).compactMap { monthOffset in
             calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)
         }
     }
