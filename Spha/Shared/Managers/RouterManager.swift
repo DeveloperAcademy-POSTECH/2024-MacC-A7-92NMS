@@ -44,9 +44,6 @@ class RouterManager: ObservableObject {
             let mindfulService = MindfulSessionManager()
             OnboardingContainerView(hrvService: hrvService, mindfulService: mindfulService, notificationManager: NotificationManager.shared)
                 .navigationBarHidden(true)
-        case .mainInfoView:
-            MainInfoView()
-                .navigationBarHidden(true)
         case .dailyStatisticsView:
             DailyStatisticsView()
                 .navigationBarHidden(true)
@@ -86,7 +83,6 @@ enum SphaView: Hashable {
     case breathingOutroView
     case onboardingStartView
     case onboardingView
-    case mainInfoView
     case dailyStatisticsView
 }
 

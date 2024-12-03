@@ -6,6 +6,7 @@ struct MainView: View {
     
     @State private var introOpacity = 0.0
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+    @State private var showInfo: Bool = false
     
     var body: some View {
         ZStack {
@@ -39,7 +40,8 @@ struct MainView: View {
                         .foregroundStyle(.white)
                     
                     Button {
-                        router.push(view: .mainInfoView)
+//                        router.push(view: .mainInfoView)
+                        showInfo.toggle()
                     } label: {
                         Image(systemName: "info.circle")
                             .resizable()
@@ -142,6 +144,10 @@ struct MainView: View {
                     .transition(.opacity) // Fade-in
             }
         }
+        .sheet(isPresented: $showInfo, content: {
+            MainInfoView(isPresented: $showInfo)
+        })
+        
         .onAppear {
             // Notification을 관찰하여 상태 초기화
             NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in

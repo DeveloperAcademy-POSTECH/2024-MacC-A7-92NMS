@@ -13,57 +13,60 @@ struct DailyStatisticsView: View {
     @State private var selectedDate: Date? = nil
     
     var body: some View {
-        VStack {
-            HeaderView(viewModel: viewModel)
-            
-            // 주간 달력 TabView
-            TabView(selection: $viewModel.selectedDate) {
-                ForEach(viewModel.weeks, id: \.first) { week in
-                    WeekView(week: week, viewModel: viewModel)
-                        .tag(week[0])
-                }
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(height: 56)
-            .padding(.horizontal, 24)
-            
-            // 일별 통계 TabView
-            TabView(selection: $viewModel.currentDate) {
-                ForEach(viewModel.availableDates, id: \.self) { date in
-                    DailyChartsView(viewModel: viewModel)
-                        .tag(date)
-                }
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .onChange(of: viewModel.currentDate) { newDate in
-                // 현재 날짜가 속한 주의 날짜들 확인
-                if let currentWeek = viewModel.weeks.first(where: { week in
-                    week.contains(where: { date in
-                        Calendar.current.isDate(date, inSameDayAs: newDate)
-                    })
-                }) {
-                    viewModel.selectedDate = currentWeek[0]
-                } else {
-                    // 현재 주에 없는 날짜라면 새로운 주 로드
-                    let newWeek = viewModel.getWeekForDate(newDate)
-                    if newDate < viewModel.weeks.first![0] {
-                        viewModel.weeks.insert(newWeek, at: 0)
-                        viewModel.selectedDate = newWeek[0]
-                    } else {
-                        viewModel.weeks.append(newWeek)
-                        viewModel.selectedDate = newWeek[0]
+        ZStack{
+            VStack {
+                HeaderView(viewModel: viewModel)
+                
+                // 주간 달력 TabView
+                TabView(selection: $viewModel.selectedDate) {
+                    ForEach(viewModel.weeks, id: \.first) { week in
+                        WeekView(week: week, viewModel: viewModel)
+                            .tag(week[0])
                     }
                 }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(height: 56)
+                .padding(.horizontal, 24)
                 
-                // 추가 날짜 로드
-                if newDate == viewModel.availableDates.first {
-                    viewModel.loadPreviousDay()
-                } else if newDate == viewModel.availableDates.last {
-                    viewModel.loadNextDay()
+                // 일별 통계 TabView
+                TabView(selection: $viewModel.currentDate) {
+                    ForEach(viewModel.availableDates, id: \.self) { date in
+                        DailyChartsView(viewModel: viewModel)
+                            .tag(date)
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .onChange(of: viewModel.currentDate) { newDate in
+                    // 현재 날짜가 속한 주의 날짜들 확인
+                    if let currentWeek = viewModel.weeks.first(where: { week in
+                        week.contains(where: { date in
+                            Calendar.current.isDate(date, inSameDayAs: newDate)
+                        })
+                    }) {
+                        viewModel.selectedDate = currentWeek[0]
+                    } else {
+                        // 현재 주에 없는 날짜라면 새로운 주 로드
+                        let newWeek = viewModel.getWeekForDate(newDate)
+                        if newDate < viewModel.weeks.first![0] {
+                            viewModel.weeks.insert(newWeek, at: 0)
+                            viewModel.selectedDate = newWeek[0]
+                        } else {
+                            viewModel.weeks.append(newWeek)
+                            viewModel.selectedDate = newWeek[0]
+                        }
+                    }
+                    
+                    // 추가 날짜 로드
+                    if newDate == viewModel.availableDates.first {
+                        viewModel.loadPreviousDay()
+                    } else if newDate == viewModel.availableDates.last {
+                        viewModel.loadNextDay()
+                    }
                 }
             }
+            .background(Color.black)
+            
         }
-        .background(Color.black)
     }
 }
 
@@ -151,7 +154,14 @@ struct MonthlyCalendarSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .principal) { // 가운데에 추가
+                    RoundedRectangle(cornerRadius: 20)// 일자선
+                        .frame(width: 45, height: 4) // 일자선 길이
+                        .foregroundStyle(Color.white)
+                        .padding(.bottom, 16)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("확인") {
                         dismiss()
                     }

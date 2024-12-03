@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MainInfoView: View {
-    @EnvironmentObject var router: RouterManager
+    // @EnvironmentObject var router: RouterManager
+    @Binding var isPresented: Bool
     
     var body: some View {
         ScrollView {
@@ -43,11 +44,18 @@ struct MainInfoView: View {
             HStack {
                 Spacer()
                 
-                Text("호흡 권장 단계 설명")
-                    .foregroundStyle(.white)
-                    .font(.system(size: 20))
-                    .bold()
-                
+                VStack{
+                    RoundedRectangle(cornerRadius: 20)// 일자선
+                        .frame(width: 45, height: 4) // 일자선 길이
+                        .foregroundStyle(Color.white)
+                        // .padding(.bottom, 16)
+                    
+                    Text("호흡 권장 단계 설명")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 16))
+                        .bold()
+                        .padding(.top, 12)
+                }
                 Spacer()
             }
             .padding(8)
@@ -56,7 +64,8 @@ struct MainInfoView: View {
                 Spacer()
                 
                 Button(action: {
-                    router.backToMain()
+//                    router.backToMain()
+                    isPresented.toggle()
                 }, label: {
                     Text("확인")
                         .foregroundStyle(.blue)
@@ -220,5 +229,5 @@ struct MainInfoView: View {
 }
 
 #Preview {
-    MainInfoView()
+    MainInfoView(isPresented: .constant(false))
 }

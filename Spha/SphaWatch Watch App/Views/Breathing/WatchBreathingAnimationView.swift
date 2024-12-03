@@ -15,22 +15,38 @@ struct WatchBreathingAnimationView: View {
     
     var body: some View {
         ZStack {
-            // 바깥쪽 안개 같은 빛 번짐 효과
+//             바깥쪽 안개 같은 빛 번짐 효과
+//            Circle()
+//                .fill(
+//                    RadialGradient(
+//                        gradient: Gradient(colors: [
+//                            Color.white.opacity(0.3), // 안개의 시작
+//                            Color.white.opacity(0.1),
+//                            Color.white.opacity(0.0)  // 안개의 끝
+//                        ]),
+//                        center: .center,
+//                        startRadius: circleSize,
+//                        endRadius: circleSize + (circleSize / 3)
+//                    )
+//                )
+//                .frame(width: circleSize * 1.4, height: circleSize * 1.4)
+//                .blur(radius: 30) // 더 부드럽게 확산
+            
             Circle()
                 .fill(
                     RadialGradient(
                         gradient: Gradient(colors: [
-                            Color.white.opacity(0.3), // 안개의 시작
-                            Color.white.opacity(0.1),
-                            Color.white.opacity(0.0)  // 안개의 끝
+                            Color.white.opacity(0.2), // 안개의 시작
+                            Color.white.opacity(0.05),
+                            Color.clear              // 안개의 끝
                         ]),
                         center: .center,
-                        startRadius: circleSize,
-                        endRadius: circleSize + (circleSize / 3)
+                        startRadius: circleSize * 0.5,
+                        endRadius: circleSize + (circleSize * 0.3) // 범위를 줄임
                     )
                 )
-                .frame(width: circleSize * 1.4, height: circleSize * 1.4)
-                .blur(radius: 30) // 더 부드럽게 확산
+                .frame(width: circleSize * 1.2, height: circleSize * 1.2)
+                .blur(radius: 15) // 블러 값을 줄임
             
             // 중심 원 (경계 흐릿함)
             Circle()
@@ -44,7 +60,8 @@ struct WatchBreathingAnimationView: View {
         .onAppear {
             startAnimation(for: videoName)
         }
-        .animation(.easeInOut(duration: animationDuration), value: circleSize)
+        //.animation(.easeInOut(duration: animationDuration), value: circleSize)
+        .animation(.easeInOut(duration: animationDuration), value: animationDuration)
     }
     
     private func startAnimation(for phase: String) {
