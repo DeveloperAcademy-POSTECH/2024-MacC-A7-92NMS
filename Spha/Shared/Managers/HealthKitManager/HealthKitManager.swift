@@ -192,3 +192,20 @@ extension HealthKitManager {
         }
     }
 }
+
+//MARK: - watchOS WorkoutSession 권한 요청
+extension HealthKitManager {
+    func requestWatchWorkoutSessionAuthorization(completion: @escaping (Bool, Error?) -> Void) {
+            guard HKHealthStore.isHealthDataAvailable() else {
+                completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "Health data is not available."]))
+                return
+            }
+
+            let typesToShare: Set = [HKObjectType.workoutType()]
+            let typesToRead: Set = [HKObjectType.workoutType()]
+
+            healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { success, error in
+                completion(success, error)
+            }
+        }
+}

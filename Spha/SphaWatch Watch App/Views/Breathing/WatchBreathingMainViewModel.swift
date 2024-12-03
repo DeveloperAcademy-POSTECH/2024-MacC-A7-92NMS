@@ -14,10 +14,13 @@ class WatchBreathingMainViewModel: BreathingManager {
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
     
+    private var workoutManager = WorkoutManager()
     private var hapticManager = HapticManager()
     private var currentTask: Task<Void, Never>?
     
     func startBreathingIntro() {
+        workoutManager.startWorkout()
+        
         Task {
             await startPhase(phase: .ready, duration: 2)
             await startPhase(phase: .focus, duration: 1)
@@ -29,6 +32,7 @@ class WatchBreathingMainViewModel: BreathingManager {
         activeCircle = 0
         repeatCycle(times: 3) {
             self.isBreathingCompleted = true
+            self.workoutManager.startWorkout()
         }
     }
     
