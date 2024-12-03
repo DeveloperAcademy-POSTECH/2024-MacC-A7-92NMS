@@ -151,7 +151,13 @@ struct MonthlyCalendarSheet: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .principal) {
+                    Rectangle()
+                        .frame(width: 45, height: 4)
+                        .padding(.bottom, 32)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("확인") {
                         dismiss()
                     }
