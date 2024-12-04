@@ -34,9 +34,13 @@ struct MainView: View {
                 Spacer()
                 
                 HStack{
-                    Text("현재 마음구슬 상태")
-                        .customFont(.caption_0)
-                        .foregroundStyle(.white)
+                    Button {
+                        viewModel.resetTodayDataAll()
+                    } label: {
+                        Text("현재 마음구슬 상태")
+                            .customFont(.caption_0)
+                            .foregroundStyle(.white)
+                    }
                     
                     Button {
                         router.push(view: .mainInfoView)
@@ -66,48 +70,64 @@ struct MainView: View {
                 
                 
                 HStack{
-                    VStack{
-                        HStack{
-                            Text("\(viewModel.recommendedCount)")
-                                .customFont(.title_0)
-                                .foregroundStyle(.white)
-                                .bold()
+                    
+                    // 쇼케이스용 버튼
+                    Button {
+                        viewModel.recordTestHRVData()
+                    } label: {
+                        VStack{
+                            HStack{
+                                Text("\(viewModel.recommendedCount)")
+                                    .customFont(.title_0)
+                                    .foregroundStyle(.white)
+                                    .bold()
+                                
+                                Text("회")
+                                    .customFont(.caption_0)
+                                    .foregroundStyle(.white)
+                                    .bold()
+                            }
+                            .padding(.bottom, 2)
                             
-                            Text("회")
-                                .customFont(.caption_0)
-                                .foregroundStyle(.white)
-                                .bold()
+                            Text("권장 청소 횟수")
+                                .customFont(.caption_1)
+                                .foregroundStyle(.gray)
                         }
-                        .padding(.bottom, 2)
-                        
-                        Text("권장 청소 횟수")
-                            .customFont(.caption_1)
-                            .foregroundStyle(.gray)
                     }
+                    
+                    
                     
                     Rectangle()
                         .frame(width:1, height: 45)
                         .foregroundStyle(.gray)
                         .padding(.horizontal, 24)
                     
-                    VStack{
-                        HStack{
-                            Text("\(viewModel.completedCount)")
-                                .customFont(.title_0)
-                                .foregroundStyle(.white)
-                                .bold()
+                    
+                    Button {
+                        viewModel.recordTestMindfulSessionData()
+                    } label: {
+                        VStack{
+                            HStack{
+                                Text("\(viewModel.completedCount)")
+                                    .customFont(.title_0)
+                                    .foregroundStyle(.white)
+                                    .bold()
+                                
+                                Text("회")
+                                    .customFont(.caption_0)
+                                    .foregroundStyle(.white)
+                                    .bold()
+                            }
+                            .padding(.bottom, 2)
                             
-                            Text("회")
-                                .customFont(.caption_0)
-                                .foregroundStyle(.white)
-                                .bold()
+                            Text("실행한 청소 횟수")
+                                .customFont(.caption_1)
+                                .foregroundStyle(.gray)
                         }
-                        .padding(.bottom, 2)
-                        
-                        Text("실행한 청소 횟수")
-                            .customFont(.caption_1)
-                            .foregroundStyle(.gray)
                     }
+
+                    
+ 
                 }
                 .padding(.bottom, 12)
                 
@@ -160,6 +180,8 @@ struct MainView: View {
         }
     }
     
+
+
 }
 
 #Preview {

@@ -15,6 +15,9 @@ protocol HealthKitInterface {
     func fetchMonthlyHRV(for month: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 월간 HRV 데이터 요청
     func monitorHRVUpdates() // HRV 업데이트 모니터링
     func didUpdateHRVData()
+    
+    func recordTestHRV(completion: @escaping (Bool, Error?) -> Void)
+    func deleteDailyHRV(for date: Date, completion: @escaping (Bool, Error?) -> Void) 
 }
 
 class HealthKitManager: HealthKitInterface {
@@ -208,4 +211,61 @@ extension HealthKitManager {
                 completion(success, error)
             }
         }
+}
+
+extension HealthKitManager {
+    func recordTestHRV(completion: @escaping (Bool, Error?) -> Void) {
+        guard let hrvType = HKQuantityType.quantityType(forIdentifier: .heartRateVariabilitySDNN) else {
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "HRV 타입을 찾을 수 없습니다."]))
+            return
+        }
+        
+        // 임의의 HRV 데이터 생성 (임의값: 50ms)
+        let hrvValue = HKQuantity(unit: HKUnit.secondUnit(with: .milli), doubleValue: 22.2)
+        let now = Date()
+        let sample = HKQuantitySample(type: hrvType, quantity: hrvValue, start: now, end: now)
+        
+        // 데이터를 HealthKit에 저장
+        healthStore.save(sample) { success, error in
+            if success {
+                print("테스트 HRV 데이터가 기록되었습니다.")
+            } else if let error = error {
+                print("테스트 HRV 데이터 기록 오류: \(error.localizedDescription)")
+            }
+            completion(success, error)
+        }
+    }
+    
+    func deleteDailyHRV(for date: Date, completion: @escaping (Bool, Error?) -> Void) {
+        guard let hrvType = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN) else {
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "HRV 데이터 타입을 찾을 수 없습니다."]))
+            return
+        }
+
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
+
+        let query = HKSampleQuery(sampleType: hrvType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { [weak self] _, results, error in
+            guard let self = self else { return }
+
+            if let error = error {
+                completion(false, error)
+                return
+            }
+
+            guard let samples = results as? [HKSample] else {
+                completion(false, nil)
+                return
+            }
+
+            self.healthStore.delete(samples) { success, deleteError in
+                completion(success, deleteError)
+            }
+        }
+
+        healthStore.execute(query)
+    }
 }

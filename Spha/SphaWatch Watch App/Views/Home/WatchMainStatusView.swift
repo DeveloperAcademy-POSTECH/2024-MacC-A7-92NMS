@@ -15,7 +15,7 @@ struct WatchMainStatusView: View {
         
         VStack{
             WatchGifPlayerView(videoName: viewModel.mindDustLevel)
-            
+
             HStack{
                 VStack{
                     HStack{

@@ -12,6 +12,7 @@ protocol MindfulSessionInterface {
     func recordMindfulSession(startDate: Date, endDate: Date, completion: @escaping (Bool, Error?) -> Void) // Mindful Session 데이터 기록
     func fetchMindfulSessions(for date: Date, completion: @escaping ([HKCategorySample]?, Error?) -> Void) // 특정 날짜의 Mindful Session 데이터 조회
     func fetchMonthlyMindfulSessions(for month: Date, completion: @escaping ([HKCategorySample]?, Error?) -> Void) // 특정 달의 Mindful Session 데이터 조회
+    func deleteDailyMindfulSessions(for date: Date, completion: @escaping (Bool, Error?) -> Void)
 }
 
 class MindfulSessionManager: MindfulSessionInterface {
@@ -114,6 +115,65 @@ class MindfulSessionManager: MindfulSessionInterface {
             }
         }
         
+        healthStore.execute(query)
+    }
+}
+
+extension MindfulSessionManager {
+    func deleteDailyMindfulSessions(for date: Date, completion: @escaping (Bool, Error?) -> Void) {
+        guard let mindfulType = HKObjectType.categoryType(forIdentifier: .mindfulSession) else {
+            print("Error: MindfulSession 데이터 타입을 찾을 수 없습니다.")
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "MindfulSession 데이터 타입을 찾을 수 없습니다."]))
+            return
+        }
+
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+
+        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: endOfDay, options: .strictStartDate)
+
+        // Fetching samples to delete
+        let query = HKSampleQuery(sampleType: mindfulType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { [weak self] _, results, error in
+            guard let self = self else {
+                completion(false, nil)
+                return
+            }
+
+            if let error = error {
+                print("Error fetching mindfulness sessions: \(error.localizedDescription)")
+                completion(false, error)
+                return
+            }
+
+            guard let sessions = results as? [HKSample], !sessions.isEmpty else {
+                print("No mindfulness sessions found to delete for date \(date).")
+                completion(false, nil)
+                return
+            }
+
+            print("Fetched \(sessions.count) mindfulness sessions to delete.")
+
+            // Log 삭제하려는 데이터
+            for session in sessions {
+                print("Session to delete: \(session)")
+            }
+
+            // Deleting fetched samples
+            self.healthStore.delete(sessions) { success, deleteError in
+                if let deleteError = deleteError {
+                    print("Error deleting mindfulness sessions: \(deleteError.localizedDescription)")
+                    completion(false, deleteError)
+                } else if success {
+                    print("Successfully deleted \(sessions.count) mindfulness sessions.")
+                    completion(true, nil)
+                } else {
+                    print("Failed to delete mindfulness sessions.")
+                    completion(false, nil)
+                }
+            }
+        }
+
         healthStore.execute(query)
     }
 }

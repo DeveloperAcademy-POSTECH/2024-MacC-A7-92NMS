@@ -14,6 +14,7 @@ class MainViewModel: ObservableObject {
     @Published var breathingIntroOpacity: Double = 0.0
     @Published var isHRVRecordedToday = false
     @Published var dailyRecord: DailyStressRecord
+    @Published var isChangedData: Bool = false
     
     var recommendedCount: Int {
         return dailyRecord.recommendedReliefCount
@@ -114,7 +115,7 @@ class MainViewModel: ObservableObject {
     // BreathingIntroView 시작
     func startBreathingIntro(router: RouterManager) {
             showBreathingIntro = true
-            breathingIntroOpacity = 0.0            
+            breathingIntroOpacity = 0.0
             // 페이드인 애니메이션
             withAnimation(.easeIn(duration: 1.0)) {
                 breathingIntroOpacity = 1.0
@@ -123,4 +124,63 @@ class MainViewModel: ObservableObject {
                 router.push(view: .breathingMainView)
             }
         }
+    
+    // MARK: - 쇼케이스용 HRV 데이터 기록
+    func recordTestHRVData() {
+        healthKitManager.recordTestHRV { success, error in
+            if success {
+                print("Test HRV data recorded successfully.")
+                DispatchQueue.main.async {
+                    self.isChangedData.toggle()
+                    self.updateTodayRecord()   // 최신 데이터 반영
+                }
+            } else if let error = error {
+                print("Error recording test HRV data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // MARK: - 쇼케이스용 MindfulSession 데이터 기록
+    func recordTestMindfulSessionData() {
+        mindfulSessionManager.recordMindfulSession(startDate: Date(), endDate: Date() + 60) { success, error in
+            if success {
+                print("Test mindfulSession data recorded successfully.")
+                DispatchQueue.main.async {
+                    self.isChangedData.toggle()
+                    self.updateTodayRecord()   // 최신 데이터 반영
+                }
+            } else if let error = error {
+                print("Error recording test mindfulSession data: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func resetTodayDataAll() {
+        let dispatchGroup = DispatchGroup() // DispatchGroup 생성
+        
+        dispatchGroup.enter()
+        mindfulSessionManager.deleteDailyMindfulSessions(for: Date()) { success, error in
+            defer { dispatchGroup.leave() }
+            if success {
+                print("Today's mindful session data deleted successfully.")
+            } else if let error = error {
+                print("Error deleting today's mindful session data: \(error.localizedDescription)")
+            }
+        }
+        
+        dispatchGroup.enter()
+        healthKitManager.deleteDailyHRV(for: Date()) { success, error in
+            defer { dispatchGroup.leave() }
+            if success {
+                print("Today's HRV data deleted successfully.")
+            } else if let error = error {
+                print("Error deleting today's HRV data: \(error.localizedDescription)")
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            print("All today's records deleted successfully.")
+            self.updateTodayRecord() // 데이터 삭제 후 화면 업데이트
+        }
+    }
 }
