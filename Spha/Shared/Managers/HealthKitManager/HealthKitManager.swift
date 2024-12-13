@@ -21,7 +21,14 @@ class HealthKitManager: HealthKitInterface {
     
     static let shared = HealthKitManager() // 백그라운드 참조 해제 방지용 싱글톤 객체(임시 방편)
     let healthStore = HKHealthStore()
- 
+    
+    private let appInstallationDate: Date
+    private var lastProcessedHRVTimestamp: Date?
+    
+    init() {
+        self.appInstallationDate = Date()
+    }
+    
     // 권한 요청 메소드
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
@@ -153,7 +160,7 @@ extension HealthKitManager {
     
     func monitorHRVUpdates() {
         guard let hrvType = HKObjectType.quantityType(forIdentifier: .heartRateVariabilitySDNN) else { return }
-
+        
         let query = HKObserverQuery(sampleType: hrvType, predicate: nil) {  _, completionHandler, error in
             if let error = error {
                 print("Error observing HRV updates: \(error.localizedDescription)")
@@ -170,23 +177,45 @@ extension HealthKitManager {
         healthStore.execute(query)
     }
     
+    //    func didUpdateHRVData() {
+    //        print("didUpdateHRVData()")
+    //        HealthKitManager.shared.fetchLatestHRV { sample, error in
+    //            print("fetch 메서드 실행")
+    //            if error != nil {
+    //                print("error in didUpdateHRVData")
+    //                return
+    //            }
+    //            guard let sample = sample else {
+    //                print("sample 바인딩 실패")
+    //                return }
+    //
+    //            print("\(sample)")
+    //
+    //            let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
+    //            if hrvValue < 45 { // StressLevel과 함께 리펙토링 고려
+    //                print("noti, hrvValue = \(hrvValue)")
+    //                NotificationManager.shared.sendBreathingAlert()
+    //            }
+    //        }
+    //    }
+    
     func didUpdateHRVData() {
-        print("didUpdateHRVData()")
-        HealthKitManager.shared.fetchLatestHRV { sample, error in
-            print("fetch 메서드 실행")
-            if error != nil {
-                print("error in didUpdateHRVData")
+        HealthKitManager.shared.fetchLatestHRV { [weak self] sample, error in
+            guard let self = self,
+                  let sample = sample else { return }
+            
+            // 앱 설치 이전의 데이터는 무시
+            guard sample.endDate >= self.appInstallationDate else { return }
+            
+            // 이미 처리한 timestamp인지 확인
+            if let lastTimestamp = self.lastProcessedHRVTimestamp,
+               lastTimestamp >= sample.endDate {
                 return
             }
-            guard let sample = sample else {
-                print("sample 바인딩 실패")
-                return }
-            
-            print("\(sample)")
             
             let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-            if hrvValue < 45 { // StressLevel과 함께 리펙토링 고려
-                print("noti, hrvValue = \(hrvValue)")
+            if hrvValue < 45 {
+                self.lastProcessedHRVTimestamp = sample.endDate
                 NotificationManager.shared.sendBreathingAlert()
             }
         }
@@ -196,16 +225,16 @@ extension HealthKitManager {
 //MARK: - watchOS WorkoutSession 권한 요청
 extension HealthKitManager {
     func requestWatchWorkoutSessionAuthorization(completion: @escaping (Bool, Error?) -> Void) {
-            guard HKHealthStore.isHealthDataAvailable() else {
-                completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "Health data is not available."]))
-                return
-            }
-
-            let typesToShare: Set = [HKObjectType.workoutType()]
-            let typesToRead: Set = [HKObjectType.workoutType()]
-
-            healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { success, error in
-                completion(success, error)
-            }
+        guard HKHealthStore.isHealthDataAvailable() else {
+            completion(false, NSError(domain: "HealthKit", code: 1, userInfo: [NSLocalizedDescriptionKey: "Health data is not available."]))
+            return
         }
+        
+        let typesToShare: Set = [HKObjectType.workoutType()]
+        let typesToRead: Set = [HKObjectType.workoutType()]
+        
+        healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { success, error in
+            completion(success, error)
+        }
+    }
 }
