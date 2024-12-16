@@ -24,7 +24,7 @@ struct DailyStatisticsView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(height: 56)
+            .frame(maxHeight: 56)
             .padding(.horizontal, 24)
             
             // 일별 통계 TabView
@@ -318,11 +318,10 @@ private struct DailyChartsView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             DailyPieChartView(viewModel: viewModel)
             Divider().background(Color.gray2)
             DailyStressTrendView(viewModel: viewModel)
-                .padding(.top, 20)
             Spacer()
         }
     }
@@ -332,70 +331,83 @@ private struct DailyPieChartView: View {
     @ObservedObject var viewModel: DailyStatisticsViewModel
     
     var body: some View {
-        VStack {
-            Text("일일 마음 청소 통계")
-                .customFont(.body_0)
-                .bold()
-                .padding(.top, 20)
-                .foregroundStyle(.white)
-            
-            ZStack {
-                MP4PlayerView(videoURLString: viewModel.mindDustLevel)
-                    .frame(width: 90, height: 90)
+        GeometryReader { geometry in
+            VStack(alignment: .center) {
+                Spacer()
                 
-                Circle()
-                    .stroke(lineWidth: 3.0)
-                    .foregroundStyle(Color.gray1)
+                Text("일일 마음 청소 통계")
+                    .customFont(.body_0)
+                    .bold()
+                    .foregroundStyle(.white)
                 
-                Circle()
-                    .trim(from: 0.0, to: viewModel.breathingRatio)
-                    .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(.white)
-                    .rotationEffect(Angle(degrees: 270.0))
-                    .animation(.linear, value: viewModel.breathingRatio)
-            }
-            .padding(.vertical, 20)
-            
-            HStack{
-                VStack{
-                    HStack{
-                        Text("\(viewModel.recommendedCount)")
-                            .customFont(.title_0)
-                            .bold()
+                ZStack {
+                    let circleSize = min(geometry.size.width/2.5, geometry.size.height/2.5)
+                    
+                    MP4PlayerView(videoURLString: viewModel.mindDustLevel)
+                        .frame(width: circleSize * 0.8, height: circleSize * 0.8)
+                    
+                    Circle()
+                        .stroke(lineWidth: 3.0)
+                        .foregroundStyle(Color.gray1)
+                        .frame(width: circleSize, height: circleSize)
+                    
+                    Circle()
+                        .trim(from: 0.0, to: viewModel.breathingRatio)
+                        .stroke(style: StrokeStyle(lineWidth: 3.0, lineCap: .round, lineJoin: .round))
+                        .foregroundColor(.white)
+                        .rotationEffect(Angle(degrees: 270.0))
+                        .animation(.linear, value: viewModel.breathingRatio)
+                        .frame(width: circleSize, height: circleSize)
+                }
+                .padding(.vertical, 16)
+                
+                HStack {
+                    VStack {
+                        HStack {
+                            Text("\(viewModel.recommendedCount)")
+                                .customFont(.title_0)
+                                .bold()
+                            
+                            Text("회")
+                                .customFont(.caption_0)
+                                .bold()
+                        }
                         
-                        Text("회")
-                            .customFont(.caption_0)
-                            .bold()
+                        Text("권장 청소 횟수")
+                            .customFont(.caption_1)
+                            .foregroundStyle(Color.gray0)
                     }
                     
-                    Text("권장 청소 횟수")
-                        .customFont(.caption_1)
-                        .foregroundStyle(Color.gray0)
-                }
-                
-                Rectangle()
-                    .frame(width:1, height: 45)
-                    .foregroundStyle(Color.gray1)
-                    .padding(.horizontal, 24)
-                
-                VStack{
-                    HStack{
-                        Text("\(viewModel.completedCount)")
-                            .customFont(.title_0)
-                            .bold()
+                    Rectangle()
+                        .frame(width:1, height: 45)
+                        .foregroundStyle(Color.gray1)
+                        .padding(.horizontal, 24)
+                    
+                    VStack{
+                        HStack{
+                            Text("\(viewModel.completedCount)")
+                                .customFont(.title_0)
+                                .bold()
+                            
+                            Text("회")
+                                .customFont(.caption_0)
+                                .bold()
+                        }
+                        Text("실행한 청소 횟수")
+                            .customFont(.caption_1)
+                            .foregroundStyle(Color.gray0)
                         
-                        Text("회")
-                            .customFont(.caption_0)
-                            .bold()
                     }
-                    Text("실행한 청소 횟수")
-                        .customFont(.caption_1)
-                        .foregroundStyle(Color.gray0)
+                    
                 }
+                .foregroundStyle(.white)
+                .padding(.bottom, geometry.size.height/36)
+                
+                Spacer()
             }
-            .foregroundStyle(.white)
-            .padding(.bottom, 20)
+            .frame(width: geometry.size.width)
         }
+        
     }
     
 }
