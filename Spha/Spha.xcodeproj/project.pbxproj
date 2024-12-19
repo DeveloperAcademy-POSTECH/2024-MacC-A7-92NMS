@@ -99,6 +99,7 @@
 		B5296D332CEF241400FFE20F /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
 		B5296D3B2CF459E900FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D3A2CF459E900FFE20F /* NotificationManager.swift */; };
 		B5296D3C2CF459E900FFE20F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D3A2CF459E900FFE20F /* NotificationManager.swift */; };
+		B5910AB22D13D52E0097299B /* MonthlyCalendarSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5910AB12D13D52E0097299B /* MonthlyCalendarSheetView.swift */; };
 		B5AB63562CF7543300073778 /* DailyStressRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296D322CEF241400FFE20F /* DailyStressRecord.swift */; };
 		B5AB63572CF7543A00073778 /* StressLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CA92CE3005800FFE20F /* StressLevel.swift */; };
 		B5AB63582CF758CE00073778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -206,6 +207,7 @@
 		B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticsViewModel.swift; sourceTree = "<group>"; };
 		B5296D322CEF241400FFE20F /* DailyStressRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStressRecord.swift; sourceTree = "<group>"; };
 		B5296D3A2CF459E900FFE20F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		B5910AB12D13D52E0097299B /* MonthlyCalendarSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyCalendarSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +505,7 @@
 			children = (
 				B5296D202CEBA4A100FFE20F /* DailyStatisticsView.swift */,
 				B5296D302CEED9BC00FFE20F /* DailyStatisticsViewModel.swift */,
+				B5910AB12D13D52E0097299B /* MonthlyCalendarSheetView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */,
 				B5296D252CEBA4B300FFE20F /* Date+.swift in Sources */,
 				460BCEDF2CEE708D0018927C /* BreathingMainViewModel.swift in Sources */,
+				B5910AB22D13D52E0097299B /* MonthlyCalendarSheetView.swift in Sources */,
 				B5296CA82CE3002700FFE20F /* HealthKitManager.swift in Sources */,
 				B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
