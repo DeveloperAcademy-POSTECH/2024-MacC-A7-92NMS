@@ -26,6 +26,9 @@ struct DailyStatisticsView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .frame(maxHeight: 56)
             .padding(.horizontal, 24)
+            .onChange(of: viewModel.selectedDate) { _, newDate in
+                viewModel.updateDates(for: newDate)
+            }
             
             // 일별 통계 TabView
             TabView(selection: $viewModel.currentDate) {
@@ -35,32 +38,8 @@ struct DailyStatisticsView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .onChange(of: viewModel.currentDate) { newDate in
-                // 현재 날짜가 속한 주의 날짜들 확인
-                if let currentWeek = viewModel.weeks.first(where: { week in
-                    week.contains(where: { date in
-                        Calendar.current.isDate(date, inSameDayAs: newDate)
-                    })
-                }) {
-                    viewModel.selectedDate = currentWeek[0]
-                } else {
-                    // 현재 주에 없는 날짜라면 새로운 주 로드
-                    let newWeek = viewModel.getWeekForDate(newDate)
-                    if newDate < viewModel.weeks.first![0] {
-                        viewModel.weeks.insert(newWeek, at: 0)
-                        viewModel.selectedDate = newWeek[0]
-                    } else {
-                        viewModel.weeks.append(newWeek)
-                        viewModel.selectedDate = newWeek[0]
-                    }
-                }
-                
-                // 추가 날짜 로드
-                if newDate == viewModel.availableDates.first {
-                    viewModel.loadPreviousDay()
-                } else if newDate == viewModel.availableDates.last {
-                    viewModel.loadNextDay()
-                }
+            .onChange(of: viewModel.currentDate) { _, newDate in
+                viewModel.updateDates(for: newDate)
             }
         }
         .background(Color.black)
