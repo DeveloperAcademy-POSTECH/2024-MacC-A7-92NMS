@@ -22,13 +22,21 @@ class HealthKitManager: HealthKitInterface {
     static let shared = HealthKitManager() // 백그라운드 참조 해제 방지용 싱글톤 객체(임시 방편)
     let healthStore = HKHealthStore()
     
-    private let appInstallationDate: Date
     private var lastProcessedHRVTimestamp: Date?
+    private var appInstallationDate: Date {
+            let defaults = UserDefaults.standard
+            let key = "HealthKitManagerInstallationDate"
+            
+            if let savedDate = defaults.object(forKey: key) as? Date {
+                return savedDate
+            } else {
+                let now = Date()
+                defaults.set(now, forKey: key)
+                return now
+            }
+        }
     
-    init() {
-        self.appInstallationDate = Date()
-    }
-    
+        
     // 권한 요청 메소드
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
@@ -177,46 +185,37 @@ extension HealthKitManager {
         healthStore.execute(query)
     }
     
-    //    func didUpdateHRVData() {
-    //        print("didUpdateHRVData()")
-    //        HealthKitManager.shared.fetchLatestHRV { sample, error in
-    //            print("fetch 메서드 실행")
-    //            if error != nil {
-    //                print("error in didUpdateHRVData")
-    //                return
-    //            }
-    //            guard let sample = sample else {
-    //                print("sample 바인딩 실패")
-    //                return }
-    //
-    //            print("\(sample)")
-    //
-    //            let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-    //            if hrvValue < 45 { // StressLevel과 함께 리펙토링 고려
-    //                print("noti, hrvValue = \(hrvValue)")
-    //                NotificationManager.shared.sendBreathingAlert()
-    //            }
-    //        }
-    //    }
     
     func didUpdateHRVData() {
+        print("didUpdateHRVData() 호출됨")
         HealthKitManager.shared.fetchLatestHRV { [weak self] sample, error in
             guard let self = self,
-                  let sample = sample else { return }
+                  let sample = sample else {
+                print("샘플이 nil임")
+                return
+            }
             
-            // 앱 설치 이전의 데이터는 무시
-            guard sample.endDate >= self.appInstallationDate else { return }
+            print("HRV 샘플 받음: \(sample.endDate)")
+            print("앱 설치 날짜: \(self.appInstallationDate)")
             
-            // 이미 처리한 timestamp인지 확인
+            guard sample.endDate >= self.appInstallationDate else {
+                print("설치 이전 데이터라 무시됨")
+                return
+            }
+            
             if let lastTimestamp = self.lastProcessedHRVTimestamp,
                lastTimestamp >= sample.endDate {
+                print("이미 처리된 timestamp라 무시됨")
                 return
             }
             
             let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
-            if hrvValue < 45 {
+            print("HRV 값: \(hrvValue)")
+            
+            if hrvValue < 45 { // StressLevel과 함께 리팩토링 고려
                 self.lastProcessedHRVTimestamp = sample.endDate
                 NotificationManager.shared.sendBreathingAlert()
+                print("알림 전송됨")
             }
         }
     }
