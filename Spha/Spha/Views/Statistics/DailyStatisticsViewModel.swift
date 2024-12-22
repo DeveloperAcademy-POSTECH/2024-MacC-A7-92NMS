@@ -87,22 +87,6 @@ class DailyStatisticsViewModel: ObservableObject {
         availableDates = Array(Set(availableDates)).sorted()
     }
     
-    func loadPreviousDay() {
-        guard let firstDate = availableDates.first else { return }
-        if let newDate = calendar.date(byAdding: .day, value: -1, to: firstDate) {
-            availableDates.insert(newDate, at: 0)
-        }
-    }
-    
-    func loadNextDay() {
-        guard let lastDate = availableDates.last else { return }
-        if let newDate = calendar.date(byAdding: .day, value: 1, to: lastDate) {
-            if newDate <= Date() {
-                availableDates.append(newDate)
-            }
-        }
-    }
-    
     func getCurrentWeek() -> [Date] {
         let weekday = calendar.component(.weekday, from: currentDate)
         let mondayOffset = weekday == 1 ? -6 : 2 - weekday
@@ -302,12 +286,6 @@ class DailyStatisticsViewModel: ObservableObject {
     private var startDate: Date {
         let components = DateComponents(year: 2024, month: 9, day: 1)
         return calendar.date(from: components)!
-    }
-    
-    var currentMonthOffset: Int {
-        let startDate = calendar.date(byAdding: .month, value: -50, to: currentMonth)!
-        let components = calendar.dateComponents([.month], from: startDate, to: Date())
-        return components.month ?? 0
     }
     
     func getCalendarMonths() -> [Date] {
