@@ -197,31 +197,8 @@ class DailyStatisticsViewModel: ObservableObject {
                 availableDates = Array(Set(availableDates)).sorted()
             }
         }
-        
-        // 연속된 날짜 데이터 보장
-        ensureContiguousDates(around: newDate)
     }
-    
-    // 새로 추가: 연속된 날짜 데이터 보장
-    private func ensureContiguousDates(around date: Date) {
-        let calendar = Calendar.current
         
-        // 현재 날짜 기준 이전 7일만 확인
-        let dateRange = (-7...0).compactMap { offset in
-            calendar.date(byAdding: .day, value: offset, to: date)
-        }.filter { $0 <= Date() && $0 >= startDate }
-        
-        // 없는 날짜 추가
-        for date in dateRange {
-            if !availableDates.contains(where: { calendar.isDate($0, inSameDayAs: date) }) {
-                availableDates.append(date)
-            }
-        }
-        
-        // 정렬
-        availableDates = Array(Set(availableDates)).sorted()
-    }
-    
     // MARK: - HRV 데이터 처리
     private func updateDailyRecord() {
         healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
