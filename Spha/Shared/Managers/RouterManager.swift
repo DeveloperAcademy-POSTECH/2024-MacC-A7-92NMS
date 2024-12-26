@@ -16,6 +16,7 @@ class RouterManager: ObservableObject {
     static let goToBreathingNotification = Notification.Name("goToBreathingNotification")
     
     init() {
+        path = NavigationPath()
         // Notification 구독
         NotificationCenter.default.addObserver(
             self,

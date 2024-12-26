@@ -58,38 +58,33 @@ class DailyStatisticsViewModel: ObservableObject {
         self.healthKitManager = HealthKitManager()
         self.mindfulSessionManager = MindfulSessionManager()
         
+        // 현재 주만 초기화
         let thisWeek = getCurrentWeek()
-        let lastWeek = getWeekForDate(calendar.date(byAdding: .weekOfYear, value: -1, to: Date())!)
-        let nextWeek = getWeekForDate(calendar.date(byAdding: .weekOfYear, value: 1, to: Date())!)
-        weeks = [lastWeek, thisWeek, nextWeek]
+        weeks = [thisWeek]
+        selectedDate = thisWeek[0]
         
         initializeAvailableDates()
-        selectedDate = thisWeek[0]
+        loadPreviousWeek() // 초기에 이전 주 하나 로드
         
         updateDailyRecord()
     }
     
     // MARK: - 날짜 관리
     private func initializeAvailableDates() {
-        availableDates = (-7...7).compactMap { offset in
-            calendar.date(byAdding: .day, value: offset, to: currentDate)
-        }.filter { $0 <= Date() }
-    }
-    
-    func loadPreviousDay() {
-        guard let firstDate = availableDates.first else { return }
-        if let newDate = calendar.date(byAdding: .day, value: -1, to: firstDate) {
-            availableDates.insert(newDate, at: 0)
-        }
-    }
-    
-    func loadNextDay() {
-        guard let lastDate = availableDates.last else { return }
-        if let newDate = calendar.date(byAdding: .day, value: 1, to: lastDate) {
-            if newDate <= Date() {
-                availableDates.append(newDate)
+        // 현재 주의 모든 날짜를 포함하도록 초기화
+        let currentWeekDates = getCurrentWeekDates()
+        availableDates = currentWeekDates.filter { $0 <= Date() }
+        
+        // 이전 주의 날짜들도 미리 로드
+        if let mondayOfCurrentWeek = currentWeekDates.first {
+            let previousWeekDates = (-7...0).compactMap { offset in
+                calendar.date(byAdding: .day, value: offset, to: mondayOfCurrentWeek)
             }
+            availableDates = (previousWeekDates + availableDates).filter { $0 <= Date() }
         }
+        
+        // 중복 제거 및 정렬
+        availableDates = Array(Set(availableDates)).sorted()
     }
     
     func getCurrentWeek() -> [Date] {
@@ -133,10 +128,22 @@ class DailyStatisticsViewModel: ObservableObject {
         guard let firstWeekMonday = weeks.first?.first else { return }
         let previousMonday = calendar.date(byAdding: .weekOfYear, value: -1, to: firstWeekMonday)!
         
-        let newWeek = (0..<7).compactMap { dayOffset in
-            calendar.date(byAdding: .day, value: dayOffset, to: previousMonday)
+        // 9월 1일 이전의 주는 로드하지 않음
+        guard previousMonday >= startDate else { return }
+        
+        let newWeek = getWeekForDate(previousMonday)
+        
+        // 중복 체크 후 추가
+        if !weeks.contains(where: { week in
+            calendar.isDate(week[0], equalTo: newWeek[0], toGranularity: .day)
+        }) {
+            weeks.insert(newWeek, at: 0)
+            
+            // 이전 주의 날짜들을 availableDates에도 추가
+            let newDates = newWeek.filter { $0 <= Date() && $0 >= startDate }
+            availableDates.insert(contentsOf: newDates, at: 0)
+            availableDates = Array(Set(availableDates)).sorted() // 중복 제거 및 정렬
         }
-        weeks.insert(newWeek, at: 0)
     }
     
     func handleDateTap(_ date: Date) {
@@ -156,6 +163,42 @@ class DailyStatisticsViewModel: ObservableObject {
         return []
     }
     
+    func updateDates(for newDate: Date) {
+        guard newDate <= Date() else { return }
+        
+        // 현재 날짜가 속한 주 찾기
+        if let currentWeek = weeks.first(where: { week in
+            week.contains { date in
+                calendar.isDate(date, inSameDayAs: newDate)
+            }
+        }) {
+            selectedDate = currentWeek[0]
+            currentDate = newDate
+            
+            // 날짜가 첫 번째 주에 속하면 이전 주 로드
+            if currentWeek[0] == weeks.first?[0] {
+                loadPreviousWeek()
+            }
+        } else {
+            // 새로운 주 로드가 필요한 경우
+            let newWeek = getWeekForDate(newDate)
+            
+            if newDate < (weeks.first?[0] ?? Date()) {
+                weeks.insert(newWeek, at: 0)
+                selectedDate = newWeek[0]
+                currentDate = newDate
+                
+                // 이전 주 미리 로드
+                loadPreviousWeek()
+                
+                // availableDates 업데이트
+                let newDates = newWeek.filter { $0 <= Date() }
+                availableDates.insert(contentsOf: newDates, at: 0)
+                availableDates = Array(Set(availableDates)).sorted()
+            }
+        }
+    }
+        
     // MARK: - HRV 데이터 처리
     private func updateDailyRecord() {
         healthKitManager.fetchDailyHRV(for: currentDate) { [weak self] samples, hrvError in
@@ -216,16 +259,27 @@ class DailyStatisticsViewModel: ObservableObject {
         return calendar.date(from: components)!
     }
     
-    var currentMonthOffset: Int {
-        let startDate = calendar.date(byAdding: .month, value: -50, to: currentMonth)!
-        let components = calendar.dateComponents([.month], from: startDate, to: Date())
-        return components.month ?? 0
+    // 시작 날짜를 2024년 9월 1일로 설정
+    private var startDate: Date {
+        let components = DateComponents(year: 2024, month: 9, day: 1)
+        return calendar.date(from: components)!
     }
     
     func getCalendarMonths() -> [Date] {
-        (-3...1).compactMap { monthOffset in
-            calendar.date(byAdding: .month, value: monthOffset, to: currentMonth)
+        // 시작 날짜(9월)부터 현재 날짜의 다음 달까지의 모든 달을 생성
+        var dates: [Date] = []
+        var currentDate = startDate
+        
+        // 현재 달의 다음 달까지 생성
+        let endDate = calendar.date(byAdding: .month, value: 1, to: currentMonth)!
+        
+        while currentDate <= endDate {
+            dates.append(currentDate)
+            guard let nextMonth = calendar.date(byAdding: .month, value: 1, to: currentDate) else { break }
+            currentDate = nextMonth
         }
+        
+        return dates
     }
     
     func getDaysInMonthStartingMonday(for date: Date) -> [(offset: Int, element: Date?)] {
