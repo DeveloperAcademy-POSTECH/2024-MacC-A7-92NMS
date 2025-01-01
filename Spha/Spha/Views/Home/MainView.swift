@@ -6,6 +6,7 @@ struct MainView: View {
     
     @State private var introOpacity = 0.0
     @State private var isFirstLaunch: Bool = !UserDefaults.standard.bool(forKey: "hasLaunchedBefore")
+    @State private var isBreathingViewPresented = false
     
     var body: some View {
         ZStack {
@@ -114,7 +115,8 @@ struct MainView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.startBreathingIntro(router: router)
+                    isBreathingViewPresented.toggle()
+                    
                 } label: {
                     // 임시 버튼 라벨
                     Image("mainButton")
@@ -133,27 +135,15 @@ struct MainView: View {
                     .transition(.opacity) // 페이드 효과
                     .zIndex(1) // 항상 최상위에 위치
             }
-            
-            // BreathingIntroView 오버레이 뷰
-            if viewModel.showBreathingIntro {
-                Color.black
-                    .opacity(viewModel.breathingIntroOpacity)
-                    .edgesIgnoringSafeArea(.all)
-                    .transition(.opacity) // Fade-in
-            }
         }
+        .sheet(isPresented: $isBreathingViewPresented) {
+            BreathingMainView(breathManager: BreathingMainViewModel())
+        }
+        
         .onAppear {
-            // Notification을 관찰하여 상태 초기화
-            NotificationCenter.default.addObserver(forName: RouterManager.backToMainNotification, object: nil, queue: .main) { _ in
-                viewModel.resetBreathingIntro()
-            }
-            
             if !isFirstLaunch {
                 viewModel.updateTodayRecord()
             }
-        }
-        .onDisappear {
-            NotificationCenter.default.removeObserver(self, name: RouterManager.backToMainNotification, object: nil)
         }
         .onChange(of: self.isFirstLaunch) { oldValue, newValue in
             viewModel.updateTodayRecord()

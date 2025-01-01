@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BreathingOutroView: View {
     @EnvironmentObject var router: RouterManager
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = BreathingOutroViewModel()
 
     var body: some View {
@@ -30,7 +31,7 @@ struct BreathingOutroView: View {
         }
         .onAppear {
             viewModel.fadeOutAnimation {
-                router.backToMain()
+                dismiss()
             }
             viewModel.recordTestMindfulSession()
         }
