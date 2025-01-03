@@ -59,13 +59,13 @@ class WatchBreathingMainViewModel: BreathingManager {
         
         hapticManager.playInhaleHaptic()
         Task {
-            await startPhase(phase: .inhale, duration: 5)
+            await startPhase(phase: .inhale, duration: 4)
             hapticManager.playHoldHaptic()
-            await startPhase(phase: .hold1, duration: 5)
+            await startPhase(phase: .hold1, duration: 4)
             hapticManager.playExhaleHaptic()
-            await startPhase(phase: .exhale, duration: 5)
+            await startPhase(phase: .exhale, duration: 4)
             hapticManager.playHoldHaptic()
-            await startPhase(phase: .hold2, duration: 5)
+            await startPhase(phase: .hold2, duration: 4)
             completion()
         }
     }
