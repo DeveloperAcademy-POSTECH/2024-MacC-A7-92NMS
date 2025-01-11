@@ -11,23 +11,23 @@ extension Date {
     // DateFormatter 인스턴스를 재사용하기 위해 static으로 선언
     private static let fullFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy년 MM월 dd일"
+        formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "ko_KR")
+        formatter.dateFormat = NSLocalizedString("date_format_full", comment: "yyyy년 MM월 dd일")
         return formatter
     }()
     
     private static let todayFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy년 MM월 dd일 오늘"
+        formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "ko_KR")
+        formatter.dateFormat = NSLocalizedString("date_format_today", comment: "yyyy년 MM월 dd일 오늘")
         return formatter
     }()
     
     static let calendarMonthFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "YYYY년 M월"
-                return formatter
-            }()
+        let formatter = DateFormatter()
+        formatter.dateFormat = NSLocalizedString("date_format_month", comment: "YYYY년 M월")
+        return formatter
+    }()
     
     // Calendar 인스턴스도 재사용
     static let calendar = Calendar.current
@@ -44,7 +44,7 @@ extension Date {
     /// 달력에 필요한 요일 문자열 반환
     var dayString: String {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "ko_KR")
         formatter.dateFormat = "E"
         return formatter.string(from: self).uppercased()
     }
@@ -58,8 +58,8 @@ extension Date {
     
     static let monthFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "M월"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = NSLocalizedString("date_format_month_short", comment: "M월")
+        formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "ko_KR")
         return formatter
     }()
     
@@ -69,7 +69,7 @@ extension Date {
     
     static func getWeekdayHeadersStartingMonday() -> [String] {
         let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "ko_KR")
         var weekdays = formatter.shortWeekdaySymbols
         if let sunday = weekdays?.removeFirst() {
             weekdays?.append(sunday)
@@ -83,3 +83,4 @@ extension Date {
         return formatter.string(from: date)
     }
 }
+

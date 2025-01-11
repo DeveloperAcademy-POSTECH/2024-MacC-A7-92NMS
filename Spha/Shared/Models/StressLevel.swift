@@ -16,13 +16,13 @@ enum StressLevel: String, CaseIterable {
     var title: String {
         switch self {
         case .low:    // hrv >= 55
-            "훌륭함"
+            return NSLocalizedString("stress_level_low", comment: "훌륭함")
         case .medium: // 45< hrv <55
-            "정상"
-        case .high:   //30< hrv <44
-            "주의필요"
+            return NSLocalizedString("stress_level_medium", comment: "정상")
+        case .high:   // 30< hrv <44
+            return NSLocalizedString("stress_level_high", comment: "주의필요")
         case .extreme: // hrv<=30
-            "과부하"
+            return NSLocalizedString("stress_level_extreme", comment: "과부하")
         }
     }
     

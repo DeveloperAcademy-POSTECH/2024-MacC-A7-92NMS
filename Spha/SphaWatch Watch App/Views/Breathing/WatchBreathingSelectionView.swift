@@ -13,12 +13,13 @@ struct WatchBreathingSelectionView: View {
     
     var body: some View {
         VStack {
-            Text("박스 호흡법")
+            Text(NSLocalizedString("breathing_method_title", comment: "박스 호흡법"))
                 .font(.caption)
                 .padding(5)
-            Text("즉각적인 스트레스를 완화해주는 호흡법이에요")
+            
+            Text(NSLocalizedString("breathing_method_description", comment: "즉각적인 스트레스를 완화해주는 호흡법이에요"))
                 .customFont(.caption_3)
-                .padding(.bottom,18)
+                .padding(.bottom, 18)
             
             HStack{
                 Image(systemName:"arrow.up")

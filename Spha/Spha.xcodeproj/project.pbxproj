@@ -46,6 +46,8 @@
 		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
 		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
 		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
+		46A839C52D31D5240030197D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46A839C32D31D5240030197D /* Localizable.strings */; };
+		46A839C72D31D5300030197D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46A839C32D31D5240030197D /* Localizable.strings */; };
 		46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 334D95D22CEE0D5E007600D7 /* clean.mp4 */; };
 		46AEF5FC2CEF7A9A005AECFB /* WatchMainStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */; };
 		46AEF5FD2CEF884B005AECFB /* AppleSDGothicNeoSB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33ADDFEE2CEDC67100513149 /* AppleSDGothicNeoSB.ttf */; };
@@ -170,6 +172,8 @@
 		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
 		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
 		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
+		46A839C42D31D5240030197D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		46A839C62D31D52F0030197D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
 		46AEF6062CEF8999005AECFB /* WatchMainStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusViewModel.swift; sourceTree = "<group>"; };
 		46AEF60F2CEFCFDF005AECFB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 				B5296C9D2CE2FF1100FFE20F /* Managers */,
 				B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */,
 				B5296C7F2CE2FEAD00FFE20F /* Preview Content */,
+				46A839C32D31D5240030197D /* Localizable.strings */,
 			);
 			path = Spha;
 			sourceTree = "<group>";
@@ -592,6 +597,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = B5296C6D2CE2FEAC00FFE20F;
 			productRefGroup = B5296C772CE2FEAC00FFE20F /* Products */;
@@ -614,6 +620,7 @@
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				46AEF61A2CF02E05005AECFB /* start.mp4 in Resources */,
+				46A839C52D31D5240030197D /* Localizable.strings in Resources */,
 				46AEF6232CF02E3A005AECFB /* hold2.mp4 in Resources */,
 				46AEF6142CF02D8A005AECFB /* inhale.mp4 in Resources */,
 				334D95DB2CEE1293007600D7 /* dirty03.mp4 in Resources */,
@@ -638,6 +645,7 @@
 				B5296C952CE2FEC500FFE20F /* Preview Assets.xcassets in Resources */,
 				46AEF6242CF02E3A005AECFB /* hold2.mp4 in Resources */,
 				46AEF6272CF02F15005AECFB /* pause.mp4 in Resources */,
+				46A839C72D31D5300030197D /* Localizable.strings in Resources */,
 				46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */,
 				46AEF61B2CF02E05005AECFB /* start.mp4 in Resources */,
 				46AEF6212CF02E2A005AECFB /* hold1.mp4 in Resources */,
@@ -740,6 +748,18 @@
 			targetProxy = B5296C962CE2FEC500FFE20F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		46A839C32D31D5240030197D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46A839C42D31D5240030197D /* en */,
+				46A839C62D31D52F0030197D /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B5296C822CE2FEAD00FFE20F /* Debug */ = {

@@ -1,0 +1,99 @@
+/* 
+  Localizable.strings
+  Spha
+
+  Created by 추서연 on 1/11/25.
+  
+*/
+// Localizable.strings (English)
+
+"current_orb_status" = "Current Mind Orb";
+
+"count_format" = "Times";
+
+"recommended_clean_count" = "Recommendation";
+"executed_clean_count" = "Execution";
+
+"mind_dust_none" = "Measure with your Apple Watch";
+"mind_dust_level1" = "Very clean";
+"mind_dust_level2" = "A little dust accumulated";
+"mind_dust_level3" = "A lot of dust accumulated";
+"mind_dust_level4" = "It is stuffy";
+"mind_dust_level5" = "It is hard to breathe";
+
+"breathing_phase_ready" = "Let's start cleansing your mind";
+"breathing_phase_focus" = "Focus on your breathing";
+"breathing_phase_inhale" = "Take a deep breath in";
+"breathing_phase_hold1" = "Hold your breath for a moment";
+"breathing_phase_exhale" = "Breathe out slowly";
+"breathing_phase_hold2" = "Hold again for a moment";
+
+"orb_cleaned" = "Your Mind Feels Refreshed";
+
+//MainInfoView Description
+"breathing_guide_title" = "Breathing Guide";
+"confirm" = "Confirm";
+"mind_orb_guide_title" = "What is the Mind Orb?";
+"mind_orb_description" = "It's a symbol visualizing your inner emotional state.";
+"recommended_cleaning_count" = "(Recommended cleaning count)-(Number of cleans performed) The Mind Orb state changes after each cleaning";
+
+"mind_cleaning_guide_title" = "What is Mind Cleaning?";
+"breathing_description" = "Mind cleaning through slow breathing. Inhale, hold, exhale, and hold again for one minute in a box breathing method.";
+"immediate_relief_description" = "An immediate, simple, and effective method to bring calm to the mind.";
+
+"mind_orb_state_title" = "Mind Orb's State by Stage";
+"no_stress_description" = "Stress-free state. You can maintain your orb with breathing.";
+"level_1_description" = "State after one breathing session.";
+"level_2_description" = "State after missing one breath.";
+"level_3_description" = "State after missing two breaths.";
+"level_4_description" = "State after missing three breaths.";
+"level_5_description" = "State after missing more than four breaths.";
+
+"notification_guide_title" = "When do breathing reminders come?";
+"hrv_description" = "HRV measures the variation in heart rate intervals, which helps assess stress levels.";
+"spha_hrv_explanation" = "Spha classifies HRV into categories and sends reminders for breathing exercises when stress is high.";
+
+//Statistics Description
+"daily_mind_cleaning_stats" = "Daily Orb Cleaning Stats";
+
+"daily_stress_trend_title" = "Daily Stress Trend";
+"daily_extreme_count" = "Daily Overload Count";
+
+"stress_level_low" = "Excellent";
+"stress_level_medium" = "Normal";
+"stress_level_high" = "Warning";
+"stress_level_extreme" = "Overload";
+
+//Date
+"date_format_full" = "yyyy년 MM월 dd일";
+"date_format_today" = "yyyy년 MM월 dd일 오늘";
+"date_format_month" = "YYYY년 M월";
+"date_format_month_short" = "M월";
+
+//Onboarding
+"onboarding_start_title" = "Cleanse your mind with your breath";
+"onboarding_start_subtitle" = "Clear the mind with breath";
+"start_button_title" = "Start";
+"next_button_title" = "Next";
+
+"onboarding_explain_text" = "Every time stress accumulates,";
+"onboarding_explain_text2" = "The mind becomes more polluted";
+
+"onboarding_breathing_guide_title_1" = "Breathe for 1 minute";
+"onboarding_breathing_guide_title_2" = "Clear your mind";
+"onboarding_breathing_guide_subtitle_1" = "Helps with immediate stress relief";
+"onboarding_breathing_guide_subtitle_2" = "with box breathing";
+
+"onboarding_watch_guide_text" = "Spha use HRV heart rate data";
+"onboarding_watch_guide_text2" = "To provide breathing alerts when overload occurs";
+"onboarding_watch_guide_text3" = "For full service access";
+"onboarding_watch_guide_text4" = "please use an Apple Watch";
+
+"onboarding_healthkit_access_text" = "For automatic stress tracking";
+"onboarding_healthkit_access_text2" = "Please allow access to Apple Health";
+
+//Watch Description
+"breathing_method_title" = "Box Breathing";
+"breathing_method_description" = "A breathing technique to instantly relieve stress";
+"end_button_text" = "Stop";
+

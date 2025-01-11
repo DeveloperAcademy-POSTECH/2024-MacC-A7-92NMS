@@ -1,0 +1,98 @@
+/* 
+  Localizable.strings
+  Spha
+
+  Created by 추서연 on 1/11/25.
+  
+*/
+// Localizable.strings (Korean)
+
+"current_orb_status" = "현재 마음구슬 상태";
+
+"count_format" = "회";
+
+"recommended_clean_count" = "권장 청소 횟수";
+"executed_clean_count" = "실행한 청소 횟수";
+
+"mind_dust_none" = "애플워치로 측정해주세요";
+"mind_dust_level1" = "맑고 깨끗해요";
+"mind_dust_level2" = "먼지가 조금 생겼어요";
+"mind_dust_level3" = "점점 흐려져요";
+"mind_dust_level4" = "탁하고 답답해요";
+"mind_dust_level5" = "터질 것 같아요";
+
+"breathing_phase_ready" = "마음청소를 시작할게요";
+"breathing_phase_focus" = "호흡에 집중하세요";
+"breathing_phase_inhale" = "숨을 들이 쉬세요";
+"breathing_phase_hold1" = "잠시 멈추세요";
+"breathing_phase_exhale" = "숨을 내쉬세요";
+"breathing_phase_hold2" = "한번 더 멈추세요";
+
+"orb_cleaned" = "마음이 깨끗해졌어요";
+
+//MainInfoView Description
+"breathing_guide_title" = "호흡 권장 단계 설명";
+"confirm" = "확인";
+"mind_orb_guide_title" = "마음구슬이란?";
+"mind_orb_description" = "내면의 답답한 마음을 시각화한 심볼이에요.";
+"recommended_cleaning_count" = "(권장 청소 횟수) - (실행한 청소 횟수) 로 모습이 변화해요.";
+
+"mind_cleaning_guide_title" = "마음청소란?";
+"breathing_description" = "호흡법을 통해 마음을 청소하는 방법이에요. 1분 동안 천천히 숨을 들이쉬고 멈추고 내쉬고 다시 멈추는 박스 호흡법으로 진행해요.";
+"immediate_relief_description" = "간단하면서도 효과적인 방법으로 마음을 즉시 안정시킬 수 있어요.";
+
+"mind_orb_state_title" = "마음구슬 단계별 상태";
+"no_stress_description" = "스트레스가 쌓이지 않은 상태에요. 호흡을 통해 구슬을 깨끗하게 관리할 수 있어요.";
+"level_1_description" = "호흡을 한 번 하지 않았을 때의 상태에요.";
+"level_2_description" = "호흡을 두 번 하지 않았을 때의 상태에요.";
+"level_3_description" = "호흡을 세 번 하지 않았을 때의 상태에요.";
+"level_4_description" = "호흡을 네 번 이상 하지 않았을 때의 상태에요.";
+"level_5_description" = "호흡을 다섯 번 이상 하지 않았을 때의 상태에요.";
+
+"notification_guide_title" = "호흡 권장 알림이 언제 오나요?";
+"hrv_description" = "HRV는 심박 간격 사이의 변화를 측정하는 지표로, 스트레스 수준을 평가하는 데 활용돼요.";
+"spha_hrv_explanation" = "Spha는 HRV 수치를 분류하여, 스트레스가 높을 경우 호흡을 통해 스트레스를 완화할 수 있도록 권장하고 있어요.";
+
+//Statistics Description
+"daily_mind_cleaning_stats" = "일일 마음 청소 통계";
+
+"daily_stress_trend_title" = "일일 스트레스 추이";
+"daily_extreme_count" = "일일 과부하 수";
+
+"stress_level_low" = "훌륭함";
+"stress_level_medium" = "정상";
+"stress_level_high" = "주의필요";
+"stress_level_extreme" = "과부하";
+
+//Date
+"date_format_full" = "yyyy년 MM월 dd일";
+"date_format_today" = "yyyy년 MM월 dd일 오늘";
+"date_format_month" = "YYYY년 M월";
+"date_format_month_short" = "M월";
+
+//Onboarding
+"onboarding_start_title" = "더러워진 마음을";
+"onboarding_start_subtitle" = "호흡으로 청소하세요";
+"start_button_title" = "시작하기";
+"next_button_title" = "다음";
+
+"onboarding_explain_text" = "스트레스가 쌓일 때 마다";
+"onboarding_explain_text2" = "마음이 점점 더러워져요";
+
+"onboarding_breathing_guide_title_1" = "1분의 호흡으로";
+"onboarding_breathing_guide_title_2" = "마음을 깨끗이 청소하세요";
+"onboarding_breathing_guide_subtitle_1" = "즉각적인 스트레스 해소에 도움이 되는";
+"onboarding_breathing_guide_subtitle_2" = "박스호흡법을 사용해요";
+
+"onboarding_watch_guide_text" = "HRV 심박수 데이터를 사용하여";
+"onboarding_watch_guide_text2" = "과부하가 왔을 때 호흡 알림을 드려요";
+"onboarding_watch_guide_text3" = "온전한 서비스 이용을 위해";
+"onboarding_watch_guide_text4" = "Apple Watch를 사용하세요";
+
+"onboarding_healthkit_access_text" = "자동 스트레스 추적을 위해";
+"onboarding_healthkit_access_text2" = "Apple 건강에 대한 엑세스를 허용 해주세요";
+
+//Watch Description
+"breathing_method_title" = "박스 호흡법";
+"breathing_method_description" = "즉각적인 스트레스를 완화해주는 호흡법이에요";
+"end_button_text" = "종료";

@@ -112,7 +112,7 @@ struct OnboardingContainerView: View {
                             .frame(maxWidth: .infinity, maxHeight: 57)
                             .foregroundColor(Color.white.opacity(0.25))
                         
-                        Text(currentPage < pageCount - 1 ? "다음" : "시작하기")
+                        Text(currentPage < pageCount - 1 ? NSLocalizedString("next_button_title", comment: "다음") : NSLocalizedString("start_button_title", comment: "시작하기"))
                             .font(.headline)
                             .foregroundColor(.white)
                     }

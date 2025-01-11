@@ -20,7 +20,7 @@ struct WatchBreathingExitView: View {
                 router.pop()
                  
             }) {
-                Text("종료")
+                Text(NSLocalizedString("end_button_text", comment: "종료"))
                     .font(.title3)
                     .padding(.vertical, 16)
                     .foregroundColor(.red)
