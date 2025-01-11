@@ -14,7 +14,7 @@
 "recommended_clean_count" = "Recommendation";
 "executed_clean_count" = "Execution";
 
-"mind_dust_none" = "Measure with your Apple Watch";
+"mind_dust_none" = "Please measure with your Apple Watch";
 "mind_dust_level1" = "Very clean";
 "mind_dust_level2" = "A little dust accumulated";
 "mind_dust_level3" = "A lot of dust accumulated";
@@ -65,10 +65,10 @@
 "stress_level_extreme" = "Overload";
 
 //Date
-"date_format_full" = "yyyy년 MM월 dd일";
-"date_format_today" = "yyyy년 MM월 dd일 오늘";
-"date_format_month" = "YYYY년 M월";
-"date_format_month_short" = "M월";
+"date_format_full" = "yyyy MM dd";
+"date_format_today" = "yyyy MM dd Today";
+"date_format_month" = "YYYY M";
+"date_format_month_short" = "M";
 
 //Onboarding
 "onboarding_start_title" = "Cleanse your mind with your breath";
