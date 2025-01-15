@@ -2,6 +2,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var router: RouterManager
+    @Environment(\.scenePhase) private var scenePhase
+    
     @StateObject private var viewModel = MainViewModel(HealthKitManager(), MindfulSessionManager())
     
     @State private var introOpacity = 0.0
@@ -124,7 +126,7 @@ struct MainView: View {
                             .frame(width: 90, height: 90)
                             .foregroundStyle(.gray)
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 48)
                 }
             }
             .refreshable {
@@ -155,6 +157,11 @@ struct MainView: View {
         }
         .onChange(of: self.isFirstLaunch) { oldValue, newValue in
             viewModel.updateTodayRecord()
+        }
+        .onChange(of: scenePhase) { _, newPhase in // 추가: 앱 상태 변화 감지
+            if newPhase == .active { // 포그라운드로 복귀 시
+                viewModel.updateTodayRecord()
+            }
         }
     }
     
