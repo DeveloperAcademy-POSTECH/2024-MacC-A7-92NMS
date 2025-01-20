@@ -27,12 +27,13 @@ struct MainView: View {
                         } label: {
                             Image(systemName: "chart.bar.fill")
                                 .resizable()
-                                .frame(width: 28, height: 20)
+                                .frame(width: 28, height: 22)
                                 .foregroundStyle(Color.buttonGraph)
                         }
                         .padding(.trailing, 8)
                     }
                     .padding(.top, 32)
+                    .padding(.bottom, 24)
                     .padding(.horizontal, 16)
                     
                     Spacer()
@@ -60,13 +61,13 @@ struct MainView: View {
                                 .white : Color.gray0
                         )
                         .bold()
-                        .padding(.top, 8)
+                        .padding(.top, 16)
                     
                     Spacer()
                     
                     MP4PlayerView(videoURLString: viewModel.mindDustLevel)
                         .frame(width: 300, height: 300)
-                        .padding(.bottom, 16)
+                        .padding(.bottom, 32)
                     
                     
                     HStack{
@@ -113,7 +114,7 @@ struct MainView: View {
                                 .foregroundStyle(.gray)
                         }
                     }
-                    .padding(.bottom, 12)
+                    //.padding(.bottom, 12)
                     
                     Spacer()
                     
