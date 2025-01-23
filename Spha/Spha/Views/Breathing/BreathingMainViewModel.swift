@@ -73,7 +73,8 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
         await startPhase(phase: .hold2, duration: 4)
     }
     
-    func stopAllHaptics() {
+    
+    func stopBreathingCycle () {
         hapticManager.stopHaptic()
     }
 }

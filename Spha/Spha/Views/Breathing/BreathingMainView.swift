@@ -79,7 +79,8 @@ struct BreathingMainView<BreathViewModel>: View where BreathViewModel: Breathing
             viewModel.startBreathingIntro()
         }
         .onDisappear {
-                    viewModel.stopAllHaptics() // 모달이 사라질 때 햅틱 중지
+                    //viewModel.stopAllHaptics() // 모달이 사라질 때 햅틱 중지
+            viewModel.stopBreathingCycle()
                 }
         .onChange(of: viewModel.isBreathingCompleted) { oldValue, newValue in
             if !newValue { return }

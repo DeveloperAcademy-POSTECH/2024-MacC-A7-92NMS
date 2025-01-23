@@ -19,6 +19,6 @@ protocol BreathingManager: ObservableObject {
     func startBreathingIntro() // 초기 인트로 시작
     func startBreathingCycle()// 호흡 사이클 시작
     func startPhase(phase: BreathingPhase, duration: Double) async // 특정 호흡 단계 시작
-    func stopAllHaptics() // 햅틱 중지
+    func stopBreathingCycle() // 햅틱 중지 및 호흡 사이클 중지
 }
 
