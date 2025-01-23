@@ -59,9 +59,9 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
     }
 
     func startBreathingPhase() async {
-        await startPhase(phase: .inhale, duration: 5)
-        await startPhase(phase: .hold1, duration: 5)
-        await startPhase(phase: .exhale, duration: 5)
-        await startPhase(phase: .hold2, duration: 5)
+        await startPhase(phase: .inhale, duration: 4)
+        await startPhase(phase: .hold1, duration: 4)
+        await startPhase(phase: .exhale, duration: 4)
+        await startPhase(phase: .hold2, duration: 4)
     }
 }
