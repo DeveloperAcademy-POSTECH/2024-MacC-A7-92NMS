@@ -96,4 +96,4 @@
 "breathing_method_title" = "Box Breathing";
 "breathing_method_description" = "A breathing technique to instantly relieve stress";
 "end_button_text" = "Stop";
-
+"breathing_start_button_text" = "Start Breathing";

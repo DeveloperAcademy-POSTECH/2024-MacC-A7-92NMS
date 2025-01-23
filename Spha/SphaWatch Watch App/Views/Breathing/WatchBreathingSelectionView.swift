@@ -101,7 +101,7 @@ struct WatchBreathingSelectionView: View {
                 // 버튼 클릭 시 Breathing Main View로 이동
                 router.push(view: .watchbreathingMainView)
             }) {
-                Text("마음청소 시작하기")
+                Text(NSLocalizedString("breathing_start_button_text", comment: "마음청소 시작하기"))
                     .font(.caption2)
                     .padding(.vertical,16)
                     .padding(.horizontal,24)

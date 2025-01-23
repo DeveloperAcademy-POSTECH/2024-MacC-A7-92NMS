@@ -137,7 +137,9 @@ struct MainView: View {
                     .zIndex(1) // 항상 최상위에 위치
             }
         }
-        .sheet(isPresented: $isBreathingViewPresented) {
+        .sheet(isPresented: $isBreathingViewPresented, onDismiss: {
+
+        }) {
             BreathingMainView(breathManager: BreathingMainViewModel())
         }
         

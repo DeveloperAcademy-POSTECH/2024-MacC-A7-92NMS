@@ -16,6 +16,7 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
     @Published var showTimer: Bool = false
     @Published var activeCircle: Int = 0
     @Published var isBreathingCompleted: Bool = false
+    private let hapticManager = HapticManager() 
 
     func startBreathingIntro() {
         Task {
@@ -32,6 +33,13 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
         showTimer = true
 
         showTimer = !(phase == .ready || phase == .focus)
+        
+        if phase == .inhale || phase == .exhale {
+                    hapticManager.playBreatheHaptic(for: duration) // 우우우웅
+                } else if phase == .hold1 || phase == .hold2 {
+                    let repeatCount = Int(duration) // duration 만큼 반복
+                    hapticManager.playHoldHaptic(repeatCount: repeatCount) // 웅! 웅! 웅!
+                }
 
         while timerCount > 0 {
             do {
@@ -63,5 +71,9 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
         await startPhase(phase: .hold1, duration: 4)
         await startPhase(phase: .exhale, duration: 4)
         await startPhase(phase: .hold2, duration: 4)
+    }
+    
+    func stopAllHaptics() {
+        hapticManager.stopHaptic()
     }
 }
