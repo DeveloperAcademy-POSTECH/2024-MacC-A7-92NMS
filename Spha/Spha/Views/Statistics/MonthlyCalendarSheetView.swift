@@ -59,7 +59,7 @@ struct MonthlyCalendarSheetView: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("확인") {
+                    Button(NSLocalizedString("confirm", comment: "확인")) {
                         dismiss()
                     }
                     .foregroundColor(.blue)

@@ -15,7 +15,7 @@ struct WatchBreathingOutroView: View {
         VStack {
             WatchGifPlayerView(videoName: "clean")
             
-            Text("마음이 깨끗해졌어요")
+            Text(NSLocalizedString("orb_cleaned", comment: "마음이 깨끗해졌어요"))
                 .font(.caption)
                 .padding()
         }

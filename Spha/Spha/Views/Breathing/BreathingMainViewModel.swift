@@ -26,7 +26,7 @@ class BreathingMainViewModel: BreathingManager, ObservableObject {
     }
 
     func startPhase(phase: BreathingPhase, duration: Double) async {
-        phaseText = phase.rawValue
+        phaseText = phase.localizedString
         timerCount = duration
         showText = true
         showTimer = true

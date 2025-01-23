@@ -18,11 +18,11 @@ struct OnboardingStartView: View {
                 .padding(.top, 80)
                 .padding(.bottom, 20)
 
-            Text("더러워진 마음을")
+            Text(NSLocalizedString("onboarding_start_title", comment: "더러워진 마음을"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
    
-            Text("호흡으로 청소하세요")
+            Text(NSLocalizedString("onboarding_start_subtitle", comment: "호흡으로 청소하세요"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
                 .padding(.bottom, 16)
@@ -41,7 +41,7 @@ struct OnboardingStartView: View {
                         .frame(maxWidth: .infinity, maxHeight: 57)
                         .foregroundColor(Color.white.opacity(0.25))
                     
-                    Text("시작하기")
+                    Text(NSLocalizedString("start_button_title", comment: "시작하기"))
                         .font(.headline)
                         .foregroundColor(.white)
                 }

@@ -22,7 +22,8 @@ struct BreathingOutroView: View {
                     .frame(width: 330, height: 330)
                     .padding(.top, 50)
 
-                Text("마음이 깨끗해졌어요")
+               
+                Text(NSLocalizedString("orb_cleaned", comment: "마음이 깨끗해졌어요"))
                     .customFont(.body_0)
                     .foregroundColor(Color.white)
                     .padding()

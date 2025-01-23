@@ -12,12 +12,12 @@ struct ExplainMenu: View {
     
     var body: some View {
         VStack {
-            Text("스트레스가 쌓일 때 마다")
+            Text(NSLocalizedString("onboarding_explain_text", comment: "스트레스가 쌓일 때 마다"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
                 .padding(.top, 24)
             
-            Text("마음이 점점 더러워져요")
+            Text(NSLocalizedString("onboarding_explain_text2", comment: "마음이 더러워져요"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
             
@@ -28,7 +28,7 @@ struct ExplainMenu: View {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel1.assetName)
                         .frame(width: 150, height: 150)
                     
-                    Text("먼지가 조금 생겼어요")
+                    Text(NSLocalizedString("mind_dust_level2", comment: ""))
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
@@ -37,7 +37,7 @@ struct ExplainMenu: View {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel2.assetName)
                         .frame(width: 150, height: 150)
                     
-                    Text("점점 흐려져요")
+                    Text(NSLocalizedString("mind_dust_level3", comment: ""))
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
@@ -50,7 +50,7 @@ struct ExplainMenu: View {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel3.assetName)
                         .frame(width: 150, height: 150)
                     
-                    Text("탁하고 답답해요")
+                    Text(NSLocalizedString("mind_dust_level4", comment: ""))
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }
@@ -59,7 +59,7 @@ struct ExplainMenu: View {
                     MP4PlayerView(videoURLString: MindDustLevel.dustLevel4.assetName)
                         .frame(width: 150, height: 150)
                     
-                    Text("터질 것 같아요")
+                    Text(NSLocalizedString("mind_dust_level5", comment: ""))
                         .foregroundStyle(.white)
                         .customFont(.caption_2)
                 }

@@ -154,7 +154,7 @@ private struct DailyPieChartView: View {
             VStack(alignment: .center) {
                 Spacer()
                 
-                Text("일일 마음 청소 통계")
+                Text(NSLocalizedString("daily_mind_cleaning_stats", comment: "일일 마음 청소 통계"))
                     .customFont(.body_0)
                     .bold()
                     .foregroundStyle(.white)
@@ -187,12 +187,12 @@ private struct DailyPieChartView: View {
                                 .customFont(.title_0)
                                 .bold()
                             
-                            Text("회")
+                            Text(NSLocalizedString("count_format", comment: "회"))
                                 .customFont(.caption_0)
                                 .bold()
                         }
                         
-                        Text("권장 청소 횟수")
+                        Text(NSLocalizedString("recommended_clean_count", comment: "권장 청소 횟수"))
                             .customFont(.caption_1)
                             .foregroundStyle(Color.gray0)
                     }
@@ -208,11 +208,11 @@ private struct DailyPieChartView: View {
                                 .customFont(.title_0)
                                 .bold()
                             
-                            Text("회")
+                            Text(NSLocalizedString("count_format", comment: "회"))
                                 .customFont(.caption_0)
                                 .bold()
                         }
-                        Text("실행한 청소 횟수")
+                        Text(NSLocalizedString("executed_clean_count", comment: "실행한 청소 횟수"))
                             .customFont(.caption_1)
                             .foregroundStyle(Color.gray0)
                         
@@ -238,22 +238,21 @@ private struct DailyStressTrendView: View {
     var body: some View {
         VStack {
             HStack(alignment: .firstTextBaseline, spacing: 4) {
-                Text("일일 스트레스 추이")
+                Text(NSLocalizedString("daily_stress_trend_title", comment: "일일 스트레스 추이"))
                     .customFont(.caption_0)
                     .bold()
                     .foregroundStyle(.white)
                 
                 Spacer()
                 
-                Text("일일 과부하 수")
-                    .customFont(.caption_2)
+                Text(NSLocalizedString("daily_extreme_count", comment: "일일 과부하 수"))                    .customFont(.caption_2)
                     .bold()
                     .foregroundStyle(.grays3)
                 
                 Text("\(viewModel.extremeCount)")
                     .customFont(.title_0)
                 
-                Text("회")
+                Text(NSLocalizedString("count_format", comment: "회"))
                     .customFont(.caption_1)
                 
             }

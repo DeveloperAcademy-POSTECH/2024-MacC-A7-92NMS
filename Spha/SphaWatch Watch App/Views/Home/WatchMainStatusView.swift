@@ -24,13 +24,13 @@ struct WatchMainStatusView: View {
                             .foregroundStyle(.white)
                             .bold()
                         
-                        Text("회")
+                        Text(NSLocalizedString("count_format", comment: "회"))
                             .customFont(.caption_1)
                             .foregroundStyle(.white)
                             .bold()
                     }
                     
-                    Text("권장 청소 횟수")
+                    Text(NSLocalizedString("recommended_clean_count", comment: "권장 청소 횟수"))
                         .font(.system(size: 9))
                         .foregroundStyle(.gray)
                 }
@@ -47,12 +47,12 @@ struct WatchMainStatusView: View {
                             .foregroundStyle(.white)
                             .bold()
                         
-                        Text("회")
+                        Text(NSLocalizedString("count_format", comment: "회"))
                             .customFont(.caption_1)
                             .foregroundStyle(.white)
                             .bold()
                     }
-                    Text("실행한 청소 횟수")
+                    Text(NSLocalizedString("executed_clean_count", comment: "실행한 청소 횟수"))
                         .font(.system(size: 9))
                         .foregroundStyle(.gray)
                 }

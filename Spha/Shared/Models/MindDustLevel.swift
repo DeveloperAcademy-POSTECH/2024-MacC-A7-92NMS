@@ -37,17 +37,18 @@ enum MindDustLevel {
     var description: String {
         switch self {
         case .none:
-            return "애플워치로 측정해주세요"
+            return NSLocalizedString("mind_dust_none", comment: "")
         case .dustLevel1:
-            return "맑고 깨끗해요"
+            return NSLocalizedString("mind_dust_level1", comment: "")
         case .dustLevel2:
-            return "먼지가 조금 생겼어요"
+            return NSLocalizedString("mind_dust_level2", comment: "")
         case .dustLevel3:
-            return "점점 흐려져요"
+            return NSLocalizedString("mind_dust_level3", comment: "")
         case .dustLevel4:
-            return "탁하고 답답해요"
+            return NSLocalizedString("mind_dust_level4", comment: "")
         case .dustLevel5:
-            return "터질 것 같아요"
+            return NSLocalizedString("mind_dust_level5", comment: "")
         }
     }
 }
+

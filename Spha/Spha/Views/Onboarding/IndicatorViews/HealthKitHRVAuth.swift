@@ -12,12 +12,12 @@ struct HealthKitHRVAuth: View {
     
     var body: some View {
         VStack {
-            Text("자동 스트레스 추적을 위해")
+            Text(NSLocalizedString("onboarding_healthkit_access_text", comment: "자동 스트레스 추적을 위해"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
                 .padding(. top, 16)
 
-            Text("Apple 건강에 대한 엑세스를 허용 해주세요")
+            Text(NSLocalizedString("onboarding_healthkit_access_text2", comment: "Apple 건강에 대한 엑세스를 허용 해주세요"))
                 .customFont(.body_1)
                 .foregroundStyle(.white)
             
