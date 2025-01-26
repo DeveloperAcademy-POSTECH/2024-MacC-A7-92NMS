@@ -1,8 +1,7 @@
 # 2024-MacC-A7-92NMS
-
+**숨쉴수록 맑아지는 나의 마음, Spha와 함께 스트레스를 관리하세요!**
 
 # 🌬️ Spha : Your escape from stress
-**숨쉴수록 맑아지는 나의 마음, Spha와 함께 스트레스를 관리하세요!**
 [Spha 바로가기](https://apps.apple.com/kr/app/spha/id6738649249)
 [Spha 자세히 보기](https://tarry-shoulder-2e9.notion.site/Spha-6ee0c783d21d474f97960439efc0e09f)
 
