@@ -24,7 +24,7 @@ struct WatchBreathingMainView: View {
                 .padding(3)
                 
                 Spacer()
-                WatchBreathingAnimationView(videoName: viewModel.videoName(for: viewModel.phaseText))
+                WatchBreathingAnimationView(videoName: viewModel.videoName(for: viewModel.phaseTextVideo))
                     .frame(width:100, height:100)
                 Spacer()
                 
