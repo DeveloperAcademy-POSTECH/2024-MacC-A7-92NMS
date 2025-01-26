@@ -7,7 +7,9 @@
 import Foundation
 
 class WatchBreathingMainViewModel: BreathingManager {
-    @Published var phaseText: String = "마음청소를 시작할게요"
+    
+    @Published var phaseTextVideo: String = "마음청소를 시작할게요"
+    @Published var phaseText: String = BreathingPhase.ready.rawValue
     @Published var showText: Bool = true
     @Published var timerCount: Double = 0
     @Published var showTimer: Bool = false
@@ -42,7 +44,7 @@ class WatchBreathingMainViewModel: BreathingManager {
         currentTask=nil
         isBreathingCompleted = false
     }
-    
+        
     private func repeatCycle(times: Int, completion: @escaping () -> Void) {
         guard times > 0 else {
             completion()
@@ -78,7 +80,8 @@ class WatchBreathingMainViewModel: BreathingManager {
     }
     
     func startPhase(phase: BreathingPhase, duration: Double) async {
-        phaseText = phase.rawValue
+        phaseText = phase.localizedString
+        phaseTextVideo = phase.rawValue
         showText = true
         timerCount = duration
 
@@ -97,4 +100,5 @@ class WatchBreathingMainViewModel: BreathingManager {
             showText = false
         }
     }
+
 }

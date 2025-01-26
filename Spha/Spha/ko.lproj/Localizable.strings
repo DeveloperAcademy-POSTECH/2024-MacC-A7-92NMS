@@ -96,3 +96,5 @@
 "breathing_method_title" = "박스 호흡법";
 "breathing_method_description" = "즉각적인 스트레스를 완화해주는 호흡법이에요";
 "end_button_text" = "종료";
+"breathing_start_button_text" = "마음청소 시작하기";
+

@@ -19,9 +19,9 @@ class HapticManager {
 
     func playInhaleHaptic() {
         Task {
-            await startHapticRepeat(interval: 0.5, duration: 5) {
+            await startHapticRepeat(interval: 1.0, duration: 4) {
                 if !self.isHapticStopped {
-                                    self.device.play(.stop)
+                                    self.device.play(.notification)
                                 }
             }
         }
@@ -29,9 +29,9 @@ class HapticManager {
 
     func playHoldHaptic() {
         Task {
-            await startHapticRepeat(interval: 0.5, duration: 5) {
+            await startHapticRepeat(interval: 1.0, duration: 4) {
                 if !self.isHapticStopped {
-                                    self.device.play(.start)
+                                    self.device.play(.directionUp)
                                 }
             }
         }
@@ -39,9 +39,9 @@ class HapticManager {
     
     func playExhaleHaptic() {
         Task {
-            await startHapticRepeat(interval: 0.5, duration: 5) {
+            await startHapticRepeat(interval: 1.0, duration: 4) {
                 if !self.isHapticStopped {
-                                    self.device.play(.success)
+                                    self.device.play(.notification)
                                 }
             }
         }

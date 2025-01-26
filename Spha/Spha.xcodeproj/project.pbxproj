@@ -73,6 +73,7 @@
 		46AEF6292CF252C7005AECFB /* BreathingOutroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AEF6282CF252C7005AECFB /* BreathingOutroViewModel.swift */; };
 		46C6950F2CF7452900E569DC /* WatchBreathingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6950E2CF7452900E569DC /* WatchBreathingAnimationView.swift */; };
 		46C695112CF8525400E569DC /* WatchGifPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C695102CF8525400E569DC /* WatchGifPlayerView.swift */; };
+		46D1D55B2D42A0D6000773F9 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D1D55A2D42A0D6000773F9 /* HapticManager.swift */; };
 		B5296C7A2CE2FEAC00FFE20F /* SphaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C792CE2FEAC00FFE20F /* SphaApp.swift */; };
 		B5296C7C2CE2FEAC00FFE20F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */; };
 		B5296C7E2CE2FEAD00FFE20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */; };
@@ -182,6 +183,7 @@
 		46AEF62D2CF27608005AECFB /* SphaWatch Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SphaWatch Watch App.entitlements"; sourceTree = "<group>"; };
 		46C6950E2CF7452900E569DC /* WatchBreathingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingAnimationView.swift; sourceTree = "<group>"; };
 		46C695102CF8525400E569DC /* WatchGifPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchGifPlayerView.swift; sourceTree = "<group>"; };
+		46D1D55A2D42A0D6000773F9 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		B5296C762CE2FEAC00FFE20F /* Spha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296C792CE2FEAC00FFE20F /* SphaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphaApp.swift; sourceTree = "<group>"; };
 		B5296C7B2CE2FEAC00FFE20F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296CAD2CE3009900FFE20F /* HealthKitManager+iOS.swift */,
+				46D1D55A2D42A0D6000773F9 /* HapticManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -616,10 +619,7 @@
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
 				46AEF61A2CF02E05005AECFB /* start.mp4 in Resources */,
-
 				46A839C52D31D5240030197D /* Localizable.strings in Resources */,
-				46AEF6232CF02E3A005AECFB /* hold2.mp4 in Resources */,
-				46AEF6142CF02D8A005AECFB /* inhale.mp4 in Resources */,
 				334D95DB2CEE1293007600D7 /* dirty03.mp4 in Resources */,
 				46AEF61D2CF02E15005AECFB /* full.mp4 in Resources */,
 				46AEF6262CF02F15005AECFB /* pause.mp4 in Resources */,
@@ -695,6 +695,7 @@
 				B5296D222CEBA4A100FFE20F /* DailyStatisticsView.swift in Sources */,
 				B5296CB02CE34B1E00FFE20F /* BreathingPhase.swift in Sources */,
 				4667B0742CE7EA9C00F58DB3 /* BreathingOutroView.swift in Sources */,
+				46D1D55B2D42A0D6000773F9 /* HapticManager.swift in Sources */,
 				334D95CD2CEE0B04007600D7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
