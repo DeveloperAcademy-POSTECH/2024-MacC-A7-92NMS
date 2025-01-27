@@ -111,7 +111,7 @@ private struct DayItemView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(date.dayString)
+            Text(date.dayString.prefix(1))
                 .font(.footnote)
                 .foregroundColor(date > Date() ? .gray.opacity(0.3) :
                                     isSelected ? .white : .grays2)
@@ -303,6 +303,8 @@ private struct DailyStressTrendView: View {
                             .customFont(.caption_2)
                             .foregroundStyle(.grays3)
                             .frame(width: 42, alignment: .leading)
+                            .lineLimit(1) // 한 줄로 제한
+                            .minimumScaleFactor(0.5) // 필요한 경우 폰트 크기 자동 조절
                     }
                 }
             }

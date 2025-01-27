@@ -65,10 +65,10 @@
 "stress_level_extreme" = "Overload";
 
 //Date
-"date_format_full" = "yyyy MM dd";
-"date_format_today" = "yyyy MM dd Today";
-"date_format_month" = "YYYY M";
-"date_format_month_short" = "M";
+"date_format_full" = "MMMM d, yyyy";  // "January 27, 2025"
+"date_format_today" = "MMMM d, yyyy 'Today'";  // "January 27, 2025 Today"
+"date_format_month" = "MMMM yyyy";  // "January 2025"
+"date_format_month_short" = "MMM";  // "Jan"
 
 //Onboarding
 "onboarding_start_title" = "Cleanse your mind with your breath";
