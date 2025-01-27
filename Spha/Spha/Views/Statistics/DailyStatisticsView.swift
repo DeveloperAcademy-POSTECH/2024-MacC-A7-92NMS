@@ -58,7 +58,7 @@ private struct HeaderView: View {
                 router.pop()
             } label: {
                 Image(systemName: "chevron.left")
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(.white)
             }
             
             Spacer()
@@ -72,7 +72,7 @@ private struct HeaderView: View {
                 showCalendar.toggle()
             } label: {
                 Image(systemName: "calendar")
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(.white)
             }
             .sheet(isPresented: $showCalendar) {
                 MonthlyCalendarSheetView(viewModel: viewModel, selectedDate: $viewModel.currentDate)
