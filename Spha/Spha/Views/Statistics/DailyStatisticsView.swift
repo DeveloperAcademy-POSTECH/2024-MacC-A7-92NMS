@@ -73,6 +73,7 @@ private struct HeaderView: View {
             } label: {
                 Image(systemName: "calendar")
                     .foregroundStyle(.white)
+                    .font(.system(size: 19))
             }
             .sheet(isPresented: $showCalendar) {
                 MonthlyCalendarSheetView(viewModel: viewModel, selectedDate: $viewModel.currentDate)

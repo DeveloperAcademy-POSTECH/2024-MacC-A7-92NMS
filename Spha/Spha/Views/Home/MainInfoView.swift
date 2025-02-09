@@ -59,7 +59,7 @@ struct MainInfoView: View {
                     router.backToMain()
                 }, label: {
                     Text(NSLocalizedString("confirm", comment: "확인 버튼"))
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(.white)
                         .bold()
                 })
             }
