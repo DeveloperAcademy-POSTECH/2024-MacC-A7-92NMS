@@ -63,6 +63,8 @@ struct MainView: View {
                         .bold()
                         .padding(.top, 16)
                         .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true) 
                     
                     Spacer()
                     

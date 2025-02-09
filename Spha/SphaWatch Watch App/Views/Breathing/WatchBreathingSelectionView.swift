@@ -20,6 +20,9 @@ struct WatchBreathingSelectionView: View {
             Text(NSLocalizedString("breathing_method_description", comment: "즉각적인 스트레스를 완화해주는 호흡법이에요"))
                 .customFont(.caption_3)
                 .padding(.bottom, 18)
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
             
             HStack{
                 Image(systemName:"arrow.up")

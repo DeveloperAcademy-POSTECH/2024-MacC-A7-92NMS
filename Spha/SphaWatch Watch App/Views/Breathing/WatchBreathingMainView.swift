@@ -32,6 +32,9 @@ struct WatchBreathingMainView: View {
                     Text(viewModel.phaseText)
                         .font(.caption2)
                         .transition(.opacity)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .onAppear {
