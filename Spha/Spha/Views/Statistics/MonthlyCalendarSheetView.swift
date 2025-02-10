@@ -62,7 +62,7 @@ struct MonthlyCalendarSheetView: View {
                     Button(NSLocalizedString("confirm", comment: "확인")) {
                         dismiss()
                     }
-                    .foregroundColor(.blue)
+                    .foregroundColor(.white)
                 }
             }
             .toolbarBackground(.black, for: .navigationBar)
