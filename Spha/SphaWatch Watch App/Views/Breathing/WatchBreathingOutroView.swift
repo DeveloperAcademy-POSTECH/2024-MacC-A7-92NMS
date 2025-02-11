@@ -18,6 +18,9 @@ struct WatchBreathingOutroView: View {
             Text(NSLocalizedString("orb_cleaned", comment: "마음이 깨끗해졌어요"))
                 .font(.caption)
                 .padding()
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .opacity(viewModel.opacity)
         .onAppear {

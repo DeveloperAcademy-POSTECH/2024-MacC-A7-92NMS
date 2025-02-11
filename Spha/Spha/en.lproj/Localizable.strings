@@ -11,8 +11,8 @@
 
 "count_format" = "Times";
 
-"recommended_clean_count" = "Recommendation";
-"executed_clean_count" = "Execution";
+"recommended_clean_count" = "Suggested";
+"executed_clean_count" = "Executed";
 
 "mind_dust_none" = "Please measure with your Apple Watch";
 "mind_dust_level1" = "Very clean";
@@ -57,7 +57,7 @@
 "daily_mind_cleaning_stats" = "Daily Orb Cleaning Stats";
 
 "daily_stress_trend_title" = "Daily Stress Trend";
-"daily_extreme_count" = "Daily Overload Count";
+"daily_extreme_count" = "Overload Count";
 
 "stress_level_low" = "Excellent";
 "stress_level_medium" = "Normal";
@@ -96,4 +96,4 @@
 "breathing_method_title" = "Box Breathing";
 "breathing_method_description" = "A breathing technique to instantly relieve stress";
 "end_button_text" = "Stop";
-"breathing_start_button_text" = "Start Breathing";
+"breathing_start_button_text" = "Start";
