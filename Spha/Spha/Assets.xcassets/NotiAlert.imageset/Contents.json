@@ -1,12 +1,25 @@
 {
   "images" : [
     {
-      "filename" : "NotiAlert.png",
+      "filename" : "NotiAlert_eng 1.png",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "NotiAlert_eng.png",
+      "idiom" : "universal",
+      "locale" : "en"
+    },
+    {
+      "filename" : "NotiAlert.png",
+      "idiom" : "universal",
+      "locale" : "ko"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }
