@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Spha
+
+  Created by 추서연 on 2/21/25.
+  
+*/
+
+NSHealthShareUsageDescription = "HealthKit data is used to record and analyze heart rate variability (HRV) in the app.";
+NSHealthUpdateUsageDescription = "HealthKit data is used to record and analyze heart rate variability (HRV) in the app.";
+NSHealthClinicalHealthRecordsShareUsageDescription = "HealthKit data is used to record and analyze heart rate variability (HRV) in the app.";
