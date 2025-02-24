@@ -28,13 +28,14 @@ class NotificationManager: NSObject, NotificationInterface {
     func setupNotifications(completion: @escaping (Bool, Error?) -> Void) {
         let openAppAction = UNNotificationAction(
             identifier: "OPEN_APP",
-            title: "마음 청소하러 가기",
+            //title: "마음 청소하러 가기",
+            title: String(localized: "notification_open_action"),
             options: .foreground
         )
         
         let cancelAction = UNNotificationAction(
             identifier: "CANCEL",
-            title: "지금 안함",
+            title: String(localized: "notification_cancel_action"),
             options: .destructive
         )
         
@@ -66,7 +67,7 @@ class NotificationManager: NSObject, NotificationInterface {
     func sendBreathingAlert() {
         let content = UNMutableNotificationContent()
         content.title = "Spha"
-        content.body = "마음에 먼지가 쌓였어요\n청소하러 가요"
+        content.body = String(localized: "notification_breathing_alert")
         content.sound = .default
         content.categoryIdentifier = "HRV_ALERT"  // 카테고리 지정
         

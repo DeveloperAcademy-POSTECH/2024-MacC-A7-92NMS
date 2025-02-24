@@ -11,7 +11,7 @@
 
 "count_format" = "Times";
 
-"recommended_clean_count" = "Suggested";
+"recommended_clean_count" = "Recommend";
 "executed_clean_count" = "Executed";
 
 "mind_dust_none" = "Please measure with your Apple Watch";
@@ -97,3 +97,8 @@
 "breathing_method_description" = "A breathing technique to instantly relieve stress";
 "end_button_text" = "Stop";
 "breathing_start_button_text" = "Start";
+
+//Notification Description
+"notification_open_action" = "Start Mind-Cleansing";
+"notification_cancel_action" = "Not Now";
+"notification_breathing_alert" ="Your mind feels dusty\nLet's clean it up";
