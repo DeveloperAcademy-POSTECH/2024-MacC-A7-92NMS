@@ -14,14 +14,16 @@ protocol HealthKitInterface {
     func fetchDailyHRV(for date: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 일간 HRV 데이터 요청
     func fetchMonthlyHRV(for month: Date, completion: @escaping ([HKQuantitySample]?, Error?) -> Void) // 월간 HRV 데이터 요청
     func monitorHRVUpdates() // HRV 업데이트 모니터링
-    func didUpdateHRVData()
+    func didUpdateHRVData(completion: @escaping () -> Void)
 }
 
 class HealthKitManager: HealthKitInterface {
     
-    static let shared = HealthKitManager() // 백그라운드 참조 해제 방지용 싱글톤 객체(임시 방편)
+    static let shared = HealthKitManager()
     let healthStore = HKHealthStore()
     
+    private var isProcessingHRVUpdate: Bool = false
+    private let queue = DispatchQueue(label: "com.healthkitManager.queue", attributes: .concurrent)
     private var lastProcessedHRVTimestamp: Date?
     private var appInstallationDate: Date {
             let defaults = UserDefaults.standard
@@ -176,43 +178,65 @@ extension HealthKitManager {
                 return
             }
             
-            // HRV 데이터 업데이트 시 알림 전송
-            // 강한 참조로 싱글톤을 사용
-            HealthKitManager.shared.didUpdateHRVData()
-            completionHandler()
+            // HRV 데이터 업데이트 시 알림 전송 (비동기 작업을 순차적으로 처리)
+            HealthKitManager.shared.queue.async {
+                HealthKitManager.shared.didUpdateHRVData {
+                    completionHandler()
+                }
+            }
         }
         
         healthStore.execute(query)
     }
     
     
-    func didUpdateHRVData() {
-        print("didUpdateHRVData() 호출됨")
+    func didUpdateHRVData(completion: @escaping () -> Void) {
+        queue.async(flags: .barrier) { [weak self] in
+            guard let self = self else { return }
+            guard !self.isProcessingHRVUpdate else {
+                print("이미 HRV 업데이트 처리 중")
+                completion()
+                return
+            }
+            self.isProcessingHRVUpdate = true
+        }
+
         HealthKitManager.shared.fetchLatestHRV { [weak self] sample, error in
-            guard let self = self,
-                  let sample = sample else {
+            guard let self = self else {
+                completion()
+                return
+            }
+
+            defer {
+                self.queue.async(flags: .barrier) {
+                    self.isProcessingHRVUpdate = false
+                }
+                completion()
+            }
+
+            guard let sample = sample else {
                 print("샘플이 nil임")
                 return
             }
-            
+
             print("HRV 샘플 받음: \(sample.endDate)")
             print("앱 설치 날짜: \(self.appInstallationDate)")
-            
+
             guard sample.endDate >= self.appInstallationDate else {
                 print("설치 이전 데이터라 무시됨")
                 return
             }
-            
+
             if let lastTimestamp = self.lastProcessedHRVTimestamp,
                lastTimestamp >= sample.endDate {
                 print("이미 처리된 timestamp라 무시됨")
                 return
             }
-            
+
             let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
             print("HRV 값: \(hrvValue)")
-            
-            if hrvValue < 45 { // StressLevel과 함께 리팩토링 고려
+
+            if hrvValue < 45 {
                 self.lastProcessedHRVTimestamp = sample.endDate
                 NotificationManager.shared.sendBreathingAlert()
                 print("알림 전송됨")
