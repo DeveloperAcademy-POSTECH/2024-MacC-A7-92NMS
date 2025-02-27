@@ -191,55 +191,56 @@ extension HealthKitManager {
     
     
     func didUpdateHRVData(completion: @escaping () -> Void) {
-        // queue에 담기
-        queue.async(flags: .barrier) {
+        queue.async(flags: .barrier) { [weak self] in
+            guard let self = self else { return }
             guard !self.isProcessingHRVUpdate else {
-                print("이미 HRV 업데이트 처리 중!")
+                print("이미 HRV 업데이트 처리 중")
                 completion()
                 return
             }
+            self.isProcessingHRVUpdate = true
         }
-        
-        // 작업 플래그 on
-        self.isProcessingHRVUpdate = true
-        
+
         HealthKitManager.shared.fetchLatestHRV { [weak self] sample, error in
-            guard let self = self, let sample = sample else {
-                print("샘플이 nil임")
-                self?.isProcessingHRVUpdate = false
+            guard let self = self else {
                 completion()
                 return
             }
-            
+
+            defer {
+                self.queue.async(flags: .barrier) {
+                    self.isProcessingHRVUpdate = false
+                }
+                completion()
+            }
+
+            guard let sample = sample else {
+                print("샘플이 nil임")
+                return
+            }
+
             print("HRV 샘플 받음: \(sample.endDate)")
             print("앱 설치 날짜: \(self.appInstallationDate)")
-            
+
             guard sample.endDate >= self.appInstallationDate else {
                 print("설치 이전 데이터라 무시됨")
-                self.isProcessingHRVUpdate = false  // 작업 종료
-                completion()
                 return
             }
-            
+
             if let lastTimestamp = self.lastProcessedHRVTimestamp,
                lastTimestamp >= sample.endDate {
                 print("이미 처리된 timestamp라 무시됨")
-                self.isProcessingHRVUpdate = false  // 작업 종료
-                completion()
                 return
             }
-            
+
             let hrvValue = sample.quantity.doubleValue(for: HKUnit.secondUnit(with: .milli))
             print("HRV 값: \(hrvValue)")
-            
-            if hrvValue < 45 { // StressLevel과 함께 리팩토링 고려
+
+            if hrvValue < 45 {
                 self.lastProcessedHRVTimestamp = sample.endDate
                 NotificationManager.shared.sendBreathingAlert()
                 print("알림 전송됨")
             }
-            
-            self.isProcessingHRVUpdate = false  // 작업 종료
-            completion()
         }
     }
 }
