@@ -7,7 +7,7 @@
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>NSHealthClinicalHealthRecordsShareUsageDescription</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>NSHealthClinicalHealthRecordsShareUsageDescription</string>
+	<string>NSHealthShareUsageDescription</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>NSHealthUpdateUsageDescription</string>
 	<key>UIAppFonts</key>
