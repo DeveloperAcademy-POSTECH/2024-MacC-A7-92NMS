@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Spha
+
+  Created by 추서연 on 2/21/25.
+  
+*/
+
+NSHealthShareUsageDescription = "앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.";
+NSHealthUpdateUsageDescription = "앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.";
+NSHealthClinicalHealthRecordsShareUsageDescription = "앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.";

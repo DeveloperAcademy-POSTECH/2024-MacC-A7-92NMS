@@ -2,14 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>&quot;앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.&quot;</string>
 	<key></key>
 	<string></string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>NSHealthClinicalHealthRecordsShareUsageDescription</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>NSHealthShareUsageDescription</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>NSHealthUpdateUsageDescription</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AppleSDGothicNeoR.ttf</string>
