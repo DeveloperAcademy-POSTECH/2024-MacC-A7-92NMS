@@ -4,12 +4,6 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
-	<string>NSHealthClinicalHealthRecordsShareUsageDescription</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>NSHealthShareUsageDescription</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>NSHealthUpdateUsageDescription</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AppleSDGothicNeoR.ttf</string>
