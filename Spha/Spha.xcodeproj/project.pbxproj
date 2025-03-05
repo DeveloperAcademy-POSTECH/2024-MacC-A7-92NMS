@@ -46,6 +46,8 @@
 		4667B08E2CECC7FE00F58DB3 /* WatchBreathingExitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */; };
 		4667B09C2CED011B00F58DB3 /* WatchBreathingOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */; };
 		4667B09D2CED015500F58DB3 /* BreathingPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296CAF2CE34B1E00FFE20F /* BreathingPhase.swift */; };
+		469E65AE2D67B0D70056B5FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 469E65AC2D67B0D70056B5FD /* InfoPlist.strings */; };
+		469E65AF2D67B0D70056B5FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 469E65AC2D67B0D70056B5FD /* InfoPlist.strings */; };
 		46A839C52D31D5240030197D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46A839C32D31D5240030197D /* Localizable.strings */; };
 		46A839C72D31D5300030197D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46A839C32D31D5240030197D /* Localizable.strings */; };
 		46AEF5F82CEF7530005AECFB /* clean.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 334D95D22CEE0D5E007600D7 /* clean.mp4 */; };
@@ -130,7 +132,6 @@
 
 /* Begin PBXFileReference section */
 		331A5B872CE47EAE00E16AE2 /* Spha.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spha.entitlements; sourceTree = "<group>"; };
-		331A5B8C2CE4944700E16AE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		331A5B8D2CE6109900E16AE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33461DE12CFEAEF0008776BF /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
 		334D95CA2CEE0A69007600D7 /* FilePathHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePathHelper.swift; sourceTree = "<group>"; };
@@ -169,6 +170,9 @@
 		4667B0892CECBA5900F58DB3 /* WatchBreathingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingMainView.swift; sourceTree = "<group>"; };
 		4667B08D2CECC7FE00F58DB3 /* WatchBreathingExitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingExitView.swift; sourceTree = "<group>"; };
 		4667B09B2CED011B00F58DB3 /* WatchBreathingOutroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBreathingOutroView.swift; sourceTree = "<group>"; };
+		469E65AB2D67B07D0056B5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		469E65AD2D67B0D70056B5FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		469E65B02D67B0DE0056B5FD /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		46A839C42D31D5240030197D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46A839C62D31D52F0030197D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		46AEF5FB2CEF7A9A005AECFB /* WatchMainStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMainStatusView.swift; sourceTree = "<group>"; };
@@ -374,7 +378,7 @@
 		B5296C782CE2FEAC00FFE20F /* Spha */ = {
 			isa = PBXGroup;
 			children = (
-				331A5B8C2CE4944700E16AE2 /* Info.plist */,
+				469E65AB2D67B07D0056B5FD /* Info.plist */,
 				331A5B872CE47EAE00E16AE2 /* Spha.entitlements */,
 				B5296C792CE2FEAC00FFE20F /* SphaApp.swift */,
 				B5296CA42CE2FF8900FFE20F /* Views */,
@@ -382,6 +386,7 @@
 				B5296C7D2CE2FEAD00FFE20F /* Assets.xcassets */,
 				B5296C7F2CE2FEAD00FFE20F /* Preview Content */,
 				46A839C32D31D5240030197D /* Localizable.strings */,
+				469E65AC2D67B0D70056B5FD /* InfoPlist.strings */,
 			);
 			path = Spha;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33461DDE2CF84AE9008776BF /* Assets.xcassets in Resources */,
+				469E65AE2D67B0D70056B5FD /* InfoPlist.strings in Resources */,
 				33BA0AF82CF5B12400F3B570 /* AppleSDGothicNeoR.ttf in Resources */,
 				334D95D92CEE1293007600D7 /* dirty01.mp4 in Resources */,
 				334D95DA2CEE1293007600D7 /* dirty02.mp4 in Resources */,
@@ -650,6 +656,7 @@
 				46AEF5FF2CEF884C005AECFB /* AppleSDGothicNeoSB.ttf in Resources */,
 				46AEF6002CEF884C005AECFB /* AppleSDGothicNeoM.ttf in Resources */,
 				46AEF61E2CF02E15005AECFB /* full.mp4 in Resources */,
+				469E65AF2D67B0D70056B5FD /* InfoPlist.strings in Resources */,
 				B5296C922CE2FEC500FFE20F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,6 +753,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		469E65AC2D67B0D70056B5FD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				469E65AD2D67B0D70056B5FD /* en */,
+				469E65B02D67B0DE0056B5FD /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		46A839C32D31D5240030197D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -892,9 +908,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -934,9 +950,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Spha/Info.plist;
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -976,9 +992,9 @@
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Spha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia1.Spha;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
@@ -1013,9 +1029,9 @@
 				INFOPLIST_FILE = "SphaWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Spha;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"앱에서 심박수 변동성(HRV)을 기록하고 분석하기 위해 HealthKit 데이터를 사용합니다.\"";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "\"HealthKit data is used to record and analyze heart rate variability (HRV) in the app.\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sophia1.Spha;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;

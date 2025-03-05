@@ -98,3 +98,8 @@
 "end_button_text" = "종료";
 "breathing_start_button_text" = "마음청소 시작하기";
 
+//Notification Description
+"notification_open_action" = "마음 청소하러 가기";
+"notification_cancel_action" = "지금 안함";
+"notification_breathing_alert" ="마음에 먼지가 쌓였어요\n청소하러 가요";
+
